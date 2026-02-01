@@ -14,10 +14,16 @@ function load_comets($path) {
 $data = load_comets($json_dir . '/comets_current_aerith_ra_alt.json');
 $comets = $data['comets'] ?? [];
 
-// LIMIT
-$limit = isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : 5;
+// limit komet
+$limit = isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : 100;
 
-// zaokrouhlení času na 30 minut (UTC)
+// volba osy X: transit (B1) nebo noon
+$xaxis = $_GET['xaxis'] ?? 'transit';
+if (!in_array($xaxis, ['transit', 'noon'], true)) {
+    $xaxis = 'transit';
+}
+
+// zaokrouhlení času na 30 minut (UTC) – jen pro info v hlavičce
 function roundTo30($dt) {
     $m = (int)$dt->format('i');
     $rounded = ($m < 15) ? 0 : (($m < 45) ? 30 : 60);
@@ -59,26 +65,27 @@ svg { width:100%; height:220px; background:#000; border:1px solid #444; }
 
 <div class="box">
 <h1>Komety – aktuální viditelnost</h1>
-<p>Čas: <?= $rounded ?> UTC</p>
+<p>Čas: <?= htmlspecialchars($rounded) ?> UTC</p>
 
 <table class="main-table">
 <?php
-$i = 0;
+$shown = 0;
 foreach ($comets as $c):
-    if ($i >= $limit) break;
-    $i++;
+    if ($shown >= $limit) break;
 
-    // najdeme nejbližší časový bod k zaokrouhlenému času
+    $graph48 = $c['graph_48h'] ?? [];
+    if (count($graph48) < 2) continue;
+
+    // najdeme nejbližší časový bod k zaokrouhlenému času – pro aktuální údaje
     $roundedUTC = new DateTime($rounded, new DateTimeZone('UTC'));
-    $roundedStr = $roundedUTC->format('Y-m-d H:i');
+    $roundedTs  = $roundedUTC->getTimestamp();
 
     $current = null;
-    $bestDiff = 999999999;
+    $bestDiff = PHP_INT_MAX;
 
-    foreach ($c['graph_48h'] as $p) {
+    foreach ($graph48 as $p) {
         $pt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-        $ptStr = $pt->format('Y-m-d H:i');
-        $diff = abs(strtotime($ptStr) - strtotime($roundedStr));
+        $diff = abs($pt->getTimestamp() - $roundedTs);
         if ($diff < $bestDiff) {
             $bestDiff = $diff;
             $current = $p;
@@ -87,7 +94,7 @@ foreach ($comets as $c):
 
     if (!$current) continue;
 
-    // základní hodnoty
+    // základní hodnoty v aktuálním čase
     $ra   = sprintf("%.2f h", $current['ra_hours_j2000']);
     $dec  = sprintf("%.2f°", $current['dec_deg_j2000']);
     $alt  = sprintf("%.1f°", $current['alt_deg']);
@@ -102,44 +109,73 @@ foreach ($comets as $c):
     $set     = !empty($c['set_utc'])     ? date('H:i', strtotime($c['set_utc']))     : '—';
 
     // -----------------------------
-    // 24h OKNO JAKO PLANETY (B1)
+    // 24h okno – B1 (kulminace -12h) nebo noon, omezené na rozsah dat
     // -----------------------------
-    $graph = $c['graph_48h'];
-    $n = count($graph);
-    if ($n < 2) continue;
+    $firstDT = new DateTime($graph48[0]['time_utc'], new DateTimeZone('UTC'));
+    $lastDT  = new DateTime(end($graph48)['time_utc'], new DateTimeZone('UTC'));
 
-    // kulminace → start = -12h
-    if (!empty($c['transit_utc'])) {
-        $t = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-        $transitMinutes = $t->format('H') * 60 + $t->format('i');
-        $roundedTransit = round($transitMinutes / 60) * 60;
-        $startMinutes = $roundedTransit - 12 * 60;
-        while ($startMinutes < 0) $startMinutes += 1440;
-        while ($startMinutes >= 1440) $startMinutes -= 1440;
+    if ($xaxis === 'noon') {
+        if (!empty($c['transit_utc'])) {
+            $t = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
+        } else {
+            $t = clone $firstDT;
+        }
+        $dayStr = $t->format('Y-m-d');
+        $hourT  = (int)$t->format('H');
+
+        $startDT = new DateTime($dayStr . ' 12:00:00', new DateTimeZone('UTC'));
+        if ($hourT < 12) {
+            $startDT->modify('-1 day');
+        }
+        $endDT = clone $startDT;
+        $endDT->modify('+24 hours');
     } else {
-        $startMinutes = 0;
-    }
-
-    // vybereme 24h okno z 48h dat
-    $filtered = [];
-    foreach ($graph as $p) {
-        $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-        $h = (int)$dt->format('H');
-        $m = (int)$dt->format('i');
-
-        // spočítáme rozdíl vůči startu
-        $ptMinutes = $h * 60 + $m;
-        $diff = $ptMinutes - $startMinutes;
-        if ($diff < 0) $diff += 1440;
-
-        if ($diff < 1440) {
-            $filtered[] = $p;
+        if (!empty($c['transit_utc'])) {
+            $t = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
+            $startDT = clone $t;
+            $startDT->modify('-12 hours');
+            $endDT = clone $t;
+            $endDT->modify('+12 hours');
+        } else {
+            $startDT = clone $firstDT;
+            $endDT   = clone $firstDT;
+            $endDT->modify('+24 hours');
         }
     }
 
-    $graph = $filtered;
-    $n = count($graph);
-    if ($n < 2) continue;
+    // omezíme okno na rozsah dat
+    if ($startDT < $firstDT) $startDT = clone $firstDT;
+    if ($endDT   > $lastDT)  $endDT   = clone $lastDT;
+
+    $startTs = $startDT->getTimestamp();
+    $endTs   = $endDT->getTimestamp();
+    if ($endTs <= $startTs) continue;
+
+    $spanSec = max(1, $endTs - $startTs);
+
+    // vybereme body v tomto 24h okně
+    $graph = [];
+    foreach ($graph48 as $p) {
+        $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
+        $ts = $dt->getTimestamp();
+        if ($ts >= $startTs && $ts <= $endTs) {
+            $p['_dt'] = $dt;
+            $p['_ts'] = $ts;
+            $graph[] = $p;
+        }
+    }
+
+    if (count($graph) < 2) continue;
+
+    // pokud je kometa v celém 24h okně nad obzorem → vůbec nezobrazit
+    $allAbove = true;
+    foreach ($graph as $p) {
+        if ($p['alt_deg'] <= 0) {
+            $allAbove = false;
+            break;
+        }
+    }
+    if ($allAbove) continue;
 
     // max výška
     $maxAlt = 0.0;
@@ -159,21 +195,18 @@ foreach ($comets as $c):
     $innerW = $width  - $paddingLeft - $paddingRight;
     $innerH = $height - $paddingTop  - $paddingBottom;
 
-    // výpočet X/Y souřadnic
+    // body grafu – absolutní čas, alt oříznutý na ≥ 0
     $points = [];
     foreach ($graph as $p) {
-        $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-        $h = (int)$dt->format('H');
-        $m = (int)$dt->format('i');
+        $ts = $p['_ts'];
+        $ratio = ($ts - $startTs) / $spanSec;
+        if ($ratio < 0) $ratio = 0;
+        if ($ratio > 1) $ratio = 1;
 
-        $ptMinutes = $h * 60 + $m;
-        $diff = $ptMinutes - $startMinutes;
-        if ($diff < 0) $diff += 1440;
-
-        $ratio = $diff / 1440.0;
         $x = $paddingLeft + $innerW * $ratio;
 
-        $y = $paddingTop + $innerH * (1 - ($p['alt_deg'] / $maxAlt));
+        $altPlot = max(0, $p['alt_deg']);
+        $y = $paddingTop + $innerH * (1 - ($altPlot / $maxAlt));
 
         $points[] = [$x, $y];
     }
@@ -185,38 +218,40 @@ foreach ($comets as $c):
 
     $yLines = floor($maxAlt / $yStep);
 
-    // osa X – popisky
+    // osa X – 30min krok, popisky po 2h
     $xStepMinutes = 30;
-    $xSteps = (24 * 60) / $xStepMinutes;
+    $xSteps = (int) floor(($spanSec / 60) / $xStepMinutes);
 
-    // transit X
+    // transit X – jen pokud spadá do okna
     $transitX = null;
     if (!empty($c['transit_utc'])) {
         $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-        $transitMinutes = $dtT->format('H') * 60 + $dtT->format('i');
-        $diff = $transitMinutes - $startMinutes;
-        if ($diff < 0) $diff += 1440;
-        $ratio = $diff / 1440;
-        $transitX = $paddingLeft + $innerW * $ratio;
+        $tsT = $dtT->getTimestamp();
+        if ($tsT >= $startTs && $tsT <= $endTs) {
+            $ratioT = ($tsT - $startTs) / $spanSec;
+            $transitX = $paddingLeft + $innerW * $ratioT;
+        }
     }
+
+    $shown++;
 ?>
 <tr>
 
-    <!-- LEVÁ BUŇKA -->
+    <!-- LEVÁ BUŇKA: POPIS KOMETY -->
     <td style="width:40%;">
         <h2><?= htmlspecialchars($c['designation']) ?></h2>
         <table class="inner-table">
-            <tr><td class="label">Jasnost</td><td class="value"><?= $mag ?></td></tr>
-            <tr><td class="label">RA</td><td class="value"><?= $ra ?></td></tr>
-            <tr><td class="label">Dec</td><td class="value"><?= $dec ?></td></tr>
-            <tr><td class="label">Výška</td><td class="value"><?= $alt ?></td></tr>
-            <tr><td class="label">Azimut</td><td class="value"><?= $az ?></td></tr>
-            <tr><td class="label">r</td><td class="value"><?= $r ?> AU</td></tr>
-            <tr><td class="label">Δ</td><td class="value"><?= $delta ?> AU</td></tr>
-            <tr><td class="label">Elongace</td><td class="value"><?= $elong ?>°</td></tr>
-            <tr><td class="label">Východ</td><td class="value"><?= $rise ?></td></tr>
-            <tr><td class="label">Kulminace</td><td class="value"><?= $transit ?></td></tr>
-            <tr><td class="label">Západ</td><td class="value"><?= $set ?></td></tr>
+            <tr><td class="label">Jasnost</td><td class="value"><?= htmlspecialchars($mag) ?></td></tr>
+            <tr><td class="label">RA</td><td class="value"><?= htmlspecialchars($ra) ?></td></tr>
+            <tr><td class="label">Dec</td><td class="value"><?= htmlspecialchars($dec) ?></td></tr>
+            <tr><td class="label">Výška</td><td class="value"><?= htmlspecialchars($alt) ?></td></tr>
+            <tr><td class="label">Azimut</td><td class="value"><?= htmlspecialchars($az) ?></td></tr>
+            <tr><td class="label">r</td><td class="value"><?= htmlspecialchars($r) ?> AU</td></tr>
+            <tr><td class="label">Δ</td><td class="value"><?= htmlspecialchars($delta) ?> AU</td></tr>
+            <tr><td class="label">Elongace</td><td class="value"><?= htmlspecialchars($elong) ?>°</td></tr>
+            <tr><td class="label">Východ</td><td class="value"><?= htmlspecialchars($rise) ?></td></tr>
+            <tr><td class="label">Kulminace</td><td class="value"><?= htmlspecialchars($transit) ?></td></tr>
+            <tr><td class="label">Západ</td><td class="value"><?= htmlspecialchars($set) ?></td></tr>
         </table>
     </td>
 
@@ -240,18 +275,20 @@ foreach ($comets as $c):
         <?php endfor; ?>
 
         <?php for ($j = 0; $j <= $xSteps; $j++):
-            $vx = $paddingLeft + $innerW * ($j / $xSteps);
+            $minutesFromStart = $j * $xStepMinutes;
+            $tsLabel = $startTs + $minutesFromStart * 60;
+            if ($tsLabel > $endTs) $tsLabel = $endTs;
 
-            $totalMinutes = $startMinutes + $j * $xStepMinutes;
-            $utcHour = floor(($totalMinutes / 60)) % 24;
-            $utcMinute = $totalMinutes % 60;
+            $ratioGX = ($tsLabel - $startTs) / $spanSec;
+            if ($ratioGX < 0) $ratioGX = 0;
+            if ($ratioGX > 1) $ratioGX = 1;
 
-            $dt = new DateTime(sprintf('%02d:%02d', $utcHour, $utcMinute), new DateTimeZone('UTC'));
-            $dt->setTimezone(new DateTimeZone('Europe/Prague'));
+            $vx = $paddingLeft + $innerW * $ratioGX;
 
-            $hour = (int)$dt->format('H');
-            $minute = (int)$dt->format('i');
-
+            $labelDT = new DateTime('@' . $tsLabel);
+            $labelDT->setTimezone(new DateTimeZone('Europe/Prague'));
+            $hour = (int)$labelDT->format('H');
+            $minute = (int)$labelDT->format('i');
             $isLabel = ($minute === 0) && ($hour % 2 === 0);
         ?>
             <line x1="<?= $vx ?>" y1="<?= $paddingTop ?>"
@@ -279,6 +316,12 @@ foreach ($comets as $c):
                   class="text-small" text-anchor="middle"
                   transform="rotate(-90 <?= $paddingLeft - 35 ?>,<?= ($height / 2) ?>)">
                 Výška (°)
+            </text>
+
+            <text x="<?= ($paddingLeft + $width - $paddingRight) / 2 ?>"
+                  y="<?= $height - 4 ?>"
+                  class="text-small" text-anchor="middle">
+                Čas (SEČ)
             </text>
 
         <?php if (!empty($points)):
