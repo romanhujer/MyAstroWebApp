@@ -109,12 +109,12 @@ foreach ($comets as $c):
     $set     = !empty($c['set_utc'])     ? date('H:i', strtotime($c['set_utc']))     : '—';
 
     // -----------------------------
-    // 24h okno – B1 (kulminace -12h) nebo noon, omezené na rozsah dat
+    // 24h okno – vždy přesně 24 hodin
     // -----------------------------
     $firstDT = new DateTime($graph48[0]['time_utc'], new DateTimeZone('UTC'));
-    $lastDT  = new DateTime(end($graph48)['time_utc'], new DateTimeZone('UTC'));
 
     if ($xaxis === 'noon') {
+        // 12:00–12:00 podle dne kulminace, nebo prvního bodu
         if (!empty($c['transit_utc'])) {
             $t = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
         } else {
@@ -130,6 +130,7 @@ foreach ($comets as $c):
         $endDT = clone $startDT;
         $endDT->modify('+24 hours');
     } else {
+        // transit (B1) – kulminace -12h → +12h
         if (!empty($c['transit_utc'])) {
             $t = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
             $startDT = clone $t;
@@ -143,17 +144,13 @@ foreach ($comets as $c):
         }
     }
 
-    // omezíme okno na rozsah dat
-    if ($startDT < $firstDT) $startDT = clone $firstDT;
-    if ($endDT   > $lastDT)  $endDT   = clone $lastDT;
-
     $startTs = $startDT->getTimestamp();
     $endTs   = $endDT->getTimestamp();
     if ($endTs <= $startTs) continue;
 
     $spanSec = max(1, $endTs - $startTs);
 
-    // vybereme body v tomto 24h okně
+    // vybereme body v tomto 24h okně (body mimo okno ignorujeme)
     $graph = [];
     foreach ($graph48 as $p) {
         $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
@@ -218,9 +215,10 @@ foreach ($comets as $c):
 
     $yLines = floor($maxAlt / $yStep);
 
-    // osa X – 30min krok, popisky po 2h
+    // osa X – přesně 24h, 30min krok, popisky po 2h
+    $totalMinutes = 24 * 60;
     $xStepMinutes = 30;
-    $xSteps = (int) floor(($spanSec / 60) / $xStepMinutes);
+    $xSteps = (int)($totalMinutes / $xStepMinutes);
 
     // transit X – jen pokud spadá do okna
     $transitX = null;
@@ -235,6 +233,7 @@ foreach ($comets as $c):
 
     $shown++;
 ?>
+
 <tr>
 
     <!-- LEVÁ BUŇKA: POPIS KOMETY -->
@@ -274,10 +273,11 @@ foreach ($comets as $c):
             </text>
         <?php endfor; ?>
 
-        <?php for ($j = 0; $j <= $xSteps; $j++):
+        <?php
+        $hasTimeLabels = false;
+        for ($j = 0; $j <= $xSteps; $j++):
             $minutesFromStart = $j * $xStepMinutes;
             $tsLabel = $startTs + $minutesFromStart * 60;
-            if ($tsLabel > $endTs) $tsLabel = $endTs;
 
             $ratioGX = ($tsLabel - $startTs) / $spanSec;
             if ($ratioGX < 0) $ratioGX = 0;
@@ -290,6 +290,7 @@ foreach ($comets as $c):
             $hour = (int)$labelDT->format('H');
             $minute = (int)$labelDT->format('i');
             $isLabel = ($minute === 0) && ($hour % 2 === 0);
+            if ($isLabel) $hasTimeLabels = true;
         ?>
             <line x1="<?= $vx ?>" y1="<?= $paddingTop ?>"
                   x2="<?= $vx ?>" y2="<?= $height - $paddingBottom ?>"
@@ -318,11 +319,13 @@ foreach ($comets as $c):
                 Výška (°)
             </text>
 
+            <?php if ($hasTimeLabels): ?>
             <text x="<?= ($paddingLeft + $width - $paddingRight) / 2 ?>"
                   y="<?= $height - 4 ?>"
                   class="text-small" text-anchor="middle">
                 Čas (SEČ)
             </text>
+            <?php endif; ?>
 
         <?php if (!empty($points)):
             $poly = [];
@@ -357,3 +360,4 @@ foreach ($comets as $c):
 
 </body>
 </html>
+           
