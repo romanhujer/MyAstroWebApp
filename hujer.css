@@ -1,0 +1,167 @@
+body {
+    background-color: #172347;
+    margin: 10;
+    padding: 10;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hlavní panel */
+.main-wrapper {
+    width: 1200px;
+    margin: 10 auto;
+    background: #172347;
+    color: white;
+}   
+
+/* Horní část  textem */
+.header {
+    display: flex;
+    padding: 10px;
+}
+
+.header img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.header-text {
+    flex: 1;
+    font-size: 16px;
+    text-align: center;       
+    line-height: 1.4;
+    color: #d8d4d1;
+}
+
+/* Velký nadpis POČASÍ HUJER.NET */
+.big-title {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 42px;
+    color: white; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+/* Pravý panel – počasí */
+.sidebar {
+    width: 210px;             
+    background: #d8d4d1;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.sidebar-title {
+    background: #17116a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;          
+    font-weight: bold;
+}
+
+.weather-box {
+    text-align: center;
+    margin-top: 10px;
+    color: black;
+    width: 210px;
+    line-height: 1.4;
+    background: #d8d4d1;
+}
+
+.weather-box img {
+    white-space: nowrap;
+    width: 100px;
+    
+}
+
+.sun-box  {
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+
+
+/* Zabrání zalomení hodnot teploty */
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Odkazy vlevo */
+.links-title {
+    background: #17116a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;          
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+}
+
+
+.links-box {
+    width: 210px;
+    background: #d8d4d1;
+    font-size: 24px;
+    text-align: center;     
+    line-height: 1.4;       
+    display: block;
+    text-decoration: none;     /* žádné podtržení */
+    color: black;              /* základní barva */
+  /*  font-weight: bold; */
+}
+/* Odkazy uvnitř levého panelu */
+.links-box a {
+    display: block;        /* každý odkaz na vlastní řádek */
+    line-height: 1.4;
+    text-decoration: none; /* žádné podtržení */
+    color: blue;          /* základní barva */
+ /*   font-weight: bold; */
+}
+
+/* Hover efekt */
+.links-box a:hover {
+    color: white;        /* modrá při najetí */
+    text-decoration: none;
+}
+
+/* Hlavní obsah */
+.content {
+    width: 900px;
+    background: #172347;
+    padding: 10px;
+    font-size: 18px;
+    color: blue;
+}
+
+/* Tabulkový layout zachován */
+.layout-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.layout-table td {
+    vertical-align: top;
+}
+
+/* Odkaz zpět */
+.back-link {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.moon-widget {
+    margin-top: 1em;
+    text-align: center;
+    font-family: monospace;
+}
+.on-sky  {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
+    color: #517197;
+    margin-bottom: 4px;
+    margin-top: 0px;
+}
+/* Konec hujer.css */

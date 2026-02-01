@@ -1,0 +1,315 @@
+<?php
+date_default_timezone_set('Europe/Prague');
+
+
+function load_json($path) {
+    $json = file_get_contents($path);
+    if ($json === false) {
+        return null;
+    }
+    $data = json_decode($json, true);
+    if (!is_array($data)) {
+        return null;
+    }
+    return $data;
+}
+
+// dnešní souhvězdí z moon_ephemeris.json
+function get_today_constellation($ephemeris) {
+    $today = (new DateTime('today'))->format('Y-m-d');
+
+    foreach ($ephemeris as $row) {
+        if (!isset($row['date'], $row['constellation'])) continue;
+        if ($row['date'] === $today) {
+            return $row['constellation'];
+        }
+    }
+    return null;
+}
+
+// najde poslední nov, další nov a další úplněk
+function get_moon_phases_info($phases) {
+    $now = time();
+
+    $lastNew = null;
+    $nextNew = null;
+    $nextFull = null;
+
+    foreach ($phases as $p) {
+        if (!isset($p['type'], $p['utc'])) continue;
+
+        $ts = strtotime($p['utc']);
+        if ($ts === false) continue;
+
+        if ($p['type'] === 'new') {
+            if ($ts <= $now) {
+                if ($lastNew === null || $ts > $lastNew) {
+                    $lastNew = $ts;
+                }
+            } elseif ($ts > $now && $nextNew === null) {
+                $nextNew = $ts;
+            }
+        }
+
+        if ($p['type'] === 'full' && $ts > $now && $nextFull === null) {
+            $nextFull = $ts;
+        }
+
+        if ($lastNew !== null && $nextNew !== null && $nextFull !== null) {
+            // máme vše podstatné
+            // nepřerušujeme, kdybys chtěl později víc logiky
+        }
+    }
+
+    return [$lastNew, $nextNew, $nextFull];
+}
+
+// stáří Měsíce v dnech (od posledního novu)
+function get_moon_age_days($lastNewTs) {
+    if ($lastNewTs === null) return null;
+    $now = time();
+    $ageSeconds = $now - $lastNewTs;
+    return $ageSeconds / 86400;
+}
+function get_today_moonrise_moonset3($ephemeris) {
+    $today = (new DateTime('today'))->format('Y-m-d');
+    $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');
+
+    $todayRise = null;
+    $todaySet  = null;
+    $tomorrowRise = null;
+    $tomorrowSet  = null;
+
+    foreach ($ephemeris as $row) {
+        if ($row['date'] === $today) {
+            $todayRise = $row['moonrise'] ?? null;
+            $todaySet  = $row['moonset'] ?? null;
+        }
+        if ($row['date'] === $tomorrow) {
+            $tomorrowRise = $row['moonrise'] ?? null;
+            $tomorrowSet  = $row['moonset'] ?? null;
+        }
+    }
+
+    // pokud dnes není východ → použij zítřejší
+    if ($todayRise === null) {
+        $todayRise = $tomorrowRise;
+    }
+
+    // pokud dnes není západ → použij zítřejší
+    if ($todaySet === null) {
+        $todaySet = $tomorrowSet;
+    }
+
+    return [$todayRise, $todaySet];
+}
+
+function get_today_moonrise_moonset($ephemeris) {
+    $today = (new DateTime('today'))->format('Y-m-d');
+    $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');
+    $now = time();
+
+    $todayRise = null;
+    $todaySet  = null;
+    $tomorrowRise = null;
+    $tomorrowSet  = null;
+
+    foreach ($ephemeris as $row) {
+        if ($row['date'] === $today) {
+            $todayRise = $row['moonrise'] ?? null;
+            $todaySet  = $row['moonset'] ?? null;
+        }
+        if ($row['date'] === $tomorrow) {
+            $tomorrowRise = $row['moonrise'] ?? null;
+            $tomorrowSet  = $row['moonset'] ?? null;
+        }
+    }
+
+    // --- VÝCHOD ---
+    if ($todayRise !== null) {
+        $riseTs = strtotime($todayRise);
+        if ($riseTs !== false && $riseTs > $now) {
+            // dnešní východ je teprve před námi
+            $finalRise = $todayRise;
+        } else {
+            // dnešní východ už proběhl → použij zítřejší
+            $finalRise = $tomorrowRise;
+        }
+    } else {
+        // dnes žádný východ → použij zítřejší
+        $finalRise = $tomorrowRise;
+    }
+
+    // --- ZÁPAD ---
+    if ($todaySet !== null) {
+        $setTs = strtotime($todaySet);
+        if ($setTs !== false && $setTs > $now) {
+            $finalSet = $todaySet;
+        } else {
+            $finalSet = $tomorrowSet;
+        }
+    } else {
+        $finalSet = $tomorrowSet;
+    }
+
+    return [$finalRise, $finalSet];
+}
+
+function get_moon_phase_percent($lastNewTs, $nextNewTs) {
+    if ($lastNewTs === null || $nextNewTs === null) {
+        return null;
+    }
+
+    $now = time();
+    $lunation = $nextNewTs - $lastNewTs; // délka lunace v sekundách
+    $age = $now - $lastNewTs;
+
+    if ($lunation <= 0) return null;
+
+    $percent = ($age / $lunation) * 100;
+
+    // omezíme na 0–100 %
+    if ($percent < 0) $percent = 0;
+    if ($percent > 100) $percent = 100;
+
+    return $percent;
+}
+
+function get_moon_illumination_percent($ageDays) {
+    if ($ageDays === null) {
+        return null;
+    }
+
+    $synodicMonthDays = 29.53058867;
+
+    $phase = 2 * M_PI * ($ageDays / $synodicMonthDays); // fáze v radiánech
+    $illum = 0.5 * (1 - cos($phase));                   // 0–1
+
+    $percent = $illum * 100;
+
+    // omezíme na 0–100 %
+    if ($percent < 0) $percent = 0;
+    if ($percent > 100) $percent = 100;
+
+    return $percent;
+}
+
+function get_today_culmination($ephemeris) {
+    $today = (new DateTime('today'))->format('Y-m-d');
+
+    foreach ($ephemeris as $row) {
+        if ($row['date'] === $today) {
+            return [
+                $row['culmination'] ?? null,
+                $row['culmination_alt_deg'] ?? null
+            ];
+        }
+    }
+    return [null, null];
+}
+
+
+
+function get_sun_constellation() {
+    $now = new DateTime('now', new DateTimeZone('UTC'));
+
+    // získáme RA/DEC Slunce
+    $sun = date_sun_info($now->getTimestamp(), 0, 0);
+
+    if (!isset($sun['transit'])) {
+        return null;
+    }
+
+    // astronomická RA/DEC Slunce
+    $ra  = deg2rad($sun['sunrise_azimuth']); // není ideální, ale PHP RA/DEC přímo neumí
+    $dec = deg2rad($sun['sunrise_altitude']);
+
+    // přibližná ekliptická délka Slunce
+    // (lepší než lineární aproximace, ale stále jednoduché)
+    $dayOfYear = (int)$now->format('z');
+    $lambda = fmod(($dayOfYear / 365.2425) * 360.0 + 280.46, 360.0);
+
+    // hranice souhvězdí
+    $constellations = [
+        ['Psc',   0,  30],
+        ['Ari',  30,  60],
+        ['Tau',  60,  90],
+        ['Gem',  90, 120],
+        ['Cnc', 120, 150],
+        ['Leo', 150, 180],
+        ['Vir', 180, 210],
+        ['Lib', 210, 240],
+        ['Sco', 240, 270],
+        ['Sgr', 270, 300],
+        ['Cap', 300, 330],
+        ['Aqr', 330, 360]
+    ];
+
+    $cz = [
+        'Ari'=>'Beran','Tau'=>'Býk','Gem'=>'Blíženci','Cnc'=>'Rak',
+        'Leo'=>'Lev','Vir'=>'Panna','Lib'=>'Váhy','Sco'=>'Štír',
+        'Sgr'=>'Střelec','Cap'=>'Kozoroh','Aqr'=>'Vodnář','Psc'=>'Ryby'
+    ];
+
+    foreach ($constellations as $c) {
+        if ($lambda >= $c[1] && $lambda < $c[2]) {
+            return $cz[$c[0]];
+        }
+    }
+
+    // fallback už nebude potřeba, ale necháme ho jako bezpečnostní síť
+    return 'Ryby';
+}
+
+
+// ----------------------
+// POUŽITÍ
+// ----------------------
+
+$ephemeris = load_json(__DIR__ . '/moon_ephemeris.json');
+$phases    = load_json(__DIR__ . '/moon_phases_2000_2100.json');
+
+if ($ephemeris === null || $phases === null) {
+    die("Chyba: nelze načíst JSON soubory.\n");
+}
+
+$constellation = get_today_constellation($ephemeris);
+list($lastNew, $nextNew, $nextFull) = get_moon_phases_info($phases);
+$phasePercent = get_moon_phase_percent($lastNew, $nextNew);
+$ageDays = get_moon_age_days($lastNew);
+list($moonrise, $moonset) = get_today_moonrise_moonset($ephemeris);
+list($culmTime, $culmAlt) = get_today_culmination($ephemeris);
+
+$ageDays = get_moon_age_days($lastNew);
+$illumPercent = get_moon_illumination_percent($ageDays);
+
+if ($illumPercent !== null) {
+    echo "Osvětlení Měsíce: " . number_format($illumPercent, 1, ',', ' ') . " %<br>";
+} else {
+    echo "Fáze Měsíce: neznámá<br>";
+}
+
+echo "Souhvězdí dnes: " . ($constellation ?: 'neznámé') . "<br>";
+
+if ($ageDays !== null) {
+    echo "Stáří Měsíce: " . number_format($ageDays, 1, ',', ' ') . " dne<br>";
+} else {
+    echo "Stáří Měsíce: neznámé <br>";
+}
+
+
+echo "Další nov: " . ($nextNew  ? date('d.m.Y H:i', $nextNew)  : 'neznámý') . "<br>";
+echo "Další úplněk: " . ($nextFull ? date('d.m.Y H:i', $nextFull) : 'neznámý') . "<br>";
+
+
+
+echo "Východ Měsíce: " . ($moonrise ? date('H:i', strtotime($moonrise)) : '—') . "<br>";
+echo "Západ Měsíce: " . ($moonset ? date('H:i', strtotime($moonset)) : '—') . "<br>";
+
+echo "Kulminace Měsíce: " . ($culmTime ? date('H:i', strtotime($culmTime)) : '—') . "<br>";
+echo "Max. výška Měsíce: " . ($culmAlt !== null ? number_format($culmAlt, 1, ',', ' ') . "°" : '—') . "<br>";
+
+echo "Fáze Měsíce: " . ($phasePercent !== null 
+    ? number_format($phasePercent, 1, ',', ' ') . " %" 
+    : "neznámá") . "<br>";
+
