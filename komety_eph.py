@@ -66,17 +66,6 @@ def find_events(times, alts):
 # -------------------------------------------------
 def parse_ephem_line(line):
     parts = line.split()
-    # očekáváme:
-    # [0] Mon.
-    # [1] day
-    # [2] RA_h
-    # [3] RA_m
-    # [4] Dec_d
-    # [5] Dec_m
-    # [6] Delta
-    # [7] r
-    # [8] Elong
-    # [9] m1
     if len(parts) < 10:
         return None
 
@@ -126,7 +115,6 @@ def fetch_aerith_ephemeris():
         return {}
 
     cells = target_table.find_all("td")
-    #print(f"[DEBUG] Počet buněk s kometami: {len(cells)}")
 
     re_desig = re.compile(r"^([CP]\/\d{4}\s?[A-Z0-9]+|\d+P)", re.IGNORECASE)
     re_date = re.compile(r"^(Jan\.|Feb\.|Mar\.|Apr\.|May\.|Jun\.|Jul\.|Aug\.|Sep\.|Oct\.|Nov\.|Dec\.)")
@@ -137,7 +125,6 @@ def fetch_aerith_ephemeris():
         text = cell.get_text("\n", strip=True)
         lines = text.split("\n")
 
-        # indexy začátků bloků komet
         indices = [i for i, ln in enumerate(lines) if re_desig.match(ln)]
 
         for idx in range(len(indices)):
@@ -163,7 +150,6 @@ def fetch_aerith_ephemeris():
                     "plus7": plus7_line,
                 }
 
-    #print(f"[DEBUG] Nalezeno {len(comets)} komet s párem Now/+7d")
     return comets
 
 # -------------------------------------------------
@@ -171,7 +157,6 @@ def fetch_aerith_ephemeris():
 # -------------------------------------------------
 def main():
     ts = load.timescale()
-    t0 = ts.now()
 
     print("Stahuji Aerith current weekly…")
     comets = fetch_aerith_ephemeris()
@@ -183,10 +168,16 @@ def main():
     earth = eph["earth"]
     observer = earth + wgs84.latlon(LAT, LON, ALT)
 
-    # časová osa
+    # -------------------------------------------------
+    # ČASOVÁ OSA: pevně 00:00 UTC dneška → +48 h
+    # -------------------------------------------------
+    now_utc = datetime.utcnow()
+    day0 = now_utc.date()  # dnešní datum v UTC
+    start_dt = datetime(day0.year, day0.month, day0.day, 0, 0, 0)  # 00:00 UTC dneška
+
     times = []
     for minutes in range(0, SPAN_HOURS * 60 + 1, STEP_MIN):
-        dt = t0.utc_datetime() + timedelta(minutes=minutes)
+        dt = start_dt + timedelta(minutes=minutes)
         times.append(ts.utc(dt.year, dt.month, dt.day, dt.hour, dt.minute))
 
     results = []
@@ -207,7 +198,7 @@ def main():
         mags = []
 
         for t in times:
-            dt_days = (t.utc_datetime() - t0.utc_datetime()).total_seconds() / 86400.0
+            dt_days = (t.utc_datetime() - times[0].utc_datetime()).total_seconds() / 86400.0
             f = dt_days / 7.0
             if f < 0:
                 f = 0.0
@@ -277,14 +268,6 @@ def main():
 
     print("\nHotovo → comets_current_aerith_ra_alt.json")
     print("Viditelné komety:")
-#    for c in results:
-#        print(
-#            f"  {c['designation']}: mag {c['mag_est']}, "
-#            f"max alt {c['max_alt_deg']}°, "
-#            f"rise {c['rise_utc']}, transit {c['transit_utc']}, set {c['set_utc']}"
-#        )
-
 
 if __name__ == "__main__":
     main()
-# -------------------------------------------------
