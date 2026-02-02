@@ -1,107 +1,15 @@
 <?php
-//
-// komety.php
-// 
-// Roman Hujer    
-// 
-
+// BLok1: Načtení dat a příprava
 date_default_timezone_set('Europe/Prague');
-$nowTime = date('Y-m-d H:i');
+$nowTime = date('Y-m-d H:i:s');
+
 $nowTZ = new DateTimeZone("Europe/Prague");
-
 $dt = new DateTime("now", $nowTZ);
-$offsetHours = $dt->getOffset() / 3600;
-$json_dir = "/opt/astro_json";
 
-$constellationCZ = [
-    "And" => "Andromeda",
-    "Ant" => "Čeropas",
-    "Aps" => "Rajka",
-    "Aql" => "Orel",
-    "Aqr" => "Vodnář",
-    "Ara" => "Oltář",
-    "Ari" => "Beran",
-    "Aur" => "Vozka",
-    "Boo" => "Pastýř",
-    "CMa" => "Velký pes",
-    "CMi" => "Malý pes",
-    "CVn" => "Honicí psi",
-    "Cae" => "Rydlo",
-    "Cam" => "Žirafa",
-    "Cap" => "Kozoroh",
-    "Car" => "Kýl",
-    "Cas" => "Kasiopeja",
-    "Cen" => "Kentaur",
-    "Cep" => "Cefeus",
-    "Cet" => "Velryba",
-    "Cha" => "Kameleón",
-    "Cir" => "Kružítko",
-    "Col" => "Holubice",
-    "Com" => "Vlasy Bereniky",
-    "CrA" => "Jižní koruna",
-    "CrB" => "Severní koruna",
-    "Crt" => "Pohár",
-    "Cru" => "Jižní kříž",
-    "Crv" => "Havran",
-    "Cyg" => "Labuť",
-    "Del" => "Delfín",
-    "Dor" => "Mečoun",
-    "Dra" => "Drak",
-    "Equ" => "Hříbě",
-    "Eri" => "Eridanus",
-    "For" => "Pec",
-    "Gem" => "Blíženci",
-    "Gru" => "Jeřáb",
-    "Her" => "Herkules",
-    "Hor" => "Hodiny",
-    "Hya" => "Hydra",
-    "Hyi" => "Jižní Hydra",
-    "Ind" => "Indián",
-    "Lac" => "Ještěrka",
-    "Leo" => "Lev",
-    "Lep" => "Zajíc",
-    "Lib" => "Váhy",
-    "LMi" => "Malý lev",
-    "Lup" => "Vlk",
-    "Lyn" => "Rys",
-    "Lyr" => "Lyra",
-    "Men" => "Tabulová hora",
-    "Mic" => "Mikroskop",
-    "Mon" => "Jednorožec",
-    "Mus" => "Moucha",
-    "Nor" => "Kružítko",
-    "Oct" => "Oktant",
-    "Oph" => "Hadonoš",
-    "Ori" => "Orion",
-    "Pav" => "Páv",
-    "Peg" => "Pegas",
-    "Per" => "Perseus",
-    "Phe" => "Fénix",
-    "Pic" => "Malíř",
-    "PsA" => "Jižní ryba",
-    "Psc" => "Ryby",
-    "Pup" => "Zád",
-    "Pyx" => "Kompas",
-    "Ret" => "Síť",
-    "Scl" => "Sochař",
-    "Sco" => "Štír",
-    "Sct" => "Štít",
-    "Ser" => "Had",
-    "Sex" => "Sextant",
-    "Sge" => "Šíp",
-    "Sgr" => "Střelec",
-    "Tau" => "Býk",
-    "Tel" => "Teleskop",
-    "TrA" => "Jižní trojúhelník",
-    "Tri" => "Trojúhelník",
-    "Tuc" => "Tukan",
-    "UMa" => "Velká medvědice",
-    "UMi" => "Malý medvěd",
-    "Vel" => "Plachty",
-    "Vir" => "Panna",
-    "Vol" => "Létající ryba",
-    "Vul" => "Lištička",
-];
+$offsetHours = $dt->getOffset() / 3600;
+
+
+$json_dir = "/opt/astro_json";
 
 function load_comets($path) {
     $json = file_get_contents($path);
@@ -115,12 +23,11 @@ $data = load_comets($json_dir . '/comets_current_aerith_ra_alt.json');
 $comets = $data['comets'] ?? [];
 
 // limit komet
-$limit= isset($_GET['count']) ? max(1, (int)$_GET['count']) : 100;
-$limit= isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : $limit;
-$vmag = isset($_GET['vmag']) ? max(1, (int)$_GET['vmag']) : 24;
+$limit = isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : 10;
 
 // volba osy X: transit nebo noon
 $xaxis = 'noon';
+
 
 // funkce RA → H M S
 function ra_to_hms($ra_hours) {
@@ -155,14 +62,9 @@ function roundTo30($dt) {
     return $dt->format('Y-m-d H:' . sprintf('%02d', $rounded));
 }
 
-
-// $nowTime = date('Y-m-d H:i');
-
-$nowCET = new DateTime('now', new DateTimeZone('Europe/Prague'));
-$nowTimeR = roundTo30(clone $nowCET);
-
 $nowUTC = new DateTime('now', new DateTimeZone('UTC'));
 $rounded = roundTo30(clone $nowUTC);
+
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -185,18 +87,14 @@ svg { width:100%; height:220px; background:#000; border:1px solid #444; }
 .axis { stroke:#555; stroke-width:1; }
 .graph-line { fill:none; stroke:#4caf50; stroke-width:2; }
 .graph-fill { fill:rgba(76,175,80,0.25); stroke:none; }
-.text-small { font-size: 11px; fill:#aaa; } 
-.body a { color: blue; text-decoration: none;,}
-.body a:hover { color: white;  text-decoration: none; }
+.text-small { font-size: 11px; fill:#aaa; }
 </style>
 </head>
 <body>
 
 <div class="box">
 <h1>Komety – aktuální viditelnost</h1>
-<div class="body"><a href="http://www.aerith.net/comet/weekly/current.html">Více informací o viditelnosti komet</a></div>
-   
-<p>Data jsou plantá pro čas: <stron><?= htmlspecialchars( $nowTimeR) ?></strong></p>
+<p>Čas: <?= htmlspecialchars($nowTime) ?> </p>
 
 <table class="main-table">
 <?php
@@ -207,6 +105,8 @@ foreach ($comets as $c):
     $graph48 = $c['graph_48h'] ?? [];
     if (count($graph48) < 2) continue;
 
+
+// Blok2: 
     // najdeme nejbližší časový bod k zaokrouhlenému času – pro aktuální údaje
     $roundedUTC = new DateTime($rounded, new DateTimeZone('UTC'));
     $roundedTs  = $roundedUTC->getTimestamp();
@@ -234,11 +134,7 @@ foreach ($comets as $c):
     $az   = sprintf("%.1f°", $current['az_deg']);
     $elong= $current['elong_deg'];
     $mag  = $current['mag_est'];
-    if  ($mag > $vmag) continue;
 
-    $constCode = $current['constellation'];
-    $constName = $constellationCZ[$constCode] ?? $constCode;
-    
     // východ / kulminace / západ
     $rise    = !empty($c['rise_utc'])    ? date('H:i', strtotime($c['rise_utc']))    : '—';
     $transit = !empty($c['transit_utc']) ? date('H:i', strtotime($c['transit_utc'])) : '—';
@@ -262,6 +158,7 @@ foreach ($comets as $c):
     $endTs   = $endDT->getTimestamp();
     $spanSec = 24 * 3600;
 
+
     // ------------------------------------------------------------
     // VÝBĚR BODŮ Z JSONU — jen ty, které spadají do 12→12 UTC
     // ------------------------------------------------------------
@@ -277,6 +174,7 @@ foreach ($comets as $c):
     }
 
     if (count($graph) < 1) continue;
+
 
     // ------------------------------------------------------------
     // JSON nezačíná přesně v 12:00 UTC → doplníme umělý bod
@@ -298,7 +196,6 @@ foreach ($comets as $c):
     foreach ($graph as $p) {
         if ($p['alt_deg'] > $maxAlt) $maxAlt = $p['alt_deg'];
     }
-    $mAlt = $maxAlt;
     if ($maxAlt < 10) $maxAlt = 10;
 
 
@@ -341,7 +238,13 @@ foreach ($comets as $c):
     if ($maxAlt >= 40)      $yStep = 20;
     elseif ($maxAlt >= 20)  $yStep = 10;
     else                    $yStep = 5;
+
     $yLines = floor($maxAlt / $yStep);
+
+
+    // ------------------------------------------------------------
+    // KULMINACE — jen pokud spadá do 12→12 UTC
+    // ------------------------------------------------------------
 
 // ------------------------------------------------------------
 // KULMINACE – výpočet nezávislý na mřížce i bodech grafu
@@ -364,6 +267,7 @@ if (!empty($c['transit_utc'])) {
     // 2) Převod na desetinné hodiny
     $hT = $hT + $mT / 60.0;
 
+
     // 4) Odpočítáme 12:00 → tím dostaneme pozici v grafu (0–24 h)
     $hFromStart = $hT - 12.0;   // 12:00 = 0h, 36:00 = 24h
 
@@ -373,6 +277,7 @@ if (!empty($c['transit_utc'])) {
     // 6) Přepočet na pixely
     $transitX = $paddingLeft + $innerW * $ratioT;
 }
+
     $shown++;
 ?>
 
@@ -384,7 +289,6 @@ if (!empty($c['transit_utc'])) {
             <tr><td class="label">Jasnost</td><td class="value"><?= htmlspecialchars($mag) ?></td></tr>
             <tr><td class="label">RA</td><td class="value"><?= htmlspecialchars($ra_hms) ?></td></tr>
             <tr><td class="label">Dec</td><td class="value"><?= htmlspecialchars($dec_dms) ?></td></tr>
-            <tr><td class="label">Souhvězdí</td><td class="value"><?= htmlspecialchars($constName) ?></td></tr>
             <tr><td class="label">Výška</td><td class="value"><?= htmlspecialchars($alt) ?></td></tr>
             <tr><td class="label">Azimut</td><td class="value"><?= htmlspecialchars($az) ?></td></tr>
             <tr><td class="label">Elongace</td><td class="value"><?= htmlspecialchars($elong) ?>°</td></tr>
@@ -395,9 +299,12 @@ if (!empty($c['transit_utc'])) {
     </td>
 
     <!-- PRAVÁ BUŇKA: GRAF -->
-    <td style="width:60%; text-align:center; vertical-align:bottom;">
-  
-    <!-- SVG začátek + mřížka X/Y + popisky -->
+    <td style="width:60%;">
+    
+
+
+
+<!-- // Blok3: SVG začátek + mřížka X/Y + popisky -->
         <!-- SVG GRAF -->
         <svg viewBox="0 0 <?= $width ?> <?= $height ?>">
 
@@ -416,6 +323,7 @@ if (!empty($c['transit_utc'])) {
                 <?= $altVal ?>°
             </text>
         <?php endfor; ?>
+
 
         <!-- Svislé čáry (čas) – 12:00 UTC → 12:00 UTC -->
         <?php
@@ -436,6 +344,7 @@ if (!empty($c['transit_utc'])) {
 
             // převod na místní čas
             $labelLocal = clone $labelUTC;
+//            $labelLocal->setTimezone(new DateTimeZone('Europe/Prague'));
 
             $hour = (int)$labelLocal->format('H');
             $minute = (int)$labelLocal->format('i');
@@ -456,6 +365,7 @@ if (!empty($c['transit_utc'])) {
 
         <?php endfor; ?>
 
+
         <!-- Osy -->
         <line x1="<?= $paddingLeft ?>" y1="<?= $height - $paddingBottom ?>"
               x2="<?= $width - $paddingRight ?>" y2="<?= $height - $paddingBottom ?>"
@@ -465,7 +375,8 @@ if (!empty($c['transit_utc'])) {
               x2="<?= $paddingLeft ?>" y2="<?= $height - $paddingBottom ?>"
               class="axis" />
 
-        <!-- Křivka, výplň, kulminace, konec SVG  -->
+ <!-- Blok4: křivka, výplň, kulminace, konec SVG  -->
+        <!-- Křivka + výplň -->
         <?php if (!empty($points)):
             $poly = [];
             foreach ($points as $pt) {
@@ -490,20 +401,11 @@ if (!empty($c['transit_utc'])) {
             <polyline points="<?= $linePoints ?>" class="graph-line" />
 
         <?php endif; ?>
-        
-        <!-- Červená čára kulminace -->
 
-        <!-- Úprva pro altMax < 10° -->
-        <?php
-           if ($mAlt > 10) {
-                $m_y1 = $paddingTop;
-           }
-           else {
-                $m_y1 = $paddingTop + $innerH - $innerH * $mAlt / 10 ;        
-           }
-        ?>
+
+        <!-- Červená čára kulminace -->
         <?php if ($transitX !== null): ?>
-            <line x1="<?= $transitX ?>" y1=" <?= $m_y1 ?>"
+            <line x1="<?= $transitX ?>" y1="<?= $paddingTop ?>"
                   x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom  ?>"  
                   stroke="red" stroke-width="1.5" />
         <?php endif; ?>
@@ -520,15 +422,17 @@ if (!empty($c['transit_utc'])) {
 </html>
 
 <?php
+// ------------------------------------------------------------
+// BLOK 6/6 – volitelné doplňky
+// ------------------------------------------------------------
 
-// ------------------------------------------------------------
-// Volitelné doplňky
-// ------------------------------------------------------------
+// Sem můžeš případně doplnit:
 // - ladicí výpisy
 // - logování
 // - měření výkonu
 // - testovací výstupy
 // - další pomocné funkce
+
 // Příklad (zakomentovaný):
 // echo "<!-- Debug: vykresleno $shown komet -->";
 

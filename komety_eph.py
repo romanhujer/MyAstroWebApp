@@ -134,6 +134,81 @@ def fetch_aerith_ephemeris():
     comets = {}
 
     for cell in cells:
+        # najdi všechny odkazy v buňce
+        links = cell.find_all("a")
+        link_texts = [a.get_text(strip=True) for a in links]
+
+        text = cell.get_text("\n", strip=True)
+        lines = text.split("\n")
+
+        # najdi začátky bloků podle původního regexu
+        indices = [i for i, ln in enumerate(lines) if re_desig.match(ln)]
+
+        for block_idx, start in enumerate(indices):
+            end = indices[block_idx + 1] if block_idx + 1 < len(indices) else len(lines)
+            block = lines[start:end]
+
+            # původní designace (jen pro mapování)
+            m = re_desig.match(block[0])
+            if not m:
+                continue
+            short_desig = m.group(1).strip()
+
+            # najdi odpovídající <a> text
+            full_name = None
+            for t in link_texts:
+                if t.startswith(short_desig):
+                    full_name = t
+                    break
+
+            if not full_name:
+                full_name = short_desig  # fallback
+
+            # efemeridy
+            ephem_lines = [ln for ln in block if re_date.match(ln)]
+            if len(ephem_lines) < 2:
+                continue
+
+            now_line = parse_ephem_line(ephem_lines[0])
+            plus7_line = parse_ephem_line(ephem_lines[1])
+
+            if now_line and plus7_line:
+                comets[full_name] = {
+                    "now": now_line,
+                    "plus7": plus7_line,
+                }
+
+    return comets
+
+
+
+def fetch_aerith_ephemeris_old():
+    r = requests.get(AERITH_URL, timeout=20)
+    r.raise_for_status()
+    soup = BeautifulSoup(r.text, "html.parser")
+
+    tables = soup.find_all("table")
+    target_table = None
+    max_cells = 0
+
+    for tbl in tables:
+        cells = tbl.find_all("td")
+        if len(cells) > max_cells:
+            max_cells = len(cells)
+            target_table = tbl
+
+    if not target_table:
+        print("[ERROR] Nenašel jsem tabulku s kometami.")
+        return {}
+
+    cells = target_table.find_all("td")
+
+    re_desig = re.compile(r"^([CP]\/\d{4}\s?[A-Z0-9]+|\d+P)", re.IGNORECASE)
+    re_date = re.compile(r"^(Jan\.|Feb\.|Mar\.|Apr\.|May\.|Jun\.|Jul\.|Aug\.|Sep\.|Oct\.|Nov\.|Dec\.)")
+
+    comets = {}
+
+    for cell in cells:
         text = cell.get_text("\n", strip=True)
         lines = text.split("\n")
 
@@ -283,7 +358,6 @@ def main():
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print("\nHotovo → comets_current_aerith_ra_alt.json")
-    print("Viditelné komety:")
-
+    
 if __name__ == "__main__":
     main()

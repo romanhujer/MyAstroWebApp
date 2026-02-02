@@ -3,50 +3,158 @@ date_default_timezone_set('Europe/Prague');
 
 $json_dir = "/opt/astro_json";
 
-function load_comets($path) {
+$map = [
+    "jup" => ["jupiter", "Jupiter"],
+    "mar" => ["mars", "Mars"],
+    "sat" => ["saturn", "Saturn"],
+    "ven" => ["venus", "Venuše"],
+    "mer" => ["mercury", "Merkur"],
+    "urn" => ["uranus", "Uran"],
+    "nep" => ["neptune", "Neptun"],
+];
+
+$constellationCZ = [
+    "And" => "Andromeda",
+    "Ant" => "Čeropas",
+    "Aps" => "Rajka",
+    "Aql" => "Orel",
+    "Aqr" => "Vodnář",
+    "Ara" => "Oltář",
+    "Ari" => "Beran",
+    "Aur" => "Vozka",
+    "Boo" => "Pastýř",
+    "CMa" => "Velký pes",
+    "CMi" => "Malý pes",
+    "CVn" => "Honicí psi",
+    "Cae" => "Rydlo",
+    "Cam" => "Žirafa",
+    "Cap" => "Kozoroh",
+    "Car" => "Kýl",
+    "Cas" => "Kasiopeja",
+    "Cen" => "Kentaur",
+    "Cep" => "Cefeus",
+    "Cet" => "Velryba",
+    "Cha" => "Kameleón",
+    "Cir" => "Kružítko",
+    "Col" => "Holubice",
+    "Com" => "Vlasy Bereniky",
+    "CrA" => "Jižní koruna",
+    "CrB" => "Severní koruna",
+    "Crt" => "Pohár",
+    "Cru" => "Jižní kříž",
+    "Crv" => "Havran",
+    "Cyg" => "Labuť",
+    "Del" => "Delfín",
+    "Dor" => "Mečoun",
+    "Dra" => "Drak",
+    "Equ" => "Hříbě",
+    "Eri" => "Eridanus",
+    "For" => "Pec",
+    "Gem" => "Blíženci",
+    "Gru" => "Jeřáb",
+    "Her" => "Herkules",
+    "Hor" => "Hodiny",
+    "Hya" => "Hydra",
+    "Hyi" => "Jižní Hydra",
+    "Ind" => "Indián",
+    "Lac" => "Ještěrka",
+    "Leo" => "Lev",
+    "Lep" => "Zajíc",
+    "Lib" => "Váhy",
+    "LMi" => "Malý lev",
+    "Lup" => "Vlk",
+    "Lyn" => "Rys",
+    "Lyr" => "Lyra",
+    "Men" => "Tabulová hora",
+    "Mic" => "Mikroskop",
+    "Mon" => "Jednorožec",
+    "Mus" => "Moucha",
+    "Nor" => "Kružítko",
+    "Oct" => "Oktant",
+    "Oph" => "Hadonoš",
+    "Ori" => "Orion",
+    "Pav" => "Páv",
+    "Peg" => "Pegas",
+    "Per" => "Perseus",
+    "Phe" => "Fénix",
+    "Pic" => "Malíř",
+    "PsA" => "Jižní ryba",
+    "Psc" => "Ryby",
+    "Pup" => "Zád",
+    "Pyx" => "Kompas",
+    "Ret" => "Síť",
+    "Scl" => "Sochař",
+    "Sco" => "Štír",
+    "Sct" => "Štít",
+    "Ser" => "Had",
+    "Sex" => "Sextant",
+    "Sge" => "Šíp",
+    "Sgr" => "Střelec",
+    "Tau" => "Býk",
+    "Tel" => "Teleskop",
+    "TrA" => "Jižní trojúhelník",
+    "Tri" => "Trojúhelník",
+    "Tuc" => "Tukan",
+    "UMa" => "Velká medvědice",
+    "UMi" => "Malý medvěd",
+    "Vel" => "Plachty",
+    "Vir" => "Panna",
+    "Vol" => "Létající ryba",
+    "Vul" => "Lištička",
+];
+
+$constellationIcon = [
+    "Beran" => "♈︎",
+    "Býk" => "♉︎",
+    "Blíženci" => "♊︎",
+    "Rak" => "♋︎",
+    "Lev" => "♌︎",
+    "Panna" => "♍︎",
+    "Váhy" => "♎︎",
+    "Štír" => "♏︎",
+    "Střelec" => "♐︎",
+    "Kozoroh" => "♑︎",
+    "Vodnář" => "♒︎",
+    "Ryby" => "♓︎",
+];
+
+$planeta = "jupiter";
+$name = "Jupiter";
+
+if (isset($_GET['id']) && isset($map[$_GET['id']])) {
+    [$planeta, $name] = $map[$_GET['id']];
+}
+
+function load_today_planet($path) {
     $json = file_get_contents($path);
     if ($json === false) return null;
     $data = json_decode($json, true);
     if (!is_array($data)) return null;
-    return $data;
-}
 
-$data = load_comets($json_dir . '/comets_current_aerith_ra_alt.json');
-$comets = $data['comets'] ?? [];
+    $today = (new DateTime('today'))->format('Y-m-d');
 
-// LIMIT
-$limit = isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : 5;
-
-// zaokrouhlení času na 30 minut (UTC)
-function roundTo30($dt) {
-    $m = (int)$dt->format('i');
-    $rounded = ($m < 15) ? 0 : (($m < 45) ? 30 : 60);
-    if ($rounded === 60) {
-        $dt->modify('+1 hour');
-        $rounded = 0;
+    foreach ($data as $row) {
+        if (isset($row['date']) && $row['date'] === $today) {
+            return $row;
+        }
     }
-    return $dt->format('Y-m-d H:' . sprintf('%02d', $rounded));
+    return null;
 }
 
-$nowUTC = new DateTime('now', new DateTimeZone('UTC'));
-$rounded = roundTo30(clone $nowUTC);
+$planet = load_today_planet($json_dir . "/" . $planeta . '_ephemeris.json');
 ?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="utf-8">
-<title>Komety – aktuální viditelnost</title>
+<title><?= $name ?> – dnešní viditelnost</title>
 <style>
 body { font-family: system-ui, -apple-system, sans-serif; background:#111; color:#eee; }
-.box { max-width: 1100px; margin: 20px auto; padding: 16px; background:#222; border:1px solid #444; }
-h1 { font-size: 22px; margin: 0 0 15px; }
-h2 { font-size: 18px; margin: 0 0 6px; }
-table { width:100%; border-collapse: collapse; }
-.main-table tr + tr { border-top:1px solid #444; }
-.main-table td { padding: 10px 6px; vertical-align: top; }
-.inner-table { width:100%; border-collapse: collapse; }
-.inner-table td { padding: 2px 0; }
-.label { color:#aaa; width: 40%; }
+.box { max-width: 700px; margin: 20px auto; padding: 16px; background:#222; border:1px solid #444; }
+h1 { font-size: 20px; margin: 0 0 10px; }
+table { width:100%; border-collapse: collapse; margin-bottom: 16px; }
+td { padding: 4px 0; }
+.label { color:#aaa; width: 35%; }
 .value { font-weight: 600; }
 svg { width:100%; height:220px; background:#000; border:1px solid #444; }
 .axis { stroke:#555; stroke-width:1; }
@@ -56,261 +164,284 @@ svg { width:100%; height:220px; background:#000; border:1px solid #444; }
 </style>
 </head>
 <body>
-
 <div class="box">
-<h1>Komety – aktuální viditelnost</h1>
-<p>Čas: <?= $rounded ?> UTC</p>
-
-<table class="main-table">
 <?php
-$i = 0;
-foreach ($comets as $c):
-    if ($i >= $limit) break;
-    $i++;
+        // základní údaje
+        $rise    = $planet['rise_utc']    ? date('H:i', strtotime($planet['rise_utc']))    : '—';
+        $set     = $planet['set_utc']     ? date('H:i', strtotime($planet['set_utc']))     : '—';
+        $transit = $planet['transit_utc'] ? date('H:i', strtotime($planet['transit_utc'])) : '—';
+        // -----------------------------
+        // Určení typu viditelnosti
+        // -----------------------------
+        $visibleWord = ($_GET['id'] ?? '') === 'ven' ? 'viditelná' : 'viditelný';
+        
+        $visibility = "na obloze";
 
-    // najdeme nejbližší časový bod k zaokrouhlenému času
-    $roundedUTC = new DateTime($rounded, new DateTimeZone('UTC'));
-    $roundedStr = $roundedUTC->format('Y-m-d H:i');
+        if (!empty($planet['transit_utc'])) {
+            $t = new DateTime($planet['transit_utc'], new DateTimeZone('UTC'));
+            $transitH = (int)$t->format('H');
 
-    $current = null;
-    $bestDiff = 999999999;
-
-    foreach ($c['graph_48h'] as $p) {
-        $pt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-        $ptStr = $pt->format('Y-m-d H:i');
-        $diff = abs(strtotime($ptStr) - strtotime($roundedStr));
-        if ($diff < $bestDiff) {
-            $bestDiff = $diff;
-            $current = $p;
+            if ($transitH >= 7 && $transitH < 15) {
+                $visibility = "na denní obloze";
+            } elseif ($transitH >= 15 && $transitH < 21) {
+                $visibility = "na večerní obloze";
+            } elseif ($transitH >= 21 && $transitH < 24) {
+                $visibility = "na noční obloze";
+            } elseif ($transitH >= 0 && $transitH < 2) {
+                $visibility = "na noční obloze";
+            } elseif ($transitH >= 2 && $transitH < 7) {
+                $visibility = "na ranní obloze";
+            }
         }
-    }
 
-    if (!$current) continue;
+        // -----------------------------
+        // Načtení doplňkových údajů z prvního bodu grafu
+        // (všechny body mají stejné hodnoty distance/constellation)
+        // -----------------------------
+        $first = $planet['altitude_graph'][0] ?? null;
+        $distAU  = $first ? $first['distance_au'] : null;
+        $distKM  = $first ? $first['distance_km'] : null;
+        $angSize = $first ? $first['angular_size_arcsec'] : null;
+        $elong = $first ? $first['elongation_deg'] : null;
+        $opposition = $planet['nearest_opposition'] ?? null;
+        $constCode = $first ? $first['constellation'] : null;  
+        $perihelion = $planet['nearest_perihelion'] ?? null;
+        $const = $constCode && isset($constellationCZ[$constCode]) ? $constellationCZ[$constCode] : $constCode;
+        $icon = isset($constellationIcon[$const]) ? $constellationIcon[$const] : "";
+        
+        // původní 48h graf z JSONu
+        $graph   = $planet['altitude_graph'] ?? [];
 
-    // základní hodnoty
-    $ra   = sprintf("%.2f h", $current['ra_hours_j2000']);
-    $dec  = sprintf("%.2f°", $current['dec_deg_j2000']);
-    $alt  = sprintf("%.1f°", $current['alt_deg']);
-    $az   = sprintf("%.1f°", $current['az_deg']);
-    $r    = $current['r_au'];
-    $delta= $current['delta_au'];
-    $elong= $current['elong_deg'];
-    $mag  = $current['mag_est'];
-
-    $rise    = !empty($c['rise_utc'])    ? date('H:i', strtotime($c['rise_utc']))    : '—';
-    $transit = !empty($c['transit_utc']) ? date('H:i', strtotime($c['transit_utc'])) : '—';
-    $set     = !empty($c['set_utc'])     ? date('H:i', strtotime($c['set_utc']))     : '—';
-
-    // -----------------------------
-    // 24h OKNO JAKO PLANETY (B1)
-    // -----------------------------
-    $graph = $c['graph_48h'];
-    $n = count($graph);
-    if ($n < 2) continue;
-
-    // kulminace → start = -12h
-    if (!empty($c['transit_utc'])) {
-        $t = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-        $transitMinutes = $t->format('H') * 60 + $t->format('i');
-        $roundedTransit = round($transitMinutes / 60) * 60;
-        $startMinutes = $roundedTransit - 12 * 60;
-        while ($startMinutes < 0) $startMinutes += 1440;
-        while ($startMinutes >= 1440) $startMinutes -= 1440;
-    } else {
+        // ---------------------------------------------
+        // 1) Dynamický začátek grafu podle kulminace
+        // ---------------------------------------------
         $startMinutes = 0;
-    }
 
-    // vybereme 24h okno z 48h dat
-    $filtered = [];
-    foreach ($graph as $p) {
-        $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-        $h = (int)$dt->format('H');
-        $m = (int)$dt->format('i');
+        if (!empty($planet['transit_utc'])) {
+            $t = new DateTime($planet['transit_utc'], new DateTimeZone('UTC'));
 
-        // spočítáme rozdíl vůči startu
-        $ptMinutes = $h * 60 + $m;
-        $diff = $ptMinutes - $startMinutes;
-        if ($diff < 0) $diff += 1440;
+            // kulminace v minutách
+            $transitMinutes = $t->format('H') * 60 + $t->format('i');
 
-        if ($diff < 1440) {
-            $filtered[] = $p;
+            // zaokrouhlení na celé hodiny
+            $roundedTransit = round($transitMinutes / 60) * 60;
+
+            // začátek grafu = kulminace - 12 hodin
+            $startMinutes = $roundedTransit - 12 * 60;
+
+            // přetočení do rozsahu 0–1440
+            while ($startMinutes < 0) $startMinutes += 1440;
+            while ($startMinutes >= 1440) $startMinutes -= 1440;
+        } 
+
+        // -----------------------------
+        // 2) Vybrat správné 24h okno z 48h dat
+        // -----------------------------
+        $filtered = [];
+        foreach ($graph as $p) {
+            // day_offset z JSONu (0 = dnešek, 1 = zítřek); fallback 0 pro jistotu
+            $dayOffset = isset($p['day_offset']) ? (int)$p['day_offset'] : 0;
+
+            [$hStr, $mStr] = explode(':', $p['time']);
+            $ptMinutes = (int)$hStr * 60 + (int)$mStr + $dayOffset * 1440; // 48h osa
+
+            // rozdíl vůči začátku grafu
+            $diff = $ptMinutes - $startMinutes;
+            if ($diff < 0) {
+                $diff += 2880; // přetočení v rámci 48h okna
+            }
+
+            // bereme jen 24h interval
+            if ($diff < 1440) {
+                $filtered[] = $p;
+            }
         }
-    }
+        $graph = $filtered;
+        $n = count($graph);
 
-    $graph = $filtered;
-    $n = count($graph);
-    if ($n < 2) continue;
+        // -----------------------------
+        // 3) Zjištění max. výšky po filtrování
+        // -----------------------------
+        $maxAlt  = 0.0;
+        foreach ($graph as $p) {
+            if ($p['alt'] > $maxAlt) $maxAlt = $p['alt'];
+        }
+        if ($maxAlt < 10) $maxAlt = 10;
+    ?>
 
-    // max výška
-    $maxAlt = 0.0;
-    foreach ($graph as $p) {
-        if ($p['alt_deg'] > $maxAlt) $maxAlt = $p['alt_deg'];
-    }
-    if ($maxAlt < 10) $maxAlt = 10;
+    <?php if (!$planet): ?>
+            <p>Data pro planet dnes nejsou k dispozici.</p>
+    <?php else: ?>
+    
+    <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?> <?= $visibleWord ?> <?= $visibility ?></h1>
 
-    // SVG parametry
-    $width  = 600;
-    $height = 200;
-    $paddingLeft   = 30;
-    $paddingRight  = 10;
-    $paddingTop    = 10;
-    $paddingBottom = 20;
+    <table>
+        <tr><td class="label">Východ</td><td class="value"><?= $rise; ?></td></tr>
+        <tr><td class="label">Kulminace</td><td class="value"><?= $transit; ?></td></tr>
+        <tr><td class="label">Západ</td><td class="value"><?= $set; ?></td></tr>
+        <tr><td class="label">Souhvězdí</td><td class="value"> <?= $const ?> </td></tr>
+        <tr><td class="label">Vzdálenost</td><td class="value"><?= $distAU ?> AU (<?= number_format($distKM, 0, ',', ' ') ?> km)</td></tr>
+        <tr><td class="label">Úhlová velikost</td><td class="value"><?= $angSize ?>"</td></tr>
+        <tr><td class="label">Elongace</td><td class="value"><?= $elong ?>°</td></tr> 
+        <?php if (!empty($opposition)): ?>
+            <tr> <td class="label">Nejbližší opozice</td><td class="value"><?= $opposition ?></td></tr>
+        <?php endif; ?>
+        <?php if (!empty($perihelion)): ?>
+            <tr> <td class="label">Nejbližší perihelium</td><td class="value"><?= $perihelion ?></td></tr>
+        <?php endif; ?>
+    </table>
 
-    $innerW = $width  - $paddingLeft - $paddingRight;
-    $innerH = $height - $paddingTop  - $paddingBottom;
+    <?php
+        // SVG parametry
+        $width  = 600;
+        $height = 200;
+        $paddingLeft  = 30;
+        $paddingRight = 10;
+        $paddingTop   = 10;
+        $paddingBottom= 20;
 
-    // výpočet X/Y souřadnic
-    $points = [];
-    foreach ($graph as $p) {
-        $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-        $h = (int)$dt->format('H');
-        $m = (int)$dt->format('i');
+        $innerW = $width  - $paddingLeft - $paddingRight;
+        $innerH = $height - $paddingTop  - $paddingBottom;
 
-        $ptMinutes = $h * 60 + $m;
-        $diff = $ptMinutes - $startMinutes;
-        if ($diff < 0) $diff += 1440;
+        // -----------------------------
+        // 4) Výpočet X/Y souřadnic bodů
+        // -----------------------------
+        $points = [];
+        if ($n > 0) {
+            foreach ($graph as $p) {
+                [$hStr, $mStr] = explode(':', $p['time']);
+                $ptMinutes = (int)$hStr * 60 + (int)$mStr;
 
-        $ratio = $diff / 1440.0;
-        $x = $paddingLeft + $innerW * $ratio;
+                // rozdíl vůči začátku grafu (24h okno)
+                $diff = $ptMinutes - $startMinutes;
+                if ($diff < 0) {
+                    $diff += 1440;
+                }
 
-        $y = $paddingTop + $innerH * (1 - ($p['alt_deg'] / $maxAlt));
+                $ratio = $diff / 1440.0;
+                $x = $paddingLeft + $innerW * $ratio;
 
-        $points[] = [$x, $y];
-    }
+                $y = $paddingTop + $innerH * (1 - ($p['alt'] / $maxAlt));
 
-    // osa Y
-    if ($maxAlt >= 40)      $yStep = 20;
-    elseif ($maxAlt >= 20)  $yStep = 10;
-    else                    $yStep = 5;
+                $points[] = [$x, $y, $p['time'], $p['alt']];
+            }
+        }
 
-    $yLines = floor($maxAlt / $yStep);
+        // -----------------------------
+        // 5) Transit X
+        // -----------------------------
+        $transitX = null;
+        if (!empty($planet['transit_utc'])) {
+            $dt = new DateTime($planet['transit_utc'], new DateTimeZone('UTC'));
+            $transitMinutes = $dt->format('H') * 60 + $dt->format('i');
 
-    // osa X – popisky
-    $xStepMinutes = 30;
-    $xSteps = (24 * 60) / $xStepMinutes;
+            $diff = $transitMinutes - $startMinutes;
+            if ($diff < 0) $diff += 1440;
 
-    // transit X
-    $transitX = null;
-    if (!empty($c['transit_utc'])) {
-        $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-        $transitMinutes = $dtT->format('H') * 60 + $dtT->format('i');
-        $diff = $transitMinutes - $startMinutes;
-        if ($diff < 0) $diff += 1440;
-        $ratio = $diff / 1440;
-        $transitX = $paddingLeft + $innerW * $ratio;
-    }
+            $ratio = $diff / 1440;
+            $transitX = $paddingLeft + $innerW * $ratio;
+        }
+
+        // -----------------------------
+        // 6) Osa Y
+        // -----------------------------
+        if ($maxAlt >= 40)      $yStep = 20;
+        elseif ($maxAlt >= 20)  $yStep = 10;
+        else                    $yStep = 5;
+
+        $yLines = floor($maxAlt / $yStep);
+
+        // -----------------------------
+        // 7) Osa X – popisky (převod do CET)
+        // -----------------------------
+        $xStepMinutes = 30;
+        $xSteps = (24 * 60) / $xStepMinutes;
+    ?>
+
+<svg viewBox="0 0 <?= $width ?> <?= $height ?>">
+
+<?php for ($i = 1; $i <= $yLines; $i++): // nezačínáme od 0°, aby nebyla falešná čára ?>
+    <?php
+        $altVal = $i * $yStep;
+        $gy = $paddingTop + $innerH * (1 - ($altVal / $maxAlt));
+    ?>
+    <line x1="<?= $paddingLeft ?>" y1="<?= $gy ?>"
+          x2="<?= $width - $paddingRight ?>" y2="<?= $gy ?>"
+          stroke="#333" stroke-width="1" />
+
+    <text x="<?= $paddingLeft - 6 ?>" y="<?= $gy + 4 ?>"
+          class="text-small" text-anchor="end">
+        <?= $altVal ?>°
+    </text>
+<?php endfor; ?>
+
+<?php for ($i = 0; $i <= $xSteps; $i++):
+    $vx = $paddingLeft + $innerW * ($i / $xSteps);
+
+    $totalMinutes = $startMinutes + $i * $xStepMinutes;
+    $utcHour = floor(($totalMinutes / 60)) % 24;
+    $utcMinute = $totalMinutes % 60;
+
+    $dt = new DateTime(sprintf('%02d:%02d', $utcHour, $utcMinute), new DateTimeZone('UTC'));
+    $dt->setTimezone(new DateTimeZone('Europe/Prague'));
+
+    $hour = (int)$dt->format('H');
+    $minute = (int)$dt->format('i');
+
+    $isLabel = ($minute === 0) && ($hour % 2 === 0);
 ?>
-<tr>
+    <line x1="<?= $vx ?>" y1="<?= $paddingTop ?>"
+          x2="<?= $vx ?>" y2="<?= $height - $paddingBottom ?>"
+          stroke="#333" stroke-width="1" />
 
-    <!-- LEVÁ BUŇKA -->
-    <td style="width:40%;">
-        <h2><?= htmlspecialchars($c['designation']) ?></h2>
-        <table class="inner-table">
-            <tr><td class="label">Jasnost</td><td class="value"><?= $mag ?></td></tr>
-            <tr><td class="label">RA</td><td class="value"><?= $ra ?></td></tr>
-            <tr><td class="label">Dec</td><td class="value"><?= $dec ?></td></tr>
-            <tr><td class="label">Výška</td><td class="value"><?= $alt ?></td></tr>
-            <tr><td class="label">Azimut</td><td class="value"><?= $az ?></td></tr>
-            <tr><td class="label">r</td><td class="value"><?= $r ?> AU</td></tr>
-            <tr><td class="label">Δ</td><td class="value"><?= $delta ?> AU</td></tr>
-            <tr><td class="label">Elongace</td><td class="value"><?= $elong ?>°</td></tr>
-            <tr><td class="label">Východ</td><td class="value"><?= $rise ?></td></tr>
-            <tr><td class="label">Kulminace</td><td class="value"><?= $transit ?></td></tr>
-            <tr><td class="label">Západ</td><td class="value"><?= $set ?></td></tr>
-        </table>
-    </td>
+    <?php if ($isLabel): ?>
+        <text x="<?= $vx ?>" y="<?= $height - $paddingBottom + 12 ?>"
+              class="text-small" text-anchor="middle">
+            <?= sprintf("%02d:00", $hour) ?>
+        </text>
+    <?php endif; ?>
 
-    <!-- PRAVÁ BUŇKA: GRAF -->
-    <td style="width:60%;">
-        <svg viewBox="0 0 <?= $width ?> <?= $height ?>">
+<?php endfor; ?>
 
-        <?php for ($j = 1; $j <= $yLines; $j++): ?>
-            <?php
-                $altVal = $j * $yStep;
-                $gy = $paddingTop + $innerH * (1 - ($altVal / $maxAlt));
-            ?>
-            <line x1="<?= $paddingLeft ?>" y1="<?= $gy ?>"
-                  x2="<?= $width - $paddingRight ?>" y2="<?= $gy ?>"
-                  stroke="#333" stroke-width="1" />
+    <line x1="<?= $paddingLeft ?>" y1="<?= $height - $paddingBottom ?>"
+          x2="<?= $width - $paddingRight ?>" y2="<?= $height - $paddingBottom ?>"
+          class="axis" />
 
-            <text x="<?= $paddingLeft - 6 ?>" y="<?= $gy + 4 ?>"
-                  class="text-small" text-anchor="end">
-                <?= $altVal ?>°
-            </text>
-        <?php endfor; ?>
+    <line x1="<?= $paddingLeft ?>" y1="<?= $paddingTop ?>"
+          x2="<?= $paddingLeft ?>" y2="<?= $height - $paddingBottom ?>"
+          class="axis" />
 
-        <?php for ($j = 0; $j <= $xSteps; $j++):
-            $vx = $paddingLeft + $innerW * ($j / $xSteps);
+    <text x="<?= $paddingLeft - 35 ?>" y="<?= ($height / 2) ?>"
+          class="text-small" text-anchor="middle"
+          transform="rotate(-90 <?= $paddingLeft - 35 ?>,<?= ($height / 2) ?>)">
+        Výška (°)
+    </text>
 
-            $totalMinutes = $startMinutes + $j * $xStepMinutes;
-            $utcHour = floor(($totalMinutes / 60)) % 24;
-            $utcMinute = $totalMinutes % 60;
+<?php if (!empty($points)):
+    // polygon jen když má smysl (aby se minimalizovaly artefakty u nízkých výšek)
+    $poly = [];
+    foreach ($points as $pt) $poly[] = $pt[0] . ',' . $pt[1];
+    $poly[] = end($points)[0] . ',' . ($height - $paddingBottom);
+    $poly[] = $points[0][0] . ',' . ($height - $paddingBottom);
+    $polyPoints = implode(' ', $poly);
 
-            $dt = new DateTime(sprintf('%02d:%02d', $utcHour, $utcMinute), new DateTimeZone('UTC'));
-            $dt->setTimezone(new DateTimeZone('Europe/Prague'));
+    $linePoints = implode(' ', array_map(fn($pt) => $pt[0].','.$pt[1], $points));
+?>
+    <?php if ($maxAlt > 3): ?>
+        <polygon points="<?= $polyPoints ?>" class="graph-fill" />
+    <?php endif; ?>
+    <polyline points="<?= $linePoints ?>" class="graph-line" />
+<?php endif; ?>
 
-            $hour = (int)$dt->format('H');
-            $minute = (int)$dt->format('i');
+<?php if ($transitX !== null): ?>
+    <line x1="<?= $transitX ?>" y1="<?= $paddingTop ?>"
+          x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom ?>"
+          stroke="red" stroke-width="1.5" />
+<?php endif; ?>
 
-            $isLabel = ($minute === 0) && ($hour % 2 === 0);
-        ?>
-            <line x1="<?= $vx ?>" y1="<?= $paddingTop ?>"
-                  x2="<?= $vx ?>" y2="<?= $height - $paddingBottom ?>"
-                  stroke="#333" stroke-width="1" />
+</svg>
 
-            <?php if ($isLabel): ?>
-                <text x="<?= $vx ?>" y="<?= $height - $paddingBottom + 12 ?>"
-                      class="text-small" text-anchor="middle">
-                    <?= sprintf("%02d:00", $hour) ?>
-                </text>
-            <?php endif; ?>
-
-        <?php endfor; ?>
-
-            <line x1="<?= $paddingLeft ?>" y1="<?= $height - $paddingBottom ?>"
-                  x2="<?= $width - $paddingRight ?>" y2="<?= $height - $paddingBottom ?>"
-                  class="axis" />
-
-            <line x1="<?= $paddingLeft ?>" y1="<?= $paddingTop ?>"
-                  x2="<?= $paddingLeft ?>" y2="<?= $height - $paddingBottom ?>"
-                  class="axis" />
-
-            <text x="<?= $paddingLeft - 35 ?>" y="<?= ($height / 2) ?>"
-                  class="text-small" text-anchor="middle"
-                  transform="rotate(-90 <?= $paddingLeft - 35 ?>,<?= ($height / 2) ?>)">
-                Výška (°)
-            </text>
-
-        <?php if (!empty($points)):
-            $poly = [];
-            foreach ($points as $pt) $poly[] = $pt[0] . ',' . $pt[1];
-            $poly[] = end($points)[0] . ',' . ($height - $paddingBottom);
-            $poly[] = $points[0][0] . ',' . ($height - $paddingBottom);
-            $polyPoints = implode(' ', $poly);
-
-            $linePoints = implode(' ', array_map(fn($pt) => $pt[0].','.$pt[1], $points));
-        ?>
-            <?php if ($maxAlt > 3): ?>
-                <polygon points="<?= $polyPoints ?>" class="graph-fill" />
-            <?php endif; ?>
-
-            <polyline points="<?= $linePoints ?>" class="graph-line" />
-        <?php endif; ?>
-
-        <?php if ($transitX !== null): ?>
-            <line x1="<?= $transitX ?>" y1="<?= $paddingTop ?>"
-                  x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom ?>"
-                  stroke="red" stroke-width="1.5" />
-        <?php endif; ?>
-
-        </svg>
-    </td>
-
-</tr>
-<?php endforeach; ?>
-</table>
-
+<?php endif; ?>
 </div>
-
 </body>
 </html>
