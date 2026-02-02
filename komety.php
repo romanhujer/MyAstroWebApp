@@ -1,6 +1,13 @@
 <?php
 // BLok1: Načtení dat a příprava
 date_default_timezone_set('Europe/Prague');
+$nowTime = date('Y-m-d H:i:s');
+
+$nowTZ = new DateTimeZone("Europe/Prague");
+$dt = new DateTime("now", $nowTZ);
+
+$offsetHours = $dt->getOffset() / 3600;
+
 
 $json_dir = "/opt/astro_json";
 
@@ -16,7 +23,7 @@ $data = load_comets($json_dir . '/comets_current_aerith_ra_alt.json');
 $comets = $data['comets'] ?? [];
 
 // limit komet
-$limit = isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : 100;
+$limit = isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : 10;
 
 // volba osy X: transit nebo noon
 $xaxis = 'noon';
@@ -57,6 +64,7 @@ function roundTo30($dt) {
 
 $nowUTC = new DateTime('now', new DateTimeZone('UTC'));
 $rounded = roundTo30(clone $nowUTC);
+
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -86,7 +94,7 @@ svg { width:100%; height:220px; background:#000; border:1px solid #444; }
 
 <div class="box">
 <h1>Komety – aktuální viditelnost</h1>
-<p>Čas: <?= htmlspecialchars($rounded) ?> UTC</p>
+<p>Čas: <?= htmlspecialchars($nowTime) ?> </p>
 
 <table class="main-table">
 <?php
@@ -237,20 +245,38 @@ foreach ($comets as $c):
     // ------------------------------------------------------------
     // KULMINACE — jen pokud spadá do 12→12 UTC
     // ------------------------------------------------------------
-    $transitX = null;
-    if (!empty($c['transit_utc'])) {
-        $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-        $tsT = $dtT->getTimestamp();
-        // pokud je kulminace před 12:00 UTC, posuneme ji o 24h
-        if ($tsT < $startTs) {
-            $tsT += 24 * 3600;
-        }
 
-        if ($tsT >= $startTs && $tsT <= $endTs) {
-            $ratioT = ($tsT - $startTs) / $spanSec;
-            $transitX = $paddingLeft + $innerW * $ratioT;
-        }
+// ------------------------------------------------------------
+// KULMINACE – výpočet nezávislý na mřížce i bodech grafu
+// ------------------------------------------------------------
+$transitX = null;
+
+if (!empty($c['transit_utc'])) {
+
+    // 1) Z JSON vezmeme jen čas (HH:MM)
+    $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
+    $hT  = (int)$dtT->format('H');
+    $mT  = (int)$dtT->format('i');
+
+
+    // 3) Pokud je kulminace < 12:00 → posuneme na další den
+    if ($hT < 12) {
+        $hT += 24;
     }
+
+    // 2) Převod na desetinné hodiny
+    $hT = $hT + $mT / 60.0;
+
+
+    // 4) Odpočítáme 12:00 → tím dostaneme pozici v grafu (0–24 h)
+    $hFromStart = $hT - 12.0;   // 12:00 = 0h, 36:00 = 24h
+
+    // 5) Přepočet na ratio 0–1
+    $ratioT = $hFromStart / 24.0;
+
+    // 6) Přepočet na pixely
+    $transitX = $paddingLeft + $innerW * $ratioT;
+}
 
     $shown++;
 ?>
@@ -333,7 +359,7 @@ foreach ($comets as $c):
             <?php if ($isLabel): ?>
                 <text x="<?= $vx ?>" y="<?= $height - $paddingBottom + 12 ?>"
                       class="text-small" text-anchor="middle">
-                    <?= sprintf("%02d:00", $hour) ?>
+                    <?= sprintf("%02d:00", $hour + $offsetHours) ?>
                 </text>
             <?php endif; ?>
 
@@ -380,7 +406,7 @@ foreach ($comets as $c):
         <!-- Červená čára kulminace -->
         <?php if ($transitX !== null): ?>
             <line x1="<?= $transitX ?>" y1="<?= $paddingTop ?>"
-                  x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom ?>"
+                  x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom  ?>"  
                   stroke="red" stroke-width="1.5" />
         <?php endif; ?>
 

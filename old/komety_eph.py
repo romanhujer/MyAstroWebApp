@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# -------------------------------------------------
-# komety_eph.py
-# Popis: Výpočet efemerid komet na základě dat z Aerith
-# Autor: Roman Hujer    
-# Datum: 2024-06-15
-# -------------------------------------------------
 
 import re
 import json
@@ -13,7 +7,7 @@ import requests
 from datetime import datetime, timedelta
 
 from bs4 import BeautifulSoup
-from skyfield.api import load, wgs84, Star, load_constellation_map
+from skyfield.api import load, wgs84, Star
 
 # -------------------------------------------------
 # Geografická poloha (Vrkoslavice / Jablonec n. N.)
@@ -30,12 +24,6 @@ STEP_MIN = 10
 # -------------------------------------------------
 # Pomocné funkce
 # -------------------------------------------------
-def get_constellation(observer, t, ra, dec):
-    constellation_map = load_constellation_map()
-    star = Star(ra_hours=ra, dec_degrees=dec)
-    apparent = observer.at(t).observe(star).apparent()
-    return constellation_map(apparent)
-
 def interpolate(a, b, f):
     if a is None or b is None:
         return None
@@ -224,13 +212,10 @@ def main():
             elong = interpolate(now["elong"], plus7["elong"], f)
             mag = interpolate(now["mag"], plus7["mag"], f)
 
-            
             star = Star(ra_hours=ra, dec_degrees=dec)
             alt, az, _ = observer.at(t).observe(star).apparent().altaz()
             alt_deg = alt.degrees
             az_deg = az.degrees
-
-            const_name = get_constellation(observer, t, ra, dec)
 
             alts.append(alt_deg)
             mags.append(mag if mag is not None else 99.0)
@@ -242,7 +227,6 @@ def main():
                 "alt_deg": round(alt_deg, 2),
                 "az_deg": round(az_deg, 2),
                 "r_au": r_au,
-                "constellation": const_name,
                 "delta_au": delta_au,
                 "elong_deg": round(elong, 2) if elong is not None else None,
                 "mag_est": round(mag, 2) if mag is not None else None,
