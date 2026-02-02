@@ -239,24 +239,17 @@ foreach ($comets as $c):
     // ------------------------------------------------------------
     $transitX = null;
     if (!empty($c['transit_utc'])) {
-    // převedeme čas kulminace na hodiny od půlnoci
-$dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-$hourT = (int)$dtT->format('H');
-$minT  = (int)$dtT->format('i');
-$hT = $hourT + $minT/60.0;
+        $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
+        $tsT = $dtT->getTimestamp();
+        // pokud je kulminace před 12:00 UTC, posuneme ji o 24h
+        if ($tsT < $startTs) {
+            $tsT += 24 * 3600;
+        }
 
-// posuneme kulminaci do okna 12 → 36
-if ($hT < 12) {
-    $hT += 24;
-}
-if ($hT > 36) {
-    $hT -= 24;
-}
-
-// přepočet na X pozici
-$ratioT = ($hT - 12) / 24.0;
-$transitX = $paddingLeft + $innerW * $ratioT;
-
+        if ($tsT >= $startTs && $tsT <= $endTs) {
+            $ratioT = ($tsT - $startTs) / $spanSec;
+            $transitX = $paddingLeft + $innerW * $ratioT;
+        }
     }
 
     $shown++;
