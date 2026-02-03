@@ -24,7 +24,7 @@ ALT = 600
 
 AERITH_URL = "http://www.aerith.net/comet/weekly/current.html"
 
-SPAN_HOURS = 48
+SPAN_HOURS = 72
 STEP_MIN = 10
 
 # -------------------------------------------------
