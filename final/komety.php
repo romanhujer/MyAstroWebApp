@@ -15,7 +15,7 @@ $json_dir = "/opt/astro_json";
 
 $constellationCZ = [
     "And" => "Andromeda",
-    "Ant" => "Čeropas",
+    "Ant" => "Vývěva",
     "Aps" => "Rajka",
     "Aql" => "Orel",
     "Aqr" => "Vodnář",
@@ -26,6 +26,7 @@ $constellationCZ = [
     "CMa" => "Velký pes",
     "CMi" => "Malý pes",
     "CVn" => "Honicí psi",
+    "Cnc" => "Rak",
     "Cae" => "Rydlo",
     "Cam" => "Žirafa",
     "Cap" => "Kozoroh",

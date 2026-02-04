@@ -1,13 +1,25 @@
 <?php
-//
 // komety.php
 // 
-// Roman Hujer    
+//   Copyright (c) 2026 Roman Hujer   http://hujer.net
+//
+//   This program is free software: you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation, either version 3 of the License, or
+//   (at your option) any later version.
+//
+//   This program is distributed in the hope that it will be useful,ss
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of the GNU General Public License
+//   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
 // 
-
 date_default_timezone_set('Europe/Prague');
 $nowTime = date('Y-m-d H:i');
 $nowTZ = new DateTimeZone("Europe/Prague");
+
 // Souřadnice Vrkoslavice 
 $latitude = 50.71;
 $longitude = 15.18;
@@ -16,9 +28,23 @@ $dt = new DateTime("now", $nowTZ);
 $offsetHours = $dt->getOffset() / 3600;
 $json_dir = "/opt/astro_json";
 
+
+// ------------------------------------------------------------
+// VYPOCET NOC
+// Astronomický soumrak (výška = -10°),  noc (výška = -18°)
+$astro_start = date_sunset($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
+$twilight_start = date_sunset($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 101, 1);
+
+// Konec nocí je následující den
+$target_day = strtotime("+1 day", $timestamp);
+$astro_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
+$twilight_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longitude, 101, 1);
+
+// ------------------------------------------------------------
+
 $constellationCZ = [
     "And" => "Andromeda",
-    "Ant" => "Čeropas",
+    "Ant" => "Vývěva",
     "Aps" => "Rajka",
     "Aql" => "Orel",
     "Aqr" => "Vodnář",
@@ -29,6 +55,7 @@ $constellationCZ = [
     "CMa" => "Velký pes",
     "CMi" => "Malý pes",
     "CVn" => "Honicí psi",
+    "Cnc" => "Rak",
     "Cae" => "Rydlo",
     "Cam" => "Žirafa",
     "Cap" => "Kozoroh",
@@ -122,26 +149,6 @@ $limit= isset($_GET['count']) ? max(1, (int)$_GET['count']) : 100;
 $limit= isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : $limit;
 $vmag = isset($_GET['vmag']) ? max(1, (int)$_GET['vmag']) : 24;
 
-// ------------------------------------------------------------
-// VYPOCET NOC
-// ------------------------------------------------------------
-$tz   = new DateTimeZone('UTC');
-$now  = new DateTime('now', $tz);
-// Astronomický rozbřesk a soumrak – výška -18°
-$astro_start = date_sunset($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 102, 1);
-// $astro_end = date_sunrise($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 102, 1);
-$now = time();
-// Výpočet dnešního ranního konce astronomické noci
-$today_end = date_sunrise($now, SUNFUNCS_RET_TIMESTAMP, $latitude, $longitude, 102, 1);
-
-// Pokud už je po něm, spočítáme zítřejší
-if ($now >= $today_end) {
-    $target_day = strtotime("+1 day", $now);
-    $astro_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longitude, 102, 1);
-} else {
-    $astro_end = date("H:i", $today_end);
-}
-// ------------------------------------------------------------
 
 
 // funkce RA → H M S
@@ -207,21 +214,19 @@ table { width:100%; border-collapse: collapse; }
 .axis { stroke:#555; stroke-width:1; }
 .graph-line { fill:none; stroke:#4caf50; stroke-width:2; }
 .graph-fill { fill:rgba(76,175,80,0.25); stroke:none; }
-.graph-night {fill:rgba(10, 15, 163, 0.25); stroke:none; }
-.graph-night2 {fill:rgba(5, 5, 60, 0.25); stroke:none; }
+.graph-night {fill:rgba(1, 3, 36, 0.25); stroke:none; }
+.graph-day {fill:rgba(86, 86, 90, 0.25); stroke:none; }
+.graph-tw {fill:rgba(50, 50, 69, 0.25); stroke:none; }
 .text-small { font-size: 11px; fill:#aaa; } 
 .body a { color: blue; text-decoration: none;,}
 .body a:hover { color: white;  text-decoration: none; }
 </style>
 </head>
 <body>
-
 <div class="box">
 <h1>Komety – aktuální viditelnost</h1>
-<div class="body"><a href="http://www.aerith.net/comet/weekly/current.html">Více informací o viditelnosti komet</a></div>
-   
+<div class="body"><a href="http://www.aerith.net/comet/weekly/current.html">Více informací o viditelnosti komet</a></div> 
 <p>Data jsou plantá pro čas: <stron><?= htmlspecialchars( $nowTimeR) ?></strong></p>
-
 <table class="main-table">
 <?php
 $shown = 0;
@@ -339,17 +344,38 @@ foreach ($comets as $c):
     $innerW = $width  - $paddingLeft - $paddingRight;
     $innerH = $height - $paddingTop  - $paddingBottom;
 
-
- // Noční část – modré pozadí
-    $nightStart = $paddingLeft + ($innerW * ( (strtotime($astro_start )  - $startTs) / $spanSec ));
-    $nightEnd =  $paddingLeft + ($innerW * ( (strtotime($astro_end) + 24*3600 - $startTs) / $spanSec ));
-        
-        
+    // Noční barvy
+    $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60 + date('i', strtotime($astro_start)) - (12 + $offsetHours)*60) / (24*60) ));
+    $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60 + date('i', strtotime($astro_end)) + (12 - $offsetHours)*60) / (24*60) ));
+    $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 + date('i', strtotime($twilight_start)) - (12 + $offsetHours)*60)) / (24*60));
+    $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60 + date('i', strtotime($twilight_end)) + (12 - $offsetHours)*60)) / (24*60));
+           
+    //  Noc
     $night = $nightStart . ',' . $paddingTop    . ',' .
              $nightStart . ',' . ($height - $paddingBottom). ',' .
              $nightEnd   . ',' . ($height - $paddingBottom). ',' .
              $nightEnd   . ',' . $paddingTop;
 
+    // stmívání a úsvit
+    $afternoon =  $paddingLeft . ',' . $paddingTop                . ',' .
+                  $paddingLeft . ',' . ($height - $paddingBottom) . ',' .
+                  $twStart     . ',' . ($height - $paddingBottom) . ',' .
+                  $twStart     . ',' . $paddingTop;
+
+    $morning  = $twEnd                   . ',' . $paddingTop                . ',' .
+                $twEnd                   . ',' . ($height - $paddingBottom) . ',' .
+                ($width - $paddingRight) . ',' . ($height - $paddingBottom) . ',' .
+                ($width - $paddingRight) . ',' . $paddingTop;
+
+    $tw_start = $twStart     . ',' . $paddingTop                . ',' .
+                      $twStart     . ',' . ($height - $paddingBottom) . ',' .
+                      $nightStart  . ',' . ($height - $paddingBottom) . ',' .
+                      $nightStart  . ',' . $paddingTop;
+
+    $tw_end = $nightEnd . ',' . $paddingTop                . ',' .
+                    $nightEnd . ',' . ($height - $paddingBottom) . ',' .
+                    $twEnd    . ',' . ($height - $paddingBottom) . ',' .
+                    $twEnd    . ',' . $paddingTop;
 
     // ------------------------------------------------------------
     // BODY GRAFU (x = UTC ratio, y = alt)
@@ -437,11 +463,21 @@ if (!empty($c['transit_utc'])) {
         <svg viewBox="0 0 <?= $width ?> <?= $height ?>">
 
 
-       <!-- Noční část -->
+       <!-- Stmívání -->
+  
+
+        <polygon points="<?= $afternoon ?>" class="graph-day" />  ;    
 
 
-        <polygon points="<?= $night ?>" class="graph-night" />  ;
+        <polygon points="<?= $tw_start ?>" class="graph-tw" />  ;
+     
 
+        <polygon points="<?= $night ?>" class="graph-night" />  ; 
+
+        <polygon points="<?= $tw_end ?>" class="graph-tw" />  ;
+
+        <polygon points="<?= $morning ?>" class="graph-day" />  ;
+       
         
 
         <!-- Vodorovné čáry (výška) -->
@@ -574,7 +610,8 @@ if (!empty($c['transit_utc'])) {
 // Příklad (zakomentovaný):
 // echo "<!-- Debug: vykresleno $shown komet -->";
 // echo " Debug: vykresleno $shown komet <br>";
-// echo " Debug: Noc start  $astro_start <br>";
-// echo " Debug: Noc end    $astro_end <br> ";
-// echo " Debug: $night<br> ";
+//echo "A S $astro_start <br>";
+//echo "A E $astro_end <br>";
+//echo "T S $twilight_start <br>";
+//echo "T E $twilight_end <br>" ;
 ?>
