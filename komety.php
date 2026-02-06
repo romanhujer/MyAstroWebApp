@@ -1,21 +1,22 @@
 <?php
-// komety.php
-// 
-//   Copyright (c) 2026 Roman Hujer   http://hujer.net
-//
-//   This program is free software: you can redistribute it and/or modify
-//   it under the terms of the GNU General Public License as published by
-//   the Free Software Foundation, either version 3 of the License, or
-//   (at your option) any later version.
-//
-//   This program is distributed in the hope that it will be useful,ss
-//   but WITHOUT ANY WARRANTY; without even the implied warranty of
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//   GNU General Public License for more details.
-//
-//   You should have received a copy of the GNU General Public License
-//   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
-// 
+/*  komety.php
+# 
+#   Copyright (c) 2026 Roman Hujer   http://hujer.net
+#
+#   This program is free software: you can redistribute it and/or modify
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,ss
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
+#
+*/ 
+
 date_default_timezone_set('Europe/Prague');
 $nowTime = date('Y-m-d H:i');
 $nowTZ = new DateTimeZone("Europe/Prague");
@@ -148,6 +149,7 @@ $comets = $data['comets'] ?? [];
 $limit= isset($_GET['count']) ? max(1, (int)$_GET['count']) : 100;
 $limit= isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : $limit;
 $vmag = isset($_GET['vmag']) ? max(1, (int)$_GET['vmag']) : 24;
+$min_elong = isset($_GET['elong']) ? max(1, (int)$_GET['elong']) : 0;
 
 
 
@@ -262,8 +264,10 @@ foreach ($comets as $c):
     $alt  = sprintf("%.1f°", $current['alt_deg']);
     $az   = sprintf("%.1f°", $current['az_deg']);
     $elong= $current['elong_deg'];
+    if ($elong < $min_elong) continue; 
     $mag  = $current['mag_est'];
     if  ($mag > $vmag) continue;
+
 
     $constCode = $current['constellation'];
     $constName = $constellationCZ[$constCode] ?? $constCode;

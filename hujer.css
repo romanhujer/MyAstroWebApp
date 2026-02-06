@@ -127,7 +127,7 @@ body {
 
 /* Hlavní obsah */
 .content {
-    width: 900px;
+    width: 820px;
     background: #172347;
     padding: 10px;
     font-size: 18px;
@@ -164,4 +164,9 @@ body {
     margin-bottom: 4px;
     margin-top: 0px;
 }
+
+.graf { margin-bottom: 25px; }
+
+form { margin-bottom: 20px; }
+
 /* Konec hujer.css */

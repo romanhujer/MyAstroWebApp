@@ -1,4 +1,22 @@
 <?php
+/*  weather.php
+# 
+#   Copyright (c) 2003 - 2026 Roman Hujer   http://hujer.net
+#
+#   This program is free software: you can redistribute it and/or modify
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,ss
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
+#
+*/ 
+
 date_default_timezone_set("Europe/Prague");
 
 // --- ENV proměnné ---
@@ -17,6 +35,7 @@ $longitude = 15.18;
 
 $db_pass_file = "/home/hujer/.dbpass"; 
 $json_dir = "/opt/astro_json";
+$api_dir = "/opt/www/html/api";
 
 // Načtení JSON
 $ephemeris = load_json($json_dir . '/moon_ephemeris.json');
@@ -872,7 +891,7 @@ if ($moonrise < $moonset ) {
    <meta http-equiv="Cache-Control" content="no-cache">
    <meta http-equiv="refresh" content="1800">
    <title>Počasi</title>
-   <link rel="stylesheet" href="/css/my.css">
+   <link rel="stylesheet" href="/css/hujer.css">
 </head>
 <body>
 
@@ -963,9 +982,15 @@ if ($moonrise < $moonset ) {
           </div>
         </td>
 
-        <td class="content">
-        <!-- Zacatek  -->
+        <td class="content" >
+        <!--         
             <A HREF="/teplota/small.html"><IMG BORDER=0 width=800 SRC="/teplota/sensor01_day_small.png"></A>
+        -->
+        <div class="content">
+         <?php    
+            include  $api_dir . '/meteo.php';
+         ?>
+         </div>
             <br>
             <br>
             <div class="header-text">
