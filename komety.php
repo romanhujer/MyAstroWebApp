@@ -146,9 +146,9 @@ $data = load_comets($json_dir . '/comets_current_aerith_ra_alt.json');
 $comets = $data['comets'] ?? [];
 
 // limit komet
-$limit= isset($_GET['count']) ? max(1, (int)$_GET['count']) : 100;
-$limit= isset($_GET['limit']) ? max(1, (int)$_GET['limit']) : $limit;
-$vmag = isset($_GET['vmag']) ? max(1, (int)$_GET['vmag']) : 24;
+$filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
+$count = isset($_GET['count']) ? max(1, (int)$_GET['count']) : 100;
+$vmag  = isset($_GET['vmag']) ? max(1, (int)$_GET['vmag']) : 24;
 $min_elong = isset($_GET['elong']) ? max(1, (int)$_GET['elong']) : 0;
 
 
@@ -226,14 +226,43 @@ table { width:100%; border-collapse: collapse; }
 </head>
 <body>
 <div class="box">
-<h1>Komety – aktuální viditelnost</h1>
+
+<?php if (  $filtr === 'yes'  ): ?>
+
+ <h1>Aktuální viditelnost komet</h1>
+
 <div class="body"><a href="http://www.aerith.net/comet/weekly/current.html">Více informací o viditelnosti komet</a></div> 
+<br>
+<form method="get">
+    <label>
+    <input type="hidden" id="f" name="f" value="yes" />
+    </label>
+    <label>Jasnost: 
+         <input type="number" min="-10"  max="25" id="vmag" name="vmag" value="<?= $vmag ?>" />mag &nbsp;
+    </label>
+     <label>Elongace: 
+         <input type="number" min="0"  max="180" id="elong" name="elong" value="<?= $min_elong ?>" />° &nbsp;
+    </label>
+<!--   
+   <label>Počet: 
+         <input type="number" min="1"  max="999" id="count" name="count" value="<?= $count ?>" />
+    </label>
+-->   
+    <button type="submit">Zobrazit</button>
+</form>
+<?php else : ?>
+
+<h1>Aktuální viditelnost komet s minimální jasností <?= $vmag ?>mag a elongací <?= $min_elong ?>°</h1>
+
+ <?php endif; ?>
+
 <p>Data jsou plantá pro čas: <stron><?= htmlspecialchars( $nowTimeR) ?></strong></p>
+
 <table class="main-table">
 <?php
 $shown = 0;
 foreach ($comets as $c):
-    if ($shown >= $limit) break;
+    if ($shown >= $count) break;
 
     $graph48 = $c['graph_48h'] ?? [];
     if (count($graph48) < 2) continue;
