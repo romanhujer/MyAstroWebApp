@@ -891,10 +891,13 @@ if ($moonrise < $moonset ) {
    <meta http-equiv="Cache-Control" content="no-cache">
    <meta http-equiv="refresh" content="1800">
    <title>Počasi</title>
-   <link rel="stylesheet" href="/css/hujer.css">
+   <link rel="stylesheet" href="/css/my.css">
+   <style>
+     .graf { margin-bottom: 25px; }
+     form { margin-bottom: 20px; color: white; font-size: 14px;}
+   </style>
 </head>
 <body>
-
 <div class="main-wrapper">
 
     <div class="header">
@@ -961,14 +964,13 @@ if ($moonrise < $moonset ) {
         <?= $moon_nf1 ?><br>
         <?= $moon_nf2 ?><br>
      </div>
-      <br>
-          <div><b>Počasí</b></div>
+    <br>
+       <div><b>Počasí</b></div>
            <a href="https://www.ventusky.com/">Ventusky</a>
            <a href="https://mapy.meteo.pl/">Poláci</a>
            <a href="https://www.windy.com/">Windy</a>
            <a href="https://www.meteoblue.com/cs/po%C4%8Das%C3%AD/outdoorsports/seeing/jablonec-nad-nisou_%c4%8cesko_3074603">Meteoblue</a>
-      
-	    <br>	
+          <br>	
 
 	    <div><b>Kamery</b></div>        
             <a href="https://pocasi-frydlant.cz/webcam/webcam-foto-5.jpg">Horní Řasnice</a>
@@ -977,29 +979,37 @@ if ($moonrise < $moonset ) {
             <a href="https://cesty.hujer.net">Cesty</a>
             <a href="https://astro.hujer.net">Astro</a>
             <a href="/">Domů</a>
+           <!-- <a href="weather.php">Obnovit</a>  -->
             <br>
            <!-- Odakzy Konec-->
           </div>
         </td>
-
         <td class="content" >
-        <!--         
-            <A HREF="/teplota/small.html"><IMG BORDER=0 width=800 SRC="/teplota/sensor01_day_small.png"></A>
-        -->
-        <div class="content">
-         <?php    
+
+    <!--  Zobrazení grafu počasí z modulu api/meteo.php -->     
+        <?php    
+            $header = "no";
+            $presure = "yes";
+            $humidity= "no";
             include  $api_dir . '/meteo.php';
          ?>
+    <!--  Konec modulu api/meteo.php -->          
+         <div class="back-link">
+           <a href="weather.php">Obnovit</a>
+         </div>  
+             
+         <br>
+         <div class="header-text">
+            <strong>Vizualiazace družicových dat</strong><br>
          </div>
-            <br>
-            <br>
-            <div class="header-text">
-            <b>Vizualiazace družicových dat</b><br>
-            </div>
-            <iframe src="https://meteo.hvbo.cz/msg.htm" style="width:800; height: 800;  border:0;"></iframe>
-	    <br>
+         <iframe src="https://meteo.hvbo.cz/msg.htm" style="width:800; height: 800;  border:0;"></iframe>
+	     <br>
         <!-- Konec-->
-            <a class="back-link" href="<?= $http_referer ?>">Zpět </a>
+        <!--  
+         <div class="back-link">
+           <a href="weather.php">Obnovit</a>
+         </div>  
+        --> 
         </td>
         <td class="sidebar-box">
            <div class="weather-box">
@@ -1024,7 +1034,6 @@ if ($moonrise < $moonset ) {
         </td>
         </tr>
     </table>
-
 </div>
 </body>
 </html>

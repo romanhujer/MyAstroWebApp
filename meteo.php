@@ -1,5 +1,5 @@
 <?php
-/*  komety.php
+/*  meteo.php
 # 
 #   Copyright (c) 2026 Roman Hujer   http://hujer.net
 #
@@ -16,8 +16,6 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
 #
 */ 
-
-header("Content-Type: text/html; charset=UTF-8");
 
 /* ---------------------------------------------------------
    1) Připojení k databázi
@@ -45,10 +43,15 @@ $sensor = "SQM-HR03";
    2) Zpracování vstupních parametrů
 --------------------------------------------------------- */
 
+
+$header  = isset($header) ? $header : 'yes';
+
 $from_param = $_GET['from'] ?? null;
 $to_param   = $_GET['to']   ?? null;
-$presure    = $_GET['p']  ??  'no';
-$humidity   = $_GET['h']  ??  'no';
+
+
+$presure    = isset($_GET['p']) ? $_GET['p'] : (isset($presure) ?  $presure : 'yes');
+$humidity   = isset($_GET['h']) ? $_GET['h'] : (isset($humidity) ? $humidity : 'yes');
 
 
 if ($from_param && $to_param) {
@@ -348,9 +351,7 @@ while ($t <= $max_ts) {
     if ($mode === "hour2")  $t = strtotime("+2 hours", $t);
     if ($mode === "hour1")  $t = strtotime("+1 hour", $t);
 }
-
-    
-
+ 
     /* --- Osy --- */
     $svg .= "<line x1=\"$padding_left\" y1=\"" . ($height - $padding_bottom) . "\" x2=\"" . ($width - $padding_right) . "\" y2=\"" . ($height - $padding_bottom) . "\" stroke=\"black\" />\n";
     $svg .= "<line x1=\"$padding_left\" y1=\"$padding_top\" x2=\"$padding_left\" y2=\"" . ($height - $padding_bottom) . "\" stroke=\"black\" />\n";
@@ -406,22 +407,25 @@ while ($t <= $max_ts) {
 
     return $svg;
 }
+
+if (  $header === 'yes'  ) {
+header("Content-Type: text/html; charset=UTF-8");
+}
+
 ?>
+<?php if (  $header === 'yes'  ): ?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/css/hujer.css">
+<link rel="stylesheet" href="/css/my.css">
 <title>Grafy počasí</title>
-<style>
-body { font-family: sans-serif;  color: white;}
-.graf { margin-bottom: 25px; }
-form { margin-bottom: 20px; color: white; font-size: 14px;}
-</style>
 </head>
 <body>
+
+    <h1>Graf počasí Vrkoslavice</h1>
+<?php endif; ?>
 <!-- 
-<h1>Graf počasí Vrkoslavice</h1>
 <div class="main-wrapper">Interval: <?php echo date('Y-m-d H:i', $from_ts); ?> → <?php echo date('Y-m-d H:i', $to_ts); ?></div>
 -->
 
@@ -446,14 +450,19 @@ form { margin-bottom: 20px; color: white; font-size: 14px;}
         <input type="datetime-local" name="to" value="<?php echo htmlspecialchars($to_input_value, ENT_QUOTES, 'UTF-8'); ?>">
     </label>
     <label>Tlak:
+         <input type="hidden" id="p" name="p" value="no" />
          <input type="checkbox" id="p" name="p" value="yes" 
          <?php if (  $presure === 'yes'  ): ?> checked <?php endif; ?>  />
     </label>
     <label>Vlhkost:
+         <input type="hidden" id="h" name="h" value="no" />
          <input type="checkbox" id="h" name="h" value="yes" 
          <?php if ( $humidity === 'yes'  ): ?> checked <?php endif; ?>  />
     </label>
     <button type="submit">Zobrazit</button>
 </form>
+
+<?php if (  $header === 'yes'  ): ?>
 </body>
 </html>
+<?php endif; ?>
