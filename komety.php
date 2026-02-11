@@ -378,9 +378,9 @@ foreach ($comets as $c):
     $innerH = $height - $paddingTop  - $paddingBottom;
 
     // Noční barvy
-    $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60 + date('i', strtotime($astro_start)) - (12 + $offsetHours)*60) / (24*60) ));
+    $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60 + date('i', strtotime($astro_start)) -  12 * 60) / (24*60) ));
     $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60 + date('i', strtotime($astro_end)) + (12 - $offsetHours)*60) / (24*60) ));
-    $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 + date('i', strtotime($twilight_start)) - (12 + $offsetHours)*60)) / (24*60));
+    $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 + date('i', strtotime($twilight_start)) - 12 * 60)) / (24*60));
     $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60 + date('i', strtotime($twilight_end)) + (12 - $offsetHours)*60)) / (24*60));
            
     //  Noc
@@ -501,10 +501,8 @@ if (!empty($c['transit_utc'])) {
 
         <polygon points="<?= $afternoon ?>" class="graph-day" />  ;    
 
-
         <polygon points="<?= $tw_start ?>" class="graph-tw" />  ;
-     
-
+    
         <polygon points="<?= $night ?>" class="graph-night" />  ; 
 
         <polygon points="<?= $tw_end ?>" class="graph-tw" />  ;

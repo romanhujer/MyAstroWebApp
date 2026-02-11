@@ -138,20 +138,15 @@ $constellationIcon = [
     "Ryby" => "♓︎",
 ];
 
+$planeta = "jupiter";
+$name = "Jupiter";
 
-
-
-
-$id = isset($_GET['id']) ? $_GET['id'] : 'all' ; 
-$filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
-$xmode = isset($_GET['m']) ? $_GET['m'] : 'N'; 
-
-
-if ($id === 'all') {
-    $planety = ["mer", "ven", "mar", "jup", "sat", "urn", "nep" ]; 
-} else {
-    $planety = [ $id ]; 
+if (isset($_GET['id']) && isset($map[$_GET['id']])) {
+    [$planeta, $name] = $map[$_GET['id']];
 }
+
+
+
 
 function load_today_planet($path) {
     $json = file_get_contents($path);
@@ -169,24 +164,7 @@ function load_today_planet($path) {
     return null;
 }
 
-// Souřadnice Vrkoslavice 
-$latitude = 50.71;
-$longitude = 15.18;
-
-$dt = new DateTime("now", $nowTZ);
-$offsetHours = $dt->getOffset() / 3600;
-
-// ------------------------------------------------------------
-// VYPOCET NOC
-// Astronomický soumrak (výška = -10°),  noc (výška = -18°)
-$astro_start = date_sunset($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
-$twilight_start = date_sunset($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 101, 1);
-
-// Konec nocí je následující den
-$target_day = strtotime("+1 day", $timestamp);
-$astro_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
-$twilight_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longitude, 101, 1);
-
+$planet = load_today_planet($json_dir . "/" . $planeta . '_ephemeris.json');
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -195,52 +173,22 @@ $twilight_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longi
 <title><?= $name ?> – dnešní viditelnost</title>
 <style>
 body { font-family: system-ui, -apple-system, sans-serif; background:#111; color:#eee; }
-.box { max-width: <?php if ($id === 'all' ) : ?> 1100px;  <?php else : ?>  700px; <?php endif; ?>  margin: 20px auto; padding: 16px; background:#222; border:1px solid #444; }
+.box { max-width: 700px; margin: 20px auto; padding: 16px; background:#222; border:1px solid #444; }
 h1 { font-size: 20px; margin: 0 0 10px; }
 table { width:100%; border-collapse: collapse; margin-bottom: 16px; }
 td { padding: 4px 0; }
 .label { color:#aaa; width: 35%; }
-.popis { color:#aaa; width: 35%; }
 .value { font-weight: 600; }
-svg { width:100%; height:220px; background:#111; border:1px solid #444 }
+svg { width:100%; height:220px; background:#000; border:1px solid #444; }
 .axis { stroke:#555; stroke-width:1; }
 .graph-line { fill:none; stroke:#4caf50; stroke-width:2; }
 .graph-fill { fill:rgba(76,175,80,0.25); stroke:none; }
-.graph-night {fill:rgba(1, 3, 36, 0.25); stroke:none; }
-.graph-day {fill:rgba(86, 86, 90, 0.25); stroke:none; }
-.graph-tw {fill:rgba(50, 50, 69, 0.25); stroke:none; }
-.text-small { font-size: 11px; fill:#aaa; } 
-.body a { color: blue; text-decoration: none;,}
-.body a:hover { color: white;  text-decoration: none; }
-</style>
+.text-small { font-size: 11px; fill:#aaa; }
 </style>
 </head>
-<body>    
+<body>
 <div class="box">
-<?php if (  $filtr === 'yes' && $id === 'all' ): ?>
-<h1>Planety</h1>
-<br>
-<form method="get">
-    <label>
-    <input type="hidden" id="f" name="f" value="yes" />
-    </label>
-    <label>Režím noc: 
-         <input type="radio" id="m" name="m" value="N"  
-         <?php if ( $xmode === 'N'  ): ?> checked <?php endif; ?> /> &nbsp;
-         Transit: 
-          <input type="radio" id="m" name="m" value="T" 
-          <?php if ( $xmode === 'T'  ): ?> checked <?php endif; ?> /> &nbsp;
-         </label>
-    <button type="submit">Zobrazit</button>
-</form>
-<br>
-<?php endif; ?>
 <?php
-    foreach ($planety as $myid) :
-
-        [$planeta, $name] = $map[$myid];
-        $planet = load_today_planet($json_dir . "/" . $planeta . '_ephemeris.json');
-
         // základní údaje
         $rise    = $planet['rise_utc']    ? date('H:i', strtotime($planet['rise_utc']))    : '—';
         $set     = $planet['set_utc']     ? date('H:i', strtotime($planet['set_utc']))     : '—';
@@ -248,7 +196,7 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
         // -----------------------------
         // Určení typu viditelnosti
         // -----------------------------
-        $visibleWord =  $myid === 'ven' ? 'viditelná' : 'viditelný';
+        $visibleWord = ($_GET['id'] ?? '') === 'ven' ? 'viditelná' : 'viditelný';
         
         $visibility = "na obloze";
 
@@ -290,10 +238,9 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
         // ---------------------------------------------
         // 1) Dynamický začátek grafu podle kulminace
         // ---------------------------------------------
-        
-        if ($xmode !== "N") {
-          $startMinutes = 0;  
-          if (!empty($planet['transit_utc'])) {
+        $startMinutes = 0;
+
+        if (!empty($planet['transit_utc'])) {
             $t = new DateTime($planet['transit_utc'], new DateTimeZone('UTC'));
 
             // kulminace v minutách
@@ -308,10 +255,7 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
             // přetočení do rozsahu 0–1440
             while ($startMinutes < 0) $startMinutes += 1440;
             while ($startMinutes >= 1440) $startMinutes -= 1440;
-          } 
-        } else {
-           $startMinutes = 720 ;  //začneme v poledne
-        }
+        } 
 
         // -----------------------------
         // 2) Vybrat správné 24h okno z 48h dat
@@ -350,37 +294,11 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
 
     <?php if (!$planet): ?>
             <p>Data pro planet dnes nejsou k dispozici.</p>
-
     <?php else: ?>
- 
+    
+    <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?> <?= $visibleWord ?> <?= $visibility ?></h1>
 
-
-<?php if (  $filtr === 'yes' && $id !== 'all' ): ?>
-  <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?> <?= $visibleWord ?> <?= $visibility ?></h1>
-<br>
-<form method="get">
-    <label>
-    <input type="hidden" id="f" name="f" value="yes" />
-    </label>
-    <label>Režím noc: 
-         <input type="radio" id="m" name="m" value="N"  
-         <?php if ( $xmode === 'N'  ): ?> checked <?php endif; ?> /> &nbsp;
-         Transit: 
-          <input type="radio" id="m" name="m" value="T" 
-          <?php if ( $xmode === 'T'  ): ?> checked <?php endif; ?> /> &nbsp;
-         </label>
-    <button type="submit">Zobrazit</button>
-</form>
-       
-<br>
-<?php else : ?>
-  <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?> <?= $visibleWord ?> <?= $visibility ?></h1>
-<?php endif; ?>
- <?php if ($id === 'all' ) : ?>
-      <table>
-      <tr><td width="450">    
-    <?php endif; ?>
- <table>
+    <table>
         <tr><td class="label">Východ</td><td class="value"><?= $rise; ?></td></tr>
         <tr><td class="label">Kulminace</td><td class="value"><?= $transit; ?></td></tr>
         <tr><td class="label">Západ</td><td class="value"><?= $set; ?></td></tr>
@@ -395,9 +313,7 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
             <tr> <td class="label">Nejbližší perihelium</td><td class="value"><?= $perihelion ?></td></tr>
         <?php endif; ?>
     </table>
-<?php if ($id === 'all') : ?>
-  <td widtd="700">
-<?php endif; ?>
+
     <?php
         // SVG parametry
         $width  = 600;
@@ -409,43 +325,6 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
 
         $innerW = $width  - $paddingLeft - $paddingRight;
         $innerH = $height - $paddingTop  - $paddingBottom;
-
-
-    // Noční barvy
-    $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60 + date('i', strtotime($astro_start)) -  12 * 60) / (24*60) ));
-    $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60 + date('i', strtotime($astro_end)) + (12 - $offsetHours)*60) / (24*60) ));
-    $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 + date('i', strtotime($twilight_start)) - 12 * 60)) / (24*60));
-    $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60 + date('i', strtotime($twilight_end)) + (12 - $offsetHours)*60)) / (24*60));
-           
-    //  Noc
-    $night = $nightStart . ',' . $paddingTop    . ',' .
-             $nightStart . ',' . ($height - $paddingBottom). ',' .
-             $nightEnd   . ',' . ($height - $paddingBottom). ',' .
-             $nightEnd   . ',' . $paddingTop;
-
-    // stmívání a úsvit
-    $afternoon =  $paddingLeft . ',' . $paddingTop                . ',' .
-                  $paddingLeft . ',' . ($height - $paddingBottom) . ',' .
-                  $twStart     . ',' . ($height - $paddingBottom) . ',' .
-                  $twStart     . ',' . $paddingTop;
-
-    $morning  = $twEnd                   . ',' . $paddingTop                . ',' .
-                $twEnd                   . ',' . ($height - $paddingBottom) . ',' .
-                ($width - $paddingRight) . ',' . ($height - $paddingBottom) . ',' .
-                ($width - $paddingRight) . ',' . $paddingTop;
-
-    $tw_start = $twStart     . ',' . $paddingTop                . ',' .
-                      $twStart     . ',' . ($height - $paddingBottom) . ',' .
-                      $nightStart  . ',' . ($height - $paddingBottom) . ',' .
-                      $nightStart  . ',' . $paddingTop;
-
-    $tw_end = $nightEnd . ',' . $paddingTop                . ',' .
-                    $nightEnd . ',' . ($height - $paddingBottom) . ',' .
-                    $twEnd    . ',' . ($height - $paddingBottom) . ',' .
-                    $twEnd    . ',' . $paddingTop;
-
-
-
 
         // -----------------------------
         // 4) Výpočet X/Y souřadnic bodů
@@ -519,19 +398,6 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
     </text>
 <?php endfor; ?>
 
-<?php if ($xmode === "N") : ?>
-       <!-- Stmívání -->
-        <polygon points="<?= $afternoon ?>" class="graph-day" />  ;    
-
-        <polygon points="<?= $tw_start ?>" class="graph-tw" />  ;
-    
-        <polygon points="<?= $night ?>" class="graph-night" />  ; 
-
-        <polygon points="<?= $tw_end ?>" class="graph-tw" />  ;
-
-        <polygon points="<?= $morning ?>" class="graph-day" />  ;      
-<?php endif; ?>
-
 <?php for ($i = 0; $i <= $xSteps; $i++):
     $vx = $paddingLeft + $innerW * ($i / $xSteps);
 
@@ -595,14 +461,10 @@ svg { width:100%; height:220px; background:#111; border:1px solid #444 }
           x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom ?>"
           stroke="red" stroke-width="1.5" />
 <?php endif; ?>
+
 </svg>
-<?php endif; ?>
 
-<?php if ($id === 'all') : ?>
-</td></tr></table>
 <?php endif; ?>
-<?php endforeach; ?>
-
 </div>
 </body>
 </html>
