@@ -406,7 +406,7 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                     continue;
                 if ($myid === 'nep' && $nep !== 'yes')
                     continue;
-            }
+            }s
             [$planeta, $name] = $map[$myid];
             $planet = load_today_planet($json_dir . "/" . $planeta . '_ephemeris.json');
 
