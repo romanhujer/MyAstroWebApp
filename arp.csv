@@ -1,0 +1,339 @@
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+Arp 1,NGC 2857,GAL,9.4100,49.3500,12.5,2.3,UMa,Spirála s nízkou plošnou jasností
+Arp 2,UGC 10310,GAL,16.2700,47.0333,14.5,1.2,Dra,Spirála s nízkou plošnou jasností
+Arp 3,UGC 10310,GAL,16.2717,47.0500,14.6,1.1,Dra,Nízká jasnost - fragmentovaná
+Arp 4,UGC 3730,GAL,7.2917,73.7167,14.0,2.1,Cam,Spirála s nízkou plošnou jasností
+Arp 5,NGC 3664,GAL,11.4117,3.3167,12.6,2.0,Leo,Nízká jasnost - rozptýlená
+Arp 6,NGC 2537,GAL,8.2200,45.9833,11.7,1.7,Lyn,Galaxie Medvědí tlapka
+Arp 7,UGC 2489,GAL,3.0367,35.3167,14.5,1.5,Per,Spirála s nízkou plošnou jasností
+Arp 8,NGC 497,GAL,1.3717,-0.3833,13.0,2.1,Cet,Spirála s rozštěpeným ramenem
+Arp 9,UGC 2461,GAL,3.0133,2.4167,14.0,1.3,Cet,Spirála s rozštěpeným ramenem
+Arp 10,UGC 1775,GAL,2.3167,18.2667,13.7,1.8,Ari,Spirála s rozštěpeným ramenem
+Arp 11,UGC 717,GAL,1.1567,14.5333,14.2,1.5,Psc,Spirála s rozštěpeným ramenem
+Arp 12,NGC 2608,GAL,8.5867,28.4667,12.2,2.3,Cnc,Spirála s rozštěpeným ramenem
+Arp 13,NGC 7448,GAL,23.0000,15.9667,11.4,2.7,Peg,Spirála s oddělenými segmenty
+Arp 14,NGC 7314,GAL,22.5950,-26.0500,10.9,4.6,PsA,Spirála s oddělenými segmenty
+Arp 15,NGC 7393,GAL,22.8583,-5.2000,12.8,2.0,Aqr,Spirála s oddělenými segmenty
+Arp 16,NGC 3664,GAL,11.4117,3.3167,12.6,2.0,Leo,Spirála s oddělenými segmenty
+Arp 17,UGC 3972,GAL,7.7017,71.3000,14.8,1.2,Cam,Spirála s oddělenými segmenty
+Arp 18,NGC 4088,GAL,12.0933,50.5333,10.6,5.8,UMa,Výrazná asymetrie ramen
+Arp 19,NGC 145,GAL,0.5283,-5.1500,12.7,1.6,Cet,Tříramenná spirála
+Arp 20,UGC 3013,GAL,4.3533,5.1000,14.5,1.1,Ori,Tříramenná spirála
+Arp 21,UGC 10043,GAL,15.8117,21.8667,14.4,1.4,Ser,Tříramenná spirála
+Arp 22,NGC 4027,GAL,11.9900,-19.2667,11.2,3.2,Crv,Jednoramenná spirála
+Arp 23,NGC 4618,GAL,12.6933,41.1500,10.8,4.2,CVn,Jednoramenná spirála
+Arp 24,NGC 3445,GAL,10.9067,56.9833,12.3,1.6,UMa,Jednoramenná spirála
+Arp 25,NGC 2276,GAL,7.4550,85.7500,11.3,2.6,Cep,Jednoramenná spirála
+Arp 26,M101,GAL,14.0533,54.3500,7.9,28.8,UMa,Větrník - asymetrické rameno
+Arp 27,NGC 3631,GAL,11.3500,53.2000,10.1,5.0,UMa,Spirála s jedním těžkým ramenem
+Arp 28,NGC 7678,GAL,23.4750,22.4167,11.8,2.3,Peg,Spirála s jedním těžkým ramenem
+Arp 29,NGC 6946,GAL,20.5817,60.1500,8.8,11.2,Cep,Ohňostroj - jedno těžké rameno
+Arp 30,NGC 6365,GAL,17.3717,62.1667,13.9,1.1,Dra,Jedno rameno směřující k doprovodu
+Arp 31,IC 167,GAL,1.9200,21.8500,13.1,3.0,Ari,Integrální spirála
+Arp 32,UGC 10770,GAL,17.2033,59.3333,14.6,1.3,Dra,Integrální spirála
+Arp 33,UGC 8613,GAL,13.6217,31.6667,14.8,1.2,CVn,Integrální spirála
+Arp 34,NGC 4615,GAL,12.6917,26.0667,13.1,1.6,Com,Integrální spirála
+Arp 35,UGC 212,GAL,0.3667,30.1167,14.5,1.4,And,Integrální spirála
+Arp 36,UGC 8548,GAL,13.5667,31.4167,15.0,0.9,CVn,Integrální spirála
+Arp 37,M77,GAL,2.7117,-0.0167,8.9,7.1,Cet,Spirála s vnitřní strukturou
+Arp 38,NGC 6412,GAL,17.4950,75.7000,11.6,2.5,Dra,Spirála s nízkou plošnou jasností
+Arp 39,NGC 1347,GAL,3.4950,-22.2833,13.0,1.5,Eri,Spirála se společníkem na rameni
+Arp 40,IC 4231,GAL,13.2617,-26.3000,13.4,1.4,Hya,Spirála se společníkem na rameni
+Arp 41,NGC 1232,GAL,3.1633,-20.5833,9.8,7.4,Eri,Spirála se společníkem na rameni
+Arp 42,NGC 5829,GAL,15.0450,23.3333,13.1,2.3,Boo,Společník na konci ramene
+Arp 43,IC 607,GAL,10.4033,16.7500,13.5,1.3,Leo,Společník na konci ramene
+Arp 44,IC 607,GAL,10.4033,16.7500,13.5,1.3,Leo,Společník na konci ramene
+Arp 45,UGC 9178,GAL,14.3683,51.7167,14.3,1.5,Boo,Spirála se společníkem na rameni
+Arp 46,UGC 12665,GAL,23.5617,15.1167,14.5,1.1,Peg,Společník na rameni
+Arp 47,UGC 10738,GAL,17.1617,59.3667,15.1,1.0,Dra,Spirála se společníkem na rameni
+Arp 48,UGC 10791,GAL,17.2283,59.3167,15.1,0.8,Dra,Spirála se společníkem na rameni
+Arp 49,NGC 5665,GAL,14.5417,8.0833,12.0,2.1,Boo,Společník na rameni
+Arp 50,IC 1245,GAL,17.2083,61.2167,14.6,0.9,Dra,Společník na konci ramene
+Arp 51,UGC 12601,GAL,23.4717,15.3167,14.5,1.1,Peg,Společník na rameni
+Arp 52,UGC 957,GAL,1.4117,35.4500,15.1,1.0,And,Společník na konci ramene
+Arp 53,NGC 3290,GAL,10.5867,-17.1667,13.5,1.2,Hya,Společník na rameni
+Arp 54,UGC 5036,GAL,9.4633,25.2167,14.4,1.4,Leo,Společník na konci ramene
+Arp 55,UGC 4881,GAL,9.2633,44.2000,14.6,0.9,Lyn,Dva společníci na ramenech
+Arp 56,UGC 1432,GAL,1.9333,9.7500,14.7,1.1,Psc,Společník na rameni
+Arp 57,UGC 3751,GAL,7.3117,73.5333,14.8,1.3,Cam,Společník na rameni
+Arp 58,UGC 4457,GAL,8.5333,51.8167,14.5,1.1,UMa,Společník na rameni
+Arp 59,NGC 341,GAL,1.0117,-9.1833,12.1,1.1,Cet,Spirála s velkým společníkem na rameni
+Arp 60,UGC 10186,GAL,16.0967,14.5333,14.9,0.8,Her,Společník na konci ramene
+Arp 61,UGC 3104,GAL,4.6117,19.4167,14.4,1.3,Tau,Společník na rameni
+Arp 62,UGC 6865,GAL,11.8950,55.1500,14.8,1.0,UMa,Společník na rameni
+Arp 63,NGC 2944,GAL,9.6517,32.3167,14.1,1.2,LMi,Společník na rameni
+Arp 64,UGC 10138,GAL,16.0117,18.0667,14.9,0.9,Her,Společník na rameni
+Arp 65,NGC 91,GAL,0.3633,22.3500,14.4,0.7,And,Společník na rameni
+Arp 66,UGC 10396,GAL,16.4467,41.9333,15.1,1.1,Her,Společník na rameni
+Arp 67,UGC 892,GAL,1.3533,33.0000,14.7,1.0,And,Společník na rameni
+Arp 68,UGC 9683,GAL,15.0667,31.0500,14.9,0.8,Boo,Společník na rameni
+Arp 69,NGC 2623,GAL,8.6417,25.4167,13.2,1.1,Cnc,Splynutí se společníkem na rameni
+Arp 70,UGC 934,GAL,1.3917,31.2000,14.5,1.3,And,Společník na rameni
+Arp 71,NGC 6045,GAL,16.0867,17.7500,13.9,1.3,Her,Společník na rameni
+Arp 72,NGC 5994/96,GAL,15.7483,17.8833,12.5,1.5,Ser,Společník na rameni
+Arp 73,IC 1222,GAL,16.5867,46.2167,13.9,1.1,Her,Společník na rameni
+Arp 74,UGC 1626,GAL,2.1417,41.2500,14.8,1.4,And,Společník na rameni
+Arp 75,NGC 702,GAL,1.8550,-4.0500,13.1,1.5,Cet,Společník na rameni
+Arp 76,M90,GAL,12.6133,13.1667,9.5,9.5,Vir,Velká spirála se společníkem
+Arp 77,NGC 1097,GAL,2.7717,-30.2667,9.5,9.4,For,Spirála s malým společníkem
+Arp 78,NGC 772,GAL,1.9883,19.0167,10.3,7.2,Ari,Společník na protaženém rameni
+Arp 79,NGC 1066,GAL,2.7217,32.4833,13.3,1.8,Per,Eliptická galaxie se společníkem
+Arp 80,NGC 2633,GAL,8.8017,74.0833,12.0,2.1,Cam,Spirála s malým společníkem
+Arp 81,NGC 6621/22,GAL,18.2150,68.3500,13.2,2.1,Dra,Silně interagující pár
+Arp 82,NGC 2535/36,GAL,8.1900,25.2000,12.6,2.5,Cnc,Most k malému společníkovi
+Arp 83,NGC 2799/98,GAL,9.2933,42.0000,12.3,2.6,Lyn,Interagující pár galaxií
+Arp 84,NGC 5394/95,GAL,13.9750,37.4500,12.1,1.7,CVn,Galaxie Volavka (Heron)
+Arp 85,M51,GAL,13.4983,47.1833,8.4,11.2,CVn,Vírová galaxie
+Arp 86,NGC 7752/53,GAL,23.7817,29.4500,12.2,3.7,Peg,Spirála s doprovodem
+Arp 87,NGC 3808,GAL,11.6783,22.4500,13.4,2.5,Leo,Dvě galaxie propojené proudem
+Arp 88,UGC 10350,GAL,16.3683,59.2500,14.7,1.3,Dra,Spirála s malým společníkem
+Arp 89,NGC 2648,GAL,8.7117,14.1167,12.0,3.3,Cnc,Interakce se společníkem
+Arp 90,NGC 5929/30,GAL,15.4350,41.6667,13.1,1.0,Boo,Těsný interagující pár
+Arp 91,NGC 5951/53/54,GAL,15.5750,15.1833,12.7,3.2,Ser,Interakce ve skupině
+Arp 92,NGC 7603,GAL,23.3167,0.2500,13.3,1.5,Psc,Interakce se společníkem
+Arp 93,NGC 7284/85,GAL,22.4767,-24.8333,12.0,2.1,Aqr,Interagující pár
+Arp 94,NGC 3226/27,GAL,10.3917,19.8667,10.4,5.4,Leo,Interagující pár v Lvu
+Arp 95,IC 1505,GAL,23.6867,-3.6667,13.8,1.3,Aqr,Společník na rameni
+Arp 96,UGC 3528,GAL,6.7367,80.3333,14.5,1.2,Cam,Interakce se společníkem
+Arp 97,UGC 7085,GAL,12.1000,31.0667,14.6,1.4,Com,Interagující pár
+Arp 98,UGC 1095,GAL,1.5517,31.9167,14.9,1.1,And,Interakce se společníkem
+Arp 99,NGC 7547/49/50,GAL,23.2533,18.9667,12.2,1.4,Peg,Hicksonova skupina 93
+Arp 100,IC 18/19,GAL,0.3600,-12.4167,13.9,1.1,Cet,Interagující pár
+Arp 101,UGC 10164,GAL,16.0717,14.8333,14.8,1.2,Her,Spirála s eliptickým společníkem
+Arp 102,UGC 10814,GAL,17.3233,49.1333,14.7,1.1,Dra,Interagující pár
+Arp 103,UGC 10586,GAL,16.8217,45.3333,14.9,1.3,Her,Eliptická galaxie se společníkem
+Arp 104,NGC 5216/18,GAL,13.5350,61.7667,12.6,2.3,UMa,Keenanův systém (most mezi galaxiemi)
+Arp 105,NGC 3561,GAL,11.1867,28.7000,13.8,1.3,UMa,Galaxie Kytara (Guitar Galaxy)
+Arp 106,NGC 4211,GAL,12.2600,28.1667,13.5,1.2,Com,Eliptická v interakci se spirálou
+Arp 107,UGC 5984,GAL,10.8717,30.0167,14.5,1.1,LMi,Pár propojený výrazným mostem
+Arp 108,IC 1029,GAL,14.5417,49.4333,13.5,1.5,Boo,Eliptická galaxie se společníkem
+Arp 109,UGC 10053,GAL,15.8233,42.8500,15.0,1.2,Boo,Interagující skupina
+Arp 110,UGC 64,GAL,0.0817,30.0167,14.9,1.1,And,Eliptická galaxie se společníkem
+Arp 111,NGC 5421,GAL,14.0300,33.8167,13.2,1.3,Can,Interagující systém
+Arp 112,NGC 7805/06,GAL,0.0217,31.4333,13.2,1.1,Peg,Těsný pár eliptické a spirální galaxie
+Arp 113,NGC 70,GAL,0.3050,30.0833,13.4,2.0,And,Skupina galaxií v Andromedě
+Arp 114,NGC 2276/2300,GAL,7.4550,85.7500,11.3,2.6,Cep,Eliptická a spirální galaxie u pólu
+Arp 115,UGC 10373,GAL,16.4117,44.1167,15.1,1.1,Her,Interakce eliptické a spirální galaxie
+Arp 116,M60 / NGC 4647,GAL,12.7283,11.5500,8.8,7.4,Vir,Obří eliptická s blízkou spirálou
+Arp 117,IC 1182,GAL,16.0517,17.7167,14.3,0.9,Her,Eliptická s doprovodem
+Arp 118,NGC 4594 (M104),GAL,12.6667,-11.6167,8.0,8.7,Vir,Galaxie Sombrero (zařazena Arpem)
+Arp 119,UGC 3037,GAL,4.4283,55.0500,14.8,1.2,Cam,Eliptická galaxie se společníkem
+Arp 120,NGC 4435/38,GAL,12.4633,13.0167,10.2,8.5,Vir,Galaxie Oči (The Eyes)
+Arp 121,UGC 10186,GAL,16.0967,14.5333,14.9,0.8,Her,Eliptická galaxie se společníkem
+Arp 122,NGC 6040,GAL,16.0817,17.7500,13.9,1.2,Her,Srážející se galaxie v kupě v Herkulovi
+Arp 123,NGC 1888/89,GAL,5.3767,-11.5000,12.1,3.1,Lep,Těsný pár spirální a eliptické galaxie
+Arp 124,NGC 6361,GAL,17.3117,60.6167,13.0,2.1,Dra,Eliptická galaxie se společníkem
+Arp 125,UGC 10491,GAL,16.6383,32.0000,15.2,0.9,Her,Eliptická galaxie se společníkem
+Arp 126,UGC 1449,GAL,1.9617,12.3500,14.8,1.2,Psc,Eliptická galaxie se společníkem
+Arp 127,NGC 191,GAL,0.6483,-9.0167,13.1,1.5,Cet,Eliptická galaxie v interakci se spirálou
+Arp 128,UGC 11273,GAL,18.5283,68.4833,14.9,1.1,Dra,Eliptická galaxie se společníkem
+Arp 129,UGC 111,GAL,0.1600,30.0333,15.0,0.9,And,Eliptická galaxie se společníkem
+Arp 130,IC 5378,GAL,0.0633,16.6167,14.2,1.1,Peg,Eliptická galaxie se společníkem
+Arp 131,UGC 323,GAL,0.5133,30.1333,14.9,1.2,And,Eliptická galaxie se společníkem
+Arp 132,UGC 10301,GAL,16.2300,41.9333,15.2,1.1,Her,Eliptická galaxie se společníkem
+Arp 133,NGC 541,GAL,1.4317,-1.2000,12.2,1.8,Cet,Eliptická v interakci s rádiovým výtryskem
+Arp 134,M49,GAL,12.4967,8.0000,8.4,10.2,Vir,Obří eliptická galaxie
+Arp 135,NGC 1023,GAL,2.6733,39.0667,9.4,8.7,Per,Eliptická galaxie s blízkým doprovodem
+Arp 136,NGC 5820,GAL,14.9767,53.9333,12.3,1.9,Boo,Eliptická galaxie se společníky
+Arp 137,UGC 10169,GAL,16.0733,14.8000,14.9,1.1,Her,Fragmentovaná eliptická galaxie
+Arp 138,NGC 4015,GAL,11.9750,25.0333,13.5,1.3,Com,Eliptická galaxie se společníkem
+Arp 139,UGC 303,GAL,0.4867,30.3167,14.9,0.9,And,Eliptická galaxie se společníkem
+Arp 140,NGC 274/75,GAL,0.8550,-7.0500,12.1,1.5,Cet,Těsný pár eliptické a spirální galaxie
+Arp 141,UGC 3730,GAL,7.2917,73.7167,14.0,2.1,Cam,Prstencová galaxie s eliptickým jádrem
+Arp 142,NGC 2936,GAL,9.6283,2.7500,12.9,1.3,Hya,Galaxie Tučňák (The Penguin)
+Arp 143,NGC 2444/45,GAL,7.7817,39.0333,12.9,1.6,Lyn,Interagující pár s trojúhelníkovým tvarem
+Arp 144,NGC 7828/29,GAL,0.1117,-13.4167,13.9,1.1,Cet,Pár galaxií tvořící prstenec
+Arp 145,UGC 1840,GAL,2.4117,45.3167,15.0,1.0,And,Eliptická galaxie s prstencem
+Arp 146,UGC 1063,GAL,1.5133,32.0167,15.1,0.9,And,Eliptická galaxie s prstencem
+Arp 147,IC 298,GAL,3.0550,1.3167,14.8,0.6,Cet,Dva prstence (tvar "10")
+Arp 148,Mayallův objekt,GAL,11.0633,40.8500,15.1,0.5,UMa,Srážka dvou galaxií s ohonem
+Arp 149,IC 803,GAL,12.6567,16.5833,14.4,0.8,Com,Eliptická s deformovaným diskem
+Arp 150,NGC 7609,GAL,23.3267,9.5000,14.1,1.1,Peg,Těsný interagující pár
+Arp 151,UGC 12564,GAL,23.4617,11.3000,13.2,0.8,Peg,Eliptická galaxie s dlouhým slapovým ohonem
+Arp 152,M87,GAL,12.5133,12.3833,8.6,8.3,Vir,Obří eliptická galaxie s aktivním výtryskem (jet)
+Arp 153,NGC 5128,GAL,13.4183,-43.0167,6.7,25.7,Cen,Centaurus A - galaxie s mohutným prachovým pásem
+Arp 154,NGC 1316,GAL,3.3783,-37.2000,8.4,12.0,For,Fornax A - rádiová galaxie s prachovými strukturami
+Arp 155,NGC 3656,GAL,11.3933,53.8333,12.3,1.5,UMa,Eliptická galaxie se zkrouceným prachovým pásem
+Arp 156,UGC 10814,GAL,17.3233,49.1333,14.7,1.1,Dra,Galaxie s výraznou vnitřní absorpcí
+Arp 157,NGC 520,GAL,1.4117,3.7833,11.3,3.4,Psc,Srážející se spirály s temným pásem uprostřed
+Arp 158,NGC 523,GAL,1.4217,34.0167,12.7,2.5,And,Silně narušená galaxie s ohony na obou koncích
+Arp 159,NGC 4747,GAL,12.8617,26.5333,12.4,3.2,Com,Spirála s deformovanými rameny a výtrysky
+Arp 160,NGC 4194,GAL,12.2350,54.5167,12.5,1.7,UMa,Galaxie Medusa - následek splynutí
+Arp 161,UGC 6665,GAL,11.6917,29.9833,14.8,1.2,LMi,Galaxie s prachovým pásem a výtryskem
+Arp 162,NGC 3414,GAL,10.8550,27.9667,10.9,3.5,LMi,Lentikulární galaxie s neobvyklým diskem
+Arp 163,NGC 4670,GAL,12.7517,27.1167,12.7,1.4,Com,Modrá kompaktní trpasličí galaxie
+Arp 164,NGC 455,GAL,1.2667,5.1667,12.6,1.4,Psc,Interagující pár s narušenou strukturou
+Arp 165,NGC 2418,GAL,7.6117,17.8833,12.4,1.3,Gem,Eliptická galaxie s absorpčním pásem
+Arp 166,NGC 750/751,GAL,1.9583,33.2000,12.2,1.5,Tri,Dvojitá eliptická galaxie (těsný pár)
+Arp 167,NGC 2672/73,GAL,8.8200,19.0667,11.6,3.0,Cnc,Eliptická galaxie se společníkem (pár v interakci)
+Arp 168,M32,GAL,0.7117,40.8667,8.1,8.5,And,Kompaktní eliptický satelit M31
+Arp 169,NGC 7236/37,GAL,22.2467,13.8333,13.6,1.1,Peg,Těsný pár interagujících eliptických galaxií
+Arp 170,NGC 7578,GAL,23.2850,18.7000,13.9,1.2,Peg,Dvojitá eliptická galaxie v kupě
+Arp 171,NGC 5718/19,GAL,14.6800,3.3833,12.7,1.5,Vir,Eliptická a spirální galaxie v těsném kontaktu
+Arp 172,IC 1178/81,GAL,16.0917,17.6500,14.0,1.2,Her,Těsný pár galaxií v kupě Hercules
+Arp 173,UGC 9561,GAL,14.8583,9.5000,15.0,1.1,Vir,Interagující pár s mostem a ohony
+Arp 174,NGC 3068,GAL,9.9700,28.8833,14.3,0.9,Leo,Eliptická galaxie se spirálním společníkem
+Arp 175,IC 3481/83,GAL,12.5517,11.4000,13.5,1.1,Vir,Skupina tří galaxií (jedna s mostem)
+Arp 176,NGC 4933,GAL,13.0650,-11.5000,12.1,2.2,Vir,Trojitý systém galaxií
+Arp 177,IC 1229,GAL,16.7483,51.2167,15.2,1.0,Dra,Galaxie s doprovodem na konci ramene
+Arp 178,NGC 5613/14/15,GAL,14.4017,34.8500,12.6,1.5,Boo,Těsná skupina tří galaxií
+Arp 179,NGC 6156,GAL,16.5750,2.1333,14.5,1.1,Oph,Eliptická galaxie s blízkým společníkem
+Arp 180,IC 470,GAL,7.4117,35.3167,14.7,1.0,Lyn,Eliptická galaxie se společníkem
+Arp 181,NGC 3212/15,GAL,10.4700,79.8167,13.2,1.3,Dra,Těsný pár interagujících galaxií
+Arp 182,NGC 7674,GAL,23.4650,8.7833,13.1,1.1,Peg,Hickson 96 - zářivý interagující pár
+Arp 183,UGC 8560,GAL,13.5917,30.7333,14.9,0.9,CVn,Galaxie s výtryskem připomínajícím filament
+Arp 184,NGC 1961,GAL,5.7433,69.3833,10.9,4.6,Cam,Obří spirála s deformovaným diskem
+Arp 185,NGC 6240,GAL,16.8833,2.4000,12.8,2.1,Oph,Srážka dvou galaxií s extrémní infračervenou svítivostí
+Arp 186,NGC 1614,GAL,4.5667,-8.5833,12.9,1.3,Eri,Jasná galaxie se spirálním ohonem po srážce
+Arp 187,UGC 9128,GAL,14.2650,23.6833,14.4,1.1,Boo,Galaxie s výtrysky na obou stranách
+Arp 188,UGC 10214,GAL,16.1017,55.4333,14.4,3.8,Dra,Galaxie Pulec (Tadpole) - extrémně dlouhý ohon
+Arp 189,NGC 4651,GAL,12.7283,16.3833,10.8,4.0,Com,Galaxie s deštníkem (Umbrella Galaxy)
+Arp 190,UGC 2320,GAL,2.8133,12.7167,14.7,1.1,Ari,Interagující pár s mostem
+Arp 191,UGC 6175,GAL,11.1250,55.4167,14.6,1.2,UMa,Dvě galaxie propojené jasným mostem
+Arp 192,NGC 3303,GAL,10.6150,18.1333,13.5,1.2,Leo,Deformovaná galaxie se dvěma ohony
+Arp 193,IC 883,GAL,13.3433,34.1333,13.8,1.4,CVn,Pozůstatek srážky s kolmými ohony
+Arp 194,UGC 6945,GAL,11.9633,36.3500,13.8,1.3,UMa,Systém galaxií spojených proudem hvězd (fontána)
+Arp 195,UGC 5515,GAL,10.2633,34.8167,14.9,1.1,LMi,Trojitý interagující systém
+Arp 196,Arp 196,GAL,13.2417,47.3167,15.1,0.8,CVn,Interagující pár s ohonem
+Arp 197,UGC 6503,GAL,11.5033,48.0167,14.7,1.0,UMa,Eliptická galaxie s doprovodem
+Arp 198,UGC 6073,GAL,11.0000,53.4167,14.6,1.2,UMa,Pár interagujících galaxií
+Arp 199,NGC 5544/45,GAL,14.2833,36.5667,13.3,1.1,Boo,Dvě galaxie v čelním překryvu
+Arp 200,NGC 1134,GAL,2.8917,13.0167,12.3,2.5,Ari,Spirála s deformovaným diskem
+Arp 201,UGC 320,GAL,0.5050,30.3167,14.9,1.1,And,Galaxie s deformovaným diskem
+Arp 202,NGC 2719/20,GAL,9.0017,35.7167,13.3,1.3,Lyn,Interagující pár s vysokou plošnou jasností
+Arp 203,NGC 3712,GAL,11.5300,28.3500,13.7,1.2,Leo,Spirála s asymetrickými rameny
+Arp 204,UGC 8454,GAL,13.4433,31.7000,14.6,1.4,CVn,Pár galaxií s mostem hmoty
+Arp 205,NGC 3448,GAL,10.9050,54.3000,11.6,5.6,UMa,Amorfní galaxie v interakci (UGC 6024)
+Arp 206,NGC 6030,GAL,16.0300,17.9500,13.8,1.2,Her,Spirála se silně zkroucenými rameny
+Arp 207,UGC 10146,GAL,16.0267,17.9833,14.9,0.9,Her,Interagující pár v kupě Hercules
+Arp 208,NGC 520,GAL,1.4117,3.7833,11.3,3.4,Psc,Srážející se galaxie (opakované ID)
+Arp 209,NGC 6052,GAL,16.0850,20.5333,13.3,0.9,Her,Splynutí dvou galaxií (vzájemný průnik)
+Arp 210,NGC 1569,GAL,4.5133,64.8500,11.2,3.6,Cam,Hvězdotvorná (starburst) nepravidelná galaxie
+Arp 211,UGC 3523,GAL,6.7267,80.3167,14.5,1.2,Cam,Galaxie s výraznými prachovými pásy
+Arp 212,NGC 7625,GAL,23.3417,17.2167,11.9,1.6,Peg,Spirála s velmi silnou absorpcí prachu
+Arp 213,IC 708,GAL,11.5650,49.0500,13.8,1.2,UMa,Spirála s nízkou jasností a narušením
+Arp 214,NGC 3718,GAL,11.5433,53.0667,10.7,8.1,UMa,Zkroucená galaxie s temným pruhem
+Arp 215,NGC 2782,GAL,9.2317,40.1167,11.4,3.5,Lyn,Galaxie s výtryskem po srážce
+Arp 216,NGC 7679/82,GAL,23.4800,3.3500,12.5,1.3,Psc,Interagující pár galaxií
+Arp 217,NGC 3310,GAL,10.6450,53.5000,10.6,3.1,UMa,Výrazná hvězdotvorná galaxie s ohony
+Arp 218,UGC 3347,GAL,5.7767,69.4167,14.9,1.1,Cam,Deformovaný pár v interakci
+Arp 219,UGC 3347,GAL,5.7767,69.4167,14.9,1.1,Cam,Interakce blízkých galaxií
+Arp 220,IC 4553,GAL,15.5800,23.5000,13.9,1.5,Ser,Ultrasvítivá infračervená galaxie (ULIRG)
+Arp 221,CPG 354,GAL,15.1767,7.2167,13.6,1.4,Ser,Těsný řetězec tří galaxií
+Arp 222,NGC 7727,GAL,23.6650,-12.3000,10.6,4.7,Aqr,Pozůstatek srážky s amorfními rameny
+Arp 223,NGC 7585,GAL,23.3000,-4.6500,11.4,3.1,Aqr,Lentikulární galaxie s narušeným diskem
+Arp 224,NGC 3921,GAL,11.8517,55.0833,12.4,2.1,UMa,Splynutí s výraznými slapovými ohony
+Arp 225,NGC 2655,GAL,8.9267,78.2167,10.1,4.9,Cam,Jasná galaxie s komplexním prachem
+Arp 226,NGC 7252,GAL,22.3483,-24.6333,11.1,1.9,Aqr,Galaxie Atomy pro mír (Atoms for Peace)
+Arp 227,NGC 470/74,GAL,1.3283,3.4167,11.7,2.8,Psc,Galaxie s výraznými obalovými strukturami (shells)
+Arp 228,IC 162,GAL,1.7517,10.5167,13.5,1.4,Psc,Eliptická galaxie s deformovaným okolím
+Arp 229,NGC 507/08,GAL,1.3917,33.1667,11.3,4.0,And,Těsný pár s difuzním halem
+Arp 230,IC 122,GAL,1.5717,-14.2167,13.2,1.2,Cet,Galaxie s prstenci a ohonem
+Arp 231,IC 1575,GAL,0.7300,-4.1167,13.8,1.3,Cet,Interagující pár v Cetu
+Arp 232,NGC 2911,GAL,9.5617,10.1500,11.5,4.1,Leo,Peculiární galaxie s doprovodem
+Arp 233,UGC 5720,GAL,10.5367,54.6833,13.7,1.2,UMa,Modrá kompaktní galaxie s výtryskem
+Arp 234,NGC 3738,GAL,11.5950,54.5167,11.5,2.5,UMa,Irregulární trpasličí galaxie
+Arp 235,NGC 14,GAL,0.1417,15.8167,12.2,2.3,Peg,Nepravidelná galaxie v Pegasovi
+Arp 236,IC 1623,GAL,1.1250,-17.5000,13.8,1.2,Cet,Extrémně jasná srážka galaxií
+Arp 237,UGC 5044,GAL,9.4750,25.2333,14.6,1.4,Leo,Pár galaxií s dlouhým ohonem
+Arp 238,UGC 8335,GAL,13.2583,62.1167,13.7,1.2,UMa,Dvě galaxie s propojenými mosty
+Arp 239,NGC 5278/79,GAL,13.6933,55.6667,12.9,1.4,UMa,Interagující pár se zahnutým ohonem
+Arp 240,NGC 5257/58,GAL,13.6633,0.8333,12.1,1.8,Vir,Symetrický pár interagujících spirál
+Arp 241,UGC 10420,GAL,16.5117,32.2500,14.7,1.2,Her,Srážející se pár v Herkulovi
+Arp 242,NGC 4676,GAL,12.7700,30.7167,13.5,2.2,Com,Galaxie Myši (The Mice) s dlouhými ocasy
+Arp 243,NGC 2623,GAL,8.6417,25.4167,13.2,1.1,Cnc,Splynutí se dvěma dlouhými ohony
+Arp 244,NGC 4038/39,GAL,12.0317,-18.8667,10.3,5.2,Crv,Galaxie Antény (Antennae Galaxies)
+Arp 245,NGC 2992/93,GAL,9.7617,-9.4000,12.1,1.3,Hya,Pár s výrazným slapovým mostem
+Arp 246,NGC 7837/38,GAL,0.1117,8.3500,13.8,1.1,Psc,Trojice galaxií v interakci
+Arp 247,UGC 4383,GAL,8.3317,55.4333,14.6,1.2,UMa,Pár interagujících galaxií
+Arp 248,UGC 11269,GAL,18.5283,68.4833,14.9,1.1,Dra,Wildův triplet - trojice s mosty
+Arp 249,UGC 12891,GAL,23.9800,14.1500,14.5,1.2,Peg,Pár spojený mostem
+Arp 250,UGC 12891,GAL,23.9817,14.1667,14.5,1.2,Peg,Dvě galaxie s výrazným narušením
+Arp 251,UGC 10186,GAL,16.0967,14.5333,14.9,0.8,Her,Trojice galaxií v interakci
+Arp 252,NGC 5614,GAL,14.4017,34.8500,12.6,1.5,Boo,Trojice galaxií s výrazným prstencem
+Arp 253,UGC 10175,GAL,16.0717,14.7333,14.8,1.2,Her,Pár s výrazným narušením a ohony
+Arp 254,NGC 5917,GAL,15.3583,-7.3667,13.2,1.6,Lib,Interagující pár galaxií
+Arp 255,UGC 5304,GAL,9.9183,34.1833,14.6,1.4,LMi,Interagující pár galaxií
+Arp 256,UGC 210,GAL,0.3133,-12.2000,14.5,1.2,Cet,Dvě srážející se spirály s ohony
+Arp 257,UGC 4638,GAL,8.8750,46.1667,14.7,1.1,Lyn,Interagující pár v Rysu
+Arp 258,UGC 2140,GAL,2.6517,39.2167,14.5,1.3,Per,Těsná skupina pěti galaxií
+Arp 259,NGC 1741,GAL,5.0250,-4.2500,13.5,1.2,Ori,Hickson 31 - bouřlivá srážka v Orionu
+Arp 260,UGC 7230,GAL,12.2267,31.7500,14.8,1.1,Com,Pár galaxií připomínající písmeno V
+Arp 261,UGC 1152,GAL,1.6033,25.6167,14.4,1.4,Psc,Spletitá skupina interagujících galaxií
+Arp 262,UGC 12856,GAL,23.9317,15.1500,14.6,1.2,Peg,Pár galaxií v Pegasovi
+Arp 263,NGC 3239,GAL,10.4183,17.1500,11.1,5.0,Leo,Nepravidelná galaxie s jasnými uzly
+Arp 264,NGC 3104,GAL,10.0650,40.7500,13.2,3.3,LMi,Nepravidelná galaxie v Malém Lvovi
+Arp 265,IC 3881,GAL,12.9150,19.1833,13.5,1.8,Com,Interagující pár galaxií
+Arp 266,NGC 4861,GAL,12.9833,34.8500,12.3,4.0,CVn,Galaxie kometa (nepravidelná s ohonem)
+Arp 267,UGC 5746,GAL,10.5817,34.2333,14.9,1.1,LMi,Deformovaná galaxie s doprovodem
+Arp 268,NGC 7079,GAL,21.5433,-44.0667,11.5,2.3,Gru,Lentikulární galaxie s narušeným halem
+Arp 269,NGC 4485/90,GAL,12.5100,41.7000,9.8,6.3,CVn,Galaxie Kokon (Cocoon) v interakci
+Arp 270,NGC 3395/96,GAL,10.8300,32.9833,12.1,2.1,LMi,Dvě srážející se spirály
+Arp 271,NGC 5426/27,GAL,14.0550,-6.0167,12.0,3.0,Vir,Dvě spirály spojené mostem hvězd
+Arp 272,NGC 6050/IC 1179,GAL,16.0850,17.7500,13.9,1.2,Her,Srážka dvou spirál v kupě Hercules
+Arp 273,UGC 1810,GAL,2.3567,39.3667,12.9,2.1,And,Galaktická růže (Rose of Galaxies)
+Arp 274,NGC 5679,GAL,14.5850,5.3500,13.0,1.1,Vir,Trojice galaxií v těsném zákrytu
+Arp 275,NGC 2881,GAL,9.4250,-11.9833,13.3,1.2,Hya,Dvě galaxie s propletenými rameny
+Arp 276,NGC 4656/57,GAL,12.7317,32.1667,10.5,15.0,CVn,Hokejka (Hockey Stick) v interakci
+Arp 277,NGC 4809/10,GAL,12.9117,2.6500,13.5,1.4,Vir,Dvě nepravidelné galaxie v srážce
+Arp 278,NGC 7253,GAL,22.3067,29.3833,13.2,1.6,Peg,Dvě spirály s protnutými rameny
+Arp 279,NGC 1253,GAL,3.1367,-2.8167,11.7,5.0,Eri,Spirála s výrazným narušením a doprovodem
+Arp 280,NGC 3769,GAL,11.6283,47.8833,11.9,3.1,UMa,Spirála se společníkem a mostem
+Arp 281,NGC 4631,GAL,12.7017,32.5333,9.2,15.5,CVn,Galaxie Velryba (Whale Galaxy)
+Arp 282,NGC 169,GAL,0.6133,23.9833,12.4,2.5,And,Interakce velké spirály s malou spirálou
+Arp 283,NGC 2798/99,GAL,9.2933,42.0000,12.3,2.6,Lyn,Most hmoty mezi dvěma galaxiemi
+Arp 284,NGC 7714/15,GAL,23.6017,2.1500,12.2,1.9,Psc,Srážka s prstencovými strukturami
+Arp 285,NGC 2854/56,GAL,9.4000,49.1833,13.0,2.1,UMa,Interagující pár v UMa
+Arp 286,NGC 5560/66/69,GAL,14.3367,3.9333,10.7,6.6,Vir,Trojice galaxií (Virgo Cluster)
+Arp 287,NGC 2735,GAL,9.0433,25.9333,13.3,1.2,Cnc,Interagující pár s malým společníkem
+Arp 288,NGC 5221/22,GAL,13.5800,13.8500,13.0,2.5,Vir,Skupina galaxií v Panně
+Arp 289,NGC 4984,GAL,13.1500,-15.5167,11.3,2.8,Vir,Lentikulární galaxie s narušeným diskem
+Arp 290,NGC 192,GAL,0.6650,0.8500,12.5,1.9,Cet,Součást skupiny galaxií v Cetu
+Arp 291,UGC 5832,GAL,10.7133,13.1500,14.8,1.2,Leo,Interagující pár galaxií
+Arp 292,IC 575,GAL,9.9017,-6.8500,13.0,1.4,Sex,Galaxie s výraznými rameny po srážce
+Arp 293,NGC 6285/86,GAL,16.9717,58.9833,13.5,1.5,Dra,Dvě spirály v interakci (pár v Dratovi)
+Arp 294,NGC 3786/88,GAL,11.6600,31.9167,12.3,2.2,LMi,Interagující pár s ohony
+Arp 295,IC 1505,GAL,23.6867,-3.6667,13.8,1.3,Aqr,Dvě galaxie s velmi dlouhým mostem
+Arp 296,UGC 10043,GAL,15.8117,21.8667,14.4,1.4,Ser,Interagující pár galaxií
+Arp 297,NGC 6052,GAL,16.0850,20.5333,13.3,0.9,Her,Splynutí dvou galaxií (vzájemný průnik)
+Arp 298,NGC 7469/IC 5283,GAL,23.0517,8.8667,12.3,1.5,Peg,Seyfertova galaxie s doprovodem
+Arp 299,NGC 3690/IC 694,GAL,11.4767,58.5500,10.9,1.6,UMa,Extrémně jasná srážka galaxií (ULIRG)
+Arp 300,UGC 5028,GAL,9.4533,25.4333,14.8,1.1,Leo,Interagující pár galaxií
+Arp 301,UGC 6204,GAL,11.1617,53.5833,14.7,1.1,UMa,Pár galaxií v interakci
+Arp 302,UGC 9618,GAL,14.9500,24.5167,13.8,1.2,Boo,Dvě spirály bohaté na plyn v srážce
+Arp 303,IC 563/64,GAL,9.7717,3.0500,13.8,1.3,Sex,Pár galaxií v Sextantu
+Arp 304,NGC 1241/42,GAL,3.1867,-8.9167,12.0,2.8,Eri,Interagující pár galaxií
+Arp 305,NGC 4016/17,GAL,11.9733,27.5333,13.2,1.5,Com,Pár galaxií v Vlasu Bereniky
+Arp 306,UGC 1102,GAL,1.5733,30.0833,14.6,1.2,And,Čtveřice galaxií v interakci
+Arp 307,NGC 2872/74,GAL,9.4283,11.4167,11.9,2.1,Leo,Interagující pár (eliptická a spirální)
+Arp 308,NGC 545/47,GAL,1.4317,-1.3333,12.3,2.5,Cet,Dvě eliptické galaxie v centru kupy Abell 194
+Arp 309,NGC 942/43,GAL,2.4850,-10.8333,13.0,1.1,Cet,Těsný pár galaxií
+Arp 310,IC 1259,GAL,17.4533,52.2667,14.5,1.2,Dra,Těsný pár galaxií v drakovi
+Arp 311,IC 1258/60,GAL,17.4517,52.2500,14.0,1.1,Dra,Skupina galaxií (pár s doprovodem)
+Arp 312,UGC 12042,GAL,22.4683,34.3333,14.8,1.3,Peg,Řetězec tří galaxií
+Arp 313,NGC 3991/94/95,GAL,11.9600,32.3333,12.5,2.0,UMa,Zářivý triplet galaxií
+Arp 314,NGC 609,GAL,1.6033,-9.5833,13.8,1.2,Cet,Trojice galaxií v Cetu
+Arp 315,NGC 2830/31/32,GAL,9.3300,33.7500,11.8,2.4,LMi,Skupina galaxií v Malém Lvovi
+Arp 316,NGC 3193,GAL,10.3067,19.8833,10.8,3.0,Leo,Hickson 44 - skupina v krku Lva
+Arp 317,M65/M66/NGC 3628,GAL,11.3367,12.9833,8.9,9.1,Leo,Lví triplet (Leo Triplet)
+Arp 318,NGC 833/35/38/39,GAL,2.1550,-10.1333,12.5,2.1,Cet,Hickson 16 - těsná skupina galaxií
+Arp 319,NGC 7317/18/19/20,GAL,22.6000,33.9500,12.7,3.5,Peg,Stephanův kvintet (Stephan's Quintet)
+Arp 320,NGC 3750/53/54,GAL,11.6317,21.9667,13.9,1.1,Leo,Copelandův septet (část)
+Arp 321,UGC 10043,GAL,15.8117,21.8667,14.4,1.4,Ser,Těsný řetězec galaxií
+Arp 322,UGC 6527,GAL,11.5283,32.9667,14.2,1.2,LMi,Hickson 56 - řetězec pěti galaxií
+Arp 323,NGC 7783,GAL,23.9017,0.3833,13.0,1.1,Psc,Hickson 98 - skupina čtyř galaxií
+Arp 324,NGC 4410,GAL,12.4417,9.0167,12.8,1.3,Vir,Řetězec galaxií v Panně
+Arp 325,ESO 601-G018,GAL,22.1283,-21.0167,14.5,1.2,Aqr,Skupina galaxií v Vodnáři
+Arp 326,UGC 8610,GAL,13.6217,14.5000,14.8,1.1,Vir,Hickson 67 - řetězec galaxií
+Arp 327,NGC 1875,GAL,5.3617,6.6833,13.7,1.0,Ori,Hickson 34 - skupina galaxií
+Arp 328,UGC 9532,GAL,14.8017,18.7500,15.0,0.8,Boo,Hickson 72 - skupina galaxií
+Arp 329,UGC 6514,GAL,11.5167,35.0167,15.1,0.9,LMi,Hickson 55 - těsný řetězec pěti galaxií
+Arp 330,UGC 10146,GAL,16.0267,17.9833,14.9,0.9,Her,Řetězec galaxií v kupě Hercules
+Arp 331,NGC 379/80/82/83,GAL,1.1167,32.3500,12.6,1.4,Psc,Seyfertův sextet (Pisces Chain)
+Arp 332,NGC 1228/29/30,GAL,3.1367,-22.9167,13.3,1.3,Eri,Řetězec galaxií v Eridanu
+Arp 333,NGC 1024,GAL,2.6517,10.8333,12.1,3.9,Ari,Spirála s výraznými prstenci a doprovodem
+Arp 334,NGC 3587 (M97),Neb,11.2467,55.0167,9.9,3.4,UMa,Soví mlhovina (zařazena Arpem omylem)
+Arp 335,NGC 3509,GAL,11.0533,4.8167,13.0,2.1,Leo,Narušená galaxie s dlouhým ohonem
+Arp 336,NGC 2685,GAL,8.9267,58.7333,11.3,4.6,UMa,Galaxie Šnek (Helix Galaxy) - polární prstenec
+Arp 337,M82,GAL,9.9300,69.6833,8.4,11.2,UMa,Galaxie Doutník (Cigar Galaxy)
+Arp 338,PGC 19022,GAL,6.4083,3.4167,15.2,0.8,Mon,Poslední objekt atlasu - galaxie s ohonem

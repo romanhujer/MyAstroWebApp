@@ -1,0 +1,51 @@
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+LDN 1235,Shark Nebula,DN,22.2117,73.1167,0,60.0,Cep,Ikonická mlhovina Žralok temná silueta v Cefeu
+LDN 1251,Rotten Fish,DN,22.6117,75.1167,0,50.0,Cep,Temná mlhovina Zkažená ryba  molekulární mračno
+LBN 437,Gecko Nebula,RN,22.5367,40.5833,0,30.0,Lac,Gekon - prachový výstřik v Ještěrce u Sh2-126
+LBN 534,Cepheus Flare,RN,22.8117,75.1167,0,40.0,Cep,Slabý plynný plamen v Cefeu
+LBN 552,LBN 552,RN,23.1117,66.1167,0,35.0,Cep,Jasnější chuchvalec plynu u hranice s Kasiopejí
+LDN 1357,Mandrake Nebula,DN,02.2167,73.1167,0,45.0,Cep,Mandragora - velmi jemné prachové struktury
+LBN 628,Cassiopeia Drift,RN,00.5117,64.1167,0,50.0,Cas,Rozsáhlé plynné pole u hvězdokupy NGC 225
+LDN 1471,LDN 1471,DN,03.7517,39.1167,0,30.0,Per,Temný zářez poblíž mlhoviny Kalifornie
+LBN 749,LBN 749,RN,03.5117,31.1167,0,45.0,Per,Součást molekulárního mračna v Perseu
+LBN 777,Baby Eagle,RN,03.8817,31.5167,0,40.0,Tau,Orlí mládě - úžasný prachový útvar v Býku
+LDN 1551,LBN 1551,DN,04.5167,18.1167,0,40.0,Tau,Místo aktivního zrodu hvězd v Býku
+LDN 1582,Meissa's Dust,DN,05.5117,26.1167,0,50.0,Tau,Temný mrak v blízkosti Lambda Orionis
+LDN 1622,Boogeyman,DN,05.9167,01.8167,0,40.0,Ori,Bubák - temná silueta proti Barnardově smyčce
+LBN 917,LBN 917,RN,06.1117,14.1167,0,30.0,Mon,Slabá emisní mlhovina v Jednorožci
+LBN 974,LBN 974,RN,07.1117,05.1167,0,50.0,Mon,Rozsáhlý vodíkový komplex východně od Rosety
+LDN 673,Dark Aquila,DN,19.3417,11.3333,0,120.0,Aql,Nejhustší prachový komplex v Orlu členitý
+LBN 325,LBN 325,RN,20.5167,44.1167,0,60.0,Cyg,Obrovský vodíkový mrak v Labuti u Denebu
+LBN 406,Rho Oph Link,RN,16.5167,-23.1167,0,100.0,Oph,Barevné prachové propojení v Hadonoši
+LDN 988,LDN 988,DN,21.0417,50.1167,0,90.0,Cyg,Velký temný komplex v Labuti
+LDN 1082,Elephant Trunk Ext,DN,21.0117,60.1167,0,120.0,Cep,Obří prachový chobot u IC 1396
+LBN 110,Cave Exterior,RN,22.9467,58.7667,0,40.0,Cep,Slabé vnější obálky u mlhoviny Jeskyně
+LDN 43,Cosmic Bat,DN,16.3400,-15.4000,0,45.0,Oph,Vesmírný netopýr - temná křídla v Hadonoši
+LBN 438,LBN 438,RN,22.2117,44.5167,0,25.0,Lac,Jasný okraj prachového mračna v Ještěrce
+LDN 1111,Crescent Dust,DN,20.2500,37.6667,0,30.0,Cyg,Prachové struktury u mlhoviny Srp
+LBN 576,LBN 576,RN,23.5117,60.1167,0,40.0,Cas,Slabá emisní oblast v Kasiopeji
+LBN 134,LBN 134,RN,15.2117,-22.3167,0,50.0,Lib,Velmi slabá reflexní mlhovina ve Váhách
+LDN 177,Serpens Dust,DN,15.8333,-04.3333,0,60.0,Ser,Temná mlhovina v hlavě Hada
+LDN 571,Cygnus Hole,DN,19.6667,30.2500,0,40.0,Cyg,Temná "díra" v Mléčné dráze v Labuti
+LDN 1641,Orion Tail,DN,05.6333,-07.0000,0,180.0,Ori,Obří prachový ohon pod mlhovinou v Orionu
+LBN 782,Taurus Drift,RN,04.4667,26.1667,0,100.0,Tau,Husté filamenty v molekulárním mračnu Taurus
+LDN 684,LDN 684,DN,19.4667,11.8333,0,40.0,Aql,Součást komplexu LDN 673 v Orlu
+LBN 105,LBN 105,RN,22.8667,55.1667,0,30.0,Cep,Slabá mlhovina u hranice Cefea a Ještěrky
+LDN 1217,LDN 1217,DN,22.1167,69.5000,0,45.0,Cep,Temná mlhovina v severním Cefeu
+LBN 535,LBN 535,RN,22.9167,76.5000,0,35.0,Cep,Polární plynné mračno
+LDN 1261,LDN 1261,DN,23.0167,74.5000,0,40.0,Cep,Temný doprovod mlhoviny Zkažená ryba
+LBN 428,LBN 428,RN,22.5667,40.6667,0,180.0,Lac,Velké emisní pole v Ještěrce
+LDN 1158,LDN 1158,DN,21.3333,45.1667,0,30.0,Cyg,Temná skvrna v Labuti poblíž vdB 133
+LBN 211,LBN 211,RN,20.2500,34.5000,0,45.0,Cyg,Slabé vodíkové vlákno v Labuti
+LDN 1295,LDN 1295,DN,23.5833,62.3333,0,35.0,Cas,Temná mlhovina v Kasiopeji
+LBN 580,LBN 580,RN,00.0833,62.1667,0,40.0,Cas,Plynné struktury v blízkosti Cas A
+LDN 1282,LDN 1282,DN,23.4167,54.8333,0,30.0,Cas,Temný prach v jižní Kasiopeji
+LBN 603,LBN 603,RN,00.5833,54.5000,0,50.0,Cas,Slabé emisní pole v Kasiopeji
+LDN 1345,LDN 1345,DN,02.0833,68.1667,0,45.0,Cep,Temná mlhovina v Cefeu
+LBN 704,LBN 704,RN,03.2167,52.5000,0,30.0,Per,Slabý reflexní prach v Perseu
+LDN 1438,LDN 1438,DN,03.4167,32.3333,0,40.0,Per,Součást komplexu u LBN 749
+LBN 784,LBN 784,RN,04.5833,26.5000,0,60.0,Tau,Prachové mračno v Býku
+LDN 1538,LDN 1538,DN,04.3667,28.6667,0,45.0,Tau,Temný mrak v Býku
+LBN 823,LBN 823,RN,05.1667,34.1667,0,50.0,Aur,Slabá mlhovina ve Vozkovi
+LDN 1605,LDN 1605,DN,05.5833,12.5000,0,40.0,Ori,Temná mlhovina v hlavě Oriona
+LBN 934,LBN 934,RN,06.5167,08.5000,0,45.0,Mon,Emisní plyn v Jednorožci

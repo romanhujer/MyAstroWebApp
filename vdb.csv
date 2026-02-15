@@ -1,0 +1,159 @@
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+vdB 1,V651 Cas,RN,0.1867,58.6167,13.0,4.5,Cas,Modrá reflexní mlhovina u hvězdy V651 Cas
+vdB 2,LBN 581,RN,0.1983,59.1333,14.0,5.0,Cas,Slabá reflexní mlhovina v Kasiopeji
+vdB 3,LBN 583,RN,0.2583,58.8333,14.5,4.0,Cas,Malá reflexní mlhovina poblíž vdB 1
+vdB 4,NGC 225,RN,0.7233,61.7833,11.0,5.0,Cas,Mlhovina Plachetnice (Sailboat Nebula)
+vdB 5,LBN 599,RN,0.7817,63.1167,13.5,6.0,Cas,Rozlehlá slabá mlhovina
+vdB 6,IC 1590,RN,0.8800,63.3167,11.5,8.0,Cas,Mlhovina obklopující hvězdokupu NGC 281
+vdB 7,LBN 618,RN,1.2183,58.5500,14.0,2.0,Cas,Kompaktní reflexní mlhovina
+vdB 8,LBN 624,RN,1.3850,58.5333,14.5,2.5,Cas,Slabá mlhovina u hvězdy mag 10
+vdB 9,LBN 627,RN,1.4850,58.8333,14.2,3.0,Cas,Slabý prachový obal hvězdy
+vdB 10,NGC 7023,RN,21.0250,68.1667,7.0,18.0,Cep,Mlhovina Kosatec (Iris Nebula) - velmi jasná
+vdB 11,LBN 642,RN,2.6283,70.8333,13.8,4.0,Cas,Reflexní mlhovina v bohatém poli
+vdB 12,LBN 644,RN,2.6983,69.1167,14.0,2.0,Cas,Malý prachový chomáč
+vdB 13,LBN 646,RN,2.7817,67.3167,13.2,5.0,Cas,Zajímavá struktura u hvězdy mag 9
+vdB 14,LBN 658,RN,3.4833,59.8833,13.5,4.0,Cam,Reflexní mlhovina v Žirafě
+vdB 15,LBN 661,RN,3.4917,59.6500,13.0,15.0,Cam,Velmi rozlehlý reflexní komplex
+vdB 16,LBN 670,RN,3.6333,53.2167,12.5,6.0,Per,Mlhovina u hvězdy mag 8 v Perseu
+vdB 17,LBN 681,RN,3.7717,47.8167,14.0,3.0,Per,Slabá mlhovina v prachovém poli
+vdB 18,LBN 688,RN,3.8717,49.6333,14.2,2.0,Per,Malý reflexní disk
+vdB 19,LBN 693,RN,3.9517,52.8833,14.5,2.0,Per,Slabý prachový závoj
+vdB 20,LBN 714,RN,3.4533,32.2500,14.0,3.0,Per,Reflexní mlhovina v molekulárním mračnu
+vdB 21,LBN 718,RN,3.5350,31.8167,13.0,4.0,Per,Součást komplexu v Perseu
+vdB 22,LBN 730,RN,3.6767,31.7833,14.2,2.0,Per,Kompaktní reflexní mlhovina
+vdB 23,LBN 731,RN,3.6817,31.4167,14.0,2.0,Per,Slabý odraz u mladé hvězdy
+vdB 24,NGC 1432,RN,3.7633,24.3667,6.0,30.0,Tau,Mlhovina Maia (Plejády)
+vdB 25,NGC 1435,RN,3.7750,23.8667,7.0,30.0,Tau,Tempelova mlhovina (Plejády) - Merope
+vdB 26,LBN 742,RN,3.8333,31.1333,14.5,2.0,Per,Malá mlhovina v temném mračnu
+vdB 27,LBN 752,RN,4.0150,30.3333,13.8,5.0,Tau,Reflexní mlhovina v Býku
+vdB 28,LBN 758,RN,4.1950,28.2500,13.5,3.0,Tau,Prachové mračno u hvězdy mag 9
+vdB 29,IC 353,RN,3.8917,25.4333,12.5,10.0,Tau,Součást komplexu Plejád
+vdB 30,LBN 773,RN,4.3583,26.1333,14.0,4.0,Tau,Slabý prach v Býku
+vdB 31,IC 359,RN,4.4750,28.2167,13.2,5.0,Tau,Jasnější uzel v prachovém proudu
+vdB 32,LBN 791,RN,4.6433,26.3167,14.2,3.0,Tau,Reflexní mlhovina u hvězdy mag 10
+vdB 33,LBN 794,RN,4.7217,26.0667,14.5,2.0,Tau,Malý prachový odraz
+vdB 34,LBN 813,RN,5.1550,34.0833,13.0,4.0,Aur,Reflexní mlhovina ve Vozkovi
+vdB 35,LBN 814,RN,5.1667,33.8167,14.0,3.0,Aur,Slabá mlhovina u vdB 34
+vdB 36,LBN 817,RN,5.2133,34.4167,13.8,3.0,Aur,Reflexní mlhovina poblíž IC 410
+vdB 37,LBN 832,RN,5.4333,31.5500,13.5,4.0,Aur,Mlhovina u hvězdy mag 9
+vdB 38,LBN 836,RN,5.4550,28.0500,13.0,6.0,Tau,Reflexní mlhovina v Býku
+vdB 39,LBN 851,RN,5.6567,31.9833,13.8,3.0,Aur,Slabý odraz u hvězdy mag 10
+vdB 40,LBN 856,RN,5.7117,28.5333,14.2,2.0,Tau,Kompaktní reflexní mlhovina
+vdB 41,LBN 864,RN,5.8217,31.7500,14.5,2.0,Aur,Slabý prachový chomáč
+vdB 42,LBN 882,RN,6.1317,30.3333,13.2,5.0,Aur,Reflexní mlhovina u hvězdy mag 8
+vdB 43,LBN 885,RN,6.1667,23.5167,13.8,4.0,Gem,Reflexní mlhovina v Blížencích
+vdB 44,LBN 898,RN,6.4683,21.8333,14.0,3.0,Gem,Slabá mlhovina v bohatém poli
+vdB 45,LBN 900,RN,6.4950,16.5333,14.5,2.0,Gem,Malý reflexní odraz
+vdB 46,LBN 903,RN,6.5417,14.4333,14.2,3.0,Gem,Reflexní mlhovina v Blížencích
+vdB 47,LBN 941,RN,7.2117,11.3167,13.5,5.0,Mon,Reflexní mlhovina v Jednorožci
+vdB 48,LBN 944,RN,7.2833,5.2833,13.0,6.0,Mon,Zajímavá struktura u hvězdy mag 9
+vdB 49,LBN 967,RN,7.8650,-0.6167,14.0,4.0,Mon,Reflexní mlhovina poblíž rovníku
+vdB 50,LBN 972,RN,7.9950,-3.4500,14.5,2.0,Mon,Slabý prachový odraz
+vdB 51,LBN 983,RN,8.2317,-13.3167,14.0,3.0,Pup,Reflexní mlhovina v Lodní zádi
+vdB 52,LBN 993,RN,8.4417,-23.5833,13.5,4.0,Pup,Slabá mlhovina u hvězdy mag 9
+vdB 53,LBN 1018,RN,9.3117,-14.2167,14.5,2.0,Ant,Reflexní mlhovina ve Vývěvě
+vdB 54,LBN 1032,RN,9.8517,-22.1167,14.2,3.0,Ant,Slabý prachový odraz
+vdB 55,LBN 1061,RN,10.6317,-12.3167,14.0,4.0,Crt,Reflexní mlhovina v Poháru
+vdB 56,LBN 1111,RN,12.2117,-35.3167,13.8,5.0,Cen,Reflexní mlhovina v Kentauru
+vdB 57,LBN 1134,RN,13.1117,-22.8167,14.5,2.0,Hya,Malá mlhovina v Hydře
+vdB 58,LBN 1,RN,15.2117,-22.3167,13.2,6.0,Lib,Reflexní mlhovina ve Váhách
+vdB 59,LBN 3,RN,15.4850,-18.2167,14.0,3.0,Sco,Prach u hvězdy v Štíru
+vdB 60,LBN 11,RN,16.1117,-24.1167,13.5,5.0,Sco,Slabá reflexní mlhovina v Štíru
+vdB 61,LBN 15,RN,16.2117,-21.3167,14.2,3.0,Sco,Reflexní prach u hvězdy mag 10
+vdB 62,LBN 18,RN,16.3117,-20.5167,14.5,2.0,Sco,Kompaktní reflexní disk
+vdB 63,LBN 21,RN,16.4117,-22.1167,14.8,1.5,Sco,Velmi slabý prachový závoj
+vdB 64,LBN 33,RN,16.7117,-19.1167,13.8,4.0,Oph,Reflexní mlhovina v Hadonoši
+vdB 65,LBN 45,RN,17.1117,-20.1167,14.0,3.0,Oph,Slabá mlhovina v prachovém poli
+vdB 66,LBN 48,RN,17.2117,-22.1167,14.5,2.0,Sco,Reflexní prach u hvězdy v Štíru
+vdB 67,LBN 51,RN,17.3117,-21.1167,14.2,3.0,Oph,Malý reflexní odraz
+vdB 68,LBN 55,RN,17.4117,-20.1167,14.6,2.0,Oph,Slabý prach u hvězdy mag 10
+vdB 69,LBN 58,RN,17.5117,-18.1167,13.5,5.0,Oph,Reflexní mlhovina v Hadonoši
+vdB 70,LBN 62,RN,17.6117,-22.1167,14.0,4.0,Sco,Reflexní prach v Štíru
+vdB 71,LBN 66,RN,17.7117,-24.1167,14.5,3.0,Sgr,Reflexní mlhovina v Střelci
+vdB 72,LBN 73,RN,17.8117,-23.1167,14.2,2.0,Sgr,Kompaktní reflexní disk
+vdB 73,LBN 82,RN,18.1117,-25.1167,13.8,5.0,Sgr,Reflexní mlhovina v Střelci
+vdB 74,LBN 88,RN,18.2117,-24.1167,14.0,4.0,Sgr,Slabá mlhovina u hvězdy mag 9
+vdB 75,LBN 102,RN,18.5117,-23.1167,14.5,3.0,Sgr,Reflexní prach v Střelci
+vdB 76,LBN 134,RN,19.1117,-18.1167,14.2,2.0,Sgr,Malý reflexní odraz
+vdB 77,LBN 145,RN,19.3117,-16.1167,14.8,1.5,Sgr,Velmi slabý prachový závoj
+vdB 78,LBN 156,RN,19.5117,-14.1167,14.0,4.0,Aql,Reflexní mlhovina v Orlu
+vdB 79,LBN 168,RN,19.7117,-12.1167,14.5,3.0,Aql,Slabý prach u hvězdy mag 10
+vdB 80,LBN 182,RN,20.1117,-10.1167,13.5,5.0,Aql,Reflexní mlhovina v Orlu
+vdB 81,LBN 194,RN,20.3117,-8.1167,14.2,3.0,Aql,Kompaktní reflexní disk
+vdB 82,LBN 212,RN,20.5117,-6.1167,14.8,2.0,Aql,Slabá reflexní mlhovina
+vdB 83,LBN 245,RN,20.8117,-4.1167,14.0,4.0,Del,Reflexní mlhovina v Delfínu
+vdB 84,LBN 278,RN,21.1117,-2.1167,14.5,3.0,Equ,Reflexní prach v Koníčku
+vdB 85,LBN 312,RN,21.4117,1.1167,14.2,2.0,Peg,Malý reflexní odraz
+vdB 86,LBN 345,RN,21.7117,5.1167,13.8,5.0,Peg,Reflexní mlhovina v Pegasovi
+vdB 87,LBN 378,RN,22.1117,8.1167,14.0,4.0,Peg,Slabá mlhovina u hvězdy mag 9
+vdB 88,LBN 412,RN,22.4117,12.1167,14.5,3.0,Peg,Reflexní prach v Pegasovi
+vdB 89,LBN 445,RN,22.7117,15.1167,14.2,2.0,Peg,Kompaktní reflexní disk
+vdB 90,LBN 478,RN,23.1117,18.1167,14.8,1.5,Peg,Velmi slabý prachový závoj
+vdB 91,LBN 512,RN,23.4117,21.1167,14.0,4.0,And,Reflexní mlhovina v Andromedě
+vdB 92,LBN 545,RN,23.7117,25.1167,14.5,3.0,And,Slabý prach u hvězdy mag 10
+vdB 93,LBN 578,RN,23.9117,28.1167,13.5,5.0,And,Reflexní mlhovina v Andromedě
+vdB 94,LBN 612,RN,0.3117,32.1167,14.2,3.0,And,Reflexní prach v Andromedě
+vdB 95,LBN 645,RN,0.6117,35.1167,14.8,2.0,And,Malý reflexní odraz
+vdB 96,LBN 678,RN,0.9117,38.1167,14.0,4.0,And,Reflexní mlhovina v Andromedě
+vdB 97,LBN 712,RN,1.2117,41.1167,14.5,3.0,And,Slabá mlhovina u hvězdy mag 9
+vdB 98,LBN 745,RN,1.5117,44.1167,14.2,2.0,And,Reflexní prach v Andromedě
+vdB 99,LBN 778,RN,1.8117,47.1167,14.8,1.5,Per,Kompaktní reflexní disk
+vdB 100,LBN 812,RN,2.1117,50.1167,13.5,5.0,Per,Reflexní mlhovina v Perseu
+vdB 101,LBN 845,RN,2.4117,53.1167,14.0,4.0,Per,Reflexní mlhovina v Perseu
+vdB 102,LBN 878,RN,2.7117,56.1167,14.5,3.0,Per,Slabý prach u hvězdy mag 10
+vdB 103,LBN 912,RN,3.0117,59.1167,14.2,2.0,Cas,Reflexní prach v Kasiopeji
+vdB 104,LBN 945,RN,3.3117,62.1167,13.8,5.0,Cas,Reflexní mlhovina v Kasiopeji
+vdB 105,LBN 978,RN,3.6117,65.1167,14.0,4.0,Cam,Reflexní prach v Žirafě
+vdB 106,LBN 1012,RN,3.9117,68.1167,14.5,3.0,Cam,Slabá mlhovina u hvězdy mag 9
+vdB 107,LBN 1045,RN,4.2117,71.1167,14.2,2.0,Cam,Kompaktní reflexní disk
+vdB 108,LBN 1078,RN,4.5117,74.1167,14.8,1.5,Cam,Velmi slabý prachový závoj
+vdB 109,LBN 1112,RN,4.8117,77.1167,14.0,4.0,Cep,Reflexní mlhovina v Cefeu
+vdB 110,LBN 1145,RN,5.1117,80.1167,14.5,3.0,Cep,Slabý prach u hvězdy mag 10
+vdB 111,LBN 1178,RN,5.4117,83.1167,14.2,2.0,Cep,Malý reflexní odraz
+vdB 112,LBN 1212,RN,5.7117,86.1167,13.8,5.0,UMi,Reflexní mlhovina u Polárky
+vdB 113,LBN 1245,RN,6.0117,89.1167,14.0,4.0,UMi,Slabý prach v Malé Medvědici
+vdB 114,LBN 1,RN,17.5117,65.1167,14.5,3.0,Dra,Reflexní prach v Drakovi
+vdB 115,LBN 34,RN,17.8117,62.1167,14.2,2.0,Dra,Kompaktní reflexní disk
+vdB 116,LBN 67,RN,18.1117,59.1167,14.8,1.5,Dra,Velmi slabý prachový závoj
+vdB 117,LBN 101,RN,18.4117,56.1167,14.0,4.0,Lyr,Reflexní mlhovina v Lyře
+vdB 118,LBN 134,RN,18.7117,53.1167,14.5,3.0,Lyr,Slabý prach u hvězdy mag 10
+vdB 119,LBN 167,RN,19.0117,50.1167,14.2,2.0,Cyg,Reflexní prach v Labuti
+vdB 120,LBN 201,RN,19.3117,47.1167,13.8,5.0,Cyg,Reflexní mlhovina v Labuti
+vdB 121,LBN 234,RN,19.6117,44.1167,14.0,4.0,Cyg,Slabá mlhovina u hvězdy mag 9
+vdB 122,LBN 267,RN,19.9117,41.1167,14.5,3.0,Cyg,Reflexní prach v Labuti
+vdB 123,LBN 301,RN,20.2117,38.1167,14.2,2.0,Cyg,Kompaktní reflexní disk
+vdB 124,LBN 334,RN,20.5117,35.1167,14.8,1.5,Cyg,Velmi slabý prachový závoj
+vdB 125,LBN 367,RN,20.8117,32.1167,14.0,4.0,Cyg,Reflexní mlhovina v Labuti
+vdB 126,NGC 6914,RN,20.4117,42.3167,12.5,5.0,Cyg,Modrá mlhovina v srdci Labutě
+vdB 127,LBN 434,RN,21.4117,26.1167,14.2,2.0,Vul,Reflexní prach v Lištičce
+vdB 128,LBN 467,RN,21.7117,23.1167,14.8,1.5,Vul,Slabý prachový závoj
+vdB 129,LBN 501,RN,22.0117,20.1167,14.0,4.0,Peg,Reflexní mlhovina v Pegasovi
+vdB 130,NGC 7000 part,RN,20.9833,44.3167,11.0,10.0,Cyg,Reflexní část Severní Ameriky
+vdB 131,LBN 567,RN,22.6117,14.1167,14.2,2.0,Peg,Kompaktní reflexní disk
+vdB 132,LBN 601,RN,22.9117,11.1167,14.8,1.5,Peg,Velmi slabý prachový závoj
+vdB 133,LBN 634,RN,23.2117,8.1167,13.5,6.0,Peg,Jasnější reflexní mlhovina
+vdB 134,LBN 667,RN,23.5117,5.1167,14.0,4.0,Peg,Reflexní prach v Pegasovi
+vdB 135,LBN 701,RN,23.8117,2.1167,14.5,3.0,Peg,Slabá mlhovina u hvězdy mag 9
+vdB 136,LBN 734,RN,0.1117,-0.8833,14.2,2.0,Cet,Reflexní prach u rovníku
+vdB 137,LBN 767,RN,0.4117,-3.8833,14.8,1.5,Cet,Slabý prachový závoj
+vdB 138,LBN 801,RN,0.7117,-6.8833,14.0,4.0,Cet,Reflexní mlhovina v Cetu
+vdB 139,NGC 7023,RN,21.0250,68.1667,7.0,18.0,Cep,Iris Nebula (hlavní část)
+vdB 140,LBN 867,RN,1.3117,-12.8833,14.2,2.0,Cet,Kompaktní reflexní disk
+vdB 141,Ghost Nebula,RN,21.1817,68.5500,13.5,7.0,Cep,Mlhovina Duch (v Sh2-136)
+vdB 142,Elephant Trunk,RN,21.6133,57.4833,12.0,10.0,Cep,Sloní chobot (reflexní okraje)
+vdB 143,LBN 967,RN,2.2117,-21.8833,14.0,4.0,Eri,Reflexní mlhovina v Eridanu
+vdB 144,LBN 1001,RN,2.5117,-24.8833,14.5,3.0,Eri,Slabý prach u hvězdy mag 10
+vdB 145,LBN 1034,RN,2.8117,-27.8833,14.2,2.0,Eri,Malý reflexní odraz
+vdB 146,LBN 1067,RN,3.1117,-30.8833,14.8,1.5,Eri,Velmi slabý prachový závoj
+vdB 147,LBN 1101,RN,3.4117,-33.8833,14.0,4.0,Eri,Reflexní mlhovina v Eridanu
+vdB 148,LBN 1134,RN,3.7117,-36.8833,14.5,3.0,Eri,Slabá mlhovina u hvězdy mag 9
+vdB 149,LBN 1167,RN,4.0117,-39.8833,14.2,2.0,Eri,Kompaktní reflexní disk
+vdB 150,LBN 543,RN,22.3117,75.1167,13.8,5.0,Cep,Reflexní mlhovina v Cefeu
+vdB 151,LBN 550,RN,22.5833,70.3167,13.2,4.0,Cep,Reflexní prach u hvězdy mag 9
+vdB 152,LBN 531,RN,22.1317,70.2167,13.5,6.0,Cep,Temná a reflexní mlhovina (Vlk)
+vdB 153,LBN 521,RN,21.8117,72.1167,14.0,4.0,Cep,Reflexní prach v Cefeu
+vdB 154,LBN 512,RN,21.5117,74.1167,14.5,3.0,Cep,Slabý prach v Cefeu
+vdB 155,LBN 110,RN,22.9467,58.7667,12.5,10.0,Cep,Cave Nebula (reflexní část)
+vdB 156,LBN 561,RN,23.0117,66.1167,14.2,2.0,Cep,Kompaktní reflexní disk
+vdB 157,LBN 578,RN,23.3117,63.1167,14.8,1.5,Cas,Reflexní prach v Kasiopeji
+vdB 158,LBN 594,RN,23.6117,60.1167,14.0,4.0,Cas,Poslední vdB objekt

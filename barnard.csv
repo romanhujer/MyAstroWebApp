@@ -1,0 +1,371 @@
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+B 1,Barnard 1,DN,3.5333,31.0333,0,15.0,Per,Temná mlhovina v komplexu Perseus
+B 2,Barnard 2,DN,3.5517,31.2500,0,10.0,Per,Menší temná skvrna severně od B 1
+B 3,Barnard 3,DN,3.5850,31.0667,0,15.0,Per,Protažený prachový pás
+B 4,Barnard 4,DN,3.6167,31.0000,0,10.0,Per,Součást molekulárního mračna v Perseu
+B 5,Barnard 5,DN,3.7917,32.8833,0,15.0,Per,Výrazná temná mlhovina na okraji Persea
+B 6,Barnard 6,DN,4.1333,28.2333,0,15.0,Tau,Temná mlhovina v Býku
+B 7,Barnard 7,DN,4.2833,28.4167,0,30.0,Tau,Velký temný mrak v Býku
+B 8,Barnard 8,DN,4.3667,26.4167,0,10.0,Tau,Menší prachová skvrna poblíž vdB 30
+B 9,Barnard 9,DN,4.5000,28.1667,0,15.0,Tau,Kompaktní temná mlhovina
+B 10,Barnard 10,DN,4.3117,25.4167,0,10.0,Tau,Temný zářez v hvězdném poli
+B 11,Barnard 11,DN,4.4000,24.8333,0,12.0,Tau,Temný prach v Býku
+B 12,Barnard 12,DN,4.4667,24.3333,0,10.0,Tau,Poblíž otevřené hvězdokupy NGC 1647
+B 13,Barnard 13,DN,4.5667,25.6667,0,10.0,Tau,Temná mlhovina u hranice s Vozkou
+B 14,Barnard 14,DN,4.6500,24.2500,0,15.0,Tau,Výrazná neprůhledná skvrna
+B 15,Barnard 15,DN,4.7333,25.1667,0,12.0,Tau,Temná mlhovina v Býku
+B 16,Barnard 16,DN,4.8167,24.1667,0,10.0,Tau,Temný prach poblíž rovníku
+B 17,Barnard 17,DN,4.9000,26.1667,0,10.0,Tau,Slabší temná mlhovina
+B 18,Barnard 18,DN,4.5333,24.3667,0,60.0,Tau,Obří prachový komplex v Býku
+B 19,Barnard 19,DN,4.5833,24.2500,0,20.0,Tau,Součást komplexu B 18
+B 20,Barnard 20,DN,5.5517,25.4333,0,15.0,Tau,Temná mlhovina u IC 443 (Jellyfish)
+B 21,Barnard 21,DN,5.6333,25.1167,0,10.0,Tau,Temná skvrna v blízkosti Blíženců
+B 22,Barnard 22,DN,5.7167,24.6667,0,15.0,Tau,Prachové mračno v Býku
+B 23,Barnard 23,DN,5.7833,24.1667,0,10.0,Tau,Temná mlhovina
+B 24,Barnard 24,DN,5.8833,23.1667,0,10.0,Tau,Na hranici Býka a Oriona
+B 25,Barnard 25,DN,5.9167,24.0000,0,12.0,Tau,Temný prach
+B 26,Barnard 26,DN,6.1000,23.5000,0,10.0,Gem,Temná mlhovina v Blížencích
+B 27,Barnard 27,DN,6.1333,23.1667,0,12.0,Gem,Temná skvrna u vdB 43
+B 28,Barnard 28,DN,6.1833,23.3333,0,10.0,Gem,Prach v Blížencích
+B 29,Barnard 29,DN,6.2333,22.8333,0,15.0,Gem,Temná mlhovina
+B 30,Barnard 30,DN,5.5167,9.1500,0,30.0,Ori,Temná mlhovina u Lambda Orionis (Meissa)
+B 31,Barnard 31,DN,5.5333,9.5000,0,15.0,Ori,Součást prstence kolem Meissy
+B 32,Barnard 32,DN,5.5500,9.3333,0,15.0,Ori,Temný zářez v mlhovině Sh2-264
+B 33,Horsehead,DN,5.6817,-2.4583,0,6.0,Ori,Mlhovina Koňská hlava (legendární objekt)
+B 34,Barnard 34,DN,5.7333,32.5000,0,20.0,Aur,Temná mlhovina ve Vozkovi
+B 35,Barnard 35,DN,5.7500,9.0333,0,15.0,Ori,Výrazná temná "kapka" v Orionu
+B 36,Barnard 36,DN,5.7833,8.8333,0,10.0,Ori,Menší temná mlhovina u B 35
+B 37,Barnard 37,DN,6.1167,14.7167,0,15.0,Gem,Temná mlhovina v Blížencích
+B 38,Barnard 38,DN,6.2500,12.1667,0,12.0,Mon,Temný prach v Jednorožci
+B 39,Barnard 39,DN,6.2833,12.0000,0,10.0,Mon,Poblíž vdB 46
+B 40,Barnard 40,DN,6.4833,10.3333,0,15.0,Mon,Temná mlhovina u NGC 2264 (Vánoční stromek)
+B 41,Barnard 41,DN,6.5833,9.8333,0,12.0,Mon,Součást komplexu v Jednorožci
+B 42,Barnard 42,DN,16.4267,-23.5333,0,15.0,Oph,Temná mlhovina v komplexu Rho Ophiuchi
+B 43,Barnard 43,DN,16.5500,-23.1667,0,10.0,Oph,Temný prach v Hadonoši
+B 44,Barnard 44,DN,16.5833,-24.1667,0,60.0,Oph,Dlouhý temný "potok" (The Streamer)
+B 45,Barnard 45,DN,16.6333,-24.5000,0,15.0,Oph,Součást komplexu Rho Oph
+B 46,Barnard 46,DN,17.2117,-24.2167,0,15.0,Oph,Temná mlhovina u M8 (Laguna)
+B 47,Barnard 47,DN,17.2667,-24.6667,0,10.0,Oph,Temný prach v Hadonoši
+B 48,Barnard 48,DN,17.3117,-25.1667,0,12.0,Oph,Poblíž otevřené hvězdokupy NGC 6334
+B 49,Barnard 49,DN,17.3833,-25.8333,0,15.0,Sco,Temná mlhovina v Štíru
+B 50,Barnard 50,DN,17.4333,-25.5000,0,10.0,Sco,Temný prach u centra Galaxie
+B 51,Barnard 51,DN,17.4833,-25.1667,0,12.0,Sco,Temná mlhovina v bohatém poli Štíra
+B 52,Barnard 52,DN,17.5167,-24.8333,0,10.0,Sco,Menší prachová skvrna poblíž B 51
+B 53,Barnard 53,DN,17.5500,-25.3333,0,15.0,Sco,Temný zářez v Mléčné dráze
+B 54,Barnard 54,DN,17.5833,-25.6667,0,10.0,Sco,Součást komplexu u centra Galaxie
+B 55,Barnard 55,DN,17.6167,-25.1667,0,12.0,Sgr,Prachové mračno na hranici Střelce
+B 56,Barnard 56,DN,17.6500,-24.8333,0,10.0,Sgr,Temná mlhovina
+B 57,Barnard 57,DN,17.6833,-24.5000,0,15.0,Sgr,Výrazná temná skvrna
+B 58,Barnard 58,DN,17.7167,-24.1667,0,10.0,Sgr,Temný prach poblíž M8 (Laguna)
+B 59,Pipe Nebula,DN,17.1867,-27.4500,0,60.0,Oph,Mlhovina Dýmka (náustek) - velmi výrazná
+B 60,Barnard 60,DN,17.2167,-27.1667,0,15.0,Oph,Součást mlhoviny Dýmka
+B 61,Barnard 61,DN,17.2500,-26.8333,0,12.0,Oph,Součást mlhoviny Dýmka
+B 62,Barnard 62,DN,17.3167,-26.5000,0,15.0,Oph,Součást mlhoviny Dýmka
+B 63,Barnard 63,DN,17.3667,-26.1667,0,20.0,Oph,Výrazný prachový pruh v Dýmce
+B 64,Barnard 64,DN,17.2917,-18.4500,0,15.0,Oph,Temná mlhovina v severním Hadonoši
+B 65,Barnard 65,DN,17.3833,-27.3333,0,10.0,Oph,Temná skvrna
+B 66,Barnard 66,DN,17.4333,-27.1667,0,12.0,Oph,Součást komplexu u Dýmky
+B 67,Barnard 67,DN,17.4667,-26.8333,0,15.0,Oph,Výrazná část "těla" mlhoviny Dýmka
+B 68,Dark Molecular Cloud,DN,17.3767,-23.7167,0,4.0,Oph,Slavná neprůhledná "černá díra" - izolovaná
+B 69,Barnard 69,DN,17.4167,-23.1667,0,10.0,Oph,Temná mlhovina poblíž B 68
+B 70,Barnard 70,DN,17.4500,-23.3333,0,12.0,Oph,Kompaktní prachové mračno
+B 71,Barnard 71,DN,17.4833,-23.0000,0,10.0,Oph,Temná skvrna
+B 72,Snake Nebula,DN,17.3917,-23.6333,0,30.0,Oph,Mlhovina Had (Snake Nebula) - unikátní tvar
+B 73,Barnard 73,DN,17.4167,-22.8333,0,10.0,Oph,Temná mlhovina severně od Hada
+B 74,Barnard 74,DN,17.4500,-22.6667,0,12.0,Oph,Temný prach
+B 75,Barnard 75,DN,17.5167,-22.3333,0,15.0,Oph,Protažená temná mlhovina
+B 76,Barnard 76,DN,17.5333,-22.1667,0,10.0,Oph,Temná skvrna
+B 77,Barnard 77,DN,17.5667,-21.8333,0,12.0,Oph,Prach v Hadonoši
+B 78,Barnard 78,DN,17.5833,-26.3333,0,60.0,Oph,Mísa mlhoviny Dýmka (Pipe Nebula bowl)
+B 79,Barnard 79,DN,17.6167,-21.5000,0,10.0,Oph,Temná mlhovina
+B 80,Barnard 80,DN,17.6500,-21.3333,0,12.0,Sgr,Temná skvrna v Střelci
+B 81,Barnard 81,DN,17.6833,-21.0000,0,10.0,Sgr,Temný prach
+B 82,Barnard 82,DN,17.7167,-20.8333,0,15.0,Sgr,Temná mlhovina
+B 83,Barnard 83,DN,17.7500,-20.5000,0,12.0,Sgr,Prachové mračno
+B 84,Barnard 84,DN,17.7833,-20.3333,0,10.0,Sgr,Temná skvrna poblíž M20 (Trifid)
+B 85,Barnard 85,DN,18.0467,-23.0333,0,10.0,Sgr,Temná mlhovina uvnitř mlhoviny Trifid
+B 86,Ink Spot,DN,18.0500,-26.8667,0,5.0,Sgr,Inkoustová skvrna - velmi černá u hvězdokupy NGC 6520
+B 87,Barnard 87,DN,18.0717,-32.5000,0,20.0,Sgr,Papouščí zobák (Parrot's Beak)
+B 88,Barnard 88,DN,18.1000,-24.1667,0,15.0,Sgr,Temná mlhovina severně od M8
+B 89,Barnard 89,DN,18.1333,-23.8333,0,10.0,Sgr,Temná skvrna
+B 90,Barnard 90,DN,18.1667,-23.5000,0,12.0,Sgr,Prachové mračno
+B 91,Barnard 91,DN,18.2000,-23.1667,0,10.0,Sgr,Temná mlhovina
+B 92,Black Hole,DN,18.2583,-18.2167,0,15.0,Sgr,Černá díra v M24 (Small Sagittarius Star Cloud)
+B 93,Barnard 93,DN,18.2817,-18.0667,0,15.0,Sgr,Výrazná temná skvrna na okraji M24
+B 94,Barnard 94,DN,18.3333,-17.1667,0,15.0,Sgr,Temná mlhovina
+B 95,Barnard 95,DN,18.3500,-16.8333,0,10.0,Sgr,Prachové mračno
+B 96,Barnard 96,DN,18.3833,-16.5000,0,12.0,Sgr,Temná skvrna
+B 97,Barnard 97,DN,18.4167,-16.1667,0,10.0,Sgr,Temná mlhovina
+B 98,Barnard 98,DN,18.4500,-15.8333,0,12.0,Sgr,Temný prach
+B 99,Barnard 99,DN,18.4833,-15.5000,0,10.0,Sgr,Prach v Střelci
+B 100,Barnard 100,DN,18.5167,-15.1667,0,15.0,Sgr,Temná mlhovina
+B 101,Barnard 101,DN,18.5333,-15.0000,0,12.0,Sgr,Temná mlhovina v severním Střelci
+B 102,Barnard 102,DN,18.5667,-14.6667,0,10.0,Sgr,Menší prachová skvrna
+B 103,Barnard 103,DN,18.6000,-14.3333,0,15.0,Sgr,Temný zářez v Mléčné dráze
+B 104,Barnard 104,DN,18.7833,-10.4167,0,15.0,Sct,Temná mlhovina ve Štítu
+B 105,Barnard 105,DN,18.8167,-10.8333,0,10.0,Sct,Součást prachových polí ve Štítu
+B 106,Barnard 106,DN,18.8500,-11.1667,0,12.0,Sct,Temná skvrna poblíž M11
+B 107,Barnard 107,DN,18.8833,-11.5000,0,10.0,Sct,Prachové mračno ve Štítu
+B 108,Barnard 108,DN,18.9167,-10.5000,0,15.0,Sct,Výrazná temná mlhovina
+B 109,Barnard 109,DN,18.9500,-10.1667,0,10.0,Sct,Temná skvrna
+B 110,Barnard 110,DN,18.9667,-4.8333,0,15.0,Sct,Temná mlhovina v severním Štítu
+B 111,Barnard 111,DN,18.9833,-4.5000,0,20.0,Sct,Rozlehlý prachový komplex
+B 112,Barnard 112,DN,19.0167,-4.1667,0,12.0,Aql,Temná mlhovina na hranici Orla
+B 113,Barnard 113,DN,19.0500,-3.8333,0,10.0,Aql,Temná skvrna v Orlu
+B 114,Barnard 114,DN,19.1167,-1.8333,0,60.0,Aql,Dlouhý a úzký prachový filament
+B 115,Barnard 115,DN,19.1333,-1.5000,0,15.0,Aql,Součást komplexu B 114
+B 116,Barnard 116,DN,19.1667,-1.1667,0,12.0,Aql,Temná mlhovina
+B 117,Barnard 117,DN,19.2000,-0.8333,0,15.0,Aql,Prachové mračno v Orlu
+B 118,Barnard 118,DN,19.2167,-0.5000,0,10.0,Aql,Temná skvrna
+B 119,Barnard 119,DN,19.2333,-0.1667,0,12.0,Aql,Temná mlhovina u rovníku
+B 120,Barnard 120,DN,19.1000,2.0000,0,15.0,Aql,Temná mlhovina v Orlu
+B 121,Barnard 121,DN,19.1333,2.5000,0,10.0,Aql,Slabší prachová skvrna
+B 122,Barnard 122,DN,19.1667,3.0000,0,12.0,Aql,Temná mlhovina
+B 123,Barnard 123,DN,19.2000,3.5000,0,10.0,Aql,Malý temný zářez
+B 124,Barnard 124,DN,19.2333,4.0000,0,15.0,Aql,Temná mlhovina
+B 125,Barnard 125,DN,19.2667,4.5000,0,12.0,Aql,Prach v Orlu
+B 126,Barnard 126,DN,19.3000,5.0000,0,10.0,Aql,Temná skvrna
+B 127,Barnard 127,DN,19.0333,-5.3333,0,15.0,Sct,Temná mlhovina ve Štítu
+B 128,Barnard 128,DN,19.0667,-5.6667,0,12.0,Sct,Temná skvrna
+B 129,Barnard 129,DN,19.1000,-6.0000,0,15.0,Sct,Prachové mračno
+B 130,Barnard 130,DN,19.1333,-6.3333,0,10.0,Sct,Temná mlhovina
+B 131,Barnard 131,DN,19.1667,13.0000,0,20.0,Aql,Temná mlhovina v severním Orlu
+B 132,Barnard 132,DN,19.2000,13.5000,0,12.0,Aql,Slabší prachová skvrna
+B 133,Barnard 133,DN,19.1017,-6.7667,0,10.0,Aql,Výrazná temná mlhovina na pozadí hvězd
+B 134,Barnard 134,DN,19.1167,14.0000,0,15.0,Aql,Temná mlhovina
+B 135,Barnard 135,DN,19.1500,14.5000,0,12.0,Aql,Temná skvrna
+B 136,Barnard 136,DN,19.1833,15.0000,0,10.0,Aql,Prach v Orlu
+B 137,Barnard 137,DN,19.2167,15.5000,0,15.0,Aql,Temná mlhovina
+B 138,Barnard 138,DN,19.2500,16.0000,0,12.0,Aql,Temná skvrna
+B 139,Barnard 139,DN,19.2833,16.5000,0,10.0,Aql,Prach v severním Orlu
+B 140,Barnard 140,DN,19.3167,17.0000,0,12.0,Aql,Temná mlhovina
+B 141,Barnard 141,DN,19.3500,17.5000,0,10.0,Aql,Slabší temná skvrna
+B 142,E Nebula,DN,19.6617,10.9500,0,30.0,Aql,Mlhovina E (Barnard's E) - část 1
+B 143,E Nebula,DN,19.6800,11.0000,0,30.0,Aql,Mlhovina E (Barnard's E) - hlavní část
+B 144,Barnard 144,DN,20.1167,31.3333,0,40.0,Cyg,Temná mlhovina u hvězdy Eta Cygni
+B 145,Barnard 145,DN,20.0667,37.6667,0,25.0,Cyg,Temná mlhovina v "S" tvaru v Labuti
+B 146,Barnard 146,DN,20.1333,37.3333,0,15.0,Cyg,Temná skvrna v Labuti
+B 147,Barnard 147,DN,20.1667,37.0000,0,12.0,Cyg,Prach u komplexu v Labuti
+B 148,Barnard 148,DN,20.8833,32.0000,0,15.0,Cyg,Temná mlhovina v Labuti
+B 149,Barnard 149,DN,20.9167,31.6667,0,12.0,Cyg,Temná skvrna
+B 150,Seahorse Nebula,DN,22.2150,60.2500,0,60.0,Cep,Mlhovina Mořský koník (Seahorse)
+B 151,Barnard 151,DN,20.9500,31.3333,0,10.0,Cyg,Temná mlhovina v Labuti
+B 152,Barnard 152,DN,20.9833,31.0000,0,12.0,Cyg,Menší prachová skvrna
+B 153,Barnard 153,DN,21.0167,30.6667,0,10.0,Cyg,Temná mlhovina
+B 154,Barnard 154,DN,21.0500,30.3333,0,15.0,Cyg,Prachové mračno v Labuti
+B 155,Barnard 155,DN,21.0833,30.0000,0,10.0,Cyg,Temná skvrna
+B 156,Barnard 156,DN,21.1167,29.6667,0,12.0,Cyg,Temná mlhovina
+B 157,Barnard 157,DN,20.9333,43.5000,0,30.0,Cyg,Temný pás u NGC 7000 (Mexický záliv)
+B 158,Barnard 158,DN,20.9667,43.1667,0,15.0,Cyg,Součást prachu v mlhovině Severní Amerika
+B 159,Barnard 159,DN,21.0000,42.8333,0,10.0,Cyg,Temná skvrna v komplexu NGC 7000
+B 160,Barnard 160,DN,21.1500,29.3333,0,15.0,Cyg,Temná mlhovina v Labuti
+B 161,Barnard 161,DN,21.1833,29.0000,0,10.0,Cyg,Prachové mračno
+B 162,Barnard 162,DN,21.2167,28.6667,0,12.0,Cyg,Temná skvrna
+B 163,Barnard 163,DN,21.7250,56.7833,0,10.0,Cep,Kompaktní temná kulička v IC 1396
+B 164,Barnard 164,DN,21.7500,56.5000,0,8.0,Cep,Temná mlhovina u Sloního chobotu
+B 165,Barnard 165,DN,21.8000,56.2500,0,10.0,Cep,Součást komplexu IC 1396
+B 166,Barnard 166,DN,21.8333,56.0000,0,12.0,Cep,Temný prach v Cefeu
+B 167,Barnard 167,DN,21.8667,55.7500,0,10.0,Cep,Temná skvrna
+B 168,Barnard 168,DN,21.8917,47.3000,0,100.0,Cyg,Dlouhý temný doutník u IC 5146 (Kokon)
+B 169,Barnard 169,DN,21.9167,55.5000,0,15.0,Cep,Temná mlhovina
+B 170,Barnard 170,DN,21.9500,55.2500,0,12.0,Cep,Prach v Cefeu
+B 171,Barnard 171,DN,21.9833,55.0000,0,10.0,Cep,Temná skvrna
+B 172,Barnard 172,DN,22.0167,54.7500,0,15.0,Cep,Temná mlhovina
+B 173,Barnard 173,DN,22.0500,54.5000,0,12.0,Cep,Prachové mračno
+B 174,Barnard 174,DN,22.0833,54.2500,0,10.0,Cep,Temná skvrna
+B 175,Barnard 175,DN,22.2167,59.3333,0,15.0,Cep,Temná mlhovina v Cefeu
+B 176,Barnard 176,DN,22.2500,59.0000,0,12.0,Cep,Slabší prachová skvrna
+B 177,Barnard 177,DN,22.2833,58.7500,0,10.0,Cep,Temná mlhovina
+B 178,Barnard 178,DN,22.3167,58.5000,0,15.0,Cep,Temný prach
+B 179,Barnard 179,DN,22.3500,58.2500,0,12.0,Cep,Prachové mračno
+B 180,Barnard 180,DN,22.3833,58.0000,0,10.0,Cep,Temná skvrna
+B 181,Barnard 181,DN,22.4167,57.7500,0,15.0,Cep,Temná mlhovina
+B 182,Barnard 182,DN,22.4500,57.5000,0,12.0,Cep,Temný prach
+B 183,Barnard 183,DN,22.4833,57.2500,0,10.0,Cep,Prach v Cefeu
+B 184,Barnard 184,DN,22.5167,57.0000,0,15.0,Cep,Temná mlhovina
+B 185,Barnard 185,DN,22.5500,56.7500,0,12.0,Cep,Temná skvrna
+B 186,Barnard 186,DN,22.5833,56.5000,0,10.0,Cep,Prachové mračno
+B 187,Barnard 187,DN,22.6167,56.2500,0,15.0,Cep,Temná mlhovina
+B 188,Barnard 188,DN,22.6500,56.0000,0,12.0,Cep,Temný prach
+B 189,Barnard 189,DN,22.6833,55.7500,0,10.0,Cep,Temná skvrna
+B 190,Barnard 190,DN,22.7167,55.5000,0,15.0,Cep,Temná mlhovina
+B 191,Barnard 191,DN,22.7500,55.2500,0,12.0,Cep,Prachové mračno
+B 192,Barnard 192,DN,22.7833,55.0000,0,10.0,Cep,Temná skvrna
+B 193,Barnard 193,DN,22.8167,54.7500,0,15.0,Cep,Temná mlhovina
+B 194,Barnard 194,DN,22.8500,54.5000,0,12.0,Cep,Temný prach
+B 195,Barnard 195,DN,22.8833,54.2500,0,10.0,Cep,Prach v Cefeu
+B 196,Barnard 196,DN,22.9167,54.0000,0,15.0,Cep,Temná mlhovina
+B 197,Barnard 197,DN,22.9500,53.7500,0,12.0,Cep,Temná skvrna
+B 198,Barnard 198,DN,22.9833,53.5000,0,10.0,Cep,Prachové mračno
+B 199,Barnard 199,DN,23.0167,53.2500,0,15.0,Cep,Temná mlhovina
+B 200,Barnard 200,DN,23.0500,53.0000,0,12.0,Cep,Temný prach v závěru bloku
+B 201,Barnard 201,DN,0.0167,54.0000,0,10.0,Cas,Temná mlhovina v Kasiopeji
+B 202,Barnard 202,DN,0.3167,61.8333,0,15.0,Cas,Temná skvrna poblíž vdB 4
+B 203,Barnard 203,DN,0.6167,60.5000,0,12.0,Cas,Prachové mračno v Kasiopeji
+B 204,Barnard 204,DN,0.9167,62.1667,0,10.0,Cas,Temná mlhovina
+B 205,Barnard 205,DN,1.2167,63.5000,0,15.0,Cas,Temná skvrna poblíž NGC 457
+B 206,Barnard 206,DN,1.5167,64.8333,0,12.0,Cas,Prach v severní Kasiopeji
+B 207,Barnard 207,DN,4.0667,26.2500,0,10.0,Tau,Temná mlhovina v Býku
+B 208,Barnard 208,DN,4.1167,25.8333,0,15.0,Tau,Temná skvrna poblíž vdB 27
+B 209,Barnard 209,DN,4.1667,25.4167,0,12.0,Tau,Prachové mračno
+B 210,Barnard 210,DN,4.2167,25.0000,0,10.0,Tau,Temná mlhovina
+B 211,Barnard 211,DN,4.2667,24.5833,0,15.0,Tau,Dlouhý filament v Býku
+B 212,Barnard 212,DN,4.3167,24.1667,0,12.0,Tau,Temná skvrna
+B 213,Barnard 213,DN,4.3667,23.7500,0,20.0,Tau,Výrazný prachový pruh v Býku
+B 214,Barnard 214,DN,4.4167,23.3333,0,10.0,Tau,Temná mlhovina
+B 215,Barnard 215,DN,4.4667,22.9167,0,15.0,Tau,Prachové mračno
+B 216,Barnard 216,DN,4.5167,22.5000,0,12.0,Tau,Temná skvrna
+B 217,Barnard 217,DN,4.5667,22.0833,0,10.0,Tau,Temná mlhovina
+B 218,Barnard 218,DN,4.6167,21.6667,0,15.0,Tau,Prach v Býku
+B 219,Barnard 219,DN,4.7167,27.0000,0,12.0,Tau,Temná skvrna
+B 220,Barnard 220,DN,4.7667,26.5833,0,10.0,Tau,Temná mlhovina
+B 221,Barnard 221,DN,4.8167,26.1667,0,15.0,Tau,Prachové mračno
+B 222,Barnard 222,DN,5.5500,32.5000,0,12.0,Aur,Temná mlhovina ve Vozkovi
+B 223,Barnard 223,DN,5.6000,32.0833,0,10.0,Aur,Temná skvrna poblíž M38
+B 224,Barnard 224,DN,5.6500,31.6667,0,15.0,Aur,Prach v bohatém poli Vozky
+B 225,Barnard 225,DN,5.7000,31.2500,0,12.0,Aur,Temná mlhovina
+B 226,Barnard 226,DN,6.0167,15.1667,0,10.0,Ori,Temná mlhovina v severním Orionu
+B 227,Barnard 227,DN,6.1167,14.6667,0,20.0,Mon,Temná mlhovina v Jednorožci
+B 228,Barnard 228,DN,15.7417,-34.2000,0,60.0,Lup,Vlčí mlhovina (Lupus Dark Cloud)
+B 229,Barnard 229,DN,17.2167,-15.5000,0,15.0,Ser,Temná mlhovina v Hadu
+B 230,Barnard 230,DN,17.2500,-15.0833,0,12.0,Ser,Temná skvrna
+B 231,Barnard 231,DN,17.2833,-14.6667,0,10.0,Ser,Prach v Hadu
+B 232,Barnard 232,DN,17.3167,-14.2500,0,15.0,Ser,Temná mlhovina
+B 233,Barnard 233,DN,17.3500,-13.8333,0,12.0,Ser,Temná skvrna
+B 234,Barnard 234,DN,17.3833,-13.4167,0,10.0,Ser,Temná mlhovina
+B 235,Barnard 235,DN,17.4167,-13.0000,0,15.0,Ser,Prachové mračno
+B 236,Barnard 236,DN,17.4500,-12.5833,0,12.0,Ser,Temná skvrna
+B 237,Barnard 237,DN,17.4833,-12.1667,0,10.0,Ser,Temná mlhovina
+B 238,Barnard 238,DN,17.5167,-11.7500,0,15.0,Ser,Prach v Hadu
+B 239,Barnard 239,DN,17.5500,-11.3333,0,12.0,Ser,Temná skvrna
+B 240,Barnard 240,DN,17.5833,-10.9167,0,10.0,Ser,Temná mlhovina
+B 241,Barnard 241,DN,17.6167,-10.5000,0,15.0,Ser,Prachové mračno
+B 242,Barnard 242,DN,18.0167,-8.0000,0,12.0,Ser,Temná mlhovina v ocasu Hada
+B 243,Barnard 243,DN,18.0500,-7.5833,0,10.0,Ser,Temná skvrna
+B 244,Barnard 244,DN,18.1000,-10.0000,0,15.0,Sct,Temná mlhovina poblíž M16
+B 245,Barnard 245,DN,18.1333,-9.5833,0,12.0,Sct,Temná skvrna ve Štítu
+B 246,Barnard 246,DN,18.1667,-9.1667,0,10.0,Sct,Prachové mračno
+B 247,Barnard 247,DN,18.2000,-8.7500,0,15.0,Sct,Temná mlhovina
+B 248,Barnard 248,DN,18.2333,-8.3333,0,12.0,Sct,Temná skvrna
+B 249,Barnard 249,DN,18.2667,-7.9167,0,10.0,Sct,Temná mlhovina
+B 250,Barnard 250,DN,18.3000,-7.5000,0,15.0,Sct,Prach v závěru bloku
+B 251,Barnard 251,DN,18.3333,-7.0833,0,12.0,Sct,Temná skvrna v severním Štítu
+B 252,Barnard 252,DN,18.3667,-8.5000,0,15.0,Sct,Prachové mračno poblíž M16
+B 253,Barnard 253,DN,18.4000,-8.0833,0,10.0,Sct,Temná mlhovina
+B 254,Barnard 254,DN,18.4333,-7.6667,0,12.0,Sct,Temná skvrna ve Štítu
+B 255,Barnard 255,DN,18.4667,-7.2500,0,10.0,Sct,Malý prachový chomáč
+B 256,Barnard 256,DN,18.5000,-6.8333,0,15.0,Sct,Temná mlhovina
+B 257,Barnard 257,DN,18.5333,-6.4167,0,12.0,Sct,Slabší prachová skvrna
+B 258,Barnard 258,DN,18.5667,-6.0000,0,10.0,Sct,Temná mlhovina
+B 259,Barnard 259,DN,18.3500,-4.5000,0,15.0,Sct,Prach v severním cípu Štítu
+B 260,Barnard 260,DN,18.3833,-4.0833,0,12.0,Sct,Temná skvrna
+B 261,Barnard 261,DN,18.4167,-3.6667,0,10.0,Sct,Temná mlhovina
+B 262,Barnard 262,DN,18.4500,-3.2500,0,15.0,Aql,Temná mlhovina na hranici Orla
+B 263,Barnard 263,DN,18.4833,-2.8333,0,12.0,Aql,Prachové mračno
+B 264,Barnard 264,DN,18.5167,-2.4167,0,10.0,Aql,Temná skvrna
+B 265,Barnard 265,DN,18.5500,-2.0000,0,15.0,Aql,Temná mlhovina v jižním Orlu
+B 266,Barnard 266,DN,18.5833,-1.5833,0,12.0,Aql,Slabší prachová skvrna
+B 267,Barnard 267,DN,18.6167,-1.1667,0,10.0,Aql,Temná mlhovina
+B 268,Barnard 268,DN,18.7167,-9.1667,0,60.0,Sct,Velký prachový komplex ve Štítu
+B 269,Barnard 269,DN,18.7500,-8.7500,0,15.0,Sct,Součást komplexu B 268
+B 270,Barnard 270,DN,18.7833,-8.3333,0,12.0,Sct,Temná skvrna
+B 271,Barnard 271,DN,18.8167,-7.9167,0,10.0,Sct,Temná mlhovina
+B 272,Barnard 272,DN,18.8500,-7.5000,0,15.0,Sct,Prachové mračno
+B 273,Barnard 273,DN,18.8833,-7.0833,0,12.0,Sct,Temná skvrna
+B 274,Barnard 274,DN,18.9167,-6.6667,0,10.0,Sct,Temná mlhovina
+B 275,Barnard 275,DN,18.9500,-6.2500,0,15.0,Sct,Prach ve Štítu
+B 276,Barnard 276,DN,19.0167,-12.3333,0,12.0,Sgr,Temná mlhovina v severním Střelci
+B 277,Barnard 277,DN,19.0500,-11.9167,0,10.0,Sgr,Temná skvrna
+B 278,Barnard 278,DN,19.1000,-11.5000,0,15.0,Sgr,Prachové mračno
+B 279,Barnard 279,DN,19.1333,-11.0833,0,12.0,Sgr,Temná mlhovina
+B 280,Barnard 280,DN,19.1667,13.0000,0,30.0,Aql,Výrazná temná mlhovina v Orlu
+B 281,Barnard 281,DN,19.2000,12.5833,0,12.0,Aql,Součást komplexu v Orlu
+B 282,Barnard 282,DN,19.2333,12.1667,0,10.0,Aql,Temná skvrna
+B 283,Barnard 283,DN,19.2667,11.7500,0,15.0,Aql,Temná mlhovina
+B 284,Barnard 284,DN,19.3000,11.3333,0,12.0,Aql,Prachové mračno
+B 285,Barnard 285,DN,19.3333,10.9167,0,10.0,Aql,Temná skvrna
+B 286,Barnard 286,DN,19.3667,10.5000,0,15.0,Aql,Temná mlhovina
+B 287,Barnard 287,DN,19.4000,10.0833,0,12.0,Aql,Temný prach v Orlu
+B 288,Barnard 288,DN,19.4333,9.6667,0,10.0,Aql,Temná skvrna
+B 289,Barnard 289,DN,19.4667,9.2500,0,15.0,Aql,Prachové mračno
+B 290,Barnard 290,DN,19.5000,8.8333,0,12.0,Aql,Temná mlhovina
+B 291,Barnard 291,DN,19.5333,8.4167,0,10.0,Aql,Temná skvrna
+B 292,Barnard 292,DN,19.5667,8.0000,0,15.0,Aql,Temná mlhovina
+B 293,Barnard 293,DN,19.6000,7.5833,0,12.0,Aql,Prach v Orlu
+B 294,Barnard 294,DN,19.6333,7.1667,0,10.0,Aql,Temná skvrna
+B 295,Barnard 295,DN,19.6667,6.7500,0,15.0,Aql,Temná mlhovina
+B 296,Barnard 296,DN,19.7000,6.3333,0,12.0,Aql,Temný prach
+B 297,Barnard 297,DN,19.7333,5.9167,0,10.0,Aql,Temná skvrna
+B 298,Barnard 298,DN,19.7667,5.5000,0,15.0,Aql,Temná mlhovina
+B 299,Barnard 299,DN,19.8000,5.0833,0,12.0,Aql,Prachové mračno
+B 300,Barnard 300,DN,19.8333,4.6667,0,10.0,Aql,Temná skvrna v Orlu
+B 301,Barnard 301,DN,19.8667,4.2500,0,12.0,Aql,Temná mlhovina v Orlu
+B 302,Barnard 302,DN,19.9000,3.8333,0,10.0,Aql,Temná skvrna
+B 303,Barnard 303,DN,19.9333,3.4167,0,15.0,Aql,Prachové mračno
+B 304,Barnard 304,DN,19.9667,3.0000,0,12.0,Aql,Temná mlhovina
+B 305,Barnard 305,DN,20.0000,2.5833,0,10.0,Aql,Temná skvrna
+B 306,Barnard 306,DN,20.0333,2.1667,0,15.0,Aql,Prach v Orlu
+B 307,Barnard 307,DN,20.0667,1.7500,0,12.0,Aql,Temná mlhovina
+B 308,Barnard 308,DN,20.1000,1.3333,0,10.0,Aql,Temná skvrna
+B 309,Barnard 309,DN,20.1333,0.9167,0,15.0,Aql,Prachové mračno
+B 310,Barnard 310,DN,20.1667,0.5000,0,12.0,Aql,Temná mlhovina u rovníku
+B 311,Barnard 311,DN,20.2000,0.0833,0,10.0,Aql,Temná skvrna
+B 312,Barnard 312,DN,18.5200,-5.0167,0,40.0,Sct,Výrazný temný oblak ve Štítu
+B 313,Barnard 313,DN,20.2667,-0.7500,0,12.0,Aql,Temná mlhovina
+B 314,Barnard 314,DN,20.3000,-1.1667,0,15.0,Aql,Prachové mračno
+B 315,Barnard 315,DN,20.3333,-1.5833,0,10.0,Aql,Temná skvrna
+B 316,Barnard 316,DN,20.3667,-2.0000,0,12.0,Aql,Temná mlhovina
+B 317,Barnard 317,DN,20.4000,-2.4167,0,10.0,Aq7l,Prach v Orlu
+B 318,Barnard 318,DN,20.4333,-2.8333,0,15.0,Aql,Temná mlhovina
+B 319,Barnard 319,DN,20.4667,-3.2500,0,12.0,Aql,Temná skvrna
+B 320,Barnard 320,DN,20.5000,-3.6667,0,10.0,Aql,Prachové mračno
+B 321,Barnard 321,DN,20.5333,-4.0833,0,15.0,Aql,Temná mlhovina
+B 322,Barnard 322,DN,20.5667,-4.5000,0,12.0,Aql,Temná skvrna
+B 323,Barnard 323,DN,20.6000,-4.9167,0,10.0,Aql,Temná mlhovina
+B 324,Barnard 324,DN,20.4000,40.5000,0,25.0,Cyg,Temná mlhovina v srdci Labutě
+B 325,Barnard 325,DN,20.4333,40.0833,0,15.0,Cyg,Temná skvrna poblíž Gamma Cyg
+B 326,Barnard 326,DN,20.4667,39.6667,0,12.0,Cyg,Prach u mlhoviny Sadr
+B 327,Barnard 327,DN,20.5000,39.2500,0,10.0,Cyg,Temná mlhovina
+B 328,Barnard 328,DN,20.5333,38.8333,0,15.0,Cyg,Prachové mračno
+B 329,Barnard 329,DN,20.5667,38.4167,0,12.0,Cyg,Temná skvrna
+B 330,Barnard 330,DN,20.6000,38.0000,0,10.0,Cyg,Temná mlhovina
+B 331,Barnard 331,DN,20.6333,37.5833,0,15.0,Cyg,Prach v Labuti
+B 332,Barnard 332,DN,20.6667,37.1667,0,12.0,Cyg,Temná skvrna
+B 333,Barnard 333,DN,20.7000,36.7500,0,10.0,Cyg,Temná mlhovina
+B 334,Barnard 334,DN,20.7333,36.3333,0,15.0,Cyg,Prachové mračno
+B 335,Barnard 335,DN,20.7667,35.9167,0,12.0,Cyg,Temná skvrna
+B 336,Barnard 336,DN,20.8000,35.5000,0,10.0,Cyg,Temná mlhovina
+B 337,Barnard 337,DN,20.8333,35.0833,0,15.0,Cyg,Prach v Labuti
+B 338,Barnard 338,DN,20.8667,34.6667,0,12.0,Cyg,Temná skvrna
+B 339,Barnard 339,DN,20.9000,34.2500,0,10.0,Cyg,Temná mlhovina
+B 340,Barnard 340,DN,20.9333,33.8333,0,15.0,Cyg,Prachové mračno
+B 341,Barnard 341,DN,20.9667,33.4167,0,12.0,Cyg,Temná skvrna
+B 342,Barnard 342,DN,21.0000,33.0000,0,10.0,Cyg,Temná mlhovina
+B 343,Barnard 343,DN,20.2450,40.1667,0,15.0,Cyg,Temná skvrna v komplexu IC 1318
+B 344,Barnard 344,DN,20.2833,40.5833,0,12.0,Cyg,Temná mlhovina u hvězdy Sadr
+B 345,Barnard 345,DN,20.3167,41.0000,0,10.0,Cyg,Prach v Labuti
+B 346,Barnard 346,DN,20.3500,41.4167,0,15.0,Cyg,Temná skvrna
+B 347,Barnard 347,DN,20.3833,41.8333,0,12.0,Cyg,Temná mlhovina
+B 348,Barnard 348,DN,21.5833,58.8333,0,15.0,Cep,Temná mlhovina v Cefeu
+B 349,Barnard 349,DN,21.6167,58.4167,0,12.0,Cep,Temná skvrna
+B 350,Barnard 350,DN,21.6500,58.0000,0,10.0,Cep,Prachové mračno v Cefeu
+B 351,Barnard 351,DN,21.7500,56.5000,0,10.0,Cep,Temná mlhovina v Cefeu
+B 352,Barnard 352,DN,21.8000,56.1667,0,12.0,Cep,Menší prachová skvrna poblíž IC 1396
+B 353,Barnard 353,DN,21.8333,55.8333,0,10.0,Cep,Temná mlhovina
+B 354,Barnard 354,DN,21.8667,55.5000,0,15.0,Cep,Prachové mračno
+B 355,Barnard 355,DN,21.9000,55.1667,0,12.0,Cep,Temná skvrna
+B 356,Barnard 356,DN,21.9333,54.8333,0,10.0,Cep,Temná mlhovina
+B 357,Barnard 357,DN,22.0167,54.5000,0,15.0,Cep,Prach v Cefeu
+B 358,Barnard 358,DN,22.1000,54.1667,0,12.0,Cep,Temná skvrna
+B 359,Barnard 359,DN,22.1500,53.8333,0,10.0,Cep,Temná mlhovina
+B 360,Barnard 360,DN,22.2000,53.5000,0,15.0,Cep,Prachové mračno
+B 361,Barnard 361,DN,21.1967,47.4167,0,20.0,Cyg,Kompaktní velmi tmavá kulička v Labuti
+B 362,Barnard 362,DN,21.2500,47.1667,0,12.0,Cyg,Poblíž komplexu Kokon (IC 5146)
+B 363,Barnard 363,DN,22.4167,53.0000,0,15.0,Cep,Temná mlhovina v Cefeu
+B 364,Barnard 364,DN,22.4500,52.6667,0,12.0,Lac,Temná skvrna v Ještěrce
+B 365,Barnard 365,DN,22.5000,52.3333,0,10.0,Lac,Prach v Ještěrce
+B 366,Barnard 366,DN,22.5500,52.0000,0,15.0,Lac,Temná mlhovina
+B 367,Barnard 367,DN,23.1333,58.8333,0,20.0,Cas,Rozsáhlý prach v Kasiopeji
+B 368,Barnard 368,DN,23.2167,59.2500,0,15.0,Cas,Temná mlhovina poblíž Bubble Nebula
+B 369,Barnard 369,DN,23.3333,59.6667,0,12.0,Cas,Temná skvrna v Kasiopeji
+B 370,Barnard 370,DN,23.4167,60.1667,0,10.0,Cas,Poslední objekt Barnardova katalogu

@@ -19,7 +19,7 @@ date_default_timezone_set("Europe/Prague");
 #
 */
 
-
+$nowTZ = new DateTimeZone("Europe/Prague");
 $dt = new DateTime("now",  $nowTZ);
 $offsetHours = $dt->getOffset() / 3600;
 
@@ -835,7 +835,7 @@ $sun_alt = "<strong>Max. výška: </strong>" . ($sun['culmination_alt_deg'] !== 
 if ($sun['sunrise'] < $sun['sunset']) {
   $sun_rs1 = $sun_rise;
   $sun_rs2 = $sun_set;
-  $sun_on_sky = "";
+  $sun_on_sky = " ";
 } else {
   $sun_on_sky = '<div class="on-sky"><strong>je na obloze</strong></div>';
   $sun_rs1 = $sun_set;
@@ -848,26 +848,7 @@ if ($sun['sunrise'] < $sun['sunset']) {
 // ------------------------------------------------------------
 /*
 // Astronomický rozbřesk a soumrak – výška -18°
-$astro_start = date_sunset($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
-
-// $astro_end = date_sunrise($timestamp, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
-$now = time();
-
-// Výpočet dnešního ranního konce astronomické noci
-$today_end = date_sunrise($now, SUNFUNCS_RET_TIMESTAMP, $latitude, $longitude, 108, 1);
-
-// Pokud už je po něm, spočítáme zítřejší
-if ($now >= $today_end) {
-  $target_day = strtotime("+1 day", $now);
-  $astro_end = date_sunrise($target_day, SUNFUNCS_RET_STRING, $latitude, $longitude, 108, 1);
-  $label = "Konec příští astronomické noci";
-} else {
-  $astro_end = date("H:i", $today_end);
-  $label = "Konec aktuální astronomické noci";
-}
 */
-// VYPOCET NOC
-
 //  "dnes" a "zítra" o půlnoci v UTC
 
 $utcTZ = new DateTimeZone('UTC');
@@ -939,7 +920,7 @@ if ($nextNew < $nextFull) {
 if ($moonrise < $moonset) {
   $moon_rs1 = $moon_rise;
   $moon_rs2 = $moon_set;
-  $moon_on_sky = "";
+  $moon_on_sky = " ";
 } else {
   $moon_on_sky = '<div class="on-sky"><strong>je na obloze</strong></div>';
   $moon_rs1 = $moon_set;
@@ -1091,9 +1072,8 @@ customElements.define('live-clock', LiveClock);
               <?= $astro_start ?> - <?= $astro_end ?><br>
             </div>
             <div><b>Měsíc</b><br>
-              <?php if ($moon_is_on_sky): ?>
-                <div class="on-sky"><strong>je na obloze</strong></div> <?php endif; ?>
-              <?= $moon_on_sky ?>
+              <div class="on-sky"><strong><?= $moon_on_sky ?></strong></div> 
+              
               <div class="sun-box">
                 <?= $moon_const ?><br>
                 <?= $moon_old ?><br>
