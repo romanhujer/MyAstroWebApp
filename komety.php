@@ -162,12 +162,27 @@ $constellationCZ = [
 
 function load_comets($path)
 {
-  $json = file_get_contents($path);
-  if ($json === false)
+ // Pokud existuje .gz varianta, použij ji
+  if (file_exists($path . '.gz')) {
+    $path .= '.gz';
+  }
+  // Načtení souboru
+  $raw = file_get_contents($path);
+  if ($raw === false)
     return null;
+  // Pokud je gzip, dekomprimuj
+  if (substr($path, -3) === '.gz') {
+    $json = gzdecode($raw);
+    if ($json === false)
+      return null;
+  } else {
+    $json = $raw;
+  }
+  // Dekódování JSONu
   $data = json_decode($json, true);
   if (!is_array($data))
     return null;
+  
   return $data;
 }
 
@@ -366,11 +381,7 @@ $rounded = roundTo30(clone $nowUTC);
         <label>Elongace:
           <input type="number" min="0" max="180" id="elong" name="elong" value="<?= $min_elong ?>" />° &nbsp;
         </label>
-        <!--   
-   <label>Počet: 
-         <input type="number" min="1"  max="999" id="count" name="count" value="<?= $count ?>" />
-    </label>
--->
+
         <button type="submit">Zobrazit</button>
       </form>
     <?php else: ?>
@@ -379,7 +390,7 @@ $rounded = roundTo30(clone $nowUTC);
 
     <?php endif; ?>
 
-    <p>Data jsou plantá pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
+    <p>Data jsou platná pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
 
     <table class="main-table">
       <?php

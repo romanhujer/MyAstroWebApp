@@ -162,102 +162,102 @@ $constellationCZ = [
 ];
 
 $objectTypeCZ = [
-    "GAL"   => "Galaxie",
-    "EN"    => "Emisní mlhovina",
-    "RN"    => "Reflexni mlhovina",
-    "OC"    => "Otevřená hvězdokupa",
-    "GC"    => "Kulová hvězdokupa",
-    "PN"    => "Planetární mlhovina",
-    "SNR"   => "Pozůstatek po supernově",
-    "DN"    => "Temná mlhovina",
-    "STAR"  => "Hvězda",
-    "DOUBLE"=> "Dvojhvězda",
+  "GAL" => "Galaxie",
+  "EN" => "Emisní mlhovina",
+  "RN" => "Reflexni mlhovina",
+  "OC" => "Otevřená hvězdokupa",
+  "GC" => "Kulová hvězdokupa",
+  "PN" => "Planetární mlhovina",
+  "SNR" => "Pozůstatek po supernově",
+  "DN" => "Temná mlhovina",
+  "STAR" => "Hvězda",
+  "DOUBLE" => "Dvojhvězda",
 ];
 
 $katalogDecode = [
-  "abell" =>  "Abell",
-  "barnard" => "Barnard",
-  "dark"  => "Výber LBN/LDN",  
   "messier" => "Messier",
-  "sharpless" => "Sharples",
-  "arp" => "Arp",
   "caldwell" => "Caldwell",
   "herschel" => "Herschel",
-  "select" => "Výběr NGC/IC", 
-  "snr" =>	"SNR",   
-  "vdb" =>  "vdB", 
+  "sharpless" => "Sharples",
+  "arp" => "Arp",
+  "snr" => "SNR",
+  "vdb" => "vdB",
+  "abell" => "Abell",
+  "barnard" => "Barnard",
+  "dark" => "Výber LBN/LDN",
+  "select" => "Výběr NGC/IC",
 ];
 
 function load_katalog($path)
 {
-    // Pokud existuje .gz varianta, použij ji
-    if (file_exists($path . '.gz')) {
-        $path .= '.gz';
-    }
-    // Načtení souboru
-    $raw = file_get_contents($path);
-    if ($raw === false)
-        return null;
-    // Pokud je gzip, dekomprimuj
-    if (substr($path, -3) === '.gz') {
-        $json = gzdecode($raw);
-        if ($json === false)
-            return null;
-    } else {
-        $json = $raw;
-    }
-    // Dekódování JSONu
-    $data = json_decode($json, true);
-    if (!is_array($data))
-        return null;
+  // Pokud existuje .gz varianta, použij ji
+  if (file_exists($path . '.gz')) {
+    $path .= '.gz';
+  }
+  // Načtení souboru
+  $raw = file_get_contents($path);
+  if ($raw === false)
+    return null;
+  // Pokud je gzip, dekomprimuj
+  if (substr($path, -3) === '.gz') {
+    $json = gzdecode($raw);
+    if ($json === false)
+      return null;
+  } else {
+    $json = $raw;
+  }
+  // Dekódování JSONu
+  $data = json_decode($json, true);
+  if (!is_array($data))
+    return null;
 
-    return $data;
+  return $data;
 }
 
 function extract_number_from_id(string $id): int
 {
-    // najde poslední číslo v řetězci
-    if (preg_match('/(\d+)(?!.*\d)/', $id, $m)) {
-        return intval($m[1]);
-    }
-    return 0;
+  // najde poslední číslo v řetězci
+  if (preg_match('/(\d+)(?!.*\d)/', $id, $m)) {
+    return intval($m[1]);
+  }
+  return 0;
 }
 
 
 
 function sort_objects(array &$data, string $mode): void
 {
-    if (!isset($data['objects']) || !is_array($data['objects'])) {
-        return;
-    }
+  if (!isset($data['objects']) || !is_array($data['objects'])) {
+    return;
+  }
 
-    switch ($mode) {
+  switch ($mode) {
 
-        case 'id':
-            usort($data['objects'], function($a, $b) {
-                $numA = extract_number_from_id($a['id']);
-                $numB = extract_number_from_id($b['id']);
-                return $numA <=> $numB;
-            });
-            break;
+    case 'id':
+      usort($data['objects'], function ($a, $b) {
+        $numA = extract_number_from_id($a['id']);
+        $numB = extract_number_from_id($b['id']);
+        return $numA <=> $numB;
+      });
+      break;
 
-        case 'type':
-            usort($data['objects'], function($a, $b) {
-                return strcmp($a['type'], $b['type']);
-            });
-            break;
+    case 'type':
+      usort($data['objects'], function ($a, $b) {
+        return strcmp($a['type'], $b['type']);
+      });
+      break;
 
-        // Třídění podle jména
-        case 'name':
-            usort($data['objects'], function($a, $b) {
-                return strcmp($a['name'], $b['name']);
-            });
-            break;
+    // Třídění podle jména
+    case 'name':
+      usort($data['objects'], function ($a, $b) {
+        return strcmp($a['name'], $b['name']);
+      });
+      break;
 
-        // Default: nic nedělej
-        default:
-            break;
-    }
+    // Default: nic nedělej
+    default:
+      break;
+  }
 }
 
 
@@ -265,46 +265,48 @@ function sort_objects(array &$data, string $mode): void
 
 
 // GET Parmaetry
-if ( $_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $filtr = isset($_POST['f']) ? $_POST['f'] : 'yes';
   $id = isset($_POST['id']) ? $_POST['id'] : 'all';
-  $katalog = isset($_POST['katalog']) ?  $_POST['katalog'] : "messier";
-  $key = isset($_POST['key']) ?  $_POST['key'] : "delta";
+  $katalog = isset($_POST['katalog']) ? $_POST['katalog'] : "messier";
+  $key = isset($_POST['key']) ? $_POST['key'] : "delta";
 } else {
   $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
   $id = isset($_GET['id']) ? $_GET['id'] : 'all';
-  $katalog = isset($_GET['katalog']) ?  $_GET['katalog'] : "messier";
-  $key = isset($_GET['key']) ?  $_GET['key'] : "delta";
+  $katalog = isset($_GET['katalog']) ? $_GET['katalog'] : "messier";
+  $key = isset($_GET['key']) ? $_GET['key'] : "delta";
 }
 
 
 $vmag = isset($_POST['vmag']) ? max(1, (int) $_POST['vmag']) : 24;
 
-$gal  = isset($_POST['gal']) ? $_POST['gal'] : 'yes';
-$enb  = isset($_POST['en']) ? $_POST['en'] : 'yes';
-$oc  = isset($_POST['oc']) ? $_POST['oc'] : 'yes';
-$gc  = isset($_POST['gc']) ? $_POST['gc'] : 'yes';
-$pn  = isset($_POST['pn']) ? $_POST['pn'] : 'yes';
-$snr  = isset($_POST['snr']) ? $_POST['snr'] : 'yes';
-$dn  = isset($_POST['dn']) ? $_POST['dn'] : 'yes';
-$rn  = isset($_POST['rn']) ? $_POST['rn'] : 'yes';
-$st  = isset($_POST['st']) ? $_POST['st'] : 'yes';
-$dbl  = isset($_POST['dbl']) ? $_POST['dbl'] : 'yes';
+$gal = isset($_POST['gal']) ? $_POST['gal'] : 'yes';
+$enb = isset($_POST['en']) ? $_POST['en'] : 'yes';
+$oc = isset($_POST['oc']) ? $_POST['oc'] : 'yes';
+$gc = isset($_POST['gc']) ? $_POST['gc'] : 'yes';
+$pn = isset($_POST['pn']) ? $_POST['pn'] : 'yes';
+$snr = isset($_POST['snr']) ? $_POST['snr'] : 'yes';
+$dn = isset($_POST['dn']) ? $_POST['dn'] : 'yes';
+$rn = isset($_POST['rn']) ? $_POST['rn'] : 'yes';
+$st = isset($_POST['st']) ? $_POST['st'] : 'yes';
+$dbl = isset($_POST['dbl']) ? $_POST['dbl'] : 'yes';
 
 
 
 // Reset když není nic vybráno 
-if ( $gal === "no" && $enb === "no" && $oc === "no" &&  $gc === "no" &&  $pn === "no" && 
-     $snr === "no" && $dn === "no" && $rn === "no" && $st === "no" &&  $dbl === "no" ) {
+if (
+  $gal === "no" && $enb === "no" && $oc === "no" && $gc === "no" && $pn === "no" &&
+  $snr === "no" && $dn === "no" && $rn === "no" && $st === "no" && $dbl === "no"
+) {
   $gal = "yes";
-  $enb = "yes";  
+  $enb = "yes";
   $oc = "yes";
   $gc = "yes";
-  $pn = "yes"; 
-  $snr = "yes"; 
-  $dn = "yes"; 
-  $rn = "yes"; 
-  $st ="yes";
+  $pn = "yes";
+  $snr = "yes";
+  $dn = "yes";
+  $rn = "yes";
+  $st = "yes";
   $dbl = "yes";
 }
 
@@ -372,6 +374,7 @@ $rounded = roundTo30(clone $nowUTC);
 ?>
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="utf-8">
   <title>DSO visibility</title>
@@ -420,7 +423,7 @@ $rounded = roundTo30(clone $nowUTC);
     }
 
     .inner-table td {
-      padding: 2px 0; 
+      padding: 2px 0;
     }
 
     .label {
@@ -486,10 +489,12 @@ $rounded = roundTo30(clone $nowUTC);
     }
   </style>
 </head>
+
 <body>
   <div class="box">
     <?php if ($filtr === 'yes'): ?>
-      <h1><?= $katalogName ?> katalog - viditelnost <?php if ($key === 'delta'): ?>dle &Delta; kulminace <?php endif; ?></h1>
+      <h1><?= $katalogName ?> katalog - viditelnost <?php if ($key === 'delta'): ?>dle &Delta; kulminace <?php endif; ?>
+      </h1>
       <br>
       <form method="post">
         <label>
@@ -497,100 +502,106 @@ $rounded = roundTo30(clone $nowUTC);
           <button type="submit">Zobrazit</button>
         </label>&nbsp;
         <label>Katalog:
-          <select id="katalog" name="katalog" >
-              <option <?php if ($katalog === 'messier'): ?> selected <?php endif; ?> value="messier">Messier</option>  
-              <option <?php if ($katalog === 'caldwell'): ?> selected <?php endif; ?> value="caldwell">Caldwell</option>  
-              <option <?php if ($katalog === 'herschel'): ?> selected <?php endif; ?> value="herschel">Herschel</option>  
-              <option <?php if ($katalog === 'sharpless'): ?> selected <?php endif; ?> value="sharpless">Sharpless</option>  
-              <option <?php if ($katalog === 'arp'): ?> selected <?php endif; ?> value="arp">Arp</option>  
-              <option <?php if ($katalog === 'abell'): ?> selected <?php endif; ?> value="abell">Abell</option>  
-              <option <?php if ($katalog === 'barnard'): ?> selected <?php endif; ?> value="barnard">Barnard</option>  
-              <option <?php if ($katalog === 'vdb'): ?> selected <?php endif; ?> value="vdb">vdB</option>  
-              <option <?php if ($katalog === 'snr'): ?> selected <?php endif; ?> value="snr">SNR</option>  
-              <option <?php if ($katalog === 'select'): ?> selected <?php endif; ?> value="select">Výběr NGC/IC</option>                
-              <option <?php if ($katalog === 'dark'): ?> selected <?php endif; ?> value="dark">Výběr LDN/LBN</option>  
-        </select>   
-        </label> &nbsp; &nbsp;      
+          <select id="katalog" name="katalog">
+
+            <?php foreach ($katalogDecode as $kk => $nm): ?>
+              <option <?php if ($katalog === $kk): ?> selected <?php endif; ?> value="<?= $kk ?>"><?= $nm ?> </option>
+            <?php endforeach; ?>
+
+          </select>
+        </label> &nbsp; &nbsp;
         <label>Objekt:
-          <input type="text"  id="id" name="id" value="<?= $id ?>" /> &nbsp;
+          <input type="text" id="id" name="id" value="<?= $id ?>" /> &nbsp;
         </label>&nbsp;
-         <label>Jasnost:
+        <label>Jasnost:
           <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>" />mag &nbsp;
         </label>&nbsp;
         <label>Kulminace PM:
           <input type="hidden" id="pm" name="pm" value="no" />
-          <input type="checkbox" id="pm" name="pm" value="yes" <?php if ($tpm === 'yes'): ?> checked <?php endif; ?> /> 
+          <input type="checkbox" id="pm" name="pm" value="yes" <?php if ($tpm === 'yes'): ?> checked <?php endif; ?> />
         </label>&nbsp;
         <label>AM:
           <input type="hidden" id="am" name="am" value="no" />
-          <input type="checkbox" id="am" name="am" value="yes" <?php if ($tam === 'yes'): ?> checked <?php endif; ?> />  &nbsp; &nbsp;
+          <input type="checkbox" id="am" name="am" value="yes" <?php if ($tam === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp; &nbsp;
         </label>
-        <label>Sort: &nbsp; &Delta;K    
-          <input type="radio" id="key" name="key" value="delta" <?php if ($key === 'delta'): ?> checked <?php endif; ?> />  
-           &nbsp; ID
+        <label>Pořadí: &nbsp; &Delta;K
+          <input type="radio" id="key" name="key" value="delta" <?php if ($key === 'delta'): ?> checked <?php endif; ?> />
+          &nbsp; ID
           <input type="radio" id="key" name="key" value="id" <?php if ($key === 'id'): ?> checked <?php endif; ?> />
         </label>
-        <br> <br>      
+        <br> <br>
         <label>Galaxie:
           <input type="hidden" id="gal" name="gal" value="no" />
-          <input type="checkbox" id="gal" name="gal" value="yes" <?php if ($gal === 'yes'): ?> checked <?php endif; ?> />  &nbsp; &nbsp;
+          <input type="checkbox" id="gal" name="gal" value="yes" <?php if ($gal === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp; &nbsp;
         </label>
         <label>Mlhoviny Emisní:
           <input type="hidden" id="en" name="en" value="no" />
-          <input type="checkbox" id="en" name="en" value="yes" <?php if ($enb === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="en" name="en" value="yes" <?php if ($enb === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>Reflexní:
           <input type="hidden" id="rn" name="rn" value="no" />
-          <input type="checkbox" id="rn" name="rn" value="yes" <?php if ($rn === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="rn" name="rn" value="yes" <?php if ($rn === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>Planetární:
           <input type="hidden" id="pn" name="pn" value="no" />
-          <input type="checkbox" id="pn" name="pn" value="yes" <?php if ($pn === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="pn" name="pn" value="yes" <?php if ($pn === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>Temné:
           <input type="hidden" id="dn" name="dn" value="no" />
-          <input type="checkbox" id="dn" name="dn" value="yes" <?php if ($dn === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="dn" name="dn" value="yes" <?php if ($dn === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>SNR:
           <input type="hidden" id="snr" name="snr" value="no" />
-          <input type="checkbox" id="snr" name="snr" value="yes" <?php if ($snr === 'yes'): ?> checked <?php endif; ?> /> &nbsp; &nbsp;
+          <input type="checkbox" id="snr" name="snr" value="yes" <?php if ($snr === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp; &nbsp;
         </label>
         <label>Hvězdy:
           <input type="hidden" id="st" name="st" value="no" />
-          <input type="checkbox" id="st" name="st" value="yes" <?php if ($st === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="st" name="st" value="yes" <?php if ($st === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>Otevřené:
           <input type="hidden" id="oc" name="oc" value="no" />
-          <input type="checkbox" id="oc" name="oc" value="yes" <?php if ($oc === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="oc" name="oc" value="yes" <?php if ($oc === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>Kulové:
           <input type="hidden" id="gc" name="gc" value="no" />
-          <input type="checkbox" id="gc" name="gc" value="yes" <?php if ($gc === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+          <input type="checkbox" id="gc" name="gc" value="yes" <?php if ($gc === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
         </label>
         <label>Dvojité:
           <input type="hidden" id="dbl" name="dbl" value="no" />
-          <input type="checkbox" id="dbl" name="dbl" value="yes" <?php if ($dbl === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
-        </label> &nbsp; 
+          <input type="checkbox" id="dbl" name="dbl" value="yes" <?php if ($dbl === 'yes'): ?> checked <?php endif; ?> />
+          &nbsp;
+        </label> &nbsp;
 
       </form>
     <?php else: ?>
 
-     <h1><?= $katalogName ?> katalog - viditelnost dle kulminace</h1></h1>
+      <h1><?= $katalogName ?> katalog - viditelnost dle kulminace</h1>
+      </h1>
 
     <?php endif; ?>
 
-    <p>Alt/Az data jsou plantá pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
+    <p>Alt/Az data jsou platná pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
 
     <table class="main-table">
       <?php
       $shown = 0;
       foreach ($objects as $c):
         // výběr pouze daného objektu  
-        if ($id !== "all" &&  $id  !== $c['id'])
+        if ($id !== "all" && $id !== $c['id'])
           continue;
 
         $graph48 = $c['graph'] ?? [];
-        
+
         if (count($graph48) < 2)
           continue;
 
@@ -621,11 +632,11 @@ $rounded = roundTo30(clone $nowUTC);
         $alt = sprintf("%.1f°", $current['alt_deg']);
         $az = sprintf("%.1f°", $current['az_deg']);
         $mag = $current['mag'];
-      
-        //  výběr dle jasnosti        
 
-        if ( (float)$vmag < (float)$mag ) 
-            continue;
+        //  výběr dle jasnosti        
+      
+        if ((float) $vmag < (float) $mag)
+          continue;
 
 
         $constCode = $current['constellation'];
@@ -805,50 +816,50 @@ $rounded = roundTo30(clone $nowUTC);
           $transitX = $paddingLeft + $innerW * $ratioT;
         } else {
           //když neni nemělo by nastat
-          $utcTm = 12*60;
+          $utcTm = 12 * 60;
         }
         // Posun Astro půlnoc pro 15°E na 23:00 UTC
-        $DAY_MINUTE = 24 * 60; 
+        $DAY_MINUTE = 24 * 60;
         $utcTm = $utcTm + 60;
         if ($utcTm >= $DAY_MINUTE) {
-             $utcTm = $utcTm - $DAY_MINUTE;
+          $utcTm = $utcTm - $DAY_MINUTE;
         }
-        
-        if ($tpm === 'no' && $utcTm > (12*60) )
-                    continue;
-        if ($tam === 'no' && $utcTm <= (12*60) )
-                    continue;
+
+        if ($tpm === 'no' && $utcTm > (12 * 60))
+          continue;
+        if ($tam === 'no' && $utcTm <= (12 * 60))
+          continue;
 
         $shown++;
         $type = $c['type'];
         $typeCZ = $objectTypeCZ[$type] ?? $type;
 
         if ($type === 'GAL' && $gal === 'no')
-                    continue;
+          continue;
         if ($type === 'EN' && $enb === 'no')
-                    continue;       
+          continue;
         if ($type === 'OC' && $oc === 'no')
-                    continue;
+          continue;
         if ($type === 'GC' && $gc === 'no')
-                    continue;
+          continue;
         if ($type === 'PN' && $pn === 'no')
-                    continue;
+          continue;
         if ($type === 'SNR' && $snr === 'no')
-                    continue;
+          continue;
         if ($type === 'DN' && $dn === 'no')
-                    continue;
+          continue;
         if ($type === 'RN' && $rn === 'no')
-                    continue;
+          continue;
         if ($type === 'STAR' && $st === 'no')
-                    continue;
+          continue;
         if ($type === 'DOUBLE' && $dbl === 'no')
-                    continue;
+          continue;
         ?>
         <tr>
           <!-- LEVÁ BUŇKA: POPIS KOMETY -->
           <td style="width:40%;">
             <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
-          
+
             <table class="inner-table">
               <tr>
                 <td class="label">Jasnost</td>

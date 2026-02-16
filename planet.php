@@ -163,12 +163,28 @@ if ($id === 'all') {
 }
 function load_today_planet($path)
 {
-    $json = file_get_contents($path);
-    if ($json === false)
+    if (file_exists($path . '.gz')) {
+        $path .= '.gz';
+    }
+    // Načtení souboru
+    $raw = file_get_contents($path);
+    if ($raw === false)
         return null;
+    // Pokud je gzip, dekomprimuj
+    if (substr($path, -3) === '.gz') {
+        $json = gzdecode($raw);
+ 
+        if ($json === false)
+      return null;
+    } else {
+        $json = $raw;
+    }
+ 
     $data = json_decode($json, true);
     if (!is_array($data))
         return null;
+
+
 
     $today = (new DateTime('today'))->format('Y-m-d');
 
