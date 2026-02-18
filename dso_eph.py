@@ -62,6 +62,7 @@ def load_catalog(csv_path):
                 "mag": float(row["mag"]) if row["mag"] else None,
                 "size_arcmin": row.get("size_arcmin"),
                 "constellation": row["constellation"],
+                "description": row["description"],
             })
     return objects
 
@@ -291,7 +292,8 @@ def main(csv_path):
             "name": obj["name"],
             "type": obj["type"],
             "mag": obj["mag"],
-            "size" : obj["size_arcmin"], 
+            "size" : obj["size_arcmin"],
+            "description" : obj["description"],
             "rise_utc": rise,
             "transit_utc": transit,
             "set_utc": set_,

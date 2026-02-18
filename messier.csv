@@ -1,111 +1,111 @@
-id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation
-M1,Crab Nebula,SNR,5.57500,22.01670,8.4,6,Tau
-M2,Messier 2,GC,21.55833,-0.81670,6.3,16,Aqr
-M3,Messier 3,GC,13.70333,28.38330,6.2,18,CVn
-M4,Messier 4,GC,16.39333,-26.51670,5.9,36,Sco
-M5,Messier 5,GC,15.31000,2.08330,5.6,23,Ser
-M6,Butterfly Cluster,OC,17.66667,-32.21670,4.2,25,Sco
-M7,Ptolemy Cluster,OC,17.89833,-34.81670,3.3,80,Sco
-M8,Lagoon Nebula,EN,18.06167,-24.38330,6.0,90,Sgr
-M9,Messier 9,GC,17.32000,-18.51670,7.7,12,Oph
-M10,Messier 10,GC,16.95167,-4.10000,6.6,20,Oph
-M11,Wild Duck Cluster,OC,18.85000,-6.26670,5.8,14,Sct
-M12,Messier 12,GC,16.78667,-1.95000,6.7,16,Oph
-M13,Hercules Globular Cluster,GC,16.69500,36.45000,5.8,20,Her
-M14,Messier 14,GC,17.62667,-3.25000,7.6,11,Oph
-M15,Messier 15,GC,21.50000,12.16670,6.2,18,Peg
-M16,Eagle Nebula,EN,18.31333,-13.81670,6.0,70,Ser
-M17,Omega Nebula,EN,18.34667,-16.18330,6.0,11,Sgr
-M18,Messier 18,OC,18.33167,-17.13330,7.5,9,Sgr
-M19,Messier 19,GC,17.04333,-26.26670,6.8,17,Oph
-M20,Trifid Nebula,EN,18.04333,-23.03330,6.3,28,Sgr
-M21,Messier 21,OC,18.07667,-22.50000,6.5,13,Sgr
-M22,Messier 22,GC,18.60500,-23.90000,5.1,32,Sgr
-M23,Messier 23,OC,17.94667,-19.01670,5.5,27,Sgr
-M24,Sagittarius Star Cloud,MW,18.27500,-18.41670,4.6,90,Sgr
-M25,Messier 25,OC,18.52667,-19.11670,4.6,32,Sgr
-M26,Messier 26,OC,18.75333,-9.40000,8.0,15,Sct
-M27,Dumbbell Nebula,PN,19.99333,22.71670,7.5,8,Vul
-M28,Messier 28,GC,18.40833,-24.86670,6.8,11,Sgr
-M29,Messier 29,OC,20.39833,38.51670,7.1,7,Cyg
-M30,Messier 30,GC,21.67000,-23.18330,7.2,12,Cap
-M31,Andromeda Galaxy,GAL,0.71333,41.26670,3.4,190,And
-M32,Messier 32,GAL,0.71167,40.86670,8.1,8,And
-M33,Triangulum Galaxy,GAL,1.56500,30.65000,5.7,71,Tri
-M34,Messier 34,OC,2.70167,42.86670,5.2,35,Per
-M35,Messier 35,OC,6.14833,24.33330,5.1,28,Gem
-M36,Messier 36,OC,5.60333,34.13330,6.0,12,Aur
-M37,Messier 37,OC,5.87333,32.55000,5.6,24,Aur
-M38,Messier 38,OC,5.47333,35.85000,6.4,21,Aur
-M39,Messier 39,OC,21.53667,48.43330,4.6,32,Cyg
-M40,Winnecke 4,DS,12.37333,58.08330,8.4,0.8,UMa
-M41,Messier 41,OC,6.78333,-20.73330,4.5,38,CMa
-M42,Orion Nebula,EN,5.58667,-5.38330,4.0,65,Ori
-M43,De Mairan's Nebula,EN,5.59333,-5.26670,9.0,20,Ori
-M44,Beehive Cluster,OC,8.66667,19.66670,3.7,95,Cnc
-M45,Pleiades,OC,3.79167,24.11670,1.6,110,Tau
-M46,Messier 46,OC,7.69667,-14.81670,6.0,27,Pup
-M47,Messier 47,OC,7.61000,-14.50000,4.4,30,Pup
-M48,Messier 48,OC,8.23000,-5.75000,5.8,54,Hya
-M49,Messier 49,GAL,12.49667,8.00000,8.4,10,Vir
-M50,Messier 50,OC,7.05333,-8.33330,5.9,16,Mon
-M51,Whirlpool Galaxy,GAL,13.49833,47.18330,8.4,11,CVn
-M52,Messier 52,OC,23.40333,61.58330,6.9,13,Cas
-M53,Messier 53,GC,13.21500,18.16670,7.7,13,Com
-M54,Messier 54,GC,18.91833,-30.48330,7.6,12,Sgr
-M55,Messier 55,GC,19.66667,-30.96670,6.3,19,Sgr
-M56,Messier 56,GC,19.27667,30.18330,8.3,8,Lyr
-M57,Ring Nebula,PN,18.89333,33.03330,8.8,1.5,Lyr
-M58,Messier 58,GAL,12.62833,11.81670,9.7,6,Vir
-M59,Messier 59,GAL,12.70000,11.65000,10.6,5,Vir
-M60,Messier 60,GAL,12.72833,11.55000,8.8,7,Vir
-M61,Messier 61,GAL,12.36500,4.46670,9.7,6,Vir
-M62,Messier 62,GC,17.02000,-30.11670,6.5,15,Oph
-M63,Sunflower Galaxy,GAL,13.26333,42.03330,8.6,12,CVn
-M64,Black Eye Galaxy,GAL,12.94500,21.68330,8.5,10,Com
-M65,Messier 65,GAL,11.31500,13.10000,9.3,10,Leo
-M66,Messier 66,GAL,11.33667,12.98330,8.9,9,Leo
-M67,Messier 67,OC,8.84000,11.81670,6.1,30,Cnc
-M68,Messier 68,GC,12.65833,-19.20000,7.8,11,Hya
-M69,Messier 69,GC,18.52333,-32.35000,7.6,10,Sgr
-M70,Messier 70,GC,18.72167,-32.28330,7.9,9,Sgr
-M71,Messier 71,GC,19.89667,18.78330,8.2,7,Sge
-M72,Messier 72,GC,20.89167,-12.53330,9.3,6,Aqr
-M73,Messier 73,AS,20.98333,-12.63330,9.0,2.8,Aqr
-M74,Messier 74,GAL,1.61167,15.78330,9.4,10,Psc
-M75,Messier 75,GC,20.10167,-21.91670,8.5,6,Sgr
-M76,Little Dumbbell Nebula,PN,1.70667,51.56670,10.1,2.7,Per
-M77,Messier 77,GAL,2.71167,-0.01670,8.9,7,Cet
-M78,Messier 78,RN,5.77833,0.06670,8.3,8,Ori
-M79,Messier 79,GC,5.40167,-24.53330,7.7,9,Lep
-M80,Messier 80,GC,16.28333,-22.98330,7.3,10,Sco
-M81,Bode's Galaxy,GAL,9.92500,69.06670,6.9,26,UMa
-M82,Cigar Galaxy,GAL,9.93000,69.68330,8.4,11,UMa
-M83,Southern Pinwheel Galaxy,GAL,13.61667,-29.86670,7.5,12,Hya
-M84,Messier 84,GAL,12.41667,12.88330,9.1,6,Vir
-M85,Messier 85,GAL,12.42333,18.18330,9.1,7,Com
-M86,Messier 86,GAL,12.43667,12.93330,8.9,8,Vir
-M87,Messier 87,GAL,12.51333,12.38330,8.6,8,Vir
-M88,Messier 88,GAL,12.53333,14.41670,9.6,7,Com
-M89,Messier 89,GAL,12.59333,12.55000,9.8,5,Vir
-M90,Messier 90,GAL,12.61333,13.16670,9.5,9,Vir
-M91,Messier 91,GAL,12.59000,14.50000,10.2,5,Com
-M92,Messier 92,GC,17.28500,43.13330,6.4,14,Her
-M93,Messier 93,OC,7.74333,-23.85000,6.0,22,Pup
-M94,Messier 94,GAL,12.85167,41.11670,8.2,11,CVn
-M95,Messier 95,GAL,10.73167,11.70000,9.7,7,Leo
-M96,Messier 96,GAL,10.77833,11.81670,9.2,7,Leo
-M97,Owl Nebula,PN,11.24667,55.01670,9.9,3.4,UMa
-M98,Messier 98,GAL,12.23000,14.90000,10.1,9,Com
-M99,Messier 99,GAL,12.31333,14.41670,9.9,5,Com
-M100,Messier 100,GAL,12.38167,15.81670,9.3,7,Com
-M101,Pinwheel Galaxy,GAL,14.05333,54.35000,7.9,28,UMa
-M102,Spindle Galaxy,GAL,15.11000,55.76670,9.9,7,Dra
-M103,Messier 103,OC,1.55333,60.65000,7.4,6,Cas
-M104,Sombrero Galaxy,GAL,12.66667,-11.61670,8.0,9,Vir
-M105,Messier 105,GAL,10.79667,12.58330,9.3,5,Leo
-M106,Messier 106,GAL,12.31667,47.30000,8.4,18,CVn
-M107,Messier 107,GC,16.54167,-13.05000,7.9,13,Oph
-M108,Messier 108,GAL,11.19167,55.66670,10.0,8,UMa
-M109,Messier 109,GAL,11.96000,53.38330,9.8,7,UMa
-M110,Messier 110,GAL,0.67333,39.68330,8.1,17,And
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+M1,NGC 1952 (Crab Nebula),SNR,5.57556,22.01450,8.4,6,Tau,Jasná filamentární struktura ideální pro úzkopásmo a dlouhé expozice
+M2,NGC 7089,GC,21.54833,-0.82330,6.5,12,Aqr,Hustá kulová hvězdokupa vhodná pro detailní snímky s vysokým rozlišením
+M3,NGC 5272,GC,13.70333,28.37780,6.2,16,Com,Jasná kulová hvězdokupa s bohatým halem ideální pro dlouhé expozice
+M4,NGC 6121,GC,16.41167,-26.52500,5.6,26,Sco,Velká kulová hvězdokupa s výrazným jádrem vhodná pro široká pole
+M5,NGC 5904,GC,15.31000,2.08190,5.7,17,Ser,Jasná kulová hvězdokupa s jemnou strukturou ideální pro detailní foto
+M6,NGC 6405 (Butterfly Cluster),OC,17.65667,-32.21670,4.2,25,Sco,Barevná otevřená hvězdokupa vhodná pro širokoúhlé snímky
+M7,NGC 6475 (Ptolemy Cluster),OC,17.89667,-34.80000,3.3,80,Sco,Velká hvězdokupa ideální pro široká pole a bohaté hvězdné pozadí
+M8,NGC 6523 (Lagoon Nebula),EN,18.05000,-24.38330,5.0,90,Sgr,Jasná emisní mlhovina s temnými pásy ideální pro širokoúhlé snímky
+M9,NGC 6333,GC,17.31000,-18.51670,7.7,9,Oph,Kompaktní kulová hvězdokupa vhodná pro detailní expozice
+M10,NGC 6254,GC,16.95167,-4.10000,6.6,20,Oph,Jasná kulová hvězdokupa s dobře definovaným jádrem vhodná pro detailní foto
+M11,NGC 6705 (Wild Duck Cluster),OC,18.85167,-6.26670,6.3,14,Sct,Hustá hvězdokupa ideální pro snímky s vysokým rozlišením
+M12,NGC 6218,GC,16.78750,-1.95000,6.7,14,Oph,Řídká kulová hvězdokupa vhodná pro středně široká pole
+M13,Great Hercules Cluster – NGC 6205,GC,16.69500,36.46670,5.8,20,Her,Husté jádro a jemné halo ideální pro detailní dlouhé expozice
+M14,NGC 6402,GC,17.62667,-3.25000,7.6,11,Oph,Kompaktní kulová hvězdokupa vhodná pro detailní snímky
+M15,NGC 7078,GC,21.50000,12.16670,6.2,12,Peg,Husté jádro ideální pro snímky s vysokým rozlišením
+M16,NGC 6611 (Eagle Nebula],EN,18.31333,-13.78330,6.0,7,Ser,Emisní mlhovina s ikonickými strukturami ideální pro úzkopásmo
+M17,NGC 6618 (Omega Nebula),EN,18.33667,-16.18330,6.0,11,Sgr,Jasná emisní mlhovina vhodná pro široká pole i detailní foto
+M18,NGC 6613,OC,18.33667,-17.10000,7.5,9,Sgr,Malá hvězdokupa vhodná pro širokoúhlé kompozice
+M19,NGC 6273,GC,17.04333,-26.26670,6.8,13,Oph,Protažená kulová hvězdokupa vhodná pro detailní snímky
+M20,NGC 6514 (Trifid Nebula),EN,18.04167,-23.01670,6.3,28,Sgr,Kombinace emisní a reflexní mlhoviny ideální pro barevné kompozice
+M21,NGC 6531,OC,18.06667,-22.50000,6.5,13,Sgr,Řídká hvězdokupa vhodná pro široká pole
+M22,NGC 6656,GC,18.60000,-23.90000,5.1,24,Sgr,Jasná kulová hvězdokupa ideální pro detailní snímky
+M23,NGC 6494,OC,17.95000,-19.01670,6.9,27,Sgr,Velká hvězdokupa vhodná pro širokoúhlé snímky
+M24,Sagittarius Star Cloud,STAR,18.28333,-18.48330,4.6,90,Sgr,Hvězdné pole bohaté na detaily ideální pro široká pole
+M25,IC 4725,OC,18.53333,-19.25000,4.6,32,Sgr,Velká hvězdokupa vhodná pro široká pole
+M26,NGC 6694,OC,18.76667,-9.38330,8.0,15,Sct,Kompaktní hvězdokupa vhodná pro střední ohniska
+M27,NGC 6853 (Dumbbell Nebula),PN,19.99167,22.71670,7.4,8,Vul,Jasná planetární mlhovina ideální pro detailní snímky
+M28,NGC 6626,GC,18.40000,-24.86670,6.9,11,Sgr,Kompaktní kulová hvězdokupa vhodná pro detailní foto
+M29,NGC 6913,OC,20.40000,38.51670,7.1,7,Cyg,Malá hvězdokupa vhodná pro široká pole
+M30,NGC 7099,GC,21.66667,-23.18330,7.2,12,Cap,Kompaktní kulová hvězdokupa vhodná pro detailní snímky
+M31,NGC 224 (Andromeda Galaxy),GAL,0.71250,41.26670,3.4,190,And,Rozsáhlá spirála s prachovými pásy ideální pro široká pole a mozaiky
+M32,NGC 221,GAL,0.71167,40.86670,8.1,8,And,Kompaktní eliptická galaxie vhodná pro detailní snímky
+M33,NGC 598 (Triangulum Galaxy),GAL,1.55000,30.65000,5.7,70,Tri,Spirální galaxie s jemnými strukturami ideální pro dlouhé expozice
+M34,NGC 1039,OC,2.70000,42.78330,5.5,35,Per,Velká hvězdokupa vhodná pro široká pole
+M35,NGC 2168,OC,6.15000,24.33330,5.3,28,Gem,Bohatá hvězdokupa ideální pro širokoúhlé snímky
+M36,NGC 1960,OC,5.60000,34.13330,6.3,12,Aur,Malá hvězdokupa vhodná pro střední ohniska
+M37,NGC 2099,OC,5.88333,32.55000,5.6,24,Aur,Bohatá hvězdokupa ideální pro široká pole
+M38,NGC 1912,OC,5.46667,35.85000,6.4,21,Aur,Velká hvězdokupa vhodná pro širokoúhlé snímky
+M39,NGC 7092,OC,21.53333,48.43330,5.5,32,Cyg,Řídká hvězdokupa vhodná pro široká pole
+M40,Double Star,DOUBLE,12.36667,58.08330,9.0,1,UMa,Dvojice hvězd vhodná pro testování optiky
+M41,NGC 2287,OC,6.76667,-20.75000,4.5,38,CMa,Barevná otevřená hvězdokupa ideální pro široká pole
+M42,NGC 1976 (Orion Nebula),EN,5.59167,-5.45000,4.0,85,Ori,Jasná emisní mlhovina ideální pro HDR a úzkopásmové kompozice
+M43,NGC 1982 (De Mairan's Nebula),EN,5.60000,-5.26670,9.0,20,Ori,Jasná část komplexu M42 vhodná pro úzkopásmo
+M44,NGC 2632 (Beehive Cluster),OC,8.66667,19.66670,3.7,95,Cnc,Velká hvězdokupa ideální pro široká pole
+M45,Pleiades,OC,3.78333,24.11670,1.6,110,Tau,Reflexní mlhovina s jemnými strukturami ideální pro dlouhé expozice
+M46,NGC 2437,OC,7.70000,-14.81670,6.1,27,Pup,Bohatá hvězdokupa vhodná pro široká pole
+M47,NGC 2422,OC,7.61667,-14.48330,4.4,30,Pup,Jasná hvězdokupa ideální pro širokoúhlé snímky
+M48,NGC 2548,OC,8.21667,-5.75000,5.5,54,Hya,Velká hvězdokupa vhodná pro široká pole
+M49,NGC 4472,GAL,12.50000,8.00000,8.4,10,Vir,Eliptická galaxie vhodná pro detailní snímky
+M50,NGC 2323,OC,7.05000,-8.33330,5.9,16,Mon,Malá hvězdokupa vhodná pro široká pole
+M51,NGC 5194 (Whirlpool Galaxy),GAL,13.50000,47.20000,8.4,11,CMa,Spirální galaxie s výraznými rameny ideální pro detailní foto
+M52,NGC 7654,OC,23.45000,61.60000,7.3,13,Cas,Hustá hvězdokupa vhodná pro střední ohniska
+M53,NGC 5024,GC,13.21667,18.16670,7.6,13,Com,Kulová hvězdokupa s jemným halem ideální pro dlouhé expozice
+M54,NGC 6715,GC,18.91667,-30.48330,7.7,12,Sgr,Kompaktní kulová hvězdokupa vhodná pro detailní snímky
+M55,NGC 6809,GC,19.66667,-30.96670,6.3,19,Sgr,Řídká kulová hvězdokupa vhodná pro široká pole
+M56,NGC 6779,GC,19.28333,30.18330,8.3,7,Lyr,Kompaktní kulová hvězdokupa vhodná pro detailní foto
+M57,NGC 6720 (Ring Nebula),PN,18.88333,33.03330,8.8,1.4,Lyr,Ikonická planetární mlhovina ideální pro detailní snímky
+M58,NGC 4579,GAL,12.66667,11.81670,9.7,5,Vir,Spirální galaxie vhodná pro detailní expozice
+M59,NGC 4621,GAL,12.70000,11.65000,9.6,5,Vir,Kompaktní eliptická galaxie vhodná pro detailní foto
+M60,NGC 4649,GAL,12.73333,11.55000,8.8,7,Vir,Eliptická galaxie s jasným jádrem ideální pro detailní snímky
+M61,NGC 4303,GAL,12.36667,4.46670,9.7,6,Vir,Spirální galaxie s jemnými rameny vhodná pro dlouhé expozice
+M62,NGC 6266,GC,17.01667,-30.11670,6.5,15,Oph,Hustá kulová hvězdokupa ideální pro detailní snímky
+M63,NGC 5055 (Sunflower Galaxy),GAL,13.26667,42.03330,8.6,13,CMa,Spirální galaxie s výraznou strukturou ideální pro detailní foto
+M64,NGC 4826 (Black Eye Galaxy),GAL,12.91667,21.68330,8.5,10,Com,Galaxie s tmavým pruhem ideální pro detailní snímky
+M65,NGC 3623,GAL,11.30000,13.08330,9.3,9,Leo,Spirální galaxie vhodná pro detailní expozice
+M66,NGC 3627,GAL,11.33333,12.98330,8.9,9,Leo,Jasná spirální galaxie ideální pro detailní foto
+M67,NGC 2682,OC,8.85000,11.81670,6.9,30,Cnc,Starší hvězdokupa vhodná pro široká pole
+M68,NGC 4590,GC,12.65000,-26.75000,7.8,11,Hya,Kulová hvězdokupa vhodná pro detailní snímky
+M69,NGC 6637,GC,18.60000,-32.35000,7.7,7,Sgr,Kompaktní kulová hvězdokupa vhodná pro detailní foto
+M70,NGC 6681,GC,18.71667,-32.30000,8.1,8,Sgr,Kompaktní kulová hvězdokupa vhodná pro dlouhé expozice
+M71,NGC 6838,GC,19.90000,18.78330,8.2,7,Sge,Řídká kulová hvězdokupa vhodná pro široká pole
+M72,NGC 6981,GC,20.88333,-12.53330,9.3,6,Aqr,Kompaktní kulová hvězdokupa vhodná pro detailní snímky
+M73,Asterism,STAR,20.96667,-12.63330,9.0,2,Aqr,Malá skupina hvězd vhodná pro testování optiky
+M74,NGC 628,GAL,1.61667,15.78330,9.4,10,Psc,Spirální galaxie s jemnými rameny ideální pro dlouhé expozice
+M75,NGC 6864,GC,20.10000,-21.91670,8.6,6,Sgr,Kompaktní kulová hvězdokupa vhodná pro detailní foto
+M76,NGC 650 (Little Dumbbell),PN,1.70000,51.56670,10.1,2.7,Per,Planetární mlhovina s výraznou strukturou ideální pro detailní snímky
+M77,NGC 1068,GAL,2.70000,-0.01670,8.9,7,Cet,Jasná aktivní galaxie vhodná pro detailní expozice
+M78,NGC 2068,RN,5.76667,0.05000,8.3,8,Ori,Reflexní mlhovina s jemnými prachovými strukturami ideální pro dlouhé expozice
+M79,NGC 1904,GC,5.40000,-24.55000,7.7,9,Lep,Kompaktní kulová hvězdokupa vhodná pro detailní foto
+M80,NGC 6093,GC,16.28333,-22.98330,7.3,10,Sco,Hustá kulová hvězdokupa ideální pro snímky s vysokým rozlišením
+M81,NGC 3031 (Bode's Galaxy),GAL,9.91667,69.06670,6.9,27,UMa,Jasná spirální galaxie ideální pro detailní snímky
+M82,NGC 3034 (Cigar Galaxy),GAL,9.93333,69.68330,8.4,11,UMa,Galaxie s výraznými prachovými pásy ideální pro detailní foto
+M83,NGC 5236,GAL,13.61667,-29.86670,7.6,12,Hya,Spirální galaxie s jasnými rameny vhodná pro dlouhé expozice
+M84,NGC 4374,GAL,12.41667,12.88330,9.1,6,Vir,Eliptická galaxie vhodná pro detailní snímky
+M85,NGC 4382,GAL,12.41667,18.18330,9.1,7,Com,Eliptická galaxie s jemnou strukturou ideální pro detailní foto
+M86,NGC 4406,GAL,12.43333,12.95000,8.9,8,Vir,Eliptická galaxie vhodná pro dlouhé expozice
+M87,NGC 4486,GAL,12.50000,12.40000,8.6,8,Vir,Galaxie s jasným jádrem ideální pro detailní snímky
+M88,NGC 4501,GAL,12.45000,14.41670,9.6,7,Com,Spirální galaxie s výraznou strukturou vhodná pro dlouhé expozice
+M89,NGC 4552,GAL,12.50000,12.55000,9.8,5,Vir,Kompaktní eliptická galaxie vhodná pro detailní foto
+M90,NGC 4569,GAL,12.58333,13.16670,9.5,9,Vir,Spirální galaxie s jemnými rameny ideální pro dlouhé expozice
+M91,NGC 4548,GAL,12.66667,14.50000,10.2,5,Com,Barred spirální galaxie vhodná pro detailní snímky
+M92,NGC 6341,GC,17.28333,43.13330,6.4,14,Her,Jasná kulová hvězdokupa ideální pro detailní foto
+M93,NGC 2447,OC,7.75000,-23.86670,6.0,22,Pup,Barevná hvězdokupa vhodná pro široká pole
+M94,NGC 4736,GAL,12.83333,41.11670,8.2,11,CMa,Galaxie s jasným prstencem ideální pro detailní snímky
+M95,NGC 3351,GAL,10.71667,11.70000,9.7,7,Leo,Barred spirální galaxie vhodná pro dlouhé expozice
+M96,NGC 3368,GAL,10.78333,11.81670,9.2,7,Leo,Spirální galaxie s jemnými detaily ideální pro detailní foto
+M97,NGC 3587 (Owl Nebula),PN,11.23333,55.01670,9.9,3.4,UMa,Planetární mlhovina s výraznými „očima“ ideální pro detailní snímky
+M98,NGC 4192,GAL,12.15000,14.90000,10.1,9,Com,Spirální galaxie vhodná pro dlouhé expozice
+M99,NGC 4254,GAL,12.31667,14.41670,9.9,5,Com,Asymetrická spirální galaxie ideální pro detailní foto
+M100,NGC 4321,GAL,12.36667,15.81670,9.3,7,Com,Spirální galaxie s výraznými rameny vhodná pro dlouhé expozice
+M101,NGC 5457 (Pinwheel Galaxy),GAL,14.05000,54.35000,7.9,28,UMa,Velká spirální galaxie ideální pro široká pole a detailní foto
+M102,NGC 5866,GAL,15.06667,55.76670,9.9,6,Dra,Galaxie s výrazným prachovým pásem vhodná pro detailní snímky
+M103,NGC 581,OC,1.53333,60.70000,7.4,6,Cas,Malá hvězdokupa vhodná pro široká pole
+M104,NGC 4594 (Sombrero Galaxy),GAL,12.65000,-11.61670,8.0,9,Vir,Galaxie s výrazným prachovým pásem ideální pro detailní foto
+M105,NGC 3379,GAL,10.78333,12.58330,9.3,5,Leo,Kompaktní eliptická galaxie vhodná pro detailní snímky
+M106,NGC 4258,GAL,12.31667,47.30000,8.4,18,CMa,Spirální galaxie s aktivním jádrem ideální pro dlouhé expozice
+M107,NGC 6171,GC,16.55000,-13.05000,7.9,13,Oph,Kulová hvězdokupa vhodná pro detailní foto
+M108,NGC 3556,GAL,11.20000,55.66670,10.0,8,UMa,Galaxie s výraznou prachovou strukturou ideální pro dlouhé expozice
+M109,NGC 3992,GAL,11.96667,53.38330,9.8,7,UMa,Barred spirální galaxie vhodná pro detailní snímky
+M110,NGC 205,GAL,0.67250,41.68330,8.0,17,And,Eliptická galaxie s jemnou strukturou ideální pro dlouhé expozice

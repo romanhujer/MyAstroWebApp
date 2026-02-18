@@ -1,0 +1,240 @@
+IC 10,IC 10,GAL,0.340,+59.29,10.4,6.6,Cas,Trpasličí starburst galaxie v Místní skupině
+IC 1613,IC 1613,GAL,1.081,+2.12,9.2,16.0,Cet,Velmi difuzní trpasličí galaxie Místní skupiny
+IC 2574,Coddington Galaxy,GAL,10.474,+68.41,10.6,13.0,UMa,Slabá trpasličí spirála s nízkou jasností
+IC 3322,IC 3322,GAL,12.432,+7.21,12.5,3.4,Vir,Slabá spirála ve Virgo clusteru
+IC 342,Hidden Galaxy,GAL,3.782,+68.10,8.4,21.0,Cam,Skrytá spirála tlumená prachem Mléčné dráhy
+IC 3475,IC 3475,GAL,12.545,+12.72,13.3,4.0,Vir,Trpasličí eliptická galaxie
+IC 3568,IC 3568,GAL,12.551,+82.56,10.6,3.0,Cam,Malá eliptická galaxie v Žirafě
+IC 356,IC 356,GAL,4.129,+69.81,10.7,5.0,Cam,Jasná spirála v Žirafě vhodná pro detailní snímky
+IC 4316,IC 4316,GAL,13.673,-28.89,13.0,4.0,Hya,Slabá spirála v jižní Hydře
+IC 438,IC 438,GAL,5.471,-17.87,11.9,3.2,Lep,Malá spirála s výrazným prachovým pásem
+IC 5052,IC 5052,GAL,20.867,-46.38,10.6,5.8,Pav,Edge‑on spirála v Pávu
+IC 5201,IC 5201,GAL,22.348,-46.03,10.8,8.5,Gru,Jasná spirála v Jeřábu
+IC 520,IC 520,GAL,8.895,+73.49,11.8,3.0,Cam,Kompaktní spirála s nízkou jasností
+IC 5332,IC 5332,GAL,23.575,-36.10,10.6,6.6,Scl,Extrémně slabá spirála s nízkou jasností
+IC 630,IC 630,GAL,10.641,-7.03,12.2,3.0,Sex,Lentikulární galaxie s jasným jádrem
+IC 764,IC 764,GAL,12.169,-29.94,11.3,4.8,Hya,Velmi tenká spirála v Hydře
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+NGC 1023,NGC 1023,GAL,2.673,+39.06,9.4,7.4,Per,Lentikulární galaxie v místní skupině
+NGC 1052,NGC 1052,GAL,2.686,-8.25,10.5,4.0,Cet,Eliptická galaxie s aktivním jádrem
+NGC 1055,NGC 1055,GAL,2.695,+0.44,10.6,7.6,Cet,Edge‑on spirála s prachovým pásem
+NGC 1068,NGC 1068,GAL,2.712,-0.01,8.9,7.1,Cet,Seyfertova spirála s jasným jádrem
+NGC 1084,NGC 1084,GAL,2.765,-7.58,10.7,5.0,Eri,Starburst spirála
+NGC 1097,NGC 1097,GAL,2.771,-30.27,9.5,9.4,For,Barred spirála s jetovými strukturami
+NGC 10,NGC 10,GAL,0.340,+59.29,10.4,6.6,Cas,Trpasličí starburst galaxie v Místní skupině
+NGC 1156,NGC 1156,GAL,2.996,+25.24,11.7,4.1,Ari,Nepravidelná galaxie s jedním ramenem
+NGC 1232,NGC 1232,GAL,3.161,-20.58,9.8,7.4,Eri,Velká spirála s výraznými rameny
+NGC 1291,NGC 1291,GAL,3.288,-41.11,8.5,10.0,Eri,Lentikulární galaxie s velkým prstencem
+NGC 1300,NGC 1300,GAL,3.329,-19.41,10.4,6.2,Eri,Prototyp barred spirály
+NGC 1316,NGC 1316,GAL,3.379,-37.21,8.4,12.0,For,Fornax A – eliptická galaxie s rádiovými laloky
+NGC 1332,NGC 1332,GAL,3.441,-21.34,10.3,4.7,Eri,Lentikulární galaxie s vysokou jasností
+NGC 134,NGC 134,GAL,0.505,-33.24,10.4,8.0,Scl,Spirála s deformovanými rameny
+NGC 1353,NGC 1353,GAL,3.525,-20.82,11.5,4.0,Eri,Spirála s prachovými pásy
+NGC 1365,NGC 1365,GAL,3.559,-36.14,9.6,11.2,For,Velká barred spirála
+NGC 1395,NGC 1395,GAL,3.642,-23.03,9.8,5.0,Eri,Jasná eliptická galaxie
+NGC 1398,NGC 1398,GAL,3.645,-26.34,9.8,7.1,For,Spirála s výrazným prstencem
+NGC 1407,NGC 1407,GAL,3.669,-18.58,9.7,4.6,Eri,Masivní eliptická galaxie
+NGC 147,NGC 147,GAL,0.553,+48.51,9.5,13.0,Cas,Eliptická družice M31
+NGC 151,NGC 151,GAL,0.568,-9.71,11.6,4.0,Cet,Spirála s výrazným barem
+NGC 1532,NGC 1532,GAL,4.212,-32.83,9.9,12.6,Eri,Interagující spirála s NGC 1531
+NGC 1535,NGC 1535,GAL,4.237,-12.74,9.6,4.0,Eri,Eliptická galaxie s kompaktním jádrem
+NGC 157,NGC 157,GAL,0.579,-8.39,10.4,4.2,Cet,Jasná spirála s vysokou tvorbou hvězd
+NGC 1672,NGC 1672,GAL,4.762,-59.25,9.7,6.6,Dor,Barred spirála s výrazným jádrem
+NGC 1705,NGC 1705,GAL,4.904,-53.36,11.8,4.0,Pic,Modrá trpasličí galaxie s aktivním zrodem hvězd
+NGC 175,NGC 175,GAL,0.622,-19.94,11.6,4.0,Cet,Spirála s prstencovou strukturou
+NGC 1808,NGC 1808,GAL,5.127,-37.51,9.9,6.5,Col,Starburst spirála s prachovými pásy
+NGC 185,NGC 185,GAL,0.605,+48.34,9.2,12.0,Cas,Eliptická galaxie s prachovými oblastmi
+NGC 1964,NGC 1964,GAL,5.557,-21.87,10.8,5.6,Lep,Jasná spirála v Zajícovi
+NGC 210,NGC 210,GAL,0.675,-13.87,10.9,5.0,Cet,Spirála s kontrastním barem
+NGC 2146,NGC 2146,GAL,6.311,+78.35,10.5,6.0,Cam,Silně deformovaná starburst spirála
+NGC 221,NGC 221,GAL,0.712,+40.87,8.1,9.0,And,M32 – kompaktní eliptická galaxie
+NGC 224,NGC 224,GAL,0.713,+41.27,3.4,190.0,And,Galaxie Andromeda – dominantní spirála
+NGC 247,NGC 247,GAL,0.785,-20.76,9.1,21.0,Cet,Protažená spirála se silným prachovým pásem
+NGC 253,NGC 253,GAL,0.793,-25.29,7.2,27.5,Scl,Sculptor Galaxy – jasná spirála s prachem
+NGC 2613,NGC 2613,GAL,8.556,-22.97,10.4,7.0,Pyx,Velmi tenká edge‑on spirála
+NGC 2683,UFO Galaxy,GAL,8.878,+33.42,9.8,9.0,Lyn,Edge‑on spirála připomínající UFO
+NGC 2768,NGC 2768,GAL,9.192,+60.04,9.9,8.0,UMa,Eliptická galaxie s protáhlým tvarem
+NGC 2775,NGC 2775,GAL,9.175,+7.04,10.1,4.3,Cnc,Spirála s mnoha jemnými rameny
+NGC 2841,NGC 2841,GAL,9.367,+50.97,9.2,8.0,UMa,Spirála s těsně vinutými rameny
+NGC 2903,NGC 2903,GAL,9.534,+21.50,9.0,12.0,Leo,Jasná spirála mimo Messierův katalog
+NGC 2976,NGC 2976,GAL,9.786,+67.92,10.1,6.0,UMa,Člen skupiny M81 s prachovým diskem
+NGC 2985,NGC 2985,GAL,9.839,+72.28,10.4,4.6,Dra,Kompaktní spirála s jasným jádrem
+NGC 300,NGC 300,GAL,0.915,-37.68,8.1,22.0,Scl,Velká difuzní spirála
+NGC 3031,M81,GAL,9.921,+69.07,6.9,27.0,UMa,Bodeho galaxie – jasná spirála
+NGC 3034,M82,GAL,9.931,+69.68,8.4,11.0,UMa,Cigar Galaxy – silný starburst
+NGC 3077,NGC 3077,GAL,10.056,+68.73,10.0,5.4,UMa,Nepravidelná galaxie skupiny M81
+NGC 3079,NGC 3079,GAL,10.032,+55.68,10.6,8.0,UMa,Edge‑on spirála s aktivním jádrem
+NGC 3109,NGC 3109,GAL,10.052,-26.16,9.8,19.0,Ant,Trpasličí nepravidelná galaxie
+NGC 3115,Spindle Galaxy,GAL,10.086,-7.72,9.1,7.0,Sex,Lentikulární galaxie – Vřeteno
+NGC 3166,NGC 3166,GAL,10.231,+3.42,10.5,4.8,Sex,Lentikulární galaxie v interakci
+NGC 3169,NGC 3169,GAL,10.237,+3.46,10.3,4.4,Sex,Spirála deformovaná interakcí
+NGC 3184,Little Pinwheel,GAL,10.304,+41.42,9.6,7.0,UMa,Symetrická spirála s jemnými rameny
+NGC 3198,NGC 3198,GAL,10.331,+45.55,10.2,8.5,UMa,Velká difuzní spirála
+NGC 3227,NGC 3227,GAL,10.392,+19.86,10.7,5.4,Leo,Interagující spirála
+NGC 3310,Bow and Arrow Galaxy,GAL,10.645,+53.50,10.6,4.0,UMa,Starburst spirála s deformacemi
+NGC 3344,Sliced Onion Galaxy,GAL,10.725,+24.92,9.7,7.0,LMi,Spirála s prstencovou strukturou
+NGC 3351,M95,GAL,10.733,+11.70,9.7,7.0,Leo,Barred spirála v Lvu
+NGC 3368,M96,GAL,10.779,+11.82,9.2,7.6,Leo,Jasná spirála skupiny Leo I
+NGC 3379,M105,GAL,10.796,+12.58,9.3,5.4,Leo,Eliptická galaxie – standard fotometrie
+NGC 3432,NGC 3432,GAL,10.875,+36.62,11.1,6.6,LMi,Interagující edge‑on spirála
+NGC 3489,NGC 3489,GAL,11.004,+13.90,10.3,4.1,Leo,Lentikulární galaxie v Lvu
+NGC 3507,NGC 3507,GAL,11.055,+18.13,10.9,4.0,Leo,Face‑on barred spirála
+NGC 3521,Bubble Galaxy,GAL,11.097,-0.04,9.2,11.0,Leo,Spirála s prachovými bublinami
+NGC 3556,M108,GAL,11.192,+55.67,10.0,8.7,UMa,Surfboard Galaxy – protáhlá edge‑on
+NGC 3585,NGC 3585,GAL,11.222,-26.75,9.9,4.7,Ant,Jasná eliptická galaxie
+NGC 3593,NGC 3593,GAL,11.243,+12.82,10.9,5.2,Leo,Starburst spirála poblíž Leo Tripletu
+NGC 3607,NGC 3607,GAL,11.282,+18.05,9.9,4.9,Leo,Eliptická galaxie skupiny Leo II
+NGC 3621,NGC 3621,GAL,11.305,-32.81,8.9,10.0,Hya,Čistě disková spirála bez výdutě
+NGC 3623,M65,GAL,11.316,+13.10,9.2,9.8,Leo,Člen Leo Tripletu
+NGC 3627,M66,GAL,11.337,+12.99,8.9,9.0,Leo,Jasná spirála Leo Tripletu
+NGC 3628,Hamburger Galaxy,GAL,11.338,+13.59,9.5,15.0,Leo,Edge‑on spirála s prachovým pásem
+NGC 3726,NGC 3726,GAL,11.555,+47.03,10.3,6.0,UMa,Spirála s otevřenými rameny
+NGC 3893,NGC 3893,GAL,11.810,+48.71,10.5,4.5,UMa,Spirála podobná M51
+NGC 3938,NGC 3938,GAL,11.879,+44.12,10.4,5.4,UMa,Face‑on spirála s jemnou strukturou
+NGC 3953,M109,GAL,11.960,+53.38,9.8,7.6,UMa,Barred spirála s jasným jádrem
+NGC 4038,Antennae Galaxy,GAL,12.032,-18.87,10.3,5.0,Crv,Interagující spirála – část dvojice Antennae
+NGC 404,NGC 404,GAL,1.157,+35.72,10.3,4.0,And,Lentikulární galaxie Mirachův duch
+NGC 4051,NGC 4051,GAL,12.052,+44.53,10.2,5.2,UMa,Seyfertova spirála s jasným jádrem
+NGC 4088,NGC 4088,GAL,12.093,+50.54,10.6,5.8,UMa,Deformovaná grand‑design spirála
+NGC 4111,NGC 4111,GAL,12.118,+43.07,10.7,4.6,CVn,Velmi tenká lentikulární galaxie
+NGC 4143,NGC 4143,GAL,12.155,+42.53,10.7,4.0,CVn,Lentikulární galaxie s jasným jádrem
+NGC 4151,Eye of Sauron,GAL,12.175,+39.40,10.8,6.3,CVn,Seyfertova spirála s aktivním jádrem
+NGC 4214,NGC 4214,GAL,12.261,+36.33,9.8,8.0,CVn,Nepravidelná starburst galaxie
+NGC 4216,NGC 4216,GAL,12.265,+13.15,10.0,8.0,Vir,Edge‑on spirála ve Virgo clusteru
+NGC 4236,NGC 4236,GAL,12.278,+69.46,9.6,21.0,Dra,Velmi slabá spirála skupiny M81
+NGC 4244,Silver Needle,GAL,12.292,+37.81,10.4,16.0,CVn,Extrémně tenká edge‑on spirála
+NGC 4254,M99,GAL,12.314,+14.42,9.9,5.0,Vir,Spirála s otevřenými rameny
+NGC 4258,M106,GAL,12.316,+47.30,8.4,18.0,CVn,Velká spirála s aktivním jádrem
+NGC 4274,NGC 4274,GAL,12.331,+29.61,10.4,6.8,Com,Spirála s prstencovou strukturou
+NGC 428,NGC 428,GAL,1.214,+0.98,11.3,4.0,Cet,Deformovaná nepravidelná spirála
+NGC 4293,NGC 4293,GAL,12.353,+18.38,10.4,5.6,Com,Lentikulární galaxie s protáhlým tvarem
+NGC 4303,M61,GAL,12.365,+4.47,9.7,6.0,Vir,Face‑on spirála se starburst jádrem
+NGC 4314,NGC 4314,GAL,12.376,+29.90,10.6,4.2,Com,Spirála s jaderným prstencem
+NGC 4321,M100,GAL,12.382,+15.82,9.4,7.0,Com,Grand‑design spirála ve Virgo clusteru
+NGC 4374,M84,GAL,12.418,+12.89,9.1,6.5,Vir,Eliptická galaxie v Markarianově řetězu
+NGC 4382,M85,GAL,12.424,+18.19,9.1,7.0,Com,Lentikulární galaxie ve Virgo clusteru
+NGC 4394,NGC 4394,GAL,12.432,+18.21,10.9,4.0,Com,Barred spirála – průvodce M85
+NGC 4395,NGC 4395,GAL,12.431,+33.55,10.2,13.0,CVn,Velmi slabá spirála s aktivním jádrem
+NGC 4414,NGC 4414,GAL,12.441,+31.22,10.1,4.4,Com,Flokulentní spirála s jemnou strukturou
+NGC 4419,NGC 4419,GAL,12.448,+15.05,11.2,4.0,Com,Lentikulární galaxie s vysokou jasností
+NGC 4429,NGC 4429,GAL,12.456,+11.10,10.0,5.6,Vir,Symetrická lentikulární galaxie
+NGC 4435,NGC 4435,GAL,12.462,+13.08,10.8,4.0,Vir,Část dvojice „The Eyes“
+NGC 4438,NGC 4438,GAL,12.463,+13.01,10.2,8.5,Vir,Silně deformovaná spirála – The Eyes
+NGC 4448,NGC 4448,GAL,12.469,+28.62,11.1,4.0,Com,Barred spirála s jasným jádrem
+NGC 4449,NGC 4449,GAL,12.471,+44.09,9.6,6.0,CVn,Nepravidelná galaxie typu Magellan
+NGC 4450,NGC 4450,GAL,12.474,+17.08,10.1,5.0,Com,Spirála s hladkými rameny
+NGC 4457,NGC 4457,GAL,12.483,+3.57,10.9,4.0,Vir,Kompaktní spirála s jasným jádrem
+NGC 4459,NGC 4459,GAL,12.483,+13.98,10.4,4.0,Com,Lentikulární galaxie s jasným středem
+NGC 4472,M49,GAL,12.497,+8.00,8.4,10.0,Vir,Nejjasnější eliptická galaxie Virgo clusteru
+NGC 4486,M87,GAL,12.514,+12.39,8.6,8.0,Vir,Obří eliptická galaxie s relativistickým jetem
+NGC 4490,Cocoon Galaxy,GAL,12.511,+41.64,9.8,6.3,CVn,Interagující spirála s NGC 4485
+NGC 4494,NGC 4494,GAL,12.524,+25.77,9.8,5.0,Com,Symetrická eliptická galaxie
+NGC 4501,M88,GAL,12.533,+14.42,9.6,7.0,Com,Spirála s mnoha rameny
+NGC 4526,NGC 4526,GAL,12.567,+7.69,9.7,7.0,Vir,Jasná lentikulární galaxie
+NGC 4527,NGC 4527,GAL,12.568,+2.65,10.5,6.2,Vir,Spirála podobná Andromedě
+NGC 4535,Lost Galaxy,GAL,12.572,+8.19,10.0,7.1,Vir,Velká spirála s jemnými rameny
+NGC 4536,NGC 4536,GAL,12.574,+2.19,10.6,7.6,Vir,Starburst spirála poblíž M61
+NGC 4548,M91,GAL,12.590,+14.50,10.2,5.0,Com,Barred spirála ve Virgo clusteru
+NGC 4559,Koi Fish Galaxy,GAL,12.599,+27.96,10.0,11.0,Com,Spirála s bohatými HII oblastmi
+NGC 4565,Needle Galaxy,GAL,12.604,+25.99,9.2,16.0,Com,Ukázková edge‑on spirála
+NGC 4567,Siamese Twins,GAL,12.608,+11.26,11.3,4.0,Vir,Interagující spirála
+NGC 4568,Siamese Twins,GAL,12.609,+11.24,10.8,4.6,Vir,Dvojče NGC 4567
+NGC 4569,M90,GAL,12.614,+13.16,9.5,9.5,Vir,Modře posunutá spirála ve Virgo clusteru
+NGC 4579,M58,GAL,12.628,+11.82,9.7,6.0,Vir,Barred spirála s aktivním jádrem
+NGC 4594,Sombrero Galaxy,GAL,12.667,-11.62,8.0,9.0,Vir,Slavná spirála s výrazným prachovým pásem
+NGC 45,NGC 45,GAL,0.234,-23.18,10.7,8.5,Cet,Velmi slabá spirála s nízkou jasností
+NGC 4605,NGC 4605,GAL,12.667,+61.61,10.3,5.8,UMa,Trpasličí spirála s deformacemi
+NGC 4618,NGC 4618,GAL,12.693,+41.15,10.8,4.0,CVn,Jednoramenná spirála
+NGC 4631,Whale Galaxy,GAL,12.702,+32.54,9.2,15.5,CVn,Edge‑on spirála připomínající velrybu
+NGC 4636,NGC 4636,GAL,12.713,+2.69,9.5,6.0,Vir,Eliptická galaxie s X‑ray halem
+NGC 4643,NGC 4643,GAL,12.722,+1.98,10.8,4.0,Vir,Lentikulární galaxie s výrazným barem
+NGC 4647,NGC 4647,GAL,12.725,+11.58,11.3,4.0,Vir,Interagující spirála u M60
+NGC 4649,M60,GAL,12.728,+11.55,8.8,7.0,Vir,Masivní eliptická galaxie
+NGC 4654,NGC 4654,GAL,12.731,+13.13,10.5,5.0,Vir,Spirála deformovaná tlakem prostředí
+NGC 4656,Hockey Stick Galaxy,GAL,12.733,+32.17,10.5,15.3,CVn,Deformovaná spirála připomínající hokejku
+NGC 4666,NGC 4666,GAL,12.753,-0.46,10.7,4.5,Vir,Starburst spirála s větry
+NGC 4697,NGC 4697,GAL,12.809,-5.80,9.2,7.2,Vir,Eliptická galaxie s hladkou strukturou
+NGC 4699,NGC 4699,GAL,12.817,-8.66,9.5,4.0,Vir,Spirála s vysokou jasností
+NGC 4725,NGC 4725,GAL,12.841,+25.50,9.4,10.7,Com,Jednoramenná spirála
+NGC 4736,M94,GAL,12.848,+41.12,8.2,11.0,CVn,Spirála s jasným prstencem
+NGC 474,NGC 474,GAL,1.335,+3.42,11.3,4.5,Psc,Eliptická galaxie s prachovými obálkami
+NGC 4753,NGC 4753,GAL,12.873,-1.20,10.0,6.0,Vir,Lentikulární galaxie s prachovými pásy
+NGC 4762,NGC 4762,GAL,12.882,+11.23,10.3,8.7,Vir,Velmi tenká lentikulární galaxie
+NGC 4826,Black Eye Galaxy,GAL,12.946,+21.68,8.5,10.0,Com,Spirála s tmavým prachovým okem
+NGC 4866,NGC 4866,GAL,12.995,+14.17,11.2,6.0,Vir,Lentikulární edge‑on galaxie s úzkým diskem
+NGC 5005,NGC 5005,GAL,13.182,+37.06,9.8,5.8,CVn,Spirála s aktivním jádrem
+NGC 5033,NGC 5033,GAL,13.224,+36.59,10.2,10.7,CVn,Seyfertova spirála s jasným jádrem
+NGC 5055,Sunflower Galaxy,GAL,13.264,+42.03,8.6,12.0,CVn,Slunečnicová galaxie s výraznými rameny
+NGC 5068,NGC 5068,GAL,13.315,-21.04,9.8,7.0,Vir,Slabá spirála s nízkou jasností
+NGC 5102,NGC 5102,GAL,13.366,-36.63,9.6,9.1,Cen,Lentikulární galaxie s modrým jádrem
+NGC 5128,Centaurus A,GAL,13.426,-43.02,6.7,25.0,Cen,Eliptická galaxie s výrazným prachovým pásem
+NGC 5170,NGC 5170,GAL,13.497,-17.96,11.4,8.0,Vir,Velmi tenká edge‑on spirála
+NGC 5194,Whirlpool Galaxy,GAL,13.498,+47.19,8.4,11.0,CVn,Galaxie Vířivka – ikonická spirála
+NGC 5195,NGC 5195,GAL,13.500,+47.27,9.6,6.0,CVn,Lentikulární průvodce M51
+NGC 5236,M83,GAL,13.617,-29.87,7.6,12.0,Hya,Jasná spirála Southern Pinwheel
+NGC 5247,NGC 5247,GAL,13.635,-17.98,9.9,5.6,Vir,Grand‑design spirála s otevřenými rameny
+NGC 5248,NGC 5248,GAL,13.625,+8.88,10.3,6.0,Boo,Jasná spirála v Pastýři
+NGC 524,NGC 524,GAL,1.413,+9.54,10.4,5.0,Psc,Lentikulární galaxie s hladkou strukturou
+NGC 5322,NGC 5322,GAL,13.820,+60.19,10.2,6.0,UMa,Eliptická galaxie s jasným jádrem
+NGC 5363,NGC 5363,GAL,13.936,+5.25,10.1,4.1,Vir,Lentikulární galaxie s prachovým pásem
+NGC 5364,NGC 5364,GAL,13.945,+5.01,10.5,6.8,Vir,Široká spirála s otevřenými rameny
+NGC 5457,Pinwheel Galaxy,GAL,14.053,+54.35,7.9,28.0,UMa,Obří spirála s jemnou strukturou
+NGC 5466,NGC 5466,GAL,14.092,+28.53,9.2,9.0,Boo,Slabá spirála s duchovým vzhledem
+NGC 5474,NGC 5474,GAL,14.084,+53.66,10.8,4.8,UMa,Asymetrická spirála – průvodce M101
+NGC 5557,NGC 5557,GAL,14.306,+36.50,11.1,4.0,Boo,Masivní eliptická galaxie
+NGC 5566,NGC 5566,GAL,14.338,+3.94,10.7,6.0,Vir,Největší galaxie trojité skupiny
+NGC 5585,NGC 5585,GAL,14.331,+56.73,10.7,5.8,UMa,Slabá spirála skupiny M101
+NGC 55,NGC 55,GAL,0.249,-39.19,7.8,32.0,Scl,Jasná edge‑on spirála ve Sculptoru
+NGC 5614,NGC 5614,GAL,14.401,+34.86,11.7,4.0,Boo,Interagující spirála
+NGC 5634,NGC 5634,GAL,14.495,-5.98,9.5,5.0,Vir,Starburst spirála
+NGC 5676,NGC 5676,GAL,14.461,+49.46,11.1,4.0,Boo,Jasná spirála s vysokou jasností
+NGC 5689,NGC 5689,GAL,14.591,+48.74,11.9,4.0,Boo,Lentikulární edge‑on galaxie
+NGC 5713,NGC 5713,GAL,14.670,-0.30,11.0,4.0,Vir,Deformovaná spirála
+NGC 5746,NGC 5746,GAL,14.748,+1.98,10.3,7.4,Vir,Masivní edge‑on spirála
+NGC 5846,NGC 5846,GAL,15.109,+1.60,10.1,4.0,Vir,Eliptická galaxie s rozsáhlým halem
+NGC 584,NGC 584,GAL,1.523,-6.87,10.5,4.2,Cet,Jasná eliptická galaxie
+NGC 5866,M102,GAL,15.110,+55.77,9.9,6.0,Dra,Lentikulární galaxie – Vřeteno
+NGC 5905,NGC 5905,GAL,15.256,+55.52,12.1,4.0,Dra,Barred spirála s nízkou jasností
+NGC 5907,Splinter Galaxy,GAL,15.265,+56.33,10.3,12.0,Dra,Extrémně tenká edge‑on spirála
+NGC 5908,NGC 5908,GAL,15.281,+55.41,12.0,4.0,Dra,Edge‑on spirála poblíž NGC 5907
+NGC 596,NGC 596,GAL,1.545,-7.03,10.9,4.0,Cet,Eliptická galaxie s jemnými obálkami
+NGC 5982,NGC 5982,GAL,15.645,+59.35,11.0,4.0,Dra,Eliptická galaxie – součást Draco Tria
+NGC 5985,NGC 5985,GAL,15.661,+59.33,11.1,5.0,Dra,Spirála Draco Tria
+NGC 598,NGC 598,GAL,1.564,+30.66,5.7,70.0,Tri,Triangulum Galaxy – jasná spirála
+NGC 6015,NGC 6015,GAL,15.857,+62.31,11.1,5.4,Dra,Slabá spirála s velkým diskem
+NGC 6031,NGC 6031,GAL,16.312,+7.41,12.2,4.6,Her,Slabá spirála v Herkulovi
+NGC 6106,NGC 6106,GAL,16.312,+7.41,12.2,4.6,Her,Slabá spirála s nízkou jasností
+NGC 613,NGC 613,GAL,1.571,-29.42,10.1,5.5,Scl,Spirála s výrazným barem
+NGC 6140,NGC 6140,GAL,16.350,+65.39,11.2,4.0,Dra,Slabá spirála s difuzní strukturou
+NGC 6181,NGC 6181,GAL,16.538,+19.82,11.9,4.0,Her,Spirála v Herkulovi
+NGC 6207,NGC 6207,GAL,16.718,+33.02,11.6,4.0,Her,Spirála poblíž M13
+NGC 6217,NGC 6217,GAL,16.544,+78.20,11.2,4.0,UMi,Barred spirála v Malém medvědovi
+NGC 628,NGC 628,GAL,1.611,+15.78,9.4,10.5,Psc,Perfektní face‑on spirála
+NGC 6340,NGC 6340,GAL,17.172,+72.30,11.0,4.0,Dra,Face‑on spirála s jasným jádrem
+NGC 6384,NGC 6384,GAL,17.539,+7.06,10.4,6.0,Oph,Spirála s otevřenými rameny
+NGC 6503,Lost in Space Galaxy,GAL,17.817,+70.15,10.2,7.0,Dra,Izolovaná spirála v Local Void
+NGC 6643,NGC 6643,GAL,18.328,+74.57,10.7,4.0,Dra,Protažená spirála poblíž severního pólu
+NGC 6744,NGC 6744,GAL,19.162,-63.85,8.3,20.0,Pav,Galaxie podobná Mléčné dráze
+NGC 6822,Barnard's Galaxy,GAL,19.749,-14.80,9.3,15.5,Sgr,Nepravidelná galaxie Místní skupiny
+NGC 6822,Barnard's Galaxy,GAL,19.749,-14.80,9.3,15.5,Sgr,Nepravidelná galaxie Místní skupiny s nízkou jasností
+NGC 6946,Fireworks Galaxy,GAL,20.581,+60.15,9.0,11.5,Cep,Spirála s mnoha supernovami
+NGC 6946,Fireworks Galaxy,GAL,20.581,+60.15,9.0,11.5,Cep,Spirála známá mnoha supernovami
+NGC 720,NGC 720,GAL,1.884,-13.74,10.2,4.7,Cet,Eliptická galaxie s temnou hmotou
+NGC 7217,NGC 7217,GAL,22.131,+31.36,10.2,4.0,Peg,Spirála s více prstenci a hladkou strukturou
+NGC 7331,Deer Lick Galaxy,GAL,22.618,+34.42,9.5,10.5,Peg,Velká spirála doprovázená skupinou galaxií
+NGC 7332,NGC 7332,GAL,22.622,+23.79,11.1,4.1,Peg,Lentikulární edge‑on galaxie
+NGC 7339,NGC 7339,GAL,22.631,+23.82,12.3,4.0,Peg,Spirála interagující s NGC 7332
+NGC 7392,NGC 7392,GAL,22.863,-20.61,11.5,4.0,Aqr,Jasná spirála v souhvězdí Vodnáře
+NGC 741,NGC 741,GAL,1.939,+5.63,11.3,4.0,Psc,Eliptická galaxie v malé skupině
+NGC 7479,Propeller Galaxy,GAL,23.082,+12.32,10.8,4.1,Peg,Barred spirála s výraznými rameny
+NGC 7640,NGC 7640,GAL,23.368,+40.84,11.3,10.5,And,Barred edge‑on spirála
+NGC 772,NGC 772,GAL,1.989,+19.01,10.3,7.0,Ari,Asymetrická spirála s dlouhým ramenem
+NGC 7741,NGC 7741,GAL,23.732,+26.08,11.3,4.4,Peg,Otevřená barred spirála
+NGC 7793,NGC 7793,GAL,23.963,-32.59,9.2,9.3,Scl,Chaotická spirála Sculptor Group
+NGC 7793,NGC 7793,GAL,23.963,-32.59,9.2,9.3,Scl,Chaotická spirála Sculptor Group s mnoha HII oblastmi
+NGC 779,NGC 779,GAL,1.996,-5.96,11.2,4.0,Cet,Slabá spirála s úzkým diskem
+NGC 7814,Little Sombrero,GAL,0.054,+16.15,10.6,5.5,Peg,Edge‑on spirála s výrazným prachovým pásem
+NGC 891,NGC 891,GAL,2.373,+42.35,9.9,13.1,And,Ukázková edge‑on spirála s prachem
+NGC 908,NGC 908,GAL,2.384,-21.23,10.2,6.0,Cet,Starburst spirála
+NGC 925,NGC 925,GAL,2.455,+33.58,10.1,10.5,Tri,Asymetrická spirála s H‑alfa oblastmi
+NGC 936,NGC 936,GAL,2.460,-1.15,10.2,5.7,Cet,Lentikulární galaxie s výrazným barem

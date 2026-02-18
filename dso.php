@@ -1,7 +1,7 @@
 <?php
 ini_set('memory_limit', '512M');
 date_default_timezone_set('Europe/Prague');
-/*  astrovsb.php
+/*  dso.php
 # 
 #   Copyright (c) 2026 Roman Hujer   http://hujer.net
 #
@@ -179,6 +179,7 @@ $katalogDecode = [
   "caldwell" => "Caldwell",
   "herschel" => "Herschel",
   "sharpless" => "Sharples",
+  "galaxie" => "Galaxie",
   "arp" => "Arp",
   "snr" => "SNR",
   "vdb" => "vdB",
@@ -253,6 +254,26 @@ function sort_objects(array &$data, string $mode): void
         return strcmp($a['name'], $b['name']);
       });
       break;
+    case 'size':
+      usort($data['objects'], function ($a, $b) {
+        return $b['size'] <=> $a['size'];
+      });
+      break ;
+    case 'mag':
+      usort($data['objects'], function ($a, $b) {
+        if ((int)$a['mag'] ==  0 ) {
+          $numA = 24.;
+        } else { 
+          $numA = (float)$a['mag'];
+        }
+        if ((int)$b['mag'] ==  0 ) {
+          $numB = 24.;
+        } else { 
+          $numB = (float)$b['mag'];
+        }
+        return $numA <=> $numB;
+      });
+      break ;
 
     // Default: nic nedělej
     default:
@@ -279,6 +300,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 $vmag = isset($_POST['vmag']) ? max(1, (int) $_POST['vmag']) : 24;
+$asize = isset($_POST['asize']) ? max(0, (int) $_POST['asize']) : 0;
+
 
 $gal = isset($_POST['gal']) ? $_POST['gal'] : 'yes';
 $enb = isset($_POST['en']) ? $_POST['en'] : 'yes';
@@ -435,6 +458,12 @@ $rounded = roundTo30(clone $nowUTC);
       font-weight: 600;
     }
 
+    .desc {
+      color: #aaa;
+      font-size: 18px;
+
+    }
+
     svg {
       width: 100%;
       height: 220px;
@@ -516,6 +545,10 @@ $rounded = roundTo30(clone $nowUTC);
         <label>Jasnost:
           <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>" />mag &nbsp;
         </label>&nbsp;
+        <label>Úhlová velikost: 
+          <input type="number" min="0" max="1200" id="asize" name="asize" value="<?= $asize ?>" />arc min&nbsp;
+        </label>&nbsp;
+        <br><br>
         <label>Kulminace PM:
           <input type="hidden" id="pm" name="pm" value="no" />
           <input type="checkbox" id="pm" name="pm" value="yes" <?php if ($tpm === 'yes'): ?> checked <?php endif; ?> />
@@ -529,7 +562,12 @@ $rounded = roundTo30(clone $nowUTC);
           <input type="radio" id="key" name="key" value="delta" <?php if ($key === 'delta'): ?> checked <?php endif; ?> />
           &nbsp; ID
           <input type="radio" id="key" name="key" value="id" <?php if ($key === 'id'): ?> checked <?php endif; ?> />
+          &nbsp; Velikost
+          <input type="radio" id="key" name="key" value="size" <?php if ($key === 'size'): ?> checked <?php endif; ?> />
+          &nbsp; Jas
+          <input type="radio" id="key" name="key" value="mag" <?php if ($key === 'mag'): ?> checked <?php endif; ?> />
         </label>
+
         <br> <br>
         <label>Galaxie:
           <input type="hidden" id="gal" name="gal" value="no" />
@@ -636,6 +674,12 @@ $rounded = roundTo30(clone $nowUTC);
         //  výběr dle jasnosti        
       
         if ((float) $vmag < (float) $mag)
+          continue;
+
+        $xsize = $c['size'];
+
+
+        if ((float) $asize > (float) $xsize)
           continue;
 
 
@@ -831,6 +875,7 @@ $rounded = roundTo30(clone $nowUTC);
           continue;
 
         $shown++;
+        
         $type = $c['type'];
         $typeCZ = $objectTypeCZ[$type] ?? $type;
 
@@ -856,11 +901,22 @@ $rounded = roundTo30(clone $nowUTC);
           continue;
         ?>
         <tr>
-          <!-- LEVÁ BUŇKA: POPIS KOMETY -->
+          <!-- LEVÁ BUŇKA: POPIS -->
           <td style="width:40%;">
+            <br>
             <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
-
+          
+            <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
+            <br>
             <table class="inner-table">
+              <tr>
+                <td class="label">Druh</td>
+                <td class="value"><?= htmlspecialchars($typeCZ) ?></td>
+              </tr>
+              <tr>
+                <td class="label">Úhlová velikost</td>
+                <td class="value"><?= htmlspecialchars($c['size']) ?>&apos;</td>
+              </tr>
               <tr>
                 <td class="label">Jasnost</td>
                 <td class="value"><?= htmlspecialchars($mag) ?></td>
@@ -872,14 +928,6 @@ $rounded = roundTo30(clone $nowUTC);
               <tr>
                 <td class="label">Dec</td>
                 <td class="value"><?= htmlspecialchars($dec_dms) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Druh</td>
-                <td class="value"><?= htmlspecialchars($typeCZ) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Úhlová velikost</td>
-                <td class="value"><?= htmlspecialchars($c['size']) ?>&apos;</td>
               </tr>
               <tr>
                 <td class="label">Souhvězdí</td>

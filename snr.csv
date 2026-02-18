@@ -1,65 +1,65 @@
 id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
-NGC 6960,Western Veil,SNR,20.7617,30.7083,7.0,70.0,Cyg,Západní část Řas - Koště čarodějnice
-NGC 6992,Eastern Veil,SNR,20.9417,31.7333,7.0,60.0,Cyg,Východní část Řas - bohatá vláknitá struktura
-Pickering,Pickering Triangle,SNR,20.8117,31.5000,7.5,45.0,Cyg,Jemná centrální část komplexu Řas
-Simeis 147,Spaghetti Nebula,SNR,5.6583,27.8333,0,180.0,Tau,Obří a slabá - vyžaduje desítky hodin expozice
-IC 443,Jellyfish Nebula,SNR,6.2817,22.5000,12.0,50.0,Gem,Medúza - skvělá v kombinaci s okolním prachem
-CTB 1,Garlic Nebula,SNR,23.9833,62.4667,0,20.0,Cas,Dokonalá kruhová bublina v Kasiopeji
-VRO 42.05.01,Flying Disk,SNR,5.4217,42.8833,0,60.0,Aur,SNR připomínající houbu nebo létající talíř
-G65.3+5.7,Cyg-Her SNR,SNR,19.5167,31.1667,0,240.0,Cyg,Obrovská a velmi slabá OIII obálka v Labuti
-G156.2+5.7,Auriga SNR,SNR,4.9833,51.8333,0,180.0,Aur,Extrémně rozlehlá a slabá SNR v Vozkovi
-HB 21,HB 21 Nebula,SNR,20.7583,50.6000,0,120.0,Cyg,Velká bublina interagující s mračny v Labuti
+NGC 6960,Western Veil,SNR,20.7617,30.7083,7.0,70.0,Cyg,Západní vlákna Řas ideální pro úzkopásmo
+NGC 6992,Eastern Veil,SNR,20.9417,31.7333,7.0,60.0,Cyg,Východní část Řas s bohatými filamenty
+Pickering,Pickering Triangle,SNR,20.8117,31.5000,7.5,45.0,Cyg,Jemná centrální vlákna komplexu Řas
+Simeis 147,Spaghetti Nebula,SNR,5.6583,27.8333,0,180.0,Tau,Obří extrémně slabá vlákna vhodná pro dlouhé expozice
+IC 443,Jellyfish Nebula,SNR,6.2817,22.5000,12.0,50.0,Gem,Medúza s výraznými oblouky vhodná pro úzkopásmo
+CTB 1,Garlic Nebula,SNR,23.9833,62.4667,0,20.0,Cas,Kruhová bublina vhodná pro úzkopásmové snímky
+VRO 42.05.01,Flying Disk,SNR,5.4217,42.8833,0,60.0,Aur,Asymetrická SNR připomínající houbu
+G65.3+5.7,Cyg-Her SNR,SNR,19.5167,31.1667,0,240.0,Cyg,Obří velmi slabá OIII obálka vhodná pro široká pole
+G156.2+5.7,Auriga SNR,SNR,4.9833,51.8333,0,180.0,Aur,Rozlehlá slabá vlákna v Aurize
+HB 21,HB 21 Nebula,SNR,20.7583,50.6000,0,120.0,Cyg,Velká deformovaná bublina interagující s prachem
 HB 9,HB 9 SNR,SNR,5.0167,46.6667,0,140.0,Aur,Slabá síť vláken poblíž Capelly
-Cassiopeia A,Cas A,SNR,23.3850,58.8167,0,5.0,Cas,Nejmladší SNR - malý, ale jasný v úzkopásmu
+Cassiopeia A,Cas A,SNR,23.3850,58.8167,0,5.0,Cas,Jasná kompaktní SNR ideální pro úzkopásmo
 G114.3+0.3,Cyg-Cep SNR,SNR,23.3667,60.2500,0,80.0,Cep,Slabá vlákna na pomezí Labutě a Cefea
-CTA 1,CTA 1 Nebula,SNR,0.1117,72.7167,0,90.0,Cep,Velký zbytek supernovy v blízkosti pólu
-Sh2-224,Rice Hat,SNR,5.1617,43.5167,0,20.0,Aur,SNR "Rýžový klobouk" - velmi neobvyklý tvar
-Sh2-221,SNR G160.9+2.6,SNR,4.9000,43.0000,0,45.0,Aur,Slabá obálka v Aurize
-Sh2-91,Cyg Loop South,SNR,19.5833,8.8333,0,60.0,Cyg,Jižní výběžek komplexu v Labuti
-Sh2-216,Sh2-216,SNR,4.7583,46.7000,0,100.0,Per,Nejbližší SNR k Zemi - obří, ale velmi slabá
-G78.2+2.1,Sadr Region SNR,SNR,20.3500,40.4000,0,60.0,Cyg,SNR pozadí u hvězdy Sadr (Gamma Cyg)
-W50,Manatee Nebula,SNR,19.1967,4.9833,0,120.0,Aql,Mlhovina Kapustňák kolem mikrokvazaru SS 433
-W44,W44 SNR,SNR,18.9333,1.2500,0,30.0,Aql,Jasná v rádiu, slabá opticky - v Orlu
-G106.3+2.7,Boomerang SNR,SNR,22.4500,60.8333,0,45.0,Cep,SNR u IC 1396, obsahuje pulsar
-G127.1+0.5,G127.1+0.5,SNR,1.4717,63.1667,0,45.0,Cas,Kruhová SNR v Kasiopeji
-3C 58,3C 58 Nebula,SNR,2.0917,64.8167,0,6.0,Cas,Pozůstatek supernovy z roku 1181
-G166.0+4.3,VRO 42.05.01 B,SNR,5.4333,42.9167,0,50.0,Aur,Druhá část Létajícího talíře
-IC 444,IC 444 Loop,SNR,6.3333,23.2500,0,10.0,Gem,Malý oblouk u Medúzy
-Sh2-188,Dolphin Nebula,SNR,1.5117,58.3333,0,10.0,Cas,SNR (často pletená s PN) - Mlhovina Delfín
+CTA 1,CTA 1 Nebula,SNR,0.1117,72.7167,0,90.0,Cep,Velká difuzní SNR vhodná pro úzkopásmo
+Sh2-224,Rice Hat,SNR,5.1617,43.5167,0,20.0,Aur,Malá zakřivená obálka připomínající klobouk
+Sh2-221,SNR G160.9+2.6,SNR,4.9000,43.0000,0,45.0,Aur,Slabá rozbitá obálka v Aurize
+Sh2-91,Cyg Loop South,SNR,19.5833,8.8333,0,60.0,Cyg,Jižní vlákna komplexu Řas vhodná pro úzkopásmo
+Sh2-216,Sh2-216,SNR,4.7583,46.7000,0,100.0,Per,Nejbližší SNR – obří velmi slabá obálka
+G78.2+2.1,Sadr Region SNR,SNR,20.3500,40.4000,0,60.0,Cyg,SNR v pozadí Sadr vhodná pro úzkopásmo
+W50,Manatee Nebula,SNR,19.1967,4.9833,0,120.0,Aql,Deformovaná SNR ovlivněná tryskami SS 433
+W44,W44 SNR,SNR,18.9333,1.2500,0,30.0,Aql,Opticky slabá SNR známá z rádiových map
+G106.3+2.7,Boomerang SNR,SNR,22.4500,60.8333,0,45.0,Cep,SNR s pulsarem připomínající bumerang
+G127.1+0.5,G127.1+0.5,SNR,1.4717,63.1667,0,45.0,Cas,Kruhová slabá SNR v Kasiopeji
+3C 58,3C 58 Nebula,SNR,2.0917,64.8167,0,6.0,Cas,Kompaktní pozůstatek SN 1181 vhodný pro úzkopásmo
+G166.0+4.3,VRO 42.05.01 B,SNR,5.4333,42.9167,0,50.0,Aur,Druhá část komplexu Létající talíř
+IC 444,IC 444 Loop,SNR,6.3333,23.2500,0,10.0,Gem,Malý oblouk poblíž IC 443
+Sh2-188,Dolphin Nebula,SNR,1.5117,58.3333,0,10.0,Cas,Půlměsícovitá SNR často zaměňovaná za PN
 G182.4+3.4,G182.4+3.4,SNR,6.1167,24.1667,0,50.0,Gem,Velmi slabá vlákna v Blížencích
-Monoceros Loop,G205.5+0.5,SNR,6.6500,6.5000,0,220.0,Mon,Obří smyčka v Jednorožci
-G82.2+5.3,W63,SNR,20.3167,45.5000,0,90.0,Cyg,Velká SNR v Labuti, skvělá v H-alfa
-G116.9+0.2,CTB 1 Extension,SNR,23.9500,62.0000,0,40.0,Cas,Vnější části mlhoviny Česnek
+Monoceros Loop,G205.5+0.5,SNR,6.6500,6.5000,0,220.0,Mon,Obří smyčka vhodná pro široká pole
+G82.2+5.3,W63,SNR,20.3167,45.5000,0,90.0,Cyg,Velká H‑alfa SNR v Labuti
+G116.9+0.2,CTB 1 Extension,SNR,23.9500,62.0000,0,40.0,Cas,Vnější části CTB 1 vhodné pro úzkopásmo
 G150.3+4.5,G150.3+4.5,SNR,4.4500,55.5000,0,150.0,Cam,Obří slabá vlákna v Žirafě
-G206.9+2.3,Pringle Nebula,SNR,6.7167,10.0000,0,60.0,Mon,Slabý zbytek u Rosety
-G180.0-1.7,G180.0-1.7,SNR,5.7833,29.0000,0,180.0,Aur,SNR na hranici Vozky a Býka
-3C 400.2,G53.6-2.2,SNR,19.3833,17.2000,0,30.0,Aql,Kompaktní SNR v Orlu
-G54.1+0.3,G54.1+0.3,SNR,19.5083,18.8667,0,5.0,Sge,Malý SNR u Šípu
+G206.9+2.3,Pringle Nebula,SNR,6.7167,10.0000,0,60.0,Mon,Slabá obálka poblíž Rosety
+G180.0-1.7,G180.0-1.7,SNR,5.7833,29.0000,0,180.0,Aur,Velká difuzní SNR na hranici Aur‑Tau
+3C 400.2,G53.6-2.2,SNR,19.3833,17.2000,0,30.0,Aql,Kompaktní SNR vhodná pro úzkopásmo
+G54.1+0.3,G54.1+0.3,SNR,19.5083,18.8667,0,5.0,Sge,Malá SNR u Šípu s jasným jádrem
 G67.7+1.8,G67.7+1.8,SNR,19.9117,31.4500,0,15.0,Cyg,Slabá vlákna v Labuti
-G69.4+1.2,CTB 80,SNR,20.1217,33.5167,0,40.0,Cyg,Zajímavá SNR s pulsarem v Labuti
+G69.4+1.2,CTB 80,SNR,20.1217,33.5167,0,40.0,Cyg,SNR s pulsarem vhodná pro úzkopásmo
 G73.9+0.9,G73.9+0.9,SNR,20.2167,36.5167,0,30.0,Cyg,Slabá obálka v Labuti
-G74.0-8.5,Cygnus Loop W,SNR,20.8500,30.0000,0,60.0,Cyg,Vzdálenější části Řasové mlhoviny
-G89.0+4.7,HB 21 North,SNR,20.9167,51.0000,0,60.0,Cyg,Severní část HB 21
+G74.0-8.5,Cygnus Loop W,SNR,20.8500,30.0000,0,60.0,Cyg,Západní vzdálené části Řasové mlhoviny
+G89.0+4.7,HB 21 North,SNR,20.9167,51.0000,0,60.0,Cyg,Severní část HB 21 vhodná pro široká pole
 G93.3+6.9,DA 530,SNR,20.8667,55.2000,0,30.0,Cyg,Slabá kruhová SNR v Labuti
-G109.1-1.0,CTB 109,SNR,23.0167,58.9167,0,30.0,Cas,SNR v Kasiopeji s magnetarem
-G119.5+10.2,CTA 1 South,SNR,0.2000,72.0000,0,60.0,Cep,Jižní vlákna CTA 1
+G109.1-1.0,CTB 109,SNR,23.0167,58.9167,0,30.0,Cas,SNR s magnetarem vhodná pro úzkopásmo
+G119.5+10.2,CTA 1 South,SNR,0.2000,72.0000,0,60.0,Cep,Jižní vlákna CTA 1 vhodná pro úzkopásmo
 G126.2+1.6,G126.2+1.6,SNR,1.3833,64.3333,0,70.0,Cas,Rozsáhlá slabá vlákna v Kasiopeji
-G130.7+3.1,3C 58 Field,SNR,2.0833,64.9167,0,40.0,Cas,Okolí historické supernovy
-G152.4+2.1,G152.4+2.1,SNR,4.4333,52.3333,0,60.0,Per,Slabá SNR u Žirafy
-G160.4+2.8,HB 9 South,SNR,5.0333,46.0000,0,50.0,Aur,Jižní části komplexu HB 9
-G189.1+3.0,IC 443 North,SNR,6.2917,23.0000,0,40.0,Gem,Vnější obálky Medúzy
-G203.0+12.0,G203.0+12.0,SNR,7.2167,15.0000,0,120.0,Gem,Velká a extrémně slabá SNR v Blížencích
-G65.3+5.7,Cyg-Her SNR,SNR,19.5167,31.1667,0,240.0,Cyg,Obří modrá pavučina. Extrémně slabé OIII vlákna v Labuti.
-VRO 42.05.01,Flying Disk,SNR,5.4217,42.8833,0,60.0,Aur,SNR "Létající talíř". Naprosto unikátní tvar "houby".
-G110.3+11.3,Tao Tie Nebula,SNR,23.1000,72.3000,0,30.0,Cep,Extrémně slabý oblouk u tvé oblíbené LDN 1251.
-G156.2+5.7,Auriga SNR,SNR,4.9833,51.8333,0,180.0,Aur,Obří pletenec vláken, podobné Špagetám, ale v Aurize.
-Ou4,Giant Squid,Nebula,21.1167,59.9167,0,70.0,Cep,Obří Oliheň. Čisté OIII uvnitř Sh2-129. Svatý grál v Cefeu.
-Sh2-221,G160.9+2.6,SNR,4.9000,43.0000,0,45.0,Aur,Slabá, rozbitá bublina kousek od Capelly.
-Sh2-224,Rice Hat,SNR,5.1617,43.5167,0,20.0,Aur,SNR "Rýžový klobouk". Velmi zvláštní prohnutá struktura.
-G106.3+2.7,Boomerang SNR,SNR,22.4500,60.8333,0,45.0,Cep,SNR u IC 1396. Obsahuje pulsar a vypadá jako bumerang.
-W50,Manatee Nebula,SNR,19.1967,4.9833,0,120.0,Aql,Mlhovina Kapustňák. Obří SNR ovlivněná tryskami mikrokvazaru.
-CTA 1,CTA 1 Nebula,SNR,0.1117,72.7167,0,90.0,Cep,Velký zbytek u severního pólu, skvělá H-alpha struktura.
-Sh2-216,Sh2-216,SNR,4.7583,46.7000,0,100.0,Per,Nejbližší SNR. Obří difuzní zář, vyžaduje extrémně tmavou oblohu.
-G82.2+5.3,W63 SNR,SNR,20.3167,45.5000,0,90.0,Cyg,Velký "balón" v Labuti, skvěle reaguje na úzkopásmo.
-G182.4+3.4,G182.4+3.4,SNR,6.1167,24.1667,0,50.0,Gem,Velmi jemná a zapomenutá vlákna v Blížencích.
-StDr 56,Medusa's Hair,SNR,19.1500,20.3000,0,15.0,Vul,Nově identifikovaný SNR (možná PN), velmi slabá "vlákna".
+G130.7+3.1,3C 58 Field,SNR,2.0833,64.9167,0,40.0,Cas,Slabá obálka kolem 3C 58
+G152.4+2.1,G152.4+2.1,SNR,4.4333,52.3333,0,60.0,Per,Slabá SNR poblíž Žirafy
+G160.4+2.8,HB 9 South,SNR,5.0333,46.0000,0,50.0,Aur,Jižní část komplexu HB 9
+G189.1+3.0,IC 443 North,SNR,6.2917,23.0000,0,40.0,Gem,Vnější obálky IC 443 vhodné pro úzkopásmo
+G203.0+12.0,G203.0+12.0,SNR,7.2167,15.0000,0,120.0,Gem,Obří extrémně slabá SNR v Blížencích
+G65.3+5.7,Cyg-Her SNR,SNR,19.5167,31.1667,0,240.0,Cyg,Obří OIII pavučina vhodná pro široká pole
+VRO 42.05.01,Flying Disk,SNR,5.4217,42.8833,0,60.0,Aur,Asymetrická SNR s unikátním tvarem
+G110.3+11.3,Tao Tie Nebula,SNR,23.1000,72.3000,0,30.0,Cep,Slabý oblouk poblíž LDN 1251
+G156.2+5.7,Auriga SNR,SNR,4.9833,51.8333,0,180.0,Aur,Obří vláknitá struktura v Aurize
+Ou4,Giant Squid,Nebula,21.1167,59.9167,0,70.0,Cep,Obří OIII výtrysk uvnitř Sh2‑129
+Sh2-221,G160.9+2.6,SNR,4.9000,43.0000,0,45.0,Aur,Slabá rozbitá obálka poblíž Capelly
+Sh2-224,Rice Hat,SNR,5.1617,43.5167,0,20.0,Aur,Malá zakřivená SNR vhodná pro úzkopásmo
+G106.3+2.7,Boomerang SNR,SNR,22.4500,60.8333,0,45.0,Cep,SNR s pulsarem připomínající bumerang
+W50,Manatee Nebula,SNR,19.1967,4.9833,0,120.0,Aql,Deformovaná SNR ovlivněná tryskami SS 433
+CTA 1,CTA 1 Nebula,SNR,0.1117,72.7167,0,90.0,Cep,Velká difuzní SNR vhodná pro úzkopásmo
+Sh2-216,Sh2-216,SNR,4.7583,46.7000,0,100.0,Per,Nejbližší SNR – obří slabá obálka
+G82.2+5.3,W63 SNR,SNR,20.3167,45.5000,0,90.0,Cyg,Velká H‑alfa SNR v Labuti
+G182.4+3.4,G182.4+3.4,SNR,6.1167,24.1667,0,50.0,Gem,Velmi slabá vlákna v Blížencích
+StDr 56,Medusa's Hair,SNR,19.1500,20.3000,0,15.0,Vul,Velmi slabá vláknitá struktura v Lištičce

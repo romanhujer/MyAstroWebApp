@@ -1,75 +1,39 @@
 id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
-IC 1613,IC 1613,GAL,1.0817,2.1167,9.2,16.0,Cet,Místní skupina galaxií
-NGC 891,Silver Sliver,GAL,2.3767,42.3483,10.1,13.5,And,Nejdokonalejší hrana (není v M C ani H400-I)
-IC 1795,Fish Head,RN,2.4117,62.0500,7.0,20.0,Cas,Mlhovina Rybí hlava u Srdce (Sh2-190 je celá oblast)
-IC 1848,Soul Nebula,RN,2.9200,60.4000,6.5,60.0,Cas,Mlhovina Duše (hlavní tělo IC mimo Sh2-199)
-IC 342,Hidden Galaxy,GAL,3.7817,68.0967,9.1,21.4,Cam,Obří spirála skrytá za prachem Mléčné dráhy
-IC 348,IC 348,RN,3.7433,32.1500,7.3,10.0,Per,Hvězdokupa s reflexní mlhovinou v Perseu
-IC 405,Flaming Star,RN,5.2700,34.3533,10.0,30.0,Aur,Planoucí hvězda (AE Aurigae)
-IC 410,The Tadpoles,RN,5.3767,33.5117,10.0,40.0,Aur,Mlhovina Pulci (známá pro své globule)
-IC 443,Jellyfish Neb,SNR,6.2817,22.5000,12.0,50.0,Gem,Mlhovina Medúza (pozůstatek supernovy)
-IC 2118,Witch Head,RN,5.0333,-7.2500,13.0,180.0,Eri,Mlhovina Čarodějnice (reflexní u Rigelu)
-NGC 2146,Dusty Galaxy,GAL,6.3117,78.3533,10.6,6.0,Cam,Deformovaná galaxie s prachovým pásem
-NGC 2276,NGC 2276,GAL,7.4533,85.7500,11.3,2.3,Cep,Spirála silně ovlivněná prostředím v kupě
-NGC 2359,Thor's Helmet,RN,7.3100,-13.2300,11.0,10.0,CMa,Thorova přilba (Wolf-Rayetova bublina)
-IC 2177,Seagull Neb,RN,7.0667,-10.4667,10.0,120.0,Mon,Mlhovina Racek (hlavní křídlo)
-NGC 2403,NGC 2403,GAL,7.6150,65.6017,8.4,21.9,Cam,Obří spirála ze skupiny M81
-IC 2574,Coddington,GAL,10.4733,68.4117,10.4,13.0,UMa,Slabá trpasličí galaxie Coddington
-NGC 2685,Helix Galaxy,GAL,8.9167,58.7333,11.3,4.6,UMa,Galaxie s polárním prstencem
-NGC 2903,NGC 2903,GAL,9.5333,21.5000,9.0,12.6,Leo,Nejjasnější "nemessierovská" galaxie ve Lvu
-NGC 3184,Little Pinwheel,GAL,10.3033,41.4233,9.8,7.4,UMa,Symetrická spirála v Medvědici
-IC 3568,Lemon Slice,PN,12.5517,82.5617,11.6,0.1,Cam,Planetární mlhovina "Plátek citronu"
-NGC 4236,NGC 4236,GAL,12.2783,69.4633,9.6,21.9,Dra,Obří velmi slabá spirála
+IC 1613,IC 1613,GAL,1.0817,2.1167,9.2,16.0,Cet,Trpasličí galaxie Místní skupiny s nízkou plošnou jasností
+NGC 891,Silver Sliver,GAL,2.3767,42.3483,10.1,13.5,And,Ukázková hrana spirály s výrazným prachovým pásem
+IC 1795,Fish Head,RN,2.4117,62.0500,7.0,20.0,Cas,Reflexní/emisní oblast Rybí hlava u mlhoviny Srdce
+IC 1848,Soul Nebula,RN,2.9200,60.4000,6.5,60.0,Cas,Mlhovina Duše – hlavní tělo komplexu Soul/Heart
+IC 342,Hidden Galaxy,GAL,3.7817,68.0967,9.1,21.4,Cam,Obří spirála silně tlumená prachem Mléčné dráhy
+IC 348,IC 348,RN,3.7433,32.1500,7.3,10.0,Per,Reflexní mlhovina s mladou hvězdokupou v Perseu
+IC 405,Flaming Star,RN,5.2700,34.3533,10.0,30.0,Aur,Reflexní/emisní mlhovina AE Aurigae
+IC 410,The Tadpoles,RN,5.3767,33.5117,10.0,40.0,Aur,Emisní mlhovina s dvojicí známých globulí Pulci
+IC 443,Jellyfish Neb,SNR,6.2817,22.5000,12.0,50.0,Gem,SNR Medúza s výraznými oblouky v H‑alfa/OIII
+IC 2118,Witch Head,RN,5.0333,-7.2500,13.0,180.0,Eri,Reflexní mlhovina Čarodějnice osvětlená Rigelem
+NGC 2146,Dusty Galaxy,GAL,6.3117,78.3533,10.6,6.0,Cam,Deformovaná spirála s výrazným prachovým pásem
+NGC 2276,NGC 2276,GAL,7.4533,85.7500,11.3,2.3,Cep,Asymetrická spirála ovlivněná prostředím kupy
+NGC 2359,Thor's Helmet,RN,7.3100,-13.2300,11.0,10.0,CMa,WR bublina Thorova přilba s výraznými oblouky
+IC 2177,Seagull Neb,RN,7.0667,-10.4667,10.0,120.0,Mon,Reflexní/emisní mlhovina Racek – hlavní křídlo
+NGC 2403,NGC 2403,GAL,7.6150,65.6017,8.4,21.9,Cam,Velká spirála skupiny M81 s mnoha HII oblastmi
+IC 2574,Coddington,GAL,10.4733,68.4117,10.4,13.0,UMa,Slabá trpasličí spirála s nízkou jasností
+NGC 2685,Helix Galaxy,GAL,8.9167,58.7333,11.3,4.6,UMa,Galaxie s polárním prstencem – vzácná struktura
+NGC 2903,NGC 2903,GAL,9.5333,21.5000,9.0,12.6,Leo,Jasná spirála mimo Messierův katalog
+NGC 3184,Little Pinwheel,GAL,10.3033,41.4233,9.8,7.4,UMa,Symetrická spirála s jemnými rameny
+IC 3568,Lemon Slice,PN,12.5517,82.5617,11.6,0.1,Cam,Planetární mlhovina s dokonale kulovou obálkou
+NGC 4236,NGC 4236,GAL,12.2783,69.4633,9.6,21.9,Dra,Velmi slabá spirála s nízkou plošnou jasností
 NGC 4449,Boxy Galaxy,GAL,12.4700,44.0933,9.6,6.2,CVn,Jasná nepravidelná galaxie se zrodem hvězd
-NGC 4559,Koi Fish Gal,GAL,12.5983,27.9600,10.0,10.7,Com,Spirála s mnoha HII oblastmi
-NGC 4631,Whale Galaxy,GAL,12.7017,32.5417,9.2,15.5,CVn,Galaxie Velryba (není v C ani H400)
-NGC 4656,Hockey Stick,GAL,12.7317,32.1667,10.5,15.3,CVn,Galaxie Hokejka
+NGC 4559,Koi Fish Gal,GAL,12.5983,27.9600,10.0,10.7,Com,Spirála s rozsáhlými HII oblastmi
+NGC 4631,Whale Galaxy,GAL,12.7017,32.5417,9.2,15.5,CVn,Galaxie Velryba – výrazná hrana s prachem
+NGC 4656,Hockey Stick,GAL,12.7317,32.1667,10.5,15.3,CVn,Deformovaná spirála připomínající hokejku
 NGC 5033,NGC 5033,GAL,13.2233,36.5933,10.2,10.7,CVn,Velká spirála s aktivním jádrem
-NGC 5907,Splinter Gal,GAL,15.2650,56.3283,10.4,12.8,Dra,Galaxie Tříska - extrémně tenký profil
-IC 4593,White Jewel,PN,16.1950,12.0717,11.0,0.2,Her,Planetární mlhovina "Bílý klenot"
-NGC 6210,Turtle Neb,PN,16.7417,23.8000,8.8,0.3,Her,Jasná modrozelená mlhovina Želva
-IC 5070,Pelican Neb,RN,20.8467,44.3333,8.0,60.0,Cyg,Mlhovina Pelikán (v Sh2 je pod jiným číslem)
-IC 5146,Cocoon Neb,RN,21.8917,47.2667,7.2,12.0,Cyg,Mlhovina Kokon (reflexní/emisní)
-NGC 7023,Iris Nebula,RN,21.0300,68.1617,7.0,18.0,Cep,Mlhovina Iris (nejjasnější reflexní mlhovina)
-IC 1396,Elephant Trunk,RN,21.6500,57.5000,5.0,170.0,Cep,Sloní chobot (celý komplex)
-NGC 7129,Rosebud,RN,21.7167,66.1117,11.5,7.0,Cep,Reflexní mlhovina "Poupě"
-NGC 7331,Deer Lick,GAL,22.6167,34.4167,9.5,10.5,Peg,Dominantní galaxie v Pegasu
-IC 5285,IC 5285,GAL,23.0817,12.3217,13.5,1.0,Peg,Malá ale zajímavá spirála
-NGC 7635,Bubble Neb,RN,23.3467,61.2000,10.0,15.0,Cas,Mlhovina Bublina
-NGC 7789,White Rose,Cluster,23.9500,56.7167,6.7,16.0,Cas,Karolinina růže (hvězdokupa s prachovými "okvětními lístky")
-IC 1613,IC 1613,GAL,1.0817,2.1167,9.2,16.0,Cet,Místní skupina galaxií velmi nízká plošná jasnost
-NGC 891,Silver Sliver,GAL,2.3767,42.3483,10.1,13.5,And,Nejdokonalejší hrana (není v M C ani H400-I)
-IC 1795,Fish Head,RN,2.4117,62.0500,7.0,20.0,Cas,Mlhovina Rybí hlava u Srdce (Sh2-190 je celá oblast)
-IC 1848,Soul Nebula,RN,2.9200,60.4000,6.5,60.0,Cas,Mlhovina Duše (hlavní tělo IC mimo Sh2-199)
-IC 342,Hidden Galaxy,GAL,3.7817,68.0967,9.1,21.4,Cam,Obří spirála skrytá za prachem Mléčné dráhy
-IC 348,IC 348,RN,3.7433,32.1500,7.3,10.0,Per,Hvězdokupa s reflexní mlhovinou v Perseu
-IC 405,Flaming Star,RN,5.2700,34.3533,10.0,30.0,Aur,Planoucí hvězda (AE Aurigae)
-IC 410,The Tadpoles,RN,5.3767,33.5117,10.0,40.0,Aur,Mlhovina Pulci (známá pro své globule)
-IC 443,Jellyfish Neb,SNR,6.2817,22.5000,12.0,50.0,Gem,Mlhovina Medúza (pozůstatek supernovy)
-IC 2118,Witch Head,RN,5.0333,-7.2500,13.0,180.0,Eri,Mlhovina Čarodějnice (reflexní u Rigelu)
-NGC 2146,Dusty Galaxy,GAL,6.3117,78.3533,10.6,6.0,Cam,Deformovaná galaxie s prachovým pásem
-NGC 2276,NGC 2276,GAL,7.4533,85.7500,11.3,2.3,Cep,Spirála silně ovlivněná prostředím v kupě
-NGC 2359,Thor's Helmet,RN,7.3100,-13.2300,11.0,10.0,CMa,Thorova přilba (Wolf-Rayetova bublina)
-IC 2177,Seagull Neb,RN,7.0667,-10.4667,10.0,120.0,Mon,Mlhovina Racek (hlavní křídlo)
-NGC 2403,NGC 2403,GAL,7.6150,65.6017,8.4,21.9,Cam,Obří spirála ze skupiny M81
-IC 2574,Coddington,GAL,10.4733,68.4117,10.4,13.0,UMa,Slabá trpasličí galaxie Coddington
-NGC 2685,Helix Galaxy,GAL,8.9167,58.7333,11.3,4.6,UMa,Galaxie s polárním prstencem
-NGC 2903,NGC 2903,GAL,9.5333,21.5000,9.0,12.6,Leo,Nejjasnější "nemessierovská" galaxie ve Lvu
-NGC 3184,Little Pinwheel,GAL,10.3033,41.4233,9.8,7.4,UMa,Symetrická spirála v Medvědici
-IC 3568,Lemon Slice,PN,12.5517,82.5617,11.6,0.1,Cam,Planetární mlhovina "Plátek citronu"
-NGC 4236,NGC 4236,GAL,12.2783,69.4633,9.6,21.9,Dra,Obří velmi slabá spirála
-NGC 4449,Boxy Galaxy,GAL,12.4700,44.0933,9.6,6.2,CVn,Jasná nepravidelná galaxie se zrodem hvězd
-NGC 4559,Koi Fish Gal,GAL,12.5983,27.9600,10.0,10.7,Com,Spirála s mnoha HII oblastmi
-NGC 4631,Whale Galaxy,GAL,12.7017,32.5417,9.2,15.5,CVn,Galaxie Velryba (není v C ani H400)
-NGC 4656,Hockey Stick,GAL,12.7317,32.1667,10.5,15.3,CVn,Galaxie Hokejka
-NGC 5033,NGC 5033,GAL,13.2233,36.5933,10.2,10.7,CVn,Velká spirála s aktivním jádrem
-NGC 5907,Splinter Gal,GAL,15.2650,56.3283,10.4,12.8,Dra,Galaxie Tříska - extrémně tenký profil
-IC 4593,White Jewel,PN,16.1950,12.0717,11.0,0.2,Her,Planetární mlhovina "Bílý klenot"
-NGC 6210,Turtle Neb,PN,16.7417,23.8000,8.8,0.3,Her,Jasná modrozelená mlhovina Želva
-NGC 7023,Iris Nebula,RN,21.0300,68.1617,7.0,18.0,Cep,Mlhovina Iris (nejjasnější reflexní mlhovina)
-IC 1396,Elephant Trunk,RN,21.6500,57.5000,5.0,170.0,Cep,Sloní chobot (celý komplex)
-NGC 7129,Rosebud,RN,21.7167,66.1117,11.5,7.0,Cep,Reflexní mlhovina "Poupě"
-NGC 7331,Deer Lick,GAL,22.6167,34.4167,9.5,10.5,Peg,Dominantní galaxie v Pegasu
-IC 5285,IC 5285,GAL,23.0817,12.3217,13.5,1.0,Peg,Malá ale zajímavá spirála
-NGC 7635,Bubble Neb,RN,23.3467,61.2000,10.0,15.0,Cas,Mlhovina Bublina
-NGC 7789,White Carolinine Rose ,OC,23.9500,56.7167,6.7,16.0,Cas,Karolinina růže (hvězdokupa s prachovými "okvětními lístky")
+NGC 5907,Splinter Gal,GAL,15.2650,56.3283,10.4,12.8,Dra,Extrémně tenká hrana spirály – Tříska
+IC 4593,White Jewel,PN,16.1950,12.0717,11.0,0.2,Her,Planetární mlhovina s jasným centrálním jádrem
+NGC 6210,Turtle Neb,PN,16.7417,23.8000,8.8,0.3,Her,Jasná modrozelená planetární mlhovina Želva
+IC 5070,Pelican Neb,RN,20.8467,44.3333,8.0,60.0,Cyg,Reflexní/emisní mlhovina Pelikán
+IC 5146,Cocoon Neb,RN,21.8917,47.2667,7.2,12.0,Cyg,Reflexní/emisní mlhovina Kokon s temným proudem
+NGC 7023,Iris Nebula,RN,21.0300,68.1617,7.0,18.0,Cep,Jasná reflexní mlhovina Iris
+IC 1396,Elephant Trunk,RN,21.6500,57.5000,5.0,170.0,Cep,Obří komplex se sloním chobotem
+NGC 7129,Rosebud,RN,21.7167,66.1117,11.5,7.0,Cep,Reflexní mlhovina Poupě
+NGC 7331,Deer Lick,GAL,22.6167,34.4167,9.5,10.5,Peg,Velká spirála doprovázená skupinou Deer Lick
+IC 5285,IC 5285,GAL,23.0817,12.3217,13.5,1.0,Peg,Malá spirála vhodná pro detailní snímky
+NGC 7635,Bubble Neb,RN,23.3467,61.2000,10.0,15.0,Cas,Emisní mlhovina Bublina
+NGC 7789,White Rose,Cluster,23.9500,56.7167,6.7,16.0,Cas,Hvězdokupa Karolinina růže s prachovými strukturami

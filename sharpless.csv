@@ -1,314 +1,314 @@
-id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation
-Sh2-1,Sharpless 1,EN,15.95000,-25.50000,0,150,Sco
-Sh2-2,Sharpless 2,EN,16.41667,-23.46670,0,50,Sco
-Sh2-3,Sharpless 3,EN,16.51667,-25.00000,0,10,Sco
-Sh2-4,Sharpless 4,EN,16.58333,-24.50000,0,10,Sco
-Sh2-5,Sharpless 5,EN,16.63333,-24.36670,0,5,Sco
-Sh2-6,NGC 6302,PN,17.22833,-37.10000,9.6,1,Sco
-Sh2-7,Sharpless 7,EN,17.15000,-24.13330,0,20,Sco
-Sh2-8,NGC 6334,EN,17.33167,-36.03330,0,35,Sco
-Sh2-9,Sharpless 9,EN,17.31667,-17.81670,0,120,Sco
-Sh2-10,Sharpless 10,EN,17.25000,-33.50000,0,40,Sco
-Sh2-11,War and Peace Nebula,EN,17.27167,-34.13330,0,50,Sco
-Sh2-12,Sharpless 12,EN,17.30000,-32.50000,0,60,Sco
-Sh2-13,Sharpless 13,EN,17.36667,-31.00000,0,40,Sco
-Sh2-14,Sharpless 14,EN,17.33333,-30.00000,0,60,Sco
-Sh2-15,Sharpless 15,EN,17.43333,-29.00000,0,30,Sco
-Sh2-16,Sharpless 16,EN,17.45000,-28.00000,0,40,Sco
-Sh2-17,Sharpless 17,EN,17.51667,-27.00000,0,20,Sco
-Sh2-18,Sharpless 18,EN,17.51667,-26.16670,0,10,Sgr
-Sh2-19,Sharpless 19,EN,17.58333,-26.00000,0,10,Sgr
-Sh2-20,Sharpless 20,EN,17.61667,-25.16670,0,10,Sgr
-Sh2-21,Sharpless 21,EN,17.65000,-24.50000,0,5,Sgr
-Sh2-22,Sharpless 22,EN,17.65000,-24.50000,0,10,Sgr
-Sh2-23,Sharpless 23,EN,17.71667,-24.33330,0,10,Sgr
-Sh2-24,Sharpless 24,EN,17.80000,-24.50000,0,60,Sgr
-Sh2-25,M8 (Lagoon Nebula),EN,18.06167,-24.38330,6.0,90,Sgr
-Sh2-26,Sharpless 26,EN,18.01667,-23.50000,0,10,Sgr
-Sh2-27,Sharpless 27,EN,18.05000,-23.16670,0,15,Sgr
-Sh2-28,Sharpless 28,EN,18.06667,-22.66670,0,3,Sgr
-Sh2-29,Sharpless 29,EN,18.10000,-23.66670,0,15,Sgr
-Sh2-30,M20 (Trifid Nebula),EN,18.04333,-23.03330,6.3,28,Sgr
-Sh2-31,Sharpless 31,EN,18.15000,-22.00000,0,10,Sgr
-Sh2-32,Sharpless 32,EN,18.15000,-21.33330,0,10,Sgr
-Sh2-33,Sharpless 33,EN,18.16667,-21.00000,0,5,Sgr
-Sh2-34,Sharpless 34,EN,18.21667,-20.50000,0,20,Sgr
-Sh2-35,Sharpless 35,EN,18.23333,-19.50000,0,10,Sgr
-Sh2-36,Sharpless 36,EN,18.25000,-19.33330,0,10,Sgr
-Sh2-37,IC 1284,EN,18.28333,-19.16670,0,10,Sgr
-Sh2-38,Sharpless 38,EN,18.28333,-18.33330,0,15,Sgr
-Sh2-39,Sharpless 39,EN,18.28333,-18.16670,0,10,Sgr
-Sh2-40,Sharpless 40,EN,18.33333,-17.50000,0,10,Sgr
-Sh2-41,Sharpless 41,EN,18.33333,-16.83330,0,60,Sgr
-Sh2-42,Sharpless 42,EN,18.35000,-16.50000,0,10,Sgr
-Sh2-43,Sharpless 43,EN,18.36667,-15.83330,0,10,Sgr
-Sh2-44,Sharpless 44,EN,18.36667,-15.00000,0,10,Sgr
-Sh2-45,M17 (Omega Nebula),EN,18.34667,-16.18330,6.0,11,Sgr
-Sh2-46,Sharpless 46,EN,18.41667,-14.33330,0,10,Sgr
-Sh2-47,Sharpless 47,EN,18.43333,-14.00000,0,10,Sgr
-Sh2-48,Sharpless 48,EN,18.45000,-13.33330,0,10,Sgr
-Sh2-49,M16 (Eagle Nebula),EN,18.31333,-13.81670,6.0,70,Ser
-Sh2-50,Sharpless 50,EN,18.48333,-12.33330,0,10,Sgr
-Sh2-51,Sharpless 51,EN,18.51667,-12.00000,0,15,Sgr
-Sh2-52,Sharpless 52,EN,18.53333,-11.50000,0,10,Sgr
-Sh2-53,Sharpless 53,EN,18.56667,-10.83330,0,10,Sgr
-Sh2-54,Sharpless 54,EN,18.30000,-11.83330,0,140,Ser
-Sh2-55,Sharpless 55,EN,18.58333,-10.33330,0,10,Sgr
-Sh2-56,Sharpless 56,EN,18.61667,-10.00000,0,10,Sgr
-Sh2-57,Sharpless 57,EN,18.63333,-9.33330,0,10,Sgr
-Sh2-58,Sharpless 58,EN,18.66667,-9.00000,0,10,Sgr
-Sh2-59,Sharpless 59,EN,18.25000,5.00000,0,15,Ser
-Sh2-60,Sharpless 60,EN,18.71667,-8.00000,0,10,Sgr
-Sh2-61,Sharpless 61,EN,18.73333,-7.50000,0,10,Sgr
-Sh2-62,Sharpless 62,EN,18.75000,-6.50000,0,10,Sgr
-Sh2-63,Sharpless 63,EN,18.78333,-6.00000,0,10,Sgr
-Sh2-64,Sharpless 64,EN,18.81667,-5.00000,0,10,Sgr
-Sh2-65,Sharpless 65,EN,18.85000,-4.50000,0,10,Sgr
-Sh2-66,Sharpless 66,EN,18.88333,-3.83330,0,10,Sgr
-Sh2-67,Sharpless 67,EN,18.91667,-3.00000,0,10,Sgr
-Sh2-68,Sharpless 68,EN,18.41667,0.83330,0,10,Ser
-Sh2-69,Sharpless 69,EN,18.45000,1.00000,0,10,Ser
-Sh2-70,Sharpless 70,EN,18.46667,1.50000,0,10,Ser
-Sh2-71,Sharpless 71,PN,19.03333,-2.33330,12.0,1,Aql
-Sh2-72,Sharpless 72,EN,19.01667,-2.00000,0,10,Aql
-Sh2-73,Sharpless 73,EN,18.91667,1.00000,0,200,Her
-Sh2-74,Sharpless 74,EN,19.10000,-1.00000,0,10,Aql
-Sh2-75,Sharpless 75,EN,19.13333,0.00000,0,10,Aql
-Sh2-76,Sharpless 76,EN,19.16667,0.50000,0,10,Aql
-Sh2-77,Sharpless 77,EN,19.20000,1.00000,0,10,Aql
-Sh2-78,Sharpless 78,EN,19.23333,2.00000,0,10,Aql
-Sh2-79,Sharpless 79,EN,19.25000,2.50000,0,10,Aql
-Sh2-80,Sharpless 80,EN,19.26667,3.00000,0,10,Aql
-Sh2-81,Sharpless 81,EN,19.30000,4.00000,0,10,Aql
-Sh2-82,Little Trifid Nebula,EN,19.30333,18.13330,0,7,Sge
-Sh2-83,Sharpless 83,EN,19.35000,5.00000,0,10,Aql
-Sh2-84,Sharpless 84,EN,19.36667,5.50000,0,10,Aql
-Sh2-85,Sharpless 85,EN,19.41667,6.00000,0,10,Aql
-Sh2-86,NGC 6823 Cluster,EN,19.71667,23.30000,0,40,Vul
-Sh2-87,Sharpless 87,EN,19.76667,22.50000,0,10,Vul
-Sh2-88,Sharpless 88,EN,19.78333,25.33330,0,20,Vul
-Sh2-89,Sharpless 89,EN,19.91667,26.50000,0,10,Vul
-Sh2-90,Sharpless 90,EN,19.81667,26.83330,0,10,Vul
-Sh2-91,Sharpless 91,SNR,19.75000,30.00000,0,60,Cyg
-Sh2-92,Sharpless 92,EN,19.78333,31.00000,0,10,Cyg
-Sh2-93,Sharpless 93,EN,19.83333,31.50000,0,10,Cyg
-Sh2-94,Sharpless 94,EN,19.86667,32.00000,0,10,Cyg
-Sh2-95,Sharpless 95,EN,19.90000,32.50000,0,10,Cyg
-Sh2-96,Sharpless 96,EN,19.93333,33.00000,0,10,Cyg
-Sh2-97,Sharpless 97,EN,19.95000,33.50000,0,10,Cyg
-Sh2-98,Sharpless 98,EN,19.98333,34.00000,0,10,Cyg
-Sh2-99,Sharpless 99,EN,20.00000,34.50000,0,10,Cyg
-Sh2-100,Sharpless 100,EN,20.01667,35.00000,0,10,Cyg
-Sh2-101,Tulip Nebula,EN,19.98333,35.33330,0,16,Cyg
-Sh2-102,Sharpless 102,EN,20.05000,36.00000,0,10,Cyg
-Sh2-103,Cygnus Loop (Veil),SNR,20.85000,30.70000,7.0,180,Cyg
-Sh2-104,Sharpless 104,EN,20.28333,36.50000,0,10,Cyg
-Sh2-105,Crescent Nebula,EN,20.20000,38.35000,7.4,18,Cyg
-Sh2-106,Sharpless 106,EN,20.45500,37.38330,0,2,Cyg
-Sh2-107,Sharpless 107,EN,20.41667,38.50000,0,10,Cyg
-Sh2-108,IC 1318 (Gamma Cygni),EN,20.37000,40.25000,0,100,Cyg
-Sh2-109,Sharpless 109,EN,20.50000,40.00000,0,300,Cyg
-Sh2-110,Sharpless 110,EN,20.53333,40.50000,0,10,Cyg
-Sh2-111,Sharpless 111,EN,20.56667,41.00000,0,10,Cyg
-Sh2-112,Sharpless 112,EN,20.56333,45.63330,0,15,Cyg
-Sh2-113,Sharpless 113,EN,20.61667,41.50000,0,10,Cyg
-Sh2-114,Flying Dragon Nebula,EN,20.68333,42.50000,0,50,Cyg
-Sh2-115,Sharpless 115,EN,20.58333,46.83330,0,30,Cyg
-Sh2-116,Abell 71,PN,20.60000,46.00000,0,3,Cyg
-Sh2-117,North America Nebula,EN,20.98667,44.33330,4.0,120,Cyg
-Sh2-118,Sharpless 118,EN,20.83333,47.50000,0,10,Cyg
-Sh2-119,Sharpless 119,EN,21.31000,44.50000,0,130,Cyg
-Sh2-120,Sharpless 120,EN,21.01667,48.00000,0,10,Cyg
-Sh2-121,Sharpless 121,EN,21.08333,48.50000,0,10,Cyg
-Sh2-122,Sharpless 122,EN,21.13333,49.00000,0,10,Cyg
-Sh2-123,Sharpless 123,EN,21.16667,49.50000,0,10,Cyg
-Sh2-124,Sharpless 124,EN,21.60000,50.83330,0,10,Cyg
-Sh2-125,Cocoon Nebula,EN,21.89167,47.26670,7.2,12,Cyg
-Sh2-126,Sharpless 126,EN,22.33333,49.00000,0,150,Lac
-Sh2-127,Sharpless 127,EN,21.48333,54.60000,0,3,Cep
-Sh2-128,Sharpless 128,EN,21.55000,55.16670,0,2,Cep
-Sh2-129,Bat Nebula,EN,21.19667,59.91670,0,150,Cep
-Sh2-130,Sharpless 130,EN,21.73333,54.50000,0,10,Cep
-Sh2-131,Elephant's Trunk Nebula,EN,21.61667,57.50000,0,170,Cep
-Sh2-132,Lion Nebula,EN,22.31167,56.11670,0,90,Cep
-Sh2-133,Sharpless 133,EN,22.25000,56.50000,0,10,Cep
-Sh2-134,Sharpless 134,EN,22.28333,57.50000,0,10,Cep
-Sh2-135,Sharpless 135,EN,22.35000,58.33330,0,15,Cep
-Sh2-136,Sharpless 136,EN,22.40000,59.00000,0,10,Cep
-Sh2-137,Sharpless 137,EN,22.41667,59.50000,0,10,Cep
-Sh2-138,Sharpless 138,EN,22.53333,59.00000,0,5,Cep
-Sh2-139,Sharpless 139,EN,22.56667,59.50000,0,10,Cep
-Sh2-140,Sharpless 140,EN,22.31667,63.31670,0,30,Cep
-Sh2-141,Sharpless 141,EN,22.61667,61.00000,0,10,Cep
-Sh2-142,Wizard Nebula,EN,22.78333,59.50000,0,30,Cep
-Sh2-143,Sharpless 143,EN,22.73333,61.50000,0,10,Cep
-Sh2-144,Sharpless 144,EN,22.83333,61.00000,0,10,Cep
-Sh2-145,Sharpless 145,EN,22.86667,61.50000,0,10,Cep
-Sh2-146,Sharpless 146,EN,22.81667,61.30000,0,5,Cep
-Sh2-147,Sharpless 147,EN,22.91667,62.00000,0,10,Cep
-Sh2-148,Sharpless 148,EN,22.95000,62.50000,0,10,Cep
-Sh2-149,Sharpless 149,EN,23.00000,63.00000,0,10,Cep
-Sh2-150,Sharpless 150,EN,23.01667,63.50000,0,10,Cep
-Sh2-151,Sharpless 151,EN,23.05000,64.00000,0,10,Cep
-Sh2-152,Sharpless 152,EN,23.06667,64.33330,0,10,Cep
-Sh2-153,Sharpless 153,EN,23.10000,64.50000,0,10,Cep
-Sh2-154,Sharpless 154,EN,22.85000,65.00000,0,10,Cep
-Sh2-155,Cave Nebula,EN,22.94667,62.30000,7.7,30,Cep
-Sh2-156,Sharpless 156,EN,23.05000,65.50000,0,10,Cep
-Sh2-157,Lobster Claw Nebula,EN,23.26667,60.10000,0,60,Cas
-Sh2-158,NGC 7538,EN,23.22500,61.50000,0,10,Cep
-Sh2-159,Sharpless 159,EN,23.25000,62.00000,0,10,Cas
-Sh2-160,Sharpless 160,EN,23.28333,62.50000,0,10,Cas
-Sh2-161,Sharpless 161,EN,23.31667,63.00000,0,10,Cas
-Sh2-162,Bubble Nebula (NGC 7635),EN,23.34500,61.20000,10.0,15,Cas
-Sh2-163,Sharpless 163,EN,23.41667,64.50000,0,10,Cas
-Sh2-164,Sharpless 164,EN,23.50000,65.00000,0,10,Cas
-Sh2-165,Sharpless 165,EN,23.55000,65.50000,0,10,Cas
-Sh2-166,Sharpless 166,EN,23.60000,66.00000,0,10,Cas
-Sh2-167,Sharpless 167,EN,23.63333,66.50000,0,10,Cas
-Sh2-168,Sharpless 168,EN,23.88333,60.50000,0,10,Cas
-Sh2-169,Sharpless 169,EN,23.95000,61.00000,0,10,Cas
-Sh2-170,Sharpless 170,EN,0.01667,64.00000,0,10,Cas
-Sh2-171,Sharpless 171 (NGC 7822),EN,0.05000,67.00000,0,180,Cep
-Sh2-172,Sharpless 172,EN,0.13333,64.50000,0,10,Cas
-Sh2-173,Phantom of the Opera Nebula,EN,0.35000,61.83330,0,30,Cas
-Sh2-174,Sharpless 174,PN,0.47167,66.13330,0,10,Cep
-Sh2-175,Sharpless 175,EN,0.45000,64.83330,0,10,Cas
-Sh2-176,Sharpless 176,PN,0.50000,65.00000,0,10,Cas
-Sh2-177,Sharpless 177,EN,0.58333,64.00000,0,10,Cas
-Sh2-178,Sharpless 178,EN,0.65000,63.50000,0,10,Cas
-Sh2-179,Sharpless 179,EN,0.73333,63.00000,0,10,Cas
-Sh2-180,Sharpless 180,EN,0.81667,62.50000,0,10,Cas
-Sh2-181,Sharpless 181,EN,0.83333,62.00000,0,10,Cas
-Sh2-182,Sharpless 182,EN,0.86667,61.50000,0,10,Cas
-Sh2-183,Sharpless 183,EN,0.91667,61.00000,0,10,Cas
-Sh2-184,Pacman Nebula,EN,0.88000,56.61670,7.4,35,Cas
-Sh2-185,Gamma Cas Nebula,EN,0.93333,61.00000,0,15,Cas
-Sh2-186,Sharpless 186,EN,1.00000,60.50000,0,10,Cas
-Sh2-187,Sharpless 187,EN,1.38333,61.81670,0,10,Cas
-Sh2-188,Sharpless 188,PN,1.51667,58.33330,0,10,Cas
-Sh2-189,Sharpless 189,EN,1.61667,58.00000,0,10,Cas
-Sh2-190,Heart Nebula,EN,2.54500,61.45000,6.5,150,Cas
-Sh2-191,Maffei 1,Gal,2.60000,59.63330,11.4,3,Cas
-Sh2-192,Sharpless 192,EN,2.65000,60.00000,0,10,Cas
-Sh2-193,Sharpless 193,EN,2.70000,60.50000,0,10,Cas
-Sh2-194,Sharpless 194,EN,2.73333,61.00000,0,10,Cas
-Sh2-195,Sharpless 195,EN,2.81667,61.50000,0,10,Cas
-Sh2-196,Sharpless 196,EN,2.85000,62.00000,0,10,Cas
-Sh2-197,Sharpless 197,EN,2.91667,62.50000,0,10,Cas
-Sh2-198,Sharpless 198,EN,2.93333,63.00000,0,10,Cas
-Sh2-199,Soul Nebula,EN,2.92000,60.43330,6.5,150,Cas
-Sh2-200,Sharpless 200,PN,3.13333,62.00000,0,2,Cas
-Sh2-201,Sharpless 201,EN,3.05500,60.43330,0,10,Cas
-Sh2-202,Sharpless 202,EN,3.30000,59.33330,0,150,Cas
-Sh2-203,NGC 1348,OC,3.56667,51.33330,0,10,Per
-Sh2-204,Sharpless 204,EN,3.95000,53.50000,0,10,Per
-Sh2-205,Sharpless 205,EN,3.90000,53.00000,0,10,Cam
-Sh2-206,Sharpless 206 (NGC 1491),EN,4.05500,51.20000,0,25,Per
-Sh2-207,Sharpless 207,EN,4.31667,53.21670,0,5,Cam
-Sh2-208,Sharpless 208,EN,4.32500,53.15000,0,10,Cam
-Sh2-209,Sharpless 209,EN,4.18333,51.10000,0,10,Per
-Sh2-210,Sharpless 210,EN,4.35000,47.00000,0,10,Per
-Sh2-211,Sharpless 211,EN,4.40000,50.00000,0,10,Per
-Sh2-212,Sharpless 212,EN,4.66667,50.50000,0,10,Per
-Sh2-213,Sharpless 213,EN,4.71667,41.00000,0,10,Per
-Sh2-214,Sharpless 214,EN,4.75000,42.00000,0,10,Per
-Sh2-215,Sharpless 215,EN,4.81667,43.00000,0,10,Aur
-Sh2-216,Sharpless 216,PN,4.75667,46.68330,0,100,Per
-Sh2-217,Sharpless 217,EN,4.96667,47.33330,0,10,Aur
-Sh2-218,Sharpless 218,EN,4.91667,47.00000,0,10,Aur
-Sh2-219,Sharpless 219,EN,5.03333,47.50000,0,10,Aur
-Sh2-220,California Nebula,EN,4.05500,36.41670,6.0,160,Per
-Sh2-221,Sharpless 221,SNR,4.71667,46.00000,0,45,Aur
-Sh2-222,Sharpless 222,EN,5.11667,37.00000,0,10,Aur
-Sh2-223,Sharpless 223,SNR,5.18333,42.00000,0,40,Aur
-Sh2-224,Sharpless 224,SNR,5.43333,43.50000,0,20,Aur
-Sh2-225,Sharpless 225,EN,5.45000,36.00000,0,10,Aur
-Sh2-226,Sharpless 226,EN,5.46667,35.50000,0,10,Aur
-Sh2-227,Sharpless 227,EN,5.51667,35.00000,0,10,Aur
-Sh2-228,Sharpless 228,EN,5.21667,34.50000,0,10,Aur
-Sh2-229,Flaming Star Nebula,EN,5.27000,34.26670,6.0,30,Aur
-Sh2-230,Sharpless 230,EN,5.33333,35.00000,0,10,Aur
-Sh2-231,Sharpless 231,EN,5.65000,33.00000,0,10,Aur
-Sh2-232,Sharpless 232,EN,5.68333,32.50000,0,10,Aur
-Sh2-233,Sharpless 233,EN,5.63333,33.50000,0,10,Aur
-Sh2-234,Sharpless 234,EN,5.70000,32.00000,0,10,Aur
-Sh2-235,Sharpless 235,EN,5.68333,35.83330,0,20,Aur
-Sh2-236,NGC 1912 (M38),OC,5.47333,35.85000,6.4,21,Aur
-Sh2-237,NGC 1931,EN,5.52333,34.25000,10.1,4,Aur
-Sh2-238,Sharpless 238,EN,5.71667,31.50000,0,10,Aur
-Sh2-239,Sharpless 239,EN,4.51667,18.00000,0,10,Tau
-Sh2-240,Simeis 147,SNR,5.65000,28.00000,0,180,Tau
-Sh2-241,Sharpless 241,EN,6.06333,30.25000,0,10,Aur
-Sh2-242,Sharpless 242,EN,5.88333,26.50000,0,10,Tau
-Sh2-243,Sharpless 243,EN,6.00000,25.00000,0,10,Gem
-Sh2-244,Sharpless 244,EN,6.08333,24.50000,0,10,Gem
-Sh2-245,Sharpless 245,EN,5.75000,23.50000,0,10,Tau
-Sh2-246,Sharpless 246,EN,5.81667,23.00000,0,10,Tau
-Sh2-247,Sharpless 247,EN,6.15000,21.50000,0,10,Gem
-Sh2-248,Jellyfish Nebula,SNR,6.28167,22.50000,0,45,Gem
-Sh2-249,Sharpless 249,EN,6.31667,21.00000,0,40,Gem
-Sh2-250,Sharpless 250,EN,6.35000,20.50000,0,10,Gem
-Sh2-251,Sharpless 251,EN,6.43333,20.00000,0,10,Gem
-Sh2-252,Monkey Head Nebula,EN,6.16167,20.50000,0,40,Ori
-Sh2-253,Sharpless 253,EN,6.11667,19.50000,0,10,Ori
-Sh2-254,Sharpless 254,EN,6.21667,18.00000,0,10,Ori
-Sh2-255,Sharpless 255,EN,6.21667,18.00000,0,10,Ori
-Sh2-256,Sharpless 256,EN,6.21667,18.00000,0,10,Ori
-Sh2-257,Sharpless 257,EN,6.21667,18.00000,0,10,Ori
-Sh2-258,Sharpless 258,EN,6.21667,18.00000,0,10,Ori
-Sh2-259,Sharpless 259,EN,6.25000,17.50000,0,10,Ori
-Sh2-260,Sharpless 260,EN,6.25000,17.00000,0,10,Ori
-Sh2-261,Lower's Nebula,EN,6.15167,15.75000,0,50,Ori
-Sh2-262,Sharpless 262,EN,6.11667,15.00000,0,10,Ori
-Sh2-263,Sharpless 263,EN,6.13333,14.50000,0,10,Ori
-Sh2-264,Lambda Orionis Ring,EN,5.58333,9.93330,0,600,Ori
-Sh2-265,Sharpless 265,EN,6.18333,14.00000,0,10,Ori
-Sh2-266,Sharpless 266,EN,6.25000,13.50000,0,10,Mon
-Sh2-267,Sharpless 267,EN,6.30000,13.00000,0,10,Mon
-Sh2-268,Sharpless 268,EN,6.33333,12.50000,0,10,Mon
-Sh2-269,Sharpless 269,EN,6.25000,12.00000,0,10,Mon
-Sh2-270,Sharpless 270,EN,6.36667,11.50000,0,10,Mon
-Sh2-271,Sharpless 271,EN,6.56667,11.00000,0,10,Mon
-Sh2-272,Sharpless 272,EN,6.60000,10.50000,0,10,Mon
-Sh2-273,Cone Nebula,EN,6.68500,9.88330,3.9,40,Mon
-Sh2-274,Medusa Nebula,PN,7.48333,13.25000,0,10,Gem
-Sh2-275,Rosette Nebula,EN,6.53833,4.96670,9.0,80,Mon
-Sh2-276,Barnard's Loop,EN,5.80000,-1.00000,0,840,Ori
-Sh2-277,Flame Nebula,EN,5.69667,-1.90000,0,30,Ori
-Sh2-278,Sharpless 278,EN,5.85000,-1.00000,0,50,Ori
-Sh2-279,Running Man Nebula,EN,5.58333,-4.83330,7.0,20,Ori
-Sh2-280,Sharpless 280,EN,6.51667,2.00000,0,10,Mon
-Sh2-281,Orion Nebula (M42),EN,5.58667,-5.38330,4.0,65,Ori
-Sh2-282,Sharpless 282,EN,6.65000,1.50000,0,10,Mon
-Sh2-283,Sharpless 283,EN,6.71667,1.00000,0,10,Mon
-Sh2-284,Sharpless 284,EN,6.75000,0.50000,0,60,Mon
-Sh2-285,Sharpless 285,EN,6.78333,0.00000,0,10,Mon
-Sh2-286,Sharpless 286,EN,6.81667,-0.50000,0,10,Mon
-Sh2-287,Sharpless 287,EN,6.91667,-1.00000,0,10,Mon
-Sh2-288,Sharpless 288,EN,7.01667,-1.50000,0,10,Mon
-Sh2-289,Sharpless 289,EN,7.06667,-2.00000,0,10,Mon
-Sh2-290,Abell 21,PN,7.48333,13.25000,0,10,Gem
-Sh2-291,Sharpless 291,EN,7.01667,-8.00000,0,10,CMa
-Sh2-292,Seagull Nebula (IC 2177),EN,7.06667,-10.50000,0,120,Mon
-Sh2-293,Sharpless 293,EN,7.08333,-11.00000,0,10,Mon
-Sh2-294,Sharpless 294,EN,7.11667,-11.50000,0,10,Mon
-Sh2-295,Sharpless 295,EN,7.13333,-12.00000,0,10,Mon
-Sh2-296,Sharpless 296,EN,7.15000,-12.50000,0,10,Mon
-Sh2-297,Sharpless 297,EN,7.08333,-12.10000,0,10,CMa
-Sh2-298,Thor's Helmet (NGC 2359),EN,7.31000,-13.23330,11.5,10,CMa
-Sh2-299,Sharpless 299,EN,7.18333,-13.50000,0,10,CMa
-Sh2-300,Sharpless 300,EN,7.21667,-14.00000,0,10,CMa
-Sh2-301,Sharpless 301,EN,7.24667,-18.50000,0,10,CMa
-Sh2-302,Sharpless 302,EN,7.53333,-17.00000,0,10,Pup
-Sh2-303,Sharpless 303,EN,7.56667,-17.50000,0,10,Pup
-Sh2-304,Sharpless 304,EN,7.60000,-18.00000,0,10,Pup
-Sh2-305,Sharpless 305,EN,7.75000,-18.50000,0,10,Pup
-Sh2-306,Sharpless 306,EN,7.80000,-19.00000,0,10,Pup
-Sh2-307,Sharpless 307,EN,7.83333,-19.50000,0,10,Pup
-Sh2-308,Dolphin Head Nebula,EN,6.90167,-23.91670,0,35,CMa
-Sh2-309,Sharpless 309,EN,7.91667,-20.50000,0,10,Pup
-Sh2-310,Sharpless 310,EN,6.81667,-25.50000,0,10,CMa
-Sh2-311,NGC 2467 (Skull & Crossbones),EN,7.87167,-26.38330,0,10,Pup
-Sh2-312,Sharpless 312,EN,8.13333,-27.00000,0,10,Pup
-Sh2-313,Abell 33,PN,9.65000,-2.81670,12.0,5,Hya
+id,name,type,ra_hours,dec_deg,mag,size_arcmin,constellation,description
+Sh2-1,Sharpless 1,EN,15.95000,-25.50000,0,150,Sco,Velká emisní oblast vhodná pro široká pole a úzkopásmo
+Sh2-2,Sharpless 2,EN,16.41667,-23.46670,0,50,Sco,Emisní mlhovina vhodná pro úzkopásmové snímky
+Sh2-3,Sharpless 3,EN,16.51667,-25.00000,0,10,Sco,Malá emisní oblast vhodná pro detailní úzkopásmo
+Sh2-4,Sharpless 4,EN,16.58333,-24.50000,0,10,Sco,Kompaktní mlhovina vhodná pro úzkopásmové foto
+Sh2-5,Sharpless 5,EN,16.63333,-24.36670,0,5,Sco,Malá emisní oblast vhodná pro detailní snímky
+Sh2-6,NGC 6302,PN,17.22833,-37.10000,9.6,1,Sco,Planetární mlhovina s výraznou strukturou ideální pro detailní foto
+Sh2-7,Sharpless 7,EN,17.15000,-24.13330,0,20,Sco,Emisní mlhovina vhodná pro úzkopásmo
+Sh2-8,NGC 6334,EN,17.33167,-36.03330,0,35,Sco,Kočičí tlapa s bohatou strukturou ideální pro úzkopásmo
+Sh2-9,Sharpless 9,EN,17.31667,-17.81670,0,120,Sco,Velká mlhovina vhodná pro široká pole
+Sh2-10,Sharpless 10,EN,17.25000,-33.50000,0,40,Sco,Emisní oblast vhodná pro úzkopásmové snímky
+Sh2-11,War and Peace Nebula,EN,17.27167,-34.13330,0,50,Sco,Komplexní mlhovina ideální pro úzkopásmo
+Sh2-12,Sharpless 12,EN,17.30000,-32.50000,0,60,Sco,Emisní mlhovina vhodná pro široká pole
+Sh2-13,Sharpless 13,EN,17.36667,-31.00000,0,40,Sco,Emisní oblast vhodná pro úzkopásmo
+Sh2-14,Sharpless 14,EN,17.33333,-30.00000,0,60,Sco,Velká mlhovina vhodná pro široká pole
+Sh2-15,Sharpless 15,EN,17.43333,-29.00000,0,30,Sco,Emisní oblast vhodná pro úzkopásmové foto
+Sh2-16,Sharpless 16,EN,17.45000,-28.00000,0,40,Sco,Emisní mlhovina vhodná pro široká pole
+Sh2-17,Sharpless 17,EN,17.51667,-27.00000,0,20,Sco,Menší mlhovina vhodná pro úzkopásmo
+Sh2-18,Sharpless 18,EN,17.51667,-26.16670,0,10,Sgr,Malá emisní oblast vhodná pro detailní foto
+Sh2-19,Sharpless 19,EN,17.58333,-26.00000,0,10,Sgr,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-20,Sharpless 20,EN,17.61667,-25.16670,0,10,Sgr,Malá emisní oblast vhodná pro detailní snímky
+Sh2-21,Sharpless 21,EN,17.65000,-24.50000,0,5,Sgr,Velmi malá mlhovina vhodná pro úzkopásmo
+Sh2-22,Sharpless 22,EN,17.65000,-24.50000,0,10,Sgr,Emisní oblast vhodná pro detailní foto
+Sh2-23,Sharpless 23,EN,17.71667,-24.33330,0,10,Sgr,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-24,Sharpless 24,EN,17.80000,-24.50000,0,60,Sgr,Velká emisní oblast ideální pro široká pole
+Sh2-25,M8 (Lagoon Nebula),EN,18.06167,-24.38330,6.0,90,Sgr,Jasná mlhovina s temnými pásy ideální pro široká pole
+Sh2-26,Sharpless 26,EN,18.01667,-23.50000,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-27,Sharpless 27,EN,18.05000,-23.16670,0,15,Sgr,Emisní mlhovina vhodná pro detailní foto
+Sh2-28,Sharpless 28,EN,18.06667,-22.66670,0,3,Sgr,Velmi malá mlhovina vhodná pro úzkopásmo
+Sh2-29,Sharpless 29,EN,18.10000,-23.66670,0,15,Sgr,Emisní oblast vhodná pro úzkopásmové snímky
+Sh2-30,M20 (Trifid Nebula),EN,18.04333,-23.03330,6.3,28,Sgr,Kombinace emisní a reflexní mlhoviny ideální pro barevné foto
+Sh2-31,Sharpless 31,EN,18.15000,-22.00000,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-32,Sharpless 32,EN,18.15000,-21.33330,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-33,Sharpless 33,EN,18.16667,-21.00000,0,5,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-34,Sharpless 34,EN,18.21667,-20.50000,0,20,Sgr,Emisní mlhovina vhodná pro úzkopásmové foto
+Sh2-35,Sharpless 35,EN,18.23333,-19.50000,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-36,Sharpless 36,EN,18.25000,-19.33330,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-37,IC 1284,EN,18.28333,-19.16670,0,10,Sgr,Reflexní a emisní mlhovina vhodná pro barevné foto
+Sh2-38,Sharpless 38,EN,18.28333,-18.33330,0,15,Sgr,Emisní oblast vhodná pro úzkopásmo
+Sh2-39,Sharpless 39,EN,18.28333,-18.16670,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-40,Sharpless 40,EN,18.33333,-17.50000,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-41,Sharpless 41,EN,18.33333,-16.83330,0,60,Sgr,Velká mlhovina ideální pro široká pole
+Sh2-42,Sharpless 42,EN,18.35000,-16.50000,0,10,Sgr,Emisní oblast vhodná pro úzkopásmo
+Sh2-43,Sharpless 43,EN,18.36667,-15.83330,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-44,Sharpless 44,EN,18.36667,-15.00000,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-45,M17 (Omega Nebula),EN,18.34667,-16.18330,6.0,11,Sgr,Jasná emisní mlhovina ideální pro úzkopásmo i široká pole
+Sh2-46,Sharpless 46,EN,18.41667,-14.33330,0,10,Sgr,Emisní oblast vhodná pro detailní snímky
+Sh2-47,Sharpless 47,EN,18.43333,-14.00000,0,10,Sgr,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-48,Sharpless 48,EN,18.45000,-13.33330,0,10,Sgr,Malá emisní oblast vhodná pro detailní foto
+Sh2-49,M16 (Eagle Nebula),EN,18.31333,-13.81670,6.0,70,Ser,Ikonická mlhovina s pilíři ideální pro úzkopásmo
+Sh2-50,Sharpless 50,EN,18.48333,-12.33330,0,10,Sgr,Emisní oblast vhodná pro úzkopásmové snímky
+Sh2-51,Sharpless 51,EN,18.51667,-12.00000,0,15,Sgr,Emisní mlhovina vhodná pro detailní foto
+Sh2-52,Sharpless 52,EN,18.53333,-11.50000,0,10,Sgr,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-53,Sharpless 53,EN,18.56667,-10.83330,0,10,Sgr,Malá emisní oblast vhodná pro detailní snímky
+Sh2-54,Sharpless 54,EN,18.30000,-11.83330,0,140,Ser,Velká emisní mlhovina ideální pro široká pole
+Sh2-55,Sharpless 55,EN,18.58333,-10.33330,0,10,Sgr,Emisní oblast vhodná pro úzkopásmo
+Sh2-56,Sharpless 56,EN,18.61667,-10.00000,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-57,Sharpless 57,EN,18.63333,-9.33330,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-58,Sharpless 58,EN,18.66667,-9.00000,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-59,Sharpless 59,EN,18.25000,5.00000,0,15,Ser,Emisní oblast vhodná pro úzkopásmo
+Sh2-60,Sharpless 60,EN,18.71667,-8.00000,0,10,Sgr,Malá mlhovina vhodná pro detailní foto
+Sh2-61,Sharpless 61,EN,18.73333,-7.50000,0,10,Sgr,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-62,Sharpless 62,EN,18.75000,-6.50000,0,10,Sgr,Malá mlhovina vhodná pro detailní snímky
+Sh2-63,Sharpless 63,EN,18.78333,-6.00000,0,10,Sgr,Emisní oblast vhodná pro úzkopásmo
+Sh2-64,Sharpless 64,EN,18.81667,-5.00000,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmové snímky
+Sh2-65,Sharpless 65,EN,18.85000,-4.50000,0,10,Sgr,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-66,Sharpless 66,EN,18.88333,-3.83330,0,10,Sgr,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-67,Sharpless 67,EN,18.91667,-3.00000,0,10,Sgr,Emisní mlhovina vhodná pro detailní snímky
+Sh2-68,Sharpless 68,EN,18.41667,0.83330,0,10,Ser,Malá mlhovina vhodná pro úzkopásmo
+Sh2-69,Sharpless 69,EN,18.45000,1.00000,0,10,Ser,Kompaktní emisní oblast vhodná pro detailní foto
+Sh2-70,Sharpless 70,EN,18.46667,1.50000,0,10,Ser,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-71,Sharpless 71,PN,19.03333,-2.33330,12.0,1,Aql,Planetární mlhovina vhodná pro detailní snímky
+Sh2-72,Sharpless 72,EN,19.01667,-2.00000,0,10,Aql,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-73,Sharpless 73,EN,18.91667,1.00000,0,200,Her,Velká difúzní mlhovina ideální pro široká pole
+Sh2-74,Sharpless 74,EN,19.10000,-1.00000,0,10,Aql,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-75,Sharpless 75,EN,19.13333,0.00000,0,10,Aql,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-76,Sharpless 76,EN,19.16667,0.50000,0,10,Aql,Emisní mlhovina vhodná pro detailní snímky
+Sh2-77,Sharpless 77,EN,19.20000,1.00000,0,10,Aql,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-78,Sharpless 78,EN,19.23333,2.00000,0,10,Aql,Malá emisní oblast vhodná pro detailní foto
+Sh2-79,Sharpless 79,EN,19.25000,2.50000,0,10,Aql,Emisní mlhovina vhodná pro úzkopásmo
+Sh2-80,Sharpless 80,EN,19.26667,3.00000,0,10,Aql,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-81,Sharpless 81,EN,19.30000,4.00000,0,10,Aql,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-82,Little Trifid Nebula,EN,19.30333,18.13330,0,7,Sge,Malá barevná mlhovina ideální pro detailní foto
+Sh2-83,Sharpless 83,EN,19.35000,5.00000,0,10,Aql,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-84,Sharpless 84,EN,19.36667,5.50000,0,10,Aql,Malá mlhovina vhodná pro detailní snímky
+Sh2-85,Sharpless 85,EN,19.41667,6.00000,0,10,Aql,Emisní oblast vhodná pro úzkopásmo
+Sh2-86,NGC 6823 Cluster,EN,19.71667,23.30000,0,40,Vul,Emisní mlhovina s hvězdokupou vhodná pro široká pole
+Sh2-87,Sharpless 87,EN,19.76667,22.50000,0,10,Vul,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-88,Sharpless 88,EN,19.78333,25.33330,0,20,Vul,Emisní oblast vhodná pro úzkopásmo
+Sh2-89,Sharpless 89,EN,19.91667,26.50000,0,10,Vul,Malá mlhovina vhodná pro detailní snímky
+Sh2-90,Sharpless 90,EN,19.81667,26.83330,0,10,Vul,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-91,Sharpless 91,SNR,19.75000,30.00000,0,60,Cyg,Filamenty supernovy ideální pro úzkopásmo
+Sh2-92,Sharpless 92,EN,19.78333,31.00000,0,10,Cyg,Malá emisní oblast vhodná pro detailní foto
+Sh2-93,Sharpless 93,EN,19.83333,31.50000,0,10,Cyg,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-94,Sharpless 94,EN,19.86667,32.00000,0,10,Cyg,Malá emisní oblast vhodná pro detailní snímky
+Sh2-95,Sharpless 95,EN,19.90000,32.50000,0,10,Cyg,Emisní mlhovina vhodná pro úzkopásmo
+Sh2-96,Sharpless 96,EN,19.93333,33.00000,0,10,Cyg,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-97,Sharpless 97,EN,19.95000,33.50000,0,10,Cyg,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-98,Sharpless 98,EN,19.98333,34.00000,0,10,Cyg,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-99,Sharpless 99,EN,20.00000,34.50000,0,10,Cyg,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-100,Sharpless 100,EN,20.01667,35.00000,0,10,Cyg,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-101,Tulip Nebula,EN,19.98333,35.33330,0,16,Cyg,Emisní mlhovina s výrazným tvarem ideální pro úzkopásmo
+Sh2-102,Sharpless 102,EN,20.05000,36.00000,0,10,Cyg,Malá emisní oblast vhodná pro detailní snímky
+Sh2-103,Cygnus Loop (Veil),SNR,20.85000,30.70000,7.0,180,Cyg,Obrovský komplex filamentů ideální pro úzkopásmo
+Sh2-104,Sharpless 104,EN,20.28333,36.50000,0,10,Cyg,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-105,Crescent Nebula,EN,20.20000,38.35000,7.4,18,Cyg,Emisní mlhovina s oblouky ideální pro úzkopásmo
+Sh2-106,Sharpless 106,EN,20.45500,37.38330,0,2,Cyg,Malá emisní oblast vhodná pro detailní snímky
+Sh2-107,Sharpless 107,EN,20.41667,38.50000,0,10,Cyg,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-108,IC 1318 (Gamma Cygni),EN,20.37000,40.25000,0,100,Cyg,Komplexní mlhovina ideální pro široká pole
+Sh2-109,Sharpless 109,EN,20.50000,40.00000,0,300,Cyg,Obrovská emisní oblast vhodná pro široká pole
+Sh2-110,Sharpless 110,EN,20.53333,40.50000,0,10,Cyg,Malá mlhovina vhodná pro detailní foto
+Sh2-111,Sharpless 111,EN,20.56667,41.00000,0,10,Cyg,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-112,Sharpless 112,EN,20.56333,45.63330,0,15,Cyg,Emisní mlhovina vhodná pro detailní snímky
+Sh2-113,Sharpless 113,EN,20.61667,41.50000,0,10,Cyg,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-114,Flying Dragon Nebula,EN,20.68333,42.50000,0,50,Cyg,Komplexní mlhovina ideální pro úzkopásmo
+Sh2-115,Sharpless 115,EN,20.58333,46.83330,0,30,Cyg,Emisní oblast vhodná pro široká pole
+Sh2-116,Abell 71,PN,20.60000,46.00000,0,3,Cyg,Planetární mlhovina vhodná pro detailní foto
+Sh2-117,North America Nebula,EN,20.98667,44.33330,4.0,120,Cyg,Obrovská mlhovina ideální pro široká pole a úzkopásmo
+Sh2-118,Sharpless 118,EN,20.83333,47.50000,0,10,Cyg,Malá emisní oblast vhodná pro detailní snímky
+Sh2-119,Sharpless 119,EN,21.31000,44.50000,0,130,Cyg,Velká difúzní mlhovina ideální pro široká pole
+Sh2-120,Sharpless 120,EN,21.01667,48.00000,0,10,Cyg,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-121,Sharpless 121,EN,21.08333,48.50000,0,10,Cyg,Malá emisní oblast vhodná pro detailní foto
+Sh2-122,Sharpless 122,EN,21.13333,49.00000,0,10,Cyg,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-123,Sharpless 123,EN,21.16667,49.50000,0,10,Cyg,Malá emisní oblast vhodná pro detailní snímky
+Sh2-124,Sharpless 124,EN,21.60000,50.83330,0,10,Cyg,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-125,Cocoon Nebula,EN,21.89167,47.26670,7.2,12,Cyg,Reflexní a emisní mlhovina ideální pro barevné a úzkopásmové foto
+Sh2-126,Sharpless 126,EN,22.33333,49.00000,0,150,Lac,Velká difúzní mlhovina ideální pro široká pole
+Sh2-127,Sharpless 127,EN,21.48333,54.60000,0,3,Cep,Malá emisní oblast vhodná pro detailní úzkopásmo
+Sh2-128,Sharpless 128,EN,21.55000,55.16670,0,2,Cep,Velmi kompaktní mlhovina vhodná pro detailní snímky
+Sh2-129,Bat Nebula,EN,21.19667,59.91670,0,150,Cep,Velká difúzní mlhovina ideální pro široká pole
+Sh2-130,Sharpless 130,EN,21.73333,54.50000,0,10,Cep,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-131,Elephant's Trunk Nebula,EN,21.61667,57.50000,0,170,Cep,Ikonická oblast s temnými sloupy ideální pro úzkopásmo
+Sh2-132,Lion Nebula,EN,22.31167,56.11670,0,90,Cep,Komplexní mlhovina vhodná pro široká pole
+Sh2-133,Sharpless 133,EN,22.25000,56.50000,0,10,Cep,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-134,Sharpless 134,EN,22.28333,57.50000,0,10,Cep,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-135,Sharpless 135,EN,22.35000,58.33330,0,15,Cep,Emisní mlhovina vhodná pro detailní snímky
+Sh2-136,Sharpless 136,EN,22.40000,59.00000,0,10,Cep,Malá mlhovina vhodná pro úzkopásmo
+Sh2-137,Sharpless 137,EN,22.41667,59.50000,0,10,Cep,Kompaktní emisní oblast vhodná pro detailní foto
+Sh2-138,Sharpless 138,EN,22.53333,59.00000,0,5,Cep,Velmi malá mlhovina vhodná pro úzkopásmo
+Sh2-139,Sharpless 139,EN,22.56667,59.50000,0,10,Cep,Malá emisní oblast vhodná pro detailní snímky
+Sh2-140,Sharpless 140,EN,22.31667,63.31670,0,30,Cep,Emisní mlhovina s temnými strukturami ideální pro úzkopásmo
+Sh2-141,Sharpless 141,EN,22.61667,61.00000,0,10,Cep,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-142,Wizard Nebula,EN,22.78333,59.50000,0,30,Cep,Mlhovina s výraznými strukturami ideální pro úzkopásmo
+Sh2-143,Sharpless 143,EN,22.73333,61.50000,0,10,Cep,Malá emisní oblast vhodná pro detailní snímky
+Sh2-144,Sharpless 144,EN,22.83333,61.00000,0,10,Cep,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-145,Sharpless 145,EN,22.86667,61.50000,0,10,Cep,Malá emisní oblast vhodná pro detailní foto
+Sh2-146,Sharpless 146,EN,22.81667,61.30000,0,5,Cep,Velmi malá mlhovina vhodná pro úzkopásmo
+Sh2-147,Sharpless 147,EN,22.91667,62.00000,0,10,Cep,Kompaktní emisní oblast vhodná pro detailní snímky
+Sh2-148,Sharpless 148,EN,22.95000,62.50000,0,10,Cep,Malá mlhovina vhodná pro úzkopásmo
+Sh2-149,Sharpless 149,EN,23.00000,63.00000,0,10,Cep,Kompaktní emisní oblast vhodná pro detailní foto
+Sh2-150,Sharpless 150,EN,23.01667,63.50000,0,10,Cep,Malá mlhovina vhodná pro úzkopásmo
+Sh2-151,Sharpless 151,EN,23.05000,64.00000,0,10,Cep,Kompaktní emisní oblast vhodná pro detailní snímky
+Sh2-152,Sharpless 152,EN,23.06667,64.33330,0,10,Cep,Malá mlhovina vhodná pro úzkopásmo
+Sh2-153,Sharpless 153,EN,23.10000,64.50000,0,10,Cep,Kompaktní emisní oblast vhodná pro detailní foto
+Sh2-154,Sharpless 154,EN,22.85000,65.00000,0,10,Cep,Malá mlhovina vhodná pro úzkopásmo
+Sh2-155,Cave Nebula,EN,22.94667,62.30000,7.7,30,Cep,Temná mlhovina s emisními oblastmi ideální pro úzkopásmo
+Sh2-156,Sharpless 156,EN,23.05000,65.50000,0,10,Cep,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-157,Lobster Claw Nebula,EN,23.26667,60.10000,0,60,Cas,Komplexní mlhovina ideální pro úzkopásmo
+Sh2-158,NGC 7538,EN,23.22500,61.50000,0,10,Cep,Emisní mlhovina s mladými hvězdami vhodná pro detailní foto
+Sh2-159,Sharpless 159,EN,23.25000,62.00000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-160,Sharpless 160,EN,23.28333,62.50000,0,10,Cas,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-161,Sharpless 161,EN,23.31667,63.00000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-162,Bubble Nebula (NGC 7635),EN,23.34500,61.20000,10.0,15,Cas,Ikonická bublina ideální pro úzkopásmové snímky
+Sh2-163,Sharpless 163,EN,23.41667,64.50000,0,10,Cas,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-164,Sharpless 164,EN,23.50000,65.00000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-165,Sharpless 165,EN,23.55000,65.50000,0,10,Cas,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-166,Sharpless 166,EN,23.60000,66.00000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-167,Sharpless 167,EN,23.63333,66.50000,0,10,Cas,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-168,Sharpless 168,EN,23.88333,60.50000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-169,Sharpless 169,EN,23.95000,61.00000,0,10,Cas,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-170,Sharpless 170,EN,0.01667,64.00000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-171,Sharpless 171 (NGC 7822),EN,0.05000,67.00000,0,180,Cep,Velká emisní oblast ideální pro široká pole
+Sh2-172,Sharpless 172,EN,0.13333,64.50000,0,10,Cas,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-173,Phantom of the Opera Nebula,EN,0.35000,61.83330,0,30,Cas,Emisní mlhovina s výrazným tvarem ideální pro úzkopásmo
+Sh2-174,Sharpless 174,PN,0.47167,66.13330,0,10,Cep,Planetární mlhovina vhodná pro detailní snímky
+Sh2-175,Sharpless 175,EN,0.45000,64.83330,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-176,Sharpless 176,PN,0.50000,65.00000,0,10,Cas,Planetární mlhovina vhodná pro detailní foto
+Sh2-177,Sharpless 177,EN,0.58333,64.00000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-178,Sharpless 178,EN,0.65000,63.50000,0,10,Cas,Malá emisní oblast vhodná pro detailní snímky
+Sh2-179,Sharpless 179,EN,0.73333,63.00000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-180,Sharpless 180,EN,0.81667,62.50000,0,10,Cas,Malá emisní oblast vhodná pro detailní foto
+Sh2-181,Sharpless 181,EN,0.83333,62.00000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-182,Sharpless 182,EN,0.86667,61.50000,0,10,Cas,Malá emisní oblast vhodná pro detailní snímky
+Sh2-183,Sharpless 183,EN,0.91667,61.00000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-184,Pacman Nebula,EN,0.88000,56.61670,7.4,35,Cas,Mlhovina s výraznými strukturami ideální pro úzkopásmo
+Sh2-185,Gamma Cas Nebula,EN,0.93333,61.00000,0,15,Cas,Reflexní a emisní mlhovina vhodná pro široká pole
+Sh2-186,Sharpless 186,EN,1.00000,60.50000,0,10,Cas,Malá emisní oblast vhodná pro detailní foto
+Sh2-187,Sharpless 187,EN,1.38333,61.81670,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-188,Sharpless 188,PN,1.51667,58.33330,0,10,Cas,Planetární mlhovina vhodná pro detailní snímky
+Sh2-189,Sharpless 189,EN,1.61667,58.00000,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-190,Heart Nebula,EN,2.54500,61.45000,6.5,150,Cas,Obrovská emisní mlhovina ideální pro široká pole a úzkopásmo
+Sh2-191,Maffei 1,Gal,2.60000,59.63330,11.4,3,Cas,Silně zčervenalá galaxie vhodná pro dlouhé expozice
+Sh2-192,Sharpless 192,EN,2.65000,60.00000,0,10,Cas,Malá emisní oblast vhodná pro detailní foto
+Sh2-193,Sharpless 193,EN,2.70000,60.50000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-194,Sharpless 194,EN,2.73333,61.00000,0,10,Cas,Malá emisní oblast vhodná pro detailní snímky
+Sh2-195,Sharpless 195,EN,2.81667,61.50000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-196,Sharpless 196,EN,2.85000,62.00000,0,10,Cas,Malá emisní oblast vhodná pro detailní foto
+Sh2-197,Sharpless 197,EN,2.91667,62.50000,0,10,Cas,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-198,Sharpless 198,EN,2.93333,63.00000,0,10,Cas,Malá emisní oblast vhodná pro detailní snímky
+Sh2-199,Soul Nebula,EN,2.92000,60.43330,6.5,150,Cas,Velká emisní mlhovina ideální pro široká pole a úzkopásmo
+Sh2-200,Sharpless 200,PN,3.13333,62.00000,0,2,Cas,Velmi malá planetární mlhovina vhodná pro detailní foto
+Sh2-201,Sharpless 201,EN,3.05500,60.43330,0,10,Cas,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-202,Sharpless 202,EN,3.30000,59.33330,0,150,Cas,Velká difúzní mlhovina ideální pro široká pole
+Sh2-203,NGC 1348,OC,3.56667,51.33330,0,10,Per,Malá hvězdokupa vhodná pro široká pole
+Sh2-204,Sharpless 204,EN,3.95000,53.50000,0,10,Per,Emisní oblast vhodná pro úzkopásmo
+Sh2-205,Sharpless 205,EN,3.90000,53.00000,0,10,Cam,Malá mlhovina vhodná pro detailní snímky
+Sh2-206,Sharpless 206 (NGC 1491),EN,4.05500,51.20000,0,25,Per,Jasná emisní mlhovina ideální pro úzkopásmo
+Sh2-207,Sharpless 207,EN,4.31667,53.21670,0,5,Cam,Velmi malá mlhovina vhodná pro detailní foto
+Sh2-208,Sharpless 208,EN,4.32500,53.15000,0,10,Cam,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-209,Sharpless 209,EN,4.18333,51.10000,0,10,Per,Malá mlhovina vhodná pro detailní snímky
+Sh2-210,Sharpless 210,EN,4.35000,47.00000,0,10,Per,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-211,Sharpless 211,EN,4.40000,50.00000,0,10,Per,Malá mlhovina vhodná pro detailní foto
+Sh2-212,Sharpless 212,EN,4.66667,50.50000,0,10,Per,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-213,Sharpless 213,EN,4.71667,41.00000,0,10,Per,Malá mlhovina vhodná pro detailní snímky
+Sh2-214,Sharpless 214,EN,4.75000,42.00000,0,10,Per,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-215,Sharpless 215,EN,4.81667,43.00000,0,10,Aur,Malá mlhovina vhodná pro detailní foto
+Sh2-216,Sharpless 216,PN,4.75667,46.68330,0,100,Per,Obrovská planetární mlhovina ideální pro široká pole
+Sh2-217,Sharpless 217,EN,4.96667,47.33330,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-218,Sharpless 218,EN,4.91667,47.00000,0,10,Aur,Malá mlhovina vhodná pro detailní snímky
+Sh2-219,Sharpless 219,EN,5.03333,47.50000,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-220,California Nebula,EN,4.05500,36.41670,6.0,160,Per,Obrovská emisní mlhovina ideální pro široká pole
+Sh2-221,Sharpless 221,SNR,4.71667,46.00000,0,45,Aur,Filamenty supernovy vhodné pro úzkopásmo
+Sh2-222,Sharpless 222,EN,5.11667,37.00000,0,10,Aur,Malá emisní oblast vhodná pro detailní foto
+Sh2-223,Sharpless 223,SNR,5.18333,42.00000,0,40,Aur,Supernovový zbytek vhodný pro úzkopásmo
+Sh2-224,Sharpless 224,SNR,5.43333,43.50000,0,20,Aur,Malý supernovový zbytek vhodný pro detailní snímky
+Sh2-225,Sharpless 225,EN,5.45000,36.00000,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-226,Sharpless 226,EN,5.46667,35.50000,0,10,Aur,Malá mlhovina vhodná pro detailní foto
+Sh2-227,Sharpless 227,EN,5.51667,35.00000,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-228,Sharpless 228,EN,5.21667,34.50000,0,10,Aur,Malá mlhovina vhodná pro detailní snímky
+Sh2-229,Flaming Star Nebula,EN,5.27000,34.26670,6.0,30,Aur,Reflexní a emisní mlhovina ideální pro široká pole
+Sh2-230,Sharpless 230,EN,5.33333,35.00000,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-231,Sharpless 231,EN,5.65000,33.00000,0,10,Aur,Malá mlhovina vhodná pro detailní foto
+Sh2-232,Sharpless 232,EN,5.68333,32.50000,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-233,Sharpless 233,EN,5.63333,33.50000,0,10,Aur,Malá mlhovina vhodná pro detailní snímky
+Sh2-234,Sharpless 234,EN,5.70000,32.00000,0,10,Aur,Kompaktní emisní oblast vhodná pro úzkopásmo
+Sh2-235,Sharpless 235,EN,5.68333,35.83330,0,20,Aur,Emisní mlhovina vhodná pro úzkopásmo
+Sh2-236,NGC 1912 (M38),OC,5.47333,35.85000,6.4,21,Aur,Hvězdokupa vhodná pro široká pole
+Sh2-237,NGC 1931,EN,5.52333,34.25000,10.1,4,Aur,Malá emisní mlhovina vhodná pro detailní foto
+Sh2-238,Sharpless 238,EN,5.71667,31.50000,0,10,Aur,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-239,Sharpless 239,EN,4.51667,18.00000,0,10,Tau,Malá emisní oblast vhodná pro detailní snímky
+Sh2-240,Simeis 147,SNR,5.65000,28.00000,0,180,Tau,Velký supernovový zbytek ideální pro úzkopásmo
+Sh2-241,Sharpless 241,EN,6.06333,30.25000,0,10,Aur,Malá emisní oblast vhodná pro detailní foto
+Sh2-242,Sharpless 242,EN,5.88333,26.50000,0,10,Tau,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-243,Sharpless 243,EN,6.00000,25.00000,0,10,Gem,Malá emisní oblast vhodná pro detailní snímky
+Sh2-244,Sharpless 244,EN,6.08333,24.50000,0,10,Gem,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-245,Sharpless 245,EN,5.75000,23.50000,0,10,Tau,Malá emisní oblast vhodná pro detailní foto
+Sh2-246,Sharpless 246,EN,5.81667,23.00000,0,10,Tau,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-247,Sharpless 247,EN,6.15000,21.50000,0,10,Gem,Malá emisní oblast vhodná pro detailní snímky
+Sh2-248,Jellyfish Nebula,SNR,6.28167,22.50000,0,45,Gem,Supernovový zbytek s filamenty ideální pro úzkopásmo
+Sh2-249,Sharpless 249,EN,6.31667,21.00000,0,40,Gem,Emisní oblast vhodná pro úzkopásmo
+Sh2-250,Sharpless 250,EN,6.35000,20.50000,0,10,Gem,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-251,Sharpless 251,EN,6.43333,20.00000,0,10,Gem,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-252,Monkey Head Nebula,EN,6.16167,20.50000,0,40,Ori,Emisní mlhovina s výraznými strukturami ideální pro úzkopásmo
+Sh2-253,Sharpless 253,EN,6.11667,19.50000,0,10,Ori,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-254,Sharpless 254,EN,6.21667,18.00000,0,10,Ori,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-255,Sharpless 255,EN,6.21667,18.00000,0,10,Ori,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-256,Sharpless 256,EN,6.21667,18.00000,0,10,Ori,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-257,Sharpless 257,EN,6.21667,18.00000,0,10,Ori,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-258,Sharpless 258,EN,6.21667,18.00000,0,10,Ori,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-259,Sharpless 259,EN,6.25000,17.50000,0,10,Ori,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-260,Sharpless 260,EN,6.25000,17.00000,0,10,Ori,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-261,Lower's Nebula,EN,6.15167,15.75000,0,50,Ori,Velká emisní oblast ideální pro široká pole
+Sh2-262,Sharpless 262,EN,6.11667,15.00000,0,10,Ori,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-263,Sharpless 263,EN,6.13333,14.50000,0,10,Ori,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-264,Lambda Orionis Ring,EN,5.58333,9.93330,0,600,Ori,Obrovská emisní oblast ideální pro široká pole
+Sh2-265,Sharpless 265,EN,6.18333,14.00000,0,10,Ori,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-266,Sharpless 266,EN,6.25000,13.50000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-267,Sharpless 267,EN,6.30000,13.00000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-268,Sharpless 268,EN,6.33333,12.50000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-269,Sharpless 269,EN,6.25000,12.00000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-270,Sharpless 270,EN,6.36667,11.50000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-271,Sharpless 271,EN,6.56667,11.00000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-272,Sharpless 272,EN,6.60000,10.50000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-273,Cone Nebula,EN,6.68500,9.88330,3.9,40,Mon,Temná mlhovina s výrazným tvarem ideální pro úzkopásmo
+Sh2-274,Medusa Nebula,PN,7.48333,13.25000,0,10,Gem,Planetární mlhovina s filamenty ideální pro úzkopásmo
+Sh2-275,Rosette Nebula,EN,6.53833,4.96670,9.0,80,Mon,Velká emisní mlhovina ideální pro široká pole
+Sh2-276,Barnard's Loop,EN,5.80000,-1.00000,0,840,Ori,Obrovský oblouk ideální pro široká pole a mozaiky
+Sh2-277,Flame Nebula,EN,5.69667,-1.90000,0,30,Ori,Jasná emisní mlhovina ideální pro úzkopásmo
+Sh2-278,Sharpless 278,EN,5.85000,-1.00000,0,50,Ori,Emisní oblast vhodná pro široká pole
+Sh2-279,Running Man Nebula,EN,5.58333,-4.83330,7.0,20,Ori,Reflexní mlhovina ideální pro barevné snímky
+Sh2-280,Sharpless 280,EN,6.51667,2.00000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-281,Orion Nebula (M42),EN,5.58667,-5.38330,4.0,65,Ori,Ikonická mlhovina ideální pro HDR a úzkopásmo
+Sh2-282,Sharpless 282,EN,6.65000,1.50000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-283,Sharpless 283,EN,6.71667,1.00000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-284,Sharpless 284,EN,6.75000,0.50000,0,60,Mon,Velká emisní oblast vhodná pro široká pole
+Sh2-285,Sharpless 285,EN,6.78333,0.00000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-286,Sharpless 286,EN,6.81667,-0.50000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-287,Sharpless 287,EN,6.91667,-1.00000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-288,Sharpless 288,EN,7.01667,-1.50000,0,10,Mon,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-289,Sharpless 289,EN,7.06667,-2.00000,0,10,Mon,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-290,Abell 21,PN,7.48333,13.25000,0,10,Gem,Planetární mlhovina s filamenty ideální pro úzkopásmo
+Sh2-291,Sharpless 291,EN,7.01667,-8.00000,0,10,CMa,Malá emisní oblast vhodná pro detailní foto
+Sh2-292,Seagull Nebula (IC 2177),EN,7.06667,-10.50000,0,120,Mon,Velká mlhovina ideální pro široká pole
+Sh2-293,Sharpless 293,EN,7.08333,-11.00000,0,10,Mon,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-294,Sharpless 294,EN,7.11667,-11.50000,0,10,Mon,Malá emisní oblast vhodná pro detailní snímky
+Sh2-295,Sharpless 295,EN,7.13333,-12.00000,0,10,Mon,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-296,Sharpless 296,EN,7.15000,-12.50000,0,10,Mon,Malá emisní oblast vhodná pro detailní foto
+Sh2-297,Sharpless 297,EN,7.08333,-12.10000,0,10,CMa,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-298,Thor's Helmet (NGC 2359),EN,7.31000,-13.23330,11.5,10,CMa,Ikonická Wolf–Rayet mlhovina ideální pro úzkopásmo
+Sh2-299,Sharpless 299,EN,7.18333,-13.50000,0,10,CMa,Malá emisní oblast vhodná pro detailní snímky
+Sh2-300,Sharpless 300,EN,7.21667,-14.00000,0,10,CMa,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-301,Sharpless 301,EN,7.24667,-18.50000,0,10,CMa,Malá emisní oblast vhodná pro detailní foto
+Sh2-302,Sharpless 302,EN,7.53333,-17.00000,0,10,Pup,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-303,Sharpless 303,EN,7.56667,-17.50000,0,10,Pup,Malá emisní oblast vhodná pro detailní snímky
+Sh2-304,Sharpless 304,EN,7.60000,-18.00000,0,10,Pup,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-305,Sharpless 305,EN,7.75000,-18.50000,0,10,Pup,Malá emisní oblast vhodná pro detailní foto
+Sh2-306,Sharpless 306,EN,7.80000,-19.00000,0,10,Pup,Kompaktní mlhovina vhodná pro úzkopásmo
+Sh2-307,Sharpless 307,EN,7.83333,-19.50000,0,10,Pup,Malá emisní oblast vhodná pro detailní snímky
+Sh2-308,Dolphin Head Nebula,EN,6.90167,-23.91670,0,35,CMa,Velká bublinová mlhovina ideální pro úzkopásmo
+Sh2-309,Sharpless 309,EN,7.91667,-20.50000,0,10,Pup,Kompaktní mlhovina vhodná pro detailní foto
+Sh2-310,Sharpless 310,EN,6.81667,-25.50000,0,10,CMa,Malá emisní oblast vhodná pro úzkopásmo
+Sh2-311,NGC 2467 (Skull & Crossbones),EN,7.87167,-26.38330,0,10,Pup,Emisní mlhovina s mladými hvězdami ideální pro úzkopásmo
+Sh2-312,Sharpless 312,EN,8.13333,-27.00000,0,10,Pup,Kompaktní mlhovina vhodná pro detailní snímky
+Sh2-313,Abell 33,PN,9.65000,-2.81670,12.0,5,Hya,Planetární mlhovina s jemnou strukturou ideální pro detailní foto
