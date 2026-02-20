@@ -34,8 +34,10 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 6px;
-    margin: 10px 0 15px 0;
+    margin: 10px auto 15px auto; /* ← auto = centrování */
+    display: block;              /* ← nutné pro margin:auto */
 }
+
 
 .readmore {
     display: inline-block;
@@ -71,6 +73,12 @@ foreach ($posts as $post) {
     // datum publikace
     $date = date("d.m.Y H:i", strtotime($post->date));
 
+    // autor
+    $author = "";
+    if (!empty($post->yoast_head_json->author)) {
+        $author = $post->yoast_head_json->author;
+    }
+
     // obrázek
     $image = "";
     if (!empty($post->_embedded["wp:featuredmedia"][0]->source_url)) {
@@ -81,7 +89,7 @@ foreach ($posts as $post) {
     echo "<h2><a href='$link' target='_blank'>$title</a></h2>";
 
     // vložení data
-    echo "<div class='pubdate'>$date</div>";
+    echo "<div class='pubdate'>$date - $author</div>";
 
     if ($image) {
         echo "<img src='$image'>";
