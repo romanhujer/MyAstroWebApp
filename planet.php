@@ -358,8 +358,8 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
 <body>
     <div class="box">
         <?php if ($filtr === 'yes' && $id === 'all'): ?>
-            <h1>Planety</h1>
-            <h2>Noc <?= $astro_start ?>  - <?= $astro_end ?></h2>
+            <h2>Planety</h2>
+            <h3><strong>Dnes je tma:</strong> <?=  date('H:i', $twilight_start_ts) ?>  - <?=  date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?>  - <?= $astro_end ?>)</h3>
             <br>
             <form method="get">
                 <label>

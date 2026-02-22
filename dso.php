@@ -604,8 +604,10 @@ if ($tam === 'no' && $tpm === 'no') {
 
 $ephemeris = load_katalog($json_dir . '/moon_ephemeris.json');
 $phases = load_katalog($json_dir . '/moon_phases_2000_2100.json');
-
 $data = load_katalog($json_dir . '/' . $katalog . '_ephemeris.json');
+if ($katalog === "messier") {
+  $preview = load_katalog($json_dir . '/' . $katalog . '_preview.json');
+}
 
 sort_objects($data, $key);
 
@@ -638,7 +640,7 @@ $illumPercent = get_moon_illumination_percent($ageDays);
 $moon_ilum = "osvětlení: " . ($illumPercent !== null ? number_format($illumPercent, 1, ',', ' ') . " %" : "neznámé");
 $moon_phase = "fáze: " . ($phasePercent !== null ? number_format($phasePercent, 1, ',', ' ') . " %" : "neznámá");
 $moon_old = "stáří: " . ($ageDays !== null ? number_format($ageDays, 1, ',', ' ') : 'neznámé') . " dne";
-$moon_const = "souhvězdí: </strong>" . ($constellation ?: 'neznámé');
+$moon_const = "souhvězdí: " . ($constellation ?: 'neznámé');
 $moon_new = "Nov: " . ($nextNew ? date('d. M Y', $nextNew) : 'neznámý');
 $moon_full = "Úplněk: " . ($nextFull ? date('d. M Y', $nextFull) : 'neznámý');
 $moon_rise = "východ: " . ($moonrise ? date('H:i', strtotime($moonrise)) : '—');
@@ -697,10 +699,12 @@ if ($moonrise < $moonset) {
       margin: 0 0 6px;
     }
 
+    
     table {
       width: 100%;
       border-collapse: collapse;
     }
+
 
     .main-table tr+tr {
       border-top: 1px solid #444;
@@ -719,6 +723,38 @@ if ($moonrise < $moonset) {
     .inner-table td {
       padding: 2px 0;
     }
+
+    .thumb {
+      margin: 10px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .thumb img {
+      width: 200px;
+      border-radius: 6px;
+    }
+
+    .badge {
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    .iotd {
+      background: #ff4444;
+    }
+
+    .tp {
+      background: #44aa44;
+    }
+
+    .tpn {
+      background: #ffaa00;
+    }
+
+
 
     .label {
       color: #aaa;
@@ -794,8 +830,8 @@ if ($moonrise < $moonset) {
   <div class="box">
     <?php if ($filtr === 'yes'): ?>
       <h1><?= $katalogName ?> katalog - viditelnost
-       <?php if ($key === 'delta'): ?>dle &Delta; kulminace
-        <?php elseif ($key === 'size'): ?>dle úhlové velikosti 
+        <?php if ($key === 'delta'): ?>dle &Delta; kulminace
+        <?php elseif ($key === 'size'): ?>dle úhlové velikosti
         <?php elseif ($key === 'mag'): ?>dle jasnosti
         <?php endif; ?>
       </h1>
@@ -904,9 +940,11 @@ if ($moonrise < $moonset) {
     <?php endif; ?>
     <br>
     <div class="moon">
-    <strong>Dnes je tma:</strong> <?=  date('H:i', $twilight_start_ts) ?>  - <?=  date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?>  - <?= $astro_end ?>)<br>
-    <br>
-    <strong>Měsíc:</strong> <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp; <?= $moon_culm ?> &nbsp;  <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
+      <strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
+      &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)<br>
+      <br>
+      <strong>Měsíc:</strong> <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp; <?= $moon_culm ?>
+      &nbsp; <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
     </div>
 
     <p>Alt/Az data jsou platná pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
@@ -1187,9 +1225,42 @@ if ($moonrise < $moonset) {
             <br>
             <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
 
-            <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
-            <br>
+            <?php if ($katalog !== "messier"): ?>
+              <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
+              <br>
+            <?php endif; ?>
             <table class="inner-table">
+              <?php if ($katalog === "messier"): ?>
+                <tr>
+                  <td>
+                    <?php foreach ($preview[$c['id']] as $img): ?>
+                      <div class="thumb">
+                        <a href="<?php echo $img['url']; ?>" target="_blank">
+                          <img src="<?php echo $img['thumbnail']; ?>"
+                           title="Autor: <?php echo htmlspecialchars($img['userDisplayName']); ?>"
+                          />
+                        </a>
+                        <?php if ($img['isIotd']): ?>
+                          <span class="badge iotd">IOTD</span>
+                        <?php endif; ?>
+                        <?php if ($img['isTopPick']): ?>
+                          <span class="badge tp">TP</span>
+                        <?php endif; ?>
+
+                        <?php if ($img['isTopPickNomination']): ?>
+                          <span class="badge tpn">TPN</span>
+                        <?php endif; ?>
+                      </div>
+                    <?php endforeach; ?>
+          
+                  </td>
+                  <td>
+                    <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
+                  </td>
+
+                </tr>
+              <?php endif; ?>
+
               <tr>
                 <td class="label">Druh</td>
                 <td class="value"><?= htmlspecialchars($typeCZ) ?></td>
@@ -1200,7 +1271,7 @@ if ($moonrise < $moonset) {
               </tr>
               <tr>
                 <td class="label">Jasnost</td>
-                <td class="value"><?= htmlspecialchars(($mag == 0) ? '—' : $mag ) ?></td>
+                <td class="value"><?= htmlspecialchars(($mag == 0) ? '—' : $mag) ?></td>
               </tr>
               <tr>
                 <td class="label">RA</td>
