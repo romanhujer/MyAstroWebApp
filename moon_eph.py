@@ -52,42 +52,56 @@ def find_constellation_ecliptic(lambda_deg):
 # Vrkoslavice
 OBS_LAT = 50.7220
 OBS_LON = 15.1700
-OBS_ELEV = 460
+OBS_ELEV = 600
 
 
 def moon_rise_set(ts, eph, date):
     observer = eph['earth'] + wgs84.latlon(OBS_LAT, OBS_LON, OBS_ELEV)
 
-    # sampling po 1 minutě
-    minutes = list(range(0, 24*60, 1))
+    # časový interval 48 hodin (daný den + následující den)
+    t0 = ts.utc(date.year, date.month, date.day, 0, 0)
+    t1 = ts.utc(date.year, date.month, date.day + 1, 23, 59)
+
+    # krok 1 minuta
+    minutes = list(range(0, 48*60, 1))
     times = ts.utc(date.year, date.month, date.day,
                    [m//60 for m in minutes],
                    [m%60 for m in minutes])
 
     altitudes = observer.at(times).observe(eph['moon']).apparent().altaz()[0].degrees
 
-    def find_crossing(times, altitudes, target=0.0):
-        for i in range(len(altitudes)-1):
-            if (altitudes[i] < target and altitudes[i+1] >= target) or \
-               (altitudes[i] > target and altitudes[i+1] <= target):
+    # najít všechny crossingy
+    crossings = []
+    for i in range(len(altitudes)-1):
+        if (altitudes[i] < 0 and altitudes[i+1] >= 0) or \
+           (altitudes[i] > 0 and altitudes[i+1] <= 0):
 
-                t1 = times[i].utc_datetime().replace(tzinfo=timezone.utc)
-                t2 = times[i+1].utc_datetime().replace(tzinfo=timezone.utc)
-                a1 = altitudes[i]
-                a2 = altitudes[i+1]
+            t1 = times[i].utc_datetime().replace(tzinfo=timezone.utc)
+            t2 = times[i+1].utc_datetime().replace(tzinfo=timezone.utc)
+            a1 = altitudes[i]
+            a2 = altitudes[i+1]
 
-                if a2 == a1:
-                    return t1.isoformat()
-
-                ratio = (target - a1) / (a2 - a1)
+            if a2 == a1:
+                dt = t1
+            else:
+                ratio = (0 - a1) / (a2 - a1)
                 dt = t1 + (t2 - t1) * ratio
-                return dt.isoformat()
-        return None
 
-    moonrise = find_crossing(times, altitudes, 0.0)
-    moonset  = find_crossing(times[::-1], altitudes[::-1], 0.0)
+            crossings.append((dt, a1 < 0 and a2 >= 0))  # True = rise, False = set
+
+    # vybrat crossingy patřící k danému dni
+    moonrise = None
+    moonset = None
+
+    for dt, is_rise in crossings:
+        if dt.date() == date:
+            if is_rise and moonrise is None:
+                moonrise = dt.isoformat()
+            if not is_rise and moonset is None:
+                moonset = dt.isoformat()
 
     return moonrise, moonset
+
 
 def moon_culmination(ts, eph, date):
     """Najde kulminaci Měsíce (max výšku) během daného dne."""
@@ -119,7 +133,7 @@ def generate_ephemeris():
     moon = eph['moon']
 
     today = datetime.utcnow().date()
-    end_date = today + timedelta(days=62)
+    end_date = today + timedelta(days=31)
 
     result = []
 

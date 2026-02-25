@@ -1,6 +1,56 @@
 <?php
-$json = file_get_contents('/opt/astro_json/messier_preview.json');
-$preview = json_decode($json, true);
+
+
+$katalogDecode = [
+  "test" => "Test",  
+  "messier" => "Messier",
+  "caldwell" => "Caldwell",
+  "herschel" => "Herschel",
+  "sharpless" => "Sharples",
+  "galaxie" => "Galaxie",
+  "arp" => "Arp",
+  "snr" => "SNR",
+  "vdb" => "vdB",
+  "abell" => "Abell",
+  "barnard" => "Barnard",
+  "dark" => "Výber LBN/LDN",
+  "select" => "Výběr NGC"
+];
+
+$katalog = $_GET['katalog'] ?? 'messier';
+
+$cesta = '/opt/astro_json/' . $katalog . '_preview.json';
+
+
+function load_data($path)
+{
+  // Pokud existuje .gz varianta, použij ji
+  if (file_exists($path . '.gz')) {
+    $path .= '.gz';
+  }
+  // Načtení souboru
+  $raw = file_get_contents($path);
+  if ($raw === false)
+    return null;
+  // Pokud je gzip, dekomprimuj
+  if (substr($path, -3) === '.gz') {
+    $json = gzdecode($raw);
+    if ($json === false)
+      return null;
+  } else {
+    $json = $raw;
+  }
+  // Dekódování JSONu
+  $data = json_decode($json, true);
+  if (!is_array($data))
+    return null;
+
+  return $data;
+}
+
+
+$preview = load_data($cesta);
+
 
 $selected = $_GET['obj'] ?? null;
 ?>
@@ -22,29 +72,45 @@ a { color:#6cf; text-decoration:none; }
 </head>
 <body>
 
-<h1>DSO Preview</h1>
+<h1>DSO Preview katalog: <?= $katalogDecode[$katalog] ?? $katalog ?></h1>
+<form method="get">
+    <label for="katalog">Vyber katalog:</label>
+    <select name="katalog" id="katalog" onchange="this.form.submit()">
+        <?php foreach ($katalogDecode as $key => $name): ?>
+            <option value="<?= htmlspecialchars($key) ?>" <?= ($key === $katalog) ? 'selected' : '' ?>><?= htmlspecialchars($name) ?></option>
+        <?php endforeach; ?>
+    </select>
+</form>
 
-<h2>Messier seznam</h2>
+<br><br>
+
 <?php
-foreach ($preview as $obj => $items) {
-    echo "<a href='?obj=$obj'>$obj</a> (" . count($items) . ") &nbsp; ";
-}
+echo "<table><tr>"; 
 
-foreach ($preview as $obj => $items) :
+$col = 0;
+
+foreach ($preview as $obj => $items) : ?>
+<?php
+    
+    if ($col > 4){
+       echo "</tr><tr>";
+        $col = 0;
+    }
+    echo "<td width='250px' valign='top'>"; 
+    $col++;
 ?>
+
+
 <?php $selected = $obj; ?> 
-<hr>
-
-<?php if ($selected): ?>
-<h2><?php echo $selected; ?></h2>
-
+<strong><?php echo $selected; ?></strong><br>
 <?php foreach ($preview[$selected] as $img): ?>
-<div class="thumb">
-    <a href="<?php echo $img['url']; ?>" target="_blank">
-        <img src="<?php echo $img['thumbnail']; ?>">
-    </a>
-    <div><?php echo htmlspecialchars($img['title']); ?></div>
 
+ <div class="thumb">
+    <a href="<?php echo $img['url']; ?>" >
+        <img src="<?php echo $img['thumbnail']; ?>" height="150">      
+    </a>    
+    <div><?php echo htmlspecialchars($img['title']); ?></div><br>
+    <span><?php  echo $img['userDisplayName']; ?>  </span><br>
     <?php if ($img['isIotd']): ?>
         <span class="badge iotd">IOTD</span>
     <?php endif; ?>
@@ -56,12 +122,11 @@ foreach ($preview as $obj => $items) :
     <?php if ($img['isTopPickNomination']): ?>
         <span class="badge tpn">TPN</span>
     <?php endif; ?>
-
-</div>
+</div></td>
 <?php endforeach; ?>
 
-<?php endif; ?>
 
 <?php endforeach; ?>
+</tr></table>   
 </body>
 </html>

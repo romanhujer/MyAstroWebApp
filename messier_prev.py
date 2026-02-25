@@ -1,13 +1,30 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# 
+#   Copyright (c) 2026 Roman Hujer   http://hujer.net
+#
+#   This program is free software: you can redistribute it and/or modify
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,ss
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
+#
 import requests
 import csv
 import json
+import gzip
 import time
-import re
+import re  
 from datetime import datetime
 
 USER = "romanhujer"
-SEARCH_URL = "https://www.astrobin.com/api/v2/images/image-search/"
+ASTROBIN_JSON = "/opt/astro_json/astrobin_romanhujer.json.gz"
 OUTPUT = "/opt/astro_json/messier_preview.json"
 CSV_FILE = "/opt/astro_json/messier.csv"
 
@@ -31,6 +48,16 @@ def load_csv(path):
                 objs.append(row[0].strip().upper())
     return objs
 
+
+# ------------------------------------------------------------
+# Načtení lokálního AstroBin JSON
+# ------------------------------------------------------------
+def load_local_astrobin():
+    with gzip.open(ASTROBIN_JSON, "rt", encoding="utf-8") as f:
+        return json.load(f)
+
+
+
 def extract_messier_from_title(title: str):
     found = set()
     for m in re.findall(TITLE_REGEX, title, flags=re.IGNORECASE):
@@ -43,25 +70,6 @@ def extract_messier_from_title(title: str):
 def is_comet_title(title: str):
     return bool(re.search(COMET_REGEX, title, flags=re.IGNORECASE))
 
-def get_all_images():
-    images = []
-    url = f"{SEARCH_URL}?format=json&username={USER}"
-
-    while url:
-        r = requests.get(url, headers=HEADERS)
-        if r.status_code != 200:
-            print("Chyba API:", r.status_code)
-            break
-
-        data = r.json()
-        results = data.get("results", [])
-        images.extend(results)
-
-        url = data.get("next")
-        time.sleep(0.2)
-
-    print(f"Nalezeno {len(images)} snímků.")
-    return images
 
 def parse_date(s: str):
     try:
@@ -90,7 +98,8 @@ def choose_better(current, new):
 
 def main():
     objects = load_csv(CSV_FILE)  # M1..M110
-    images = get_all_images()
+    images = load_local_astrobin()
+    
 
     best = {obj: None for obj in objects}
 
@@ -125,7 +134,7 @@ def main():
         data = {
             "id": img["hash"],
             "url": f"https://www.astrobin.com/{img['hash']}/?force-classic-view",
-            "thumbnail": img.get("regularThumbnail"),
+            "thumbnail": img.get("thumbnail"),
             "title": title,
             "author": img.get("username"),
             "userDisplayName": img.get("userDisplayName"),

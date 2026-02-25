@@ -47,6 +47,7 @@ $katalogDecode = [
 ];
 
 
+
 // ------------------------------------------------------------
 // VYPOCET NOC
 
@@ -561,6 +562,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $vmag = isset($_POST['vmag']) ? max(1, (int) $_POST['vmag']) : 24;
 $asize = isset($_POST['asize']) ? max(0, (int) $_POST['asize']) : 0;
+$myfoto = isset($_POST['myfoto']) ? $_POST['myfoto'] : 'all';
 
 
 $gal = isset($_POST['gal']) ? $_POST['gal'] : 'yes';
@@ -605,9 +607,14 @@ if ($tam === 'no' && $tpm === 'no') {
 $ephemeris = load_katalog($json_dir . '/moon_ephemeris.json');
 $phases = load_katalog($json_dir . '/moon_phases_2000_2100.json');
 $data = load_katalog($json_dir . '/' . $katalog . '_ephemeris.json');
-if ($katalog === "messier") {
-  $preview = load_katalog($json_dir . '/' . $katalog . '_preview.json');
+
+
+$preview = "no";
+if (is_readable($json_dir . '/' . $katalog . '_preview.json.gz') || is_readable($json_dir . '/' . $katalog . '_preview.json')) {
+  $preview = "yes";
+  $images = load_katalog($json_dir . '/' . $katalog . '_preview.json');
 }
+
 
 sort_objects($data, $key);
 
@@ -699,7 +706,7 @@ if ($moonrise < $moonset) {
       margin: 0 0 6px;
     }
 
-    
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -825,6 +832,16 @@ if ($moonrise < $moonset) {
     }
   </style>
 </head>
+<script>
+  let autoSubmitTimer = null;
+
+  function autoSubmitDebounced() {
+    clearTimeout(autoSubmitTimer);
+    autoSubmitTimer = setTimeout(() => {
+      document.getElementById("filterForm").submit();
+    }, 300); // 300 ms pauza po poslední změně
+  }
+</script>
 
 <body>
   <div class="box">
@@ -836,102 +853,137 @@ if ($moonrise < $moonset) {
         <?php endif; ?>
       </h1>
       <br>
-      <form method="post">
-        <label>
-          <input type="hidden" id="f" name="f" value="yes" />
-          <button type="submit">Zobrazit</button>
-        </label>&nbsp;
+
+      <form method="post" id="filterForm">
+
+        <input type="hidden" id="f" name="f" value="yes" />
+
         <label>Katalog:
-          <select id="katalog" name="katalog">
-
+          <select id="katalog" name="katalog" onchange="autoSubmitDebounced()">
             <?php foreach ($katalogDecode as $kk => $nm): ?>
-              <option <?php if ($katalog === $kk): ?> selected <?php endif; ?> value="<?= $kk ?>"><?= $nm ?> </option>
+              <option <?php if ($katalog === $kk): ?> selected <?php endif; ?> value="<?= $kk ?>"><?= $nm ?></option>
             <?php endforeach; ?>
-
           </select>
-        </label> &nbsp; &nbsp;
+        </label>&nbsp;&nbsp;
+
         <label>Objekt:
-          <input type="text" id="id" name="id" value="<?= $id ?>" /> &nbsp;
+          <input type="text" id="id" name="id" value="<?= $id ?>" oninput="autoSubmitDebounced()" />
         </label>&nbsp;
+
         <label>Jasnost:
-          <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>" />mag &nbsp;
+          <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>"
+            oninput="autoSubmitDebounced()" /> mag
         </label>&nbsp;
+
         <label>Úhlová velikost:
-          <input type="number" min="0" max="1200" id="asize" name="asize" value="<?= $asize ?>" />arc min&nbsp;
-        </label>&nbsp;
-        <br><br>
-        <label>Kulminace PM:
-          <input type="hidden" id="pm" name="pm" value="no" />
-          <input type="checkbox" id="pm" name="pm" value="yes" <?php if ($tpm === 'yes'): ?> checked <?php endif; ?> />
-        </label>&nbsp;
-        <label>AM:
-          <input type="hidden" id="am" name="am" value="no" />
-          <input type="checkbox" id="am" name="am" value="yes" <?php if ($tam === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp; &nbsp;
-        </label>
-        <label>Pořadí: &nbsp; &Delta;K
-          <input type="radio" id="key" name="key" value="delta" <?php if ($key === 'delta'): ?> checked <?php endif; ?> />
-          &nbsp; ID
-          <input type="radio" id="key" name="key" value="id" <?php if ($key === 'id'): ?> checked <?php endif; ?> />
-          &nbsp; Velikost
-          <input type="radio" id="key" name="key" value="size" <?php if ($key === 'size'): ?> checked <?php endif; ?> />
-          &nbsp; Jas
-          <input type="radio" id="key" name="key" value="mag" <?php if ($key === 'mag'): ?> checked <?php endif; ?> />
+          <input type="number" min="0" max="1200" id="asize" name="asize" value="<?= $asize ?>"
+            oninput="autoSubmitDebounced()" /> arc min
         </label>
 
-        <br> <br>
+        <br><br>
+
+        <label>Kulminace PM:
+          <input type="hidden" name="pm" value="no" />
+          <input type="checkbox" id="pm" name="pm" value="yes" <?php if ($tpm === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
+        <label>AM:
+          <input type="hidden" name="am" value="no" />
+          <input type="checkbox" id="am" name="am" value="yes" <?php if ($tam === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;&nbsp;
+
+        <label>Pořadí: &Delta;K
+          <input type="radio" id="key" name="key" value="delta" <?php if ($key === 'delta'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+          &nbsp; ID
+          <input type="radio" id="key" name="key" value="id" <?php if ($key === 'id'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+          &nbsp; Velikost
+          <input type="radio" id="key" name="key" value="size" <?php if ($key === 'size'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+          &nbsp; Jas
+          <input type="radio" id="key" name="key" value="mag" <?php if ($key === 'mag'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>
+
+        <?php if ($preview === "yes"): ?>
+          &nbsp;&nbsp;
+          <label>Foceno:
+            ANO <input type="radio" name="myfoto" value="yes" <?php if ($myfoto === 'yes'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+            NE <input type="radio" name="myfoto" value="no" <?php if ($myfoto === 'no'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+            Vše <input type="radio" name="myfoto" value="all" <?php if ($myfoto === 'all'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+          </label>
+        <?php endif; ?>
+
+        <br><br>
+
         <label>Galaxie:
-          <input type="hidden" id="gal" name="gal" value="no" />
-          <input type="checkbox" id="gal" name="gal" value="yes" <?php if ($gal === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp; &nbsp;
-        </label>
+          <input type="hidden" name="gal" value="no" />
+          <input type="checkbox" id="gal" name="gal" value="yes" <?php if ($gal === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Mlhoviny Emisní:
-          <input type="hidden" id="en" name="en" value="no" />
-          <input type="checkbox" id="en" name="en" value="yes" <?php if ($enb === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="en" value="no" />
+          <input type="checkbox" id="en" name="en" value="yes" <?php if ($enb === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Reflexní:
-          <input type="hidden" id="rn" name="rn" value="no" />
-          <input type="checkbox" id="rn" name="rn" value="yes" <?php if ($rn === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="rn" value="no" />
+          <input type="checkbox" id="rn" name="rn" value="yes" <?php if ($rn === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Planetární:
-          <input type="hidden" id="pn" name="pn" value="no" />
-          <input type="checkbox" id="pn" name="pn" value="yes" <?php if ($pn === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="pn" value="no" />
+          <input type="checkbox" id="pn" name="pn" value="yes" <?php if ($pn === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Temné:
-          <input type="hidden" id="dn" name="dn" value="no" />
-          <input type="checkbox" id="dn" name="dn" value="yes" <?php if ($dn === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="dn" value="no" />
+          <input type="checkbox" id="dn" name="dn" value="yes" <?php if ($dn === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>SNR:
-          <input type="hidden" id="snr" name="snr" value="no" />
-          <input type="checkbox" id="snr" name="snr" value="yes" <?php if ($snr === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp; &nbsp;
-        </label>
+          <input type="hidden" name="snr" value="no" />
+          <input type="checkbox" id="snr" name="snr" value="yes" <?php if ($snr === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;&nbsp;
+
         <label>Hvězdy:
-          <input type="hidden" id="st" name="st" value="no" />
-          <input type="checkbox" id="st" name="st" value="yes" <?php if ($st === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="st" value="no" />
+          <input type="checkbox" id="st" name="st" value="yes" <?php if ($st === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Otevřené:
-          <input type="hidden" id="oc" name="oc" value="no" />
-          <input type="checkbox" id="oc" name="oc" value="yes" <?php if ($oc === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="oc" value="no" />
+          <input type="checkbox" id="oc" name="oc" value="yes" <?php if ($oc === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Kulové:
-          <input type="hidden" id="gc" name="gc" value="no" />
-          <input type="checkbox" id="gc" name="gc" value="yes" <?php if ($gc === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label>
+          <input type="hidden" name="gc" value="no" />
+          <input type="checkbox" id="gc" name="gc" value="yes" <?php if ($gc === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>&nbsp;
+
         <label>Dvojité:
-          <input type="hidden" id="dbl" name="dbl" value="no" />
-          <input type="checkbox" id="dbl" name="dbl" value="yes" <?php if ($dbl === 'yes'): ?> checked <?php endif; ?> />
-          &nbsp;
-        </label> &nbsp;
+          <input type="hidden" name="dbl" value="no" />
+          <input type="checkbox" id="dbl" name="dbl" value="yes" <?php if ($dbl === 'yes'): ?> checked <?php endif; ?>
+            onchange="autoSubmitDebounced()" />
+        </label>
 
       </form>
+
     <?php else: ?>
 
       <h1><?= $katalogName ?> katalog - viditelnost dle kulminace</h1>
@@ -1218,6 +1270,31 @@ if ($moonrise < $moonset) {
           continue;
         if ($type === 'DOUBLE' && $dbl === 'no')
           continue;
+        $foceno = "no";
+        $is_img= "no";
+        if ($preview === "yes") {
+          
+        foreach ($images[strtoupper($c['id'])] as $img) {
+            $is_img = isset($img['thumbnail']) ? "yes" : "no";
+            $img_url = $img['url'];
+            $thumbnail = $img['thumbnail'];
+            $author = $img['userDisplayName'];
+            $iotd = $img['isIotd'];
+            $tp = $img['isTopPick'];
+            $tpn = $img['isTopPickNomination'];
+            $foceno = $img['foceno'];
+          }
+        }
+
+        if ($myfoto !== "all") {
+
+          if ($foceno === "Yes" && $myfoto === "no")
+            continue;
+          if ($foceno !== "Yes" && $myfoto === "yes")
+            continue;
+
+        }
+
         ?>
         <tr>
           <!-- LEVÁ BUŇKA: POPIS -->
@@ -1225,42 +1302,37 @@ if ($moonrise < $moonset) {
             <br>
             <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
 
-            <?php if ($katalog !== "messier"): ?>
+            <?php if ($preview !== "yes"): ?>
               <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
               <br>
             <?php endif; ?>
             <table class="inner-table">
-              <?php if ($katalog === "messier"): ?>
+              <?php if ($preview === "yes"): ?>
                 <tr>
                   <td>
-                    <?php foreach ($preview[$c['id']] as $img): ?>
-                      <div class="thumb">
-                        <a href="<?php echo $img['url']; ?>" target="_blank">
-                          <img src="<?php echo $img['thumbnail']; ?>"
-                           title="Autor: <?php echo htmlspecialchars($img['userDisplayName']); ?>"
-                          />
-                        </a>
-                        <?php if ($img['isIotd']): ?>
-                          <span class="badge iotd">IOTD</span>
-                        <?php endif; ?>
-                        <?php if ($img['isTopPick']): ?>
-                          <span class="badge tp">TP</span>
-                        <?php endif; ?>
-
-                        <?php if ($img['isTopPickNomination']): ?>
-                          <span class="badge tpn">TPN</span>
-                        <?php endif; ?>
-                      </div>
-                    <?php endforeach; ?>
-          
+                    <div class="thumb">
+                      <?php if ($is_img === "yes") : ?>
+                      <a href="<?php echo $img_url; ?>"> <img src="<?php echo $thumbnail; ?>"
+                          title="Autor: <?php echo htmlspecialchars($author); ?>">
+                      </a>
+                      <?php  endif; ?>
+                      Foceno: <?= ($foceno === "Yes") ? "ANO" : "NE" ?>
+                      <?php if ($iotd): ?>
+                        <span class="badge iotd"> IOTD</span>
+                      <?php endif; ?>
+                      <?php if ($tp): ?>
+                        <span class="badge tp">TP</span>
+                      <?php endif; ?>
+                      <?php if ($tpn): ?>
+                        <span class="badge tpn">TPN</span>
+                      <?php endif; ?>
+                    </div>
                   </td>
                   <td>
                     <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
                   </td>
-
                 </tr>
               <?php endif; ?>
-
               <tr>
                 <td class="label">Druh</td>
                 <td class="value"><?= htmlspecialchars($typeCZ) ?></td>
