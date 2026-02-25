@@ -1270,10 +1270,15 @@ if ($moonrise < $moonset) {
           continue;
         if ($type === 'DOUBLE' && $dbl === 'no')
           continue;
+        
         $foceno = "no";
         $is_img= "no";
-        if ($preview === "yes") {
+        $iotd = false;
+        $tp = false;
+        $tpn = false; 
           
+        if ($preview === "yes") {
+       
         foreach ($images[strtoupper($c['id'])] as $img) {
             $is_img = isset($img['thumbnail']) ? "yes" : "no";
             $img_url = $img['url'];
