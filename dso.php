@@ -552,13 +552,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id = isset($_POST['id']) ? $_POST['id'] : 'all';
   $katalog = isset($_POST['katalog']) ? $_POST['katalog'] : "messier";
   $key = isset($_POST['key']) ? $_POST['key'] : "delta";
+  $ifm =isset($_POST['t']) ? $_POST['t'] : "no";
 } else {
   $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
   $id = isset($_GET['id']) ? $_GET['id'] : 'all';
   $katalog = isset($_GET['katalog']) ? $_GET['katalog'] : "messier";
   $key = isset($_GET['key']) ? $_GET['key'] : "delta";
+  $ifm =isset($_GET['t']) ? "yes" : "no" ;
 }
 
+
+$target = ($ifm === "yes") ? "_blank" : "";
 
 $vmag = isset($_POST['vmag']) ? max(1, (int) $_POST['vmag']) : 24;
 $asize = isset($_POST['asize']) ? max(0, (int) $_POST['asize']) : 0;
@@ -855,7 +859,7 @@ if ($moonrise < $moonset) {
       <br>
 
       <form method="post" id="filterForm">
-
+        <input type="hidden" id="t" name="t" value="<?= $ifm ?>" />  
         <input type="hidden" id="f" name="f" value="yes" />
 
         <label>Katalog:
@@ -1317,7 +1321,7 @@ if ($moonrise < $moonset) {
                   <td>
                     <div class="thumb">
                       <?php if ($is_img === "yes") : ?>
-                      <a href="<?php echo $img_url; ?>"> <img src="<?php echo $thumbnail; ?>"
+                      <a href="<?php echo $img_url; ?>"  target="<?= $target ?>"> <img src="<?php echo $thumbnail; ?>"
                           title="Autor: <?php echo htmlspecialchars($author); ?>">
                       </a>
                       <?php  endif; ?>
