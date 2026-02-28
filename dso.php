@@ -1322,7 +1322,7 @@ if ($moonrise < $moonset) {
                     <div class="thumb">
                       <?php if ($is_img === "yes") : ?>
                       <a href="<?php echo $img_url; ?>"  target="<?= $target ?>"> <img src="<?php echo $thumbnail; ?>"
-                          title="Autor: <?php echo htmlspecialchars($author); ?>">
+                         height="150" title="Autor: <?php echo htmlspecialchars($author); ?>">
                       </a>
                       <?php  endif; ?>
                       Foceno: <?= ($foceno === "Yes") ? "ANO" : "NE" ?>

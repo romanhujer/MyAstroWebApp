@@ -1,0 +1,107 @@
+
+Protože na Astrobin   jesou všechný  fotky 100% správně popsané  tak  dso_prev.py
+některé fotky chybně přiadil proto bych  potřeboval  jednoduchý  interaktivní  editor
+preview.json soborů pro jejich upravy v php 
+jako základ  vezmeme priložený  edit-previev.php
+
+který nyni zatim  zobrazuje pouze náhled  celého katalogu 
+
+Předstva je 
+- u kazdého  snímku  doplnit talčíko vymenit snimek
+
+po stisku   zonrazi se  formuláš  do ktereho zada    astrbin  "hash"  nového  snimku který si sám prředem zjistim na astrobin. 
+
+php  prohledá  se  pomoci  py
+MY_JSON = "/opt/astro_json/astrobin_romanhujer.json.gz"
+TOP_JSON = "/opt/astro_json/astrobin_toppic.json.gz"
+ALL_JSON = "/opt/astro_json/astrobin.json.gz"
+
+a edituji se kalogy
+
+$katalogDecode = [
+  "test" => "Test",  
+  "messier" => "Messier",
+  "caldwell" => "Caldwell",
+  "herschel" => "Herschel",
+  "sharpless" => "Sharples",
+  "galaxie" => "Galaxie",
+  "arp" => "Arp",
+  "snr" => "SNR",
+  "vdb" => "vdB",
+  "abell" => "Abell",
+  "barnard" => "Barnard",
+  "dark" => "Výber LBN/LDN",
+  "select" => "Výběr NGC"
+];
+
+$katalog = $_GET['katalog'] ?? 'messier';
+
+$cesta = '/opt/astro_json/' . $katalog . '_preview.json';
+
+
+a zkusi  nový snimek najit 
+
+poku je najde 
+zobrazí nahled  puvodniho a nově nalezrdené  snímku 
+a bude čeakat na potvrzení zmeny 
+
+Pokud řeknu je to  OK 
+
+Tak se  vytvoří kopie  $katalog_preview.json.gz'  do   $katalog_preview.json.1.gz   uchováme  až 9 verzi
+apk  v katalogu  vymění  zvolený obrazek a jeho meta dat a uloží se  json na disk.
+
+
+Problem je v to že máme dva formaty json  jeden pro katalogy  messier_preview.json :
+
+ "M51": [
+    {
+      "id": "m3nx2b",       <---  klič ke sniku je zde - HASH  !!!!
+      "url": "https://www.astrobin.com/m3nx2b/?force-classic-view",
+      "thumbnail": "https://cdn.astrobin.com/thumbs/BvoOJf3zCD0B_620x0_esdlMP5Y.jpg",
+      "title": "M51  Whirlpool Galaxy",
+      "author": "romanhujer",
+      "userDisplayName": "Roman Hujer",
+      "objects": [
+        "M51"
+      ],
+      "isIotd": false,
+      "isTopPick": false,
+      "isTopPickNomination": true,
+      "uploaded": "2025-04-21 17:26:10",
+      "integration": 137700.0,
+      "foceno": "Yes"
+    }
+  ],
+
+
+druhy pro  astrobin.json  má format 
+
+{...},
+ {"hash": "9r9w2b",      <---  klič ke sniku je zde -  HASH !!!!
+ "title": "M51 (NGC5194 & NGC5195)  2022-03-09", 
+ "username": "romanhujer", 
+ "userDisplayName": "Roman Hujer",
+ "thumbnail": "https://cdn.astrobin.com/thumbs/DsaBbY3949iK_620x0__sPnTECk.jpg",
+ "published": "2022-04-25T15:31:15", 
+ "integration": 23280.0, 
+ "isIotd": false, 
+ "isTopPick": false, 
+ "isTopPickNomination": false}, {  ....}
+
+
+je to potřebna  jak py tak  php  správně prárovat 
+
+
+
+psoli opraveny PHP  v zadani  hash  akceptul cele url  astrobin  jako
+
+
+https://www.astrobin.com/12hhh5/?force-classic-view
+
+https://app.astrobin.com/u/romanhujer?i=12hhh5 
+
+apod  vyfilruj  hash obrazku 12hhh5  a ten pouzij 
+
+
+https://hujer.net/test/edit-preview.php?mode=confirm&katalog=test&obj=IC+1396&index=0&hash=7hajxe&action=confirm
+https://hujer.net/test/edit-preview.php?mode=confirm&katalog=test&obj=IC+1613&index=0&hash=7hajxe&action=confirm

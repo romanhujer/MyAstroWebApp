@@ -11,7 +11,7 @@ MY_JSON = "/opt/astro_json/astrobin_romanhujer.json.gz"
 TOP_JSON = "/opt/astro_json/astrobin_toppic.json.gz"
 ALL_JSON = "/opt/astro_json/astrobin.json.gz"
 
-CSV_FILE = "/opt/astro_json/herschel.csv"
+CSV_FILE = "/opt/astro_json/barnard.csv"
 OUTPUT = "/opt/astro_json/test_preview.json.gz"
 
 PLANET_REGEX = r"(JUPITER|SATURN|MARS|VENUS|MERCURY|URANUS|NEPTUNE|SUN|MOON|LUNA)"

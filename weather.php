@@ -1109,6 +1109,11 @@ customElements.define('live-clock', LiveClock);
                 <?= $moon_nf2 ?><br>
               </div>
               <br>
+              <div><b>Dnes na obloze</b></div>
+              <a href="/app/dso.php">DSO</a>
+              <a href="/app/komety.php">Komety</a>
+              <a href="/app/planet.php">Planety</a>             
+              <br>
               <div><b>Počasí</b></div>
               <a href="https://www.ventusky.com/">Ventusky</a>
               <a href="https://mapy.meteo.pl/">Poláci</a>

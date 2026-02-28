@@ -31,7 +31,7 @@ B 29,Barnard 29,DN,6.2333,22.8333,0,15.0,Gem,Temná mlhovina vhodná pro širok�
 B 30,Barnard 30,DN,5.5167,9.1500,0,30.0,Ori,Temná mlhovina u Meissy vhodná pro široká pole
 B 31,Barnard 31,DN,5.5333,9.5000,0,15.0,Ori,Součást prstence Lambda Orionis vhodná pro široká pole
 B 32,Barnard 32,DN,5.5500,9.3333,0,15.0,Ori,Temný zářez v Sh2‑264 vhodný pro kontrastní snímky
-B 33,Horsehead,DN,5.6817,-2.4583,0,6.0,Ori,Koňská hlava – ikonická temná mlhovina vhodná pro detailní foto
+B 33,IC 434 (Horsehead Nebula),DN,5.6817,-2.4583,0,6.0,Ori,Koňská hlava – ikonická temná mlhovina vhodná pro detailní foto
 B 34,Barnard 34,DN,5.7333,32.5000,0,20.0,Aur,Temná mlhovina ve Vozkovi vhodná pro široká pole
 B 35,Barnard 35,DN,5.7500,9.0333,0,15.0,Ori,Výrazná temná kapka vhodná pro kontrastní snímky
 B 36,Barnard 36,DN,5.7833,8.8333,0,10.0,Ori,Malá temná mlhovina vhodná pro detailní foto
@@ -57,7 +57,7 @@ B 55,Barnard 55,DN,17.6167,-25.1667,0,12.0,Sgr,Prachové mračno vhodné pro ši
 B 56,Barnard 56,DN,17.6500,-24.8333,0,10.0,Sgr,Temná mlhovina vhodná pro detailní snímky
 B 57,Barnard 57,DN,17.6833,-24.5000,0,15.0,Sgr,Výrazná temná skvrna vhodná pro široká pole
 B 58,Barnard 58,DN,17.7167,-24.1667,0,10.0,Sgr,Prach poblíž M8 vhodný pro detailní foto
-B 59,Pipe Nebula,DN,17.1867,-27.4500,0,60.0,Oph,Mlhovina Dýmka – výrazný temný komplex vhodný pro široká pole
+B 59,LBN 110.11-3.69 (Pipe Nebula),DN,17.1867,-27.4500,0,60.0,Oph,Mlhovina Dýmka – výrazný temný komplex vhodný pro široká pole
 B 60,Barnard 60,DN,17.2167,-27.1667,0,15.0,Oph,Součást mlhoviny Dýmka vhodná pro široká pole
 B 61,Barnard 61,DN,17.2500,-26.8333,0,12.0,Oph,Součást Dýmky vhodná pro detailní snímky
 B 62,Barnard 62,DN,17.3167,-26.5000,0,15.0,Oph,Temná mlhovina v Dýmce vhodná pro široká pole
@@ -66,11 +66,11 @@ B 64,Barnard 64,DN,17.2917,-18.4500,0,15.0,Oph,Temná mlhovina v severním Hadon
 B 65,Barnard 65,DN,17.3833,-27.3333,0,10.0,Oph,Temná skvrna vhodná pro detailní snímky
 B 66,Barnard 66,DN,17.4333,-27.1667,0,12.0,Oph,Součást komplexu Dýmky vhodná pro široká pole
 B 67,Barnard 67,DN,17.4667,-26.8333,0,15.0,Oph,Výrazná část těla Dýmky vhodná pro široká pole
-B 68,Dark Molecular Cloud,DN,17.3767,-23.7167,0,4.0,Oph,Izolovaná neprůhledná temná koule vhodná pro detailní foto
+B 68,LDN 57 (Dark Molecular Cloud),DN,17.3767,-23.7167,0,4.0,Oph,Izolovaná neprůhledná temná koule vhodná pro detailní foto
 B 69,Barnard 69,DN,17.4167,-23.1667,0,10.0,Oph,Temná mlhovina poblíž B68 vhodná pro detailní snímky
 B 70,Barnard 70,DN,17.4500,-23.3333,0,12.0,Oph,Kompaktní prachové mračno vhodné pro detailní foto
 B 71,Barnard 71,DN,17.4833,-23.0000,0,10.0,Oph,Temná skvrna vhodná pro detailní snímky
-B 72,Snake Nebula,DN,17.3917,-23.6333,0,30.0,Oph,Mlhovina Had – výrazný temný filament vhodný pro široká pole
+B 72,Snake Nebula (Barnard 72),DN,17.3917,-23.6333,0,30.0,Oph,Mlhovina Had – výrazný temný filament vhodný pro široká pole
 B 73,Barnard 73,DN,17.4167,-22.8333,0,10.0,Oph,Temná mlhovina vhodná pro detailní foto
 B 74,Barnard 74,DN,17.4500,-22.6667,0,12.0,Oph,Prachová mlhovina vhodná pro široká pole
 B 75,Barnard 75,DN,17.5167,-22.3333,0,15.0,Oph,Protažená temná mlhovina vhodná pro široká pole
@@ -83,14 +83,14 @@ B 81,Barnard 81,DN,17.6833,-21.0000,0,10.0,Sgr,Temný prach vhodný pro detailn�
 B 82,Barnard 82,DN,17.7167,-20.8333,0,15.0,Sgr,Temná mlhovina vhodná pro široká pole
 B 83,Barnard 83,DN,17.7500,-20.5000,0,12.0,Sgr,Prachové mračno vhodné pro delší expozice
 B 84,Barnard 84,DN,17.7833,-20.3333,0,10.0,Sgr,Temná skvrna poblíž M20 vhodná pro detailní foto
-B 85,Barnard 85,DN,18.0467,-23.0333,0,10.0,Sgr,Temná mlhovina uvnitř Trifidu vhodná pro kontrastní snímky
-B 86,Ink Spot,DN,18.0500,-26.8667,0,5.0,Sgr,Velmi tmavá „inkoustová“ skvrna vhodná pro detailní foto
+B 85,Barnard 85,DN,17.8167,-23.0333,0,10.0,Sgr,Temná mlhovina uvnitř Trifidu vhodná pro kontrastní snímky
+B 86,Ink Spot Nebula (Barnard 86),DN,18.0500,-26.8667,0,5.0,Sgr,Velmi tmavá „inkoustová“ skvrna vhodná pro detailní foto
 B 87,Barnard 87,DN,18.0717,-32.5000,0,20.0,Sgr,Papouščí zobák – výrazná temná mlhovina
 B 88,Barnard 88,DN,18.1000,-24.1667,0,15.0,Sgr,Temná mlhovina severně od M8 vhodná pro široká pole
 B 89,Barnard 89,DN,18.1333,-23.8333,0,10.0,Sgr,Temná skvrna vhodná pro detailní snímky
 B 90,Barnard 90,DN,18.1667,-23.5000,0,12.0,Sgr,Prachové mračno vhodné pro delší expozice
 B 91,Barnard 91,DN,18.2000,-23.1667,0,10.0,Sgr,Temná mlhovina vhodná pro detailní foto
-B 92,Black Hole,DN,18.2583,-18.2167,0,15.0,Sgr,Černá díra v M24 – výrazný temný zářez
+B 92,Black Hole (Barnard 92),DN,18.2583,-18.2167,0,15.0,Sgr,Černá díra v M24 – výrazný temný zářez
 B 93,Barnard 93,DN,18.2817,-18.0667,0,15.0,Sgr,Temná skvrna na okraji M24 vhodná pro široká pole
 B 94,Barnard 94,DN,18.3333,-17.1667,0,15.0,Sgr,Temná mlhovina vhodná pro delší expozice
 B 95,Barnard 95,DN,18.3500,-16.8333,0,10.0,Sgr,Prachové mračno vhodné pro detailní snímky
@@ -140,15 +140,15 @@ B 138,Barnard 138,DN,19.2500,16.0000,0,12.0,Aql,Temná skvrna vhodná pro detail
 B 139,Barnard 139,DN,19.2833,16.5000,0,10.0,Aql,Prach v severním Orlu vhodný pro delší expozice
 B 140,Barnard 140,DN,19.3167,17.0000,0,12.0,Aql,Temná mlhovina vhodná pro široká pole
 B 141,Barnard 141,DN,19.3500,17.5000,0,10.0,Aql,Slabší temná skvrna vhodná pro detailní foto
-B 142,E Nebula,DN,19.6617,10.9500,0,30.0,Aql,Mlhovina E – výrazný temný útvar vhodný pro široká pole
-B 143,E Nebula,DN,19.6800,11.0000,0,30.0,Aql,Hlavní část mlhoviny E vhodná pro široká pole
+B 142,LBN 29 (E Nebula),DN,19.6617,10.9500,0,30.0,Aql,Mlhovina E – výrazný temný útvar vhodný pro široká pole
+B 143,LBN 30 (E Nebula),DN,19.6800,11.0000,0,30.0,Aql,Hlavní část mlhoviny E vhodná pro široká pole
 B 144,Barnard 144,DN,20.1167,31.3333,0,40.0,Cyg,Temná mlhovina u Eta Cyg vhodná pro široká pole
 B 145,Barnard 145,DN,20.0667,37.6667,0,25.0,Cyg,Temná mlhovina ve tvaru „S“ vhodná pro široká pole
 B 146,Barnard 146,DN,20.1333,37.3333,0,15.0,Cyg,Temná skvrna vhodná pro detailní snímky
 B 147,Barnard 147,DN,20.1667,37.0000,0,12.0,Cyg,Prachová mlhovina vhodná pro delší expozice
 B 148,Barnard 148,DN,20.8833,32.0000,0,15.0,Cyg,Temná mlhovina v Labuti vhodná pro široká pole
 B 149,Barnard 149,DN,20.9167,31.6667,0,12.0,Cyg,Temná skvrna vhodná pro detailní foto
-B 150,Seahorse Nebula,DN,22.2150,60.2500,0,60.0,Cep,Mlhovina Mořský koník – výrazný temný útvar
+B 150,LDN 1235 (Seahorse Nebula),DN,22.2150,60.2500,0,60.0,Cep,Mlhovina Mořský koník – výrazný temný útvar
 B 151,Barnard 151,DN,20.9500,31.3333,0,10.0,Cyg,Temná mlhovina vhodná pro detailní snímky
 B 152,Barnard 152,DN,20.9833,31.0000,0,12.0,Cyg,Malá prachová skvrna vhodná pro detailní foto
 B 153,Barnard 153,DN,21.0167,30.6667,0,10.0,Cyg,Temná mlhovina vhodná pro delší expozice
@@ -166,7 +166,7 @@ B 164,Barnard 164,DN,21.7500,56.5000,0,8.0,Cep,Temná mlhovina u Sloního chobot
 B 165,Barnard 165,DN,21.8000,56.2500,0,10.0,Cep,Součást komplexu IC 1396 vhodná pro široká pole
 B 166,Barnard 166,DN,21.8333,56.0000,0,12.0,Cep,Temný prach vhodný pro delší expozice
 B 167,Barnard 167,DN,21.8667,55.7500,0,10.0,Cep,Temná skvrna vhodná pro detailní foto
-B 168,Barnard 168,DN,21.8917,47.3000,0,100.0,Cyg,Dlouhý temný filament u IC 5146 vhodný pro široká pole
+B 168,IC 5146 region (Barnard 168),DN,21.8917,47.3000,0,100.0,Cyg,Dlouhý temný filament u IC 5146 vhodný pro široká pole
 B 169,Barnard 169,DN,21.9167,55.5000,0,15.0,Cep,Temná mlhovina vhodná pro široká pole
 B 170,Barnard 170,DN,21.9500,55.2500,0,12.0,Cep,Prachové mračno vhodné pro delší expozice
 B 171,Barnard 171,DN,21.9833,55.0000,0,10.0,Cep,Temná skvrna vhodná pro detailní snímky
@@ -190,10 +190,10 @@ B 188,Barnard 188,DN,22.6500,56.0000,0,12.0,Cep,Temný prach vhodný pro delší
 B 189,Barnard 189,DN,22.6833,55.7500,0,10.0,Cep,Temná skvrna vhodná pro detailní foto
 B 190,Barnard 190,DN,22.7167,55.5000,0,15.0,Cep,Temná mlhovina vhodná pro široká pole
 B 191,Barnard 191,DN,22.7500,55.2500,0,12.0,Cep,Prachové mračno vhodné pro delší expozice
-B 192,Barnard 192,DN,22.7833,55.0000,0,10.0,Cep,Temná skvrna vhodná pro detailní snímky
-B 193,Barnard 193,DN,22.8167,54.7500,0,15.0,Cep,Temná mlhovina vhodná pro široká pole
-B 194,Barnard 194,DN,22.8500,54.5000,0,12.0,Cep,Temný prach vhodný pro delší expozice
-B 195,Barnard 195,DN,22.8833,54.2500,0,10.0,Cep,Prachová mlhovina vhodná pro detailní foto
+B 192,Barnard 192,DN,22.7833,54.7500,0,10.0,Cep,Temná skvrna vhodná pro detailní snímky
+B 193,Barnard 193,DN,22.8167,54.5000,0,15.0,Cep,Temná mlhovina vhodná pro široká pole
+B 194,Barnard 194,DN,22.8500,54.2500,0,12.0,Cep,Temný prach vhodný pro delší expozice
+B 195,Barnard 195,DN,22.8833,54.0000,0,10.0,Cep,Prachová mlhovina vhodná pro detailní foto
 B 196,Barnard 196,DN,22.9167,54.0000,0,15.0,Cep,Temná mlhovina vhodná pro široká pole
 B 197,Barnard 197,DN,22.9500,53.7500,0,12.0,Cep,Temná skvrna vhodná pro detailní snímky
 B 198,Barnard 198,DN,22.9833,53.5000,0,10.0,Cep,Prachové mračno vhodné pro delší expozice
@@ -313,59 +313,4 @@ B 311,Barnard 311,DN,20.2000,0.0833,0,10.0,Aql,Temná skvrna vhodná pro detailn
 B 312,Barnard 312,DN,18.5200,-5.0167,0,40.0,Sct,Výrazný temný oblak ve Štítu vhodný pro široká pole
 B 313,Barnard 313,DN,20.2667,-0.7500,0,12.0,Aql,Temná mlhovina vhodná pro delší expozice
 B 314,Barnard 314,DN,20.3000,-1.1667,0,15.0,Aql,Prachové mračno vhodné pro široká pole
-B 315,Barnard 315,DN,20.3333,-1.5833,0,10.0,Aql,Temná skvrna vhodná pro detailní snímky
-B 316,Barnard 316,DN,20.3667,-2.0000,0,12.0,Aql,Temná mlhovina vhodná pro delší expozice
-B 317,Barnard 317,DN,20.4000,-2.4167,0,10.0,Aql,Prach v Orlu vhodný pro detailní foto
-B 318,Barnard 318,DN,20.4333,-2.8333,0,15.0,Aql,Temná mlhovina vhodná pro široká pole
-B 319,Barnard 319,DN,20.4667,-3.2500,0,12.0,Aql,Temná skvrna vhodná pro detailní snímky
-B 320,Barnard 320,DN,20.5000,-3.6667,0,10.0,Aql,Prachové mračno vhodné pro delší expozice
-B 321,Barnard 321,DN,20.5333,-4.0833,0,15.0,Aql,Temná mlhovina vhodná pro široká pole
-B 322,Barnard 322,DN,20.5667,-4.5000,0,12.0,Aql,Temná skvrna vhodná pro detailní foto
-B 323,Barnard 323,DN,20.6000,-4.9167,0,10.0,Aql,Temná mlhovina vhodná pro delší expozice
-B 324,Barnard 324,DN,20.4000,40.5000,0,25.0,Cyg,Temná mlhovina v srdci Labutě vhodná pro široká pole
-B 325,Barnard 325,DN,20.4333,40.0833,0,15.0,Cyg,Temná skvrna poblíž Gamma Cyg vhodná pro detailní snímky
-B 326,Barnard 326,DN,20.4667,39.6667,0,12.0,Cyg,Prach u mlhoviny Sadr vhodný pro delší expozice
-B 327,Barnard 327,DN,20.5000,39.2500,0,10.0,Cyg,Temná mlhovina vhodná pro detailní foto
-B 328,Barnard 328,DN,20.5333,38.8333,0,15.0,Cyg,Prachové mračno vhodné pro široká pole
-B 329,Barnard 329,DN,20.5667,38.4167,0,12.0,Cyg,Temná skvrna vhodná pro detailní snímky
-B 330,Barnard 330,DN,20.6000,38.0000,0,10.0,Cyg,Temná mlhovina vhodná pro delší expozice
-B 331,Barnard 331,DN,20.6333,37.5833,0,15.0,Cyg,Prach v Labuti vhodný pro široká pole
-B 332,Barnard 332,DN,20.6667,37.1667,0,12.0,Cyg,Temná skvrna vhodná pro detailní foto
-B 333,Barnard 333,DN,20.7000,36.7500,0,10.0,Cyg,Temná mlhovina vhodná pro delší expozice
-B 334,Barnard 334,DN,20.7333,36.3333,0,15.0,Cyg,Prachové mračno vhodné pro široká pole
-B 335,Barnard 335,DN,20.7667,35.9167,0,12.0,Cyg,Temná skvrna vhodná pro detailní snímky
-B 336,Barnard 336,DN,20.8000,35.5000,0,10.0,Cyg,Temná mlhovina vhodná pro delší expozice
-B 337,Barnard 337,DN,20.8333,35.0833,0,15.0,Cyg,Prach v Labuti vhodný pro široká pole
-B 338,Barnard 338,DN,20.8667,34.6667,0,12.0,Cyg,Temná skvrna vhodná pro detailní foto
-B 339,Barnard 339,DN,20.9000,34.2500,0,10.0,Cyg,Temná mlhovina vhodná pro delší expozice
-B 340,Barnard 340,DN,20.9333,33.8333,0,15.0,Cyg,Prachové mračno vhodné pro široká pole
-B 341,Barnard 341,DN,20.9667,33.4167,0,12.0,Cyg,Temná skvrna vhodná pro detailní snímky
-B 342,Barnard 342,DN,21.0000,33.0000,0,10.0,Cyg,Temná mlhovina vhodná pro delší expozice
-B 343,Barnard 343,DN,20.2450,40.1667,0,15.0,Cyg,Temná skvrna v IC 1318 vhodná pro detailní foto
-B 344,Barnard 344,DN,20.2833,40.5833,0,12.0,Cyg,Temná mlhovina u Sadr vhodná pro široká pole
-B 345,Barnard 345,DN,20.3167,41.0000,0,10.0,Cyg,Prach v Labuti vhodný pro detailní snímky
-B 346,Barnard 346,DN,20.3500,41.4167,0,15.0,Cyg,Temná skvrna vhodná pro delší expozice
-B 347,Barnard 347,DN,20.3833,41.8333,0,12.0,Cyg,Temná mlhovina vhodná pro široká pole
-B 348,Barnard 348,DN,21.5833,58.8333,0,15.0,Cep,Temná mlhovina v Cefeu vhodná pro široká pole
-B 349,Barnard 349,DN,21.6167,58.4167,0,12.0,Cep,Temná skvrna vhodná pro detailní snímky
-B 350,Barnard 350,DN,21.6500,58.0000,0,10.0,Cep,Prachové mračno vhodné pro delší expozice
-B 351,Barnard 351,DN,21.7500,56.5000,0,10.0,Cep,Temná mlhovina vhodná pro detailní foto
-B 352,Barnard 352,DN,21.8000,56.1667,0,12.0,Cep,Malá prachová skvrna poblíž IC 1396
-B 353,Barnard 353,DN,21.8333,55.8333,0,10.0,Cep,Temná mlhovina vhodná pro delší expozice
-B 354,Barnard 354,DN,21.8667,55.5000,0,15.0,Cep,Prachové mračno vhodné pro široká pole
-B 355,Barnard 355,DN,21.9000,55.1667,0,12.0,Cep,Temná skvrna vhodná pro detailní snímky
-B 356,Barnard 356,DN,21.9333,54.8333,0,10.0,Cep,Temná mlhovina vhodná pro delší expozice
-B 357,Barnard 357,DN,22.0167,54.5000,0,15.0,Cep,Prach v Cefeu vhodný pro široká pole
-B 358,Barnard 358,DN,22.1000,54.1667,0,12.0,Cep,Temná skvrna vhodná pro detailní foto
-B 359,Barnard 359,DN,22.1500,53.8333,0,10.0,Cep,Temná mlhovina vhodná pro delší expozice
-B 360,Barnard 360,DN,22.2000,53.5000,0,15.0,Cep,Prachové mračno vhodné pro široká pole
-B 361,Barnard 361,DN,21.1967,47.4167,0,20.0,Cyg,Kompaktní velmi tmavá kulička vhodná pro detailní foto
-B 362,Barnard 362,DN,21.2500,47.1667,0,12.0,Cyg,Prach poblíž Kokonu vhodný pro delší expozice
-B 363,Barnard 363,DN,22.4167,53.0000,0,15.0,Cep,Temná mlhovina v Cefeu vhodná pro široká pole
-B 364,Barnard 364,DN,22.4500,52.6667,0,12.0,Lac,Temná skvrna v Ještěrce vhodná pro detailní snímky
-B 365,Barnard 365,DN,22.5000,52.3333,0,10.0,Lac,Prach v Ještěrce vhodný pro delší expozice
-B 366,Barnard 366,DN,22.5500,52.0000,0,15.0,Lac,Temná mlhovina vhodná pro široká pole
-B 367,Barnard 367,DN,23.1333,58.8333,0,20.0,Cas,Rozsáhlý prach v Kasiopeji vhodný pro široká pole
-B 368,Barnard 368,DN,23.2167,59.2500,0,15.0,Cas,Temná mlhovina poblíž Bubble Nebula vhodná pro detailní foto
-B 369,Barnard 369,DN,23.3333,59.6667,0,12.0,Cas,Temná skvrna vhodná pro delší expozice
-B 370,Barnard 370,DN,23.4167,60.1667,0,10.0,Cas,Temná mlhovina – závěr Barnardova katalogu
+B 315,Barnard 315,DN,20.3333,-1.5833,0,12.0,Aql,Temná mlhovina vhodná pro detailní snímky
