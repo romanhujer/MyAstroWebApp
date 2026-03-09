@@ -1025,7 +1025,7 @@ if ($moonrise < $moonset) {
           continue;
 
         $graph48 = $c['graph'] ?? [];
-
+ 
         if (count($graph48) < 2)
           continue;
 
