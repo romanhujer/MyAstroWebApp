@@ -9,3 +9,4 @@ __pycache__/
 *.json
 *.gz
 *.[0123456789]
+astro_json
