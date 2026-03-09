@@ -1019,7 +1019,9 @@ if ($moonrise < $moonset) {
       $shown = 0;
       foreach ($objects as $c):
         // výběr pouze daného objektu  
-        if ($id !== "all" && $id !== $c['id'])
+
+      
+        if ($id !== "all" && strtolower(preg_replace('/\s+/', '', $id)) !== strtolower(preg_replace('/\s+/', '', $c['id'])))
           continue;
 
         $graph48 = $c['graph'] ?? [];
@@ -1515,6 +1517,10 @@ if ($moonrise < $moonset) {
       <?php endforeach; ?>
     </table>
 
+    <?php if ($shown == 0) {
+      echo "<h1><br>Dnes nejsou k dispozici žádná data pro graf viditelnosti<br></h1>";
+    }
+    ?>
   </div> <!-- /box -->
 
 </body>
