@@ -1023,7 +1023,7 @@ if ($moonrise < $moonset) {
       
         if ($id !== "all" && strtolower(preg_replace('/\s+/', '', $id)) !== strtolower(preg_replace('/\s+/', '', $c['id'])))
           continue;
-
+ 
         $graph48 = $c['graph'] ?? [];
  
         if (count($graph48) < 2)
