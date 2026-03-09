@@ -162,7 +162,7 @@ $constellationCZ = [
 
 function load_katalog($path)
 {
- // Pokud existuje .gz varianta, použij ji
+  // Pokud existuje .gz varianta, použij ji
   if (file_exists($path . '.gz')) {
     $path .= '.gz';
   }
@@ -182,7 +182,7 @@ function load_katalog($path)
   $data = json_decode($json, true);
   if (!is_array($data))
     return null;
-  
+
   return $data;
 }
 
@@ -404,17 +404,28 @@ function get_moon_illumination_percent($ageDays)
 
   return $percent;
 }
-
 function get_today_culmination($ephemeris)
 {
   $today = (new DateTime('today'))->format('Y-m-d');
+  $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');
 
   foreach ($ephemeris as $row) {
     if ($row['date'] === $today) {
-      return [
-        $row['culmination'] ?? null,
-        $row['culmination_alt_deg'] ?? null
-      ];
+      $trise = $row['moonrise'] ?? null;
+      $transit = $row['culmination'] ?? null;
+      $transit_alt = $row['culmination_alt_deg'] ?? null;
+      if ($transit > $trise) {
+        return [$transit, $transit_alt];
+      } else {
+        break;
+      }
+    }
+  }
+  foreach ($ephemeris as $row) {
+    if ($row['date'] === $tomorrow) {
+      $transit = $row['culmination'] ?? null;
+      $transit_alt = $row['culmination_alt_deg'] ?? null;
+      return [$transit, $transit_alt];
     }
   }
   return [null, null];
@@ -617,7 +628,15 @@ if ($moonrise < $moonset) {
     }
   </style>
 </head>
-
+<script>
+  let autoSubmitTimer = null;
+  function autoSubmitDebounced() {
+    clearTimeout(autoSubmitTimer);
+    autoSubmitTimer = setTimeout(() => {
+      document.getElementById("filterForm").submit();
+    }, 300); // 300 ms pauza po poslední změně
+  }
+</script>
 <body>
   <div class="box">
 
@@ -628,18 +647,19 @@ if ($moonrise < $moonset) {
       <div class="body"><a href="http://www.aerith.net/comet/weekly/current.html">Více informací o viditelnosti komet</a>
       </div>
       <br>
-      <form method="get">
+      <form method="get" id="filterForm">
         <label>
           <input type="hidden" id="f" name="f" value="yes" />
         </label>
         <label>Jasnost:
-          <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>" />mag &nbsp;
+          <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>"
+            onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" />mag &nbsp;
         </label>
         <label>Elongace:
-          <input type="number" min="0" max="180" id="elong" name="elong" value="<?= $min_elong ?>" />° &nbsp;
+          <input type="number" min="0" max="180" id="elong" name="elong" value="<?= $min_elong ?>"
+            onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" />° &nbsp;
         </label>
 
-        <button type="submit">Zobrazit</button>
       </form>
     <?php else: ?>
 
@@ -649,9 +669,11 @@ if ($moonrise < $moonset) {
 
     <br>
     <div class="moon">
-    <strong>Dnes je tma:</strong> <?=  date('H:i', $twilight_start_ts) ?>  - <?=  date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?>  - <?= $astro_end ?>)<br>
-    <br>
-    <strong>Měsíc:</strong> <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp; <?= $moon_culm ?> &nbsp;  <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
+      <strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
+      &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)<br>
+      <br>
+      <strong>Měsíc:</strong> <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp; <?= $moon_culm ?>
+      &nbsp; <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
     </div>
 
 
@@ -852,8 +874,8 @@ if ($moonrise < $moonset) {
         $yLines = floor($maxAlt / $yStep);
 
         // ------------------------------------------------------------
-// KULMINACE – výpočet nezávislý na mřížce i bodech grafu
-// ------------------------------------------------------------
+        // KULMINACE – výpočet nezávislý na mřížce i bodech grafu
+        // ------------------------------------------------------------
         $transitX = null;
 
         if (!empty($c['transit_utc'])) {

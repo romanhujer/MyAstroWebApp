@@ -32,6 +32,7 @@ $map = [
     "mer" => ["mercury", "Merkur"],
     "urn" => ["uranus", "Uran"],
     "nep" => ["neptune", "Neptun"],
+    "lun" => ["lunar", "Měsíc"], 
 ];
 
 $constellationCZ = [
@@ -147,10 +148,11 @@ $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
 $xmode = isset($_GET['m']) ? $_GET['m'] : 'N';
 
 if ($id === 'all') {
-    $planety = ["mer", "ven", "mar", "jup", "sat", "urn", "nep"];
+    $planety = ["mer", "ven", "lun", "mar", "jup", "sat", "urn", "nep"];
 
     $mer = isset($_GET['mer']) ? $_GET['mer'] : 'yes';
     $ven = isset($_GET['ven']) ? $_GET['ven'] : 'yes';
+    $lun = isset($_GET['lun']) ? $_GET['lun'] : 'yes';
     $mar = isset($_GET['mar']) ? $_GET['mar'] : 'yes';
     $jup = isset($_GET['jup']) ? $_GET['jup'] : 'yes';
     $sat = isset($_GET['sat']) ? $_GET['sat'] : 'yes';
@@ -195,6 +197,20 @@ function load_today_planet($path)
     }
     return null;
 }
+
+function ms($sec)
+{   
+
+   if ((float) $sec > 60) {
+    $m = floor((float)$sec/60);
+    $s = $sec - ($m * 60);
+    return sprintf("%02d' %05.2f",  $m, $s);
+   } else {
+    return sprintf(" %02.2f",  (float)$sec);
+   } 
+}
+
+
 
 // ------------------------------------------------------------
 // VYPOCET NOC
@@ -353,55 +369,68 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
             text-decoration: none;
         }
     </style>
-    </style>
+    <script>
+  let autoSubmitTimer = null;
+
+  function autoSubmitDebounced() {
+    clearTimeout(autoSubmitTimer);
+    autoSubmitTimer = setTimeout(() => {
+      document.getElementById("filterForm").submit();
+    }, 300); // 300 ms pauza po poslední změně
+  }
+    </script>
 </head>
 <body>
     <div class="box">
         <?php if ($filtr === 'yes' && $id === 'all'): ?>
-            <h2>Planety</h2>
+            <h2>Planety a Měsíc</h2>
             <h3><strong>Dnes je tma:</strong> <?=  date('H:i', $twilight_start_ts) ?>  - <?=  date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?>  - <?= $astro_end ?>)</h3>
             <br>
-            <form method="get">
+            <form method="get" id="filterForm">
                 <label>
                     <input type="hidden" id="f" name="f" value="yes" />
                 </label>
                 <label>Režím noc:
-                    <input type="radio" id="m" name="m" value="N" <?php if ($xmode === 'N'): ?> checked <?php endif; ?> />
+                    <input type="radio" id="m" name="m" value="N" <?php if ($xmode === 'N'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" />
                     &nbsp;
                     Transit:
-                    <input type="radio" id="m" name="m" value="T" <?php if ($xmode === 'T'): ?> checked <?php endif; ?> />
+                    <input type="radio" id="m" name="m" value="T" <?php if ($xmode === 'T'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" />
                     &nbsp;
                 </label>
 
                 <label>Merkur:
                     <input type="hidden" id="mer" name="mer" value="no" />
-                    <input type="checkbox" id="mer" name="mer" value="yes" <?php if ($mer === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="mer" name="mer" value="yes" <?php if ($mer === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
                 <label>Venuše:
                     <input type="hidden" id="ven" name="ven" value="no" />
-                    <input type="checkbox" id="ven" name="ven" value="yes" <?php if ($ven === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="ven" name="ven" value="yes" <?php if ($ven === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
+                </label>
+                <label>Měsíc:
+                    <input type="hidden" id="lun" name="lun" value="no" />
+                    <input type="checkbox" id="lun" name="lun" value="yes" <?php if ($lun === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
                 <label> Mars:
                     <input type="hidden" id="mar" name="mar" value="no" />
-                    <input type="checkbox" id="mar" name="mar" value="yes" <?php if ($mar === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="mar" name="mar" value="yes" <?php if ($mar === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
                 <label> Jupiter:
                     <input type="hidden" id="jup" name="jup" value="no" />
-                    <input type="checkbox" id="jup" name="jup" value="yes" <?php if ($jup === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="jup" name="jup" value="yes" <?php if ($jup === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
                 <label> Saturn:
                     <input type="hidden" id="sat" name="sat" value="no" />
-                    <input type="checkbox" id="sat" name="sat" value="yes" <?php if ($sat === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="sat" name="sat" value="yes" <?php if ($sat === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
                 <label> Uran:
                     <input type="hidden" id="urn" name="urn" value="no" />
-                    <input type="checkbox" id="urn" name="urn" value="yes" <?php if ($urn === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="urn" name="urn" value="yes" <?php if ($urn === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
                 <label> Neptun:
                     <input type="hidden" id="nep" name="nep" value="no" />
-                    <input type="checkbox" id="nep" name="nep" value="yes" <?php if ($nep === 'yes'): ?> checked <?php endif; ?> /> &nbsp;
+                    <input type="checkbox" id="nep" name="nep" value="yes" <?php if ($nep === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
-                <button type="submit">Zobrazit</button>
+                
             </form>
             <br>
         <?php endif; ?>
@@ -411,6 +440,8 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                 if ($myid === 'mer' && $mer !== 'yes')
                     continue;
                 if ($myid === 'ven' && $ven !== 'yes')
+                    continue;
+                if ($myid === 'lun' && $lun !== 'yes')
                     continue;
                 if ($myid === 'mar' && $mar !== 'yes')
                     continue;
@@ -461,7 +492,7 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
             $first = $planet['altitude_graph'][0] ?? null;
             $distAU = $first ? $first['distance_au'] : null;
             $distKM = $first ? $first['distance_km'] : null;
-            $angSize = $first ? $first['angular_size_arcsec'] : null;
+            $angSize = $first ? ms($first['angular_size_arcsec'] ): null;
             $elong = $first ? $first['elongation_deg'] : null;
             $opposition = $planet['nearest_opposition'] ?? null;
             $constCode = $first ? $first['constellation'] : null;
@@ -537,7 +568,7 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                 $maxAlt = 10;
             ?>
             <?php if (!$planet): ?>
-                <p>Data pro planet dnes nejsou k dispozici.</p>
+                <p>Data pro planetu dnes nejsou k dispozici.</p>
             <?php else: ?>
                 <?php if ($filtr === 'yes' && $id !== 'all'): ?>
                     <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?></h1>
@@ -583,11 +614,11 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                                 </tr>
                                 <tr>
                                     <td class="label">Vzdálenost</td>
-                                    <td class="value"><?= $distAU ?> AU (<?= number_format($distKM, 0, ',', ' ') ?> km)</td>
+                                    <td class="value"><?= number_format($distKM, 0, ',', ' ' )?> km</td>
                                 </tr>
                                 <tr>
                                     <td class="label">Úhlová velikost</td>
-                                    <td class="value"><?= $angSize ?>"</td>
+                                    <td class="value"><?= $angSize ?>&quot;</td>
                                 </tr>
                                 <tr>
                                     <td class="label">Elongace</td>

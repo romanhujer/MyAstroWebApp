@@ -84,51 +84,53 @@ def generate_moon():
     while current <= end_date:
 
         # -------------------------------------------------
-        # Interval pro výpočet: 0–36 hodin
+        # Východ / západ (UTC)
         # -------------------------------------------------
         t0 = ts.utc(current.year, current.month, current.day, 0, 0)
-        t36 = ts.utc(current.year, current.month, current.day + 1, 12, 0)
+        t1 = ts.utc(current.year, current.month, current.day, 23, 59)
 
-        # -------------------------------------------------
-        # Východ / západ v intervalu 0–36h
-        # -------------------------------------------------
         f_rs = almanac.risings_and_settings(eph, moon, topos)
-        times_rs, events_rs = almanac.find_discrete(t0, t36, f_rs)
+        times_rs, events_rs = almanac.find_discrete(t0, t1, f_rs)
 
         rise = None
         set_ = None
 
         for t, e in zip(times_rs, events_rs):
             dt = t.utc_datetime().isoformat()
-            if e == 1 and rise is None:
+            if e == 1:
                 rise = dt
-            elif e == 0 and set_ is None:
+            elif e == 0:
                 set_ = dt
 
         # -------------------------------------------------
-        # Kulminace – vybrat tu, která je PO východu
+        # Kulminace – rozšířený interval přes půlnoc
         # -------------------------------------------------
+        t0_tr = ts.utc(current.year, current.month, current.day, -12, 0)
+        t1_tr = ts.utc(current.year, current.month, current.day, 36, 0)
+
         f_tr = almanac.meridian_transits(eph, moon, topos)
-        times_tr, events_tr = almanac.find_discrete(t0, t36, f_tr)
+        times_tr, events_tr = almanac.find_discrete(t0_tr, t1_tr, f_tr)
 
         transit = None
-        rise_dt = datetime.fromisoformat(rise) if rise else None
-
         for t, e in zip(times_tr, events_tr):
             if e == 1:
                 dt = t.utc_datetime()
-                if rise_dt is None or dt >= rise_dt:
+                if abs((dt.date() - current).days) <= 1:
                     transit = dt.isoformat()
                     break
 
         # -------------------------------------------------
-        # 36h altitude graph (0–36h)
+        # 48h altitude graph – správně zarovnaný na noc
         # -------------------------------------------------
         graph = []
 
-        for m in range(0, 36 * 60 + 1, 30):
+        # začátek grafu = poledne UTC
+        start_hour = 12
 
-            total_minutes = m
+        for m in range(0, 48 * 60 + 1, 30):
+
+            total_minutes = start_hour * 60 + m
+
             day_offset = total_minutes // (24 * 60)
             minute_of_day = total_minutes % (24 * 60)
 
@@ -159,9 +161,11 @@ def generate_moon():
             sun_app = observer.at(t).observe(sun).apparent()
             elong_deg = apparent.separation_from(sun_app).degrees
 
+            tt = t.utc_datetime()
+
             graph.append({
-                "time": f"{hour:02d}:{minute:02d}",
-                "day_offset": day_offset,
+                "time": tt.strftime("%H:%M"),
+                "day_offset": (tt.date() - current).days,
                 "alt": round(alt_deg, 2),
                 "distance_au": round(dist_au, 6),
                 "distance_km": round(dist_km),
@@ -190,6 +194,7 @@ def generate_moon():
         json.dump(result, f, indent=2, ensure_ascii=False)
 
     print("Hotovo: lunar_ephemeris.json")
+
 
 
 
@@ -375,8 +380,8 @@ def generate_planet(planet_key, planet_code):
 
 
 def generate_all():
-    for key, code in PLANETS.items():
-        generate_planet(key, code)
+#    for key, code in PLANETS.items():
+#        generate_planet(key, code)
     generate_moon()
 
 

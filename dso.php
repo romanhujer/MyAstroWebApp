@@ -527,23 +527,32 @@ function get_moon_illumination_percent($ageDays)
 
   return $percent;
 }
-
 function get_today_culmination($ephemeris)
 {
   $today = (new DateTime('today'))->format('Y-m-d');
+  $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');
 
   foreach ($ephemeris as $row) {
     if ($row['date'] === $today) {
-      return [
-        $row['culmination'] ?? null,
-        $row['culmination_alt_deg'] ?? null
-      ];
+      $trise = $row['moonrise'] ?? null;
+      $transit = $row['culmination'] ?? null;
+      $transit_alt = $row['culmination_alt_deg'] ?? null;
+      if ($transit > $trise) {
+        return [$transit, $transit_alt];
+      } else {
+        break;
+      }
+    }
+  }
+  foreach ($ephemeris as $row) {
+    if ($row['date'] === $tomorrow) {
+      $transit = $row['culmination'] ?? null;
+      $transit_alt = $row['culmination_alt_deg'] ?? null;
+      return [$transit, $transit_alt];
     }
   }
   return [null, null];
 }
-
-
 
 
 // GET Parmaetry
@@ -552,13 +561,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id = isset($_POST['id']) ? $_POST['id'] : 'all';
   $katalog = isset($_POST['katalog']) ? $_POST['katalog'] : "messier";
   $key = isset($_POST['key']) ? $_POST['key'] : "delta";
-  $ifm =isset($_POST['t']) ? $_POST['t'] : "no";
+  $ifm = isset($_POST['t']) ? $_POST['t'] : "no";
 } else {
   $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
   $id = isset($_GET['id']) ? $_GET['id'] : 'all';
   $katalog = isset($_GET['katalog']) ? $_GET['katalog'] : "messier";
   $key = isset($_GET['key']) ? $_GET['key'] : "delta";
-  $ifm =isset($_GET['t']) ? "yes" : "no" ;
+  $ifm = isset($_GET['t']) ? "yes" : "no";
 }
 
 
@@ -838,7 +847,6 @@ if ($moonrise < $moonset) {
 </head>
 <script>
   let autoSubmitTimer = null;
-
   function autoSubmitDebounced() {
     clearTimeout(autoSubmitTimer);
     autoSubmitTimer = setTimeout(() => {
@@ -859,7 +867,7 @@ if ($moonrise < $moonset) {
       <br>
 
       <form method="post" id="filterForm">
-        <input type="hidden" id="t" name="t" value="<?= $ifm ?>" />  
+        <input type="hidden" id="t" name="t" value="<?= $ifm ?>" />
         <input type="hidden" id="f" name="f" value="yes" />
 
         <label>Katalog:
@@ -871,17 +879,18 @@ if ($moonrise < $moonset) {
         </label>&nbsp;&nbsp;
 
         <label>Objekt:
-          <input type="text" id="id" name="id" value="<?= $id ?>" oninput="autoSubmitDebounced()" />
+          <input type="text" id="id" name="id" value="<?= $id ?>"
+            onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" />
         </label>&nbsp;
 
         <label>Jasnost:
           <input type="number" min="-10" max="25" id="vmag" name="vmag" value="<?= $vmag ?>"
-            oninput="autoSubmitDebounced()" /> mag
+            onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" /> mag
         </label>&nbsp;
 
         <label>Úhlová velikost:
           <input type="number" min="0" max="1200" id="asize" name="asize" value="<?= $asize ?>"
-            oninput="autoSubmitDebounced()" /> arc min
+            onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" /> arc min
         </label>
 
         <br><br>
@@ -1274,16 +1283,16 @@ if ($moonrise < $moonset) {
           continue;
         if ($type === 'DOUBLE' && $dbl === 'no')
           continue;
-        
+
         $foceno = "no";
-        $is_img= "no";
+        $is_img = "no";
         $iotd = false;
         $tp = false;
-        $tpn = false; 
-          
+        $tpn = false;
+
         if ($preview === "yes") {
-       
-        foreach ($images[strtoupper($c['id'])] as $img) {
+
+          foreach ($images[strtoupper($c['id'])] as $img) {
             $is_img = isset($img['thumbnail']) ? "yes" : "no";
             $img_url = $img['url'];
             $thumbnail = $img['thumbnail'];
@@ -1320,11 +1329,11 @@ if ($moonrise < $moonset) {
                 <tr>
                   <td>
                     <div class="thumb">
-                      <?php if ($is_img === "yes") : ?>
-                      <a href="<?php echo $img_url; ?>"  target="<?= $target ?>"> <img src="<?php echo $thumbnail; ?>"
-                         height="150" title="Autor: <?php echo htmlspecialchars($author); ?>">
-                      </a>
-                      <?php  endif; ?>
+                      <?php if ($is_img === "yes"): ?>
+                        <a href="<?php echo $img_url; ?>" target="<?= $target ?>"> <img src="<?php echo $thumbnail; ?>"
+                            height="150" title="Autor: <?php echo htmlspecialchars($author); ?>">
+                        </a>
+                      <?php endif; ?>
                       Foceno: <?= ($foceno === "Yes") ? "ANO" : "NE" ?>
                       <?php if ($iotd): ?>
                         <span class="badge iotd"> IOTD</span>

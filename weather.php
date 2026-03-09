@@ -20,7 +20,7 @@ date_default_timezone_set("Europe/Prague");
 */
 
 $nowTZ = new DateTimeZone("Europe/Prague");
-$dt = new DateTime("now",  $nowTZ);
+$dt = new DateTime("now", $nowTZ);
 $offsetHours = $dt->getOffset() / 3600;
 
 
@@ -57,23 +57,23 @@ if ($ephemeris === null || $phases === null || $sun_ephemeris === null) {
 function load_json($path)
 {
   if (file_exists($path . '.gz')) {
-        $path .= '.gz';
+    $path .= '.gz';
   }
-    // Načtení souboru
+  // Načtení souboru
   $raw = file_get_contents($path);
   if ($raw === false)
-        return null;
+    return null;
   // Pokud je gzip, dekomprimuj
   if (substr($path, -3) === '.gz') {
-        $json = gzdecode($raw);
- 
-        if ($json === false)
-      return null;
-    } else {
-        $json = $raw;
-    }
+    $json = gzdecode($raw);
 
-  
+    if ($json === false)
+      return null;
+  } else {
+    $json = $raw;
+  }
+
+
   $data = json_decode($json, true);
   if (!is_array($data)) {
     return null;
@@ -275,13 +275,25 @@ function get_moon_illumination_percent($ageDays)
 function get_today_culmination($ephemeris)
 {
   $today = (new DateTime('today'))->format('Y-m-d');
+  $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');
 
   foreach ($ephemeris as $row) {
     if ($row['date'] === $today) {
-      return [
-        $row['culmination'] ?? null,
-        $row['culmination_alt_deg'] ?? null
-      ];
+      $trise = $row['moonrise'] ?? null;
+      $transit = $row['culmination'] ?? null;
+      $transit_alt = $row['culmination_alt_deg'] ?? null;
+      if ($transit > $trise) {
+        return [$transit, $transit_alt];
+      } else {
+        break;
+      }
+    }
+  }
+  foreach ($ephemeris as $row) {
+    if ($row['date'] === $tomorrow) {
+      $transit = $row['culmination'] ?? null;
+      $transit_alt = $row['culmination_alt_deg'] ?? null;
+      return [$transit, $transit_alt];
     }
   }
   return [null, null];
@@ -867,24 +879,24 @@ if ($sun['sunrise'] < $sun['sunset']) {
 //  "dnes" a "zítra" o půlnoci v UTC
 
 $utcTZ = new DateTimeZone('UTC');
-$day0  = new DateTimeImmutable('today', $utcTZ);      
-$day1  = $day0->modify('+1 day');           
+$day0 = new DateTimeImmutable('today', $utcTZ);
+$day1 = $day0->modify('+1 day');
 
 
 // data pro aktuální den
 $info_today = date_sun_info($day0->getTimestamp(), $latitude, $longitude);
 
 // data pro následující den
-$info_next  = date_sun_info($day1->getTimestamp(), $latitude, $longitude);
+$info_next = date_sun_info($day1->getTimestamp(), $latitude, $longitude);
 // Astronomický soumrak (výška = -18°) → date_sun_info: astronomical_twilight_*
 // - začátek noci (večer): konec astronomického soumraku
 // - konec noci (ráno): začátek astronomického soumraku
 
 $astro_start_ts = $info_today['astronomical_twilight_end'];   // večer
-$astro_end_ts   = $info_next['astronomical_twilight_begin'];  // ráno
+$astro_end_ts = $info_next['astronomical_twilight_begin'];  // ráno
 
-$astro_start = date('H:i', $astro_start_ts); 
-$astro_end   = date('H:i', $astro_end_ts );
+$astro_start = date('H:i', $astro_start_ts);
+$astro_end = date('H:i', $astro_end_ts);
 
 // večerní soumrak
 $twilightC_start_ts = $info_today['civil_twilight_end'];    // -6°
@@ -967,72 +979,72 @@ if ($moonrise < $moonset) {
   </style>
 </head>
 <script>
-class LiveClock extends HTMLElement {
-  static get observedAttributes(){ return ['locale','hour12','seconds','timezone','blink']; }
-  constructor(){
-    super();
-    const root = this.attachShadow({mode:'open'});
-    root.innerHTML = `
+  class LiveClock extends HTMLElement {
+    static get observedAttributes() { return ['locale', 'hour12', 'seconds', 'timezone', 'blink']; }
+    constructor() {
+      super();
+      const root = this.attachShadow({ mode: 'open' });
+      root.innerHTML = `
       <style>
         :host { font: 700 1rem/1.2 system-ui, Segoe UI, Roboto, Arial, sans-serif; }
         .off { opacity: .25; transition: opacity .15s; }
       </style>
       <span id="h">--</span><span id="c1">:</span><span id="m">--</span><span id="c2">:</span><span id="s">--</span>
     `;
-    this._els = {
-      h: root.getElementById('h'),
-      m: root.getElementById('m'),
-      s: root.getElementById('s'),
-      c1: root.getElementById('c1'),
-      c2: root.getElementById('c2'),
-    };
-    this._tick = this._tick.bind(this);
-  }
-  connectedCallback(){ this._setup(); this._start(); }
-  disconnectedCallback(){ clearInterval(this._int); clearTimeout(this._to); }
-  attributeChangedCallback(){ this._setup(); }
-  _setup(){
-    this.locale = this.getAttribute('locale') || 'cs-CZ';
-    this.hour12 = this.getAttribute('hour12') === 'true' ? true : false;
-    this.seconds = this.getAttribute('seconds') !== 'false';
-    this.timeZone = this.getAttribute('timezone') || undefined;
-    this.blink = this.getAttribute('blink') !== 'false';
-    this._df = new Intl.DateTimeFormat(this.locale, {
-      hour: '2-digit', minute: '2-digit', second: '2-digit',
-      hour12: this.hour12, timeZone: this.timeZone
-    });
-  }
-  _start(){
-    this._tick();
-    this._to = setTimeout(()=>{
+      this._els = {
+        h: root.getElementById('h'),
+        m: root.getElementById('m'),
+        s: root.getElementById('s'),
+        c1: root.getElementById('c1'),
+        c2: root.getElementById('c2'),
+      };
+      this._tick = this._tick.bind(this);
+    }
+    connectedCallback() { this._setup(); this._start(); }
+    disconnectedCallback() { clearInterval(this._int); clearTimeout(this._to); }
+    attributeChangedCallback() { this._setup(); }
+    _setup() {
+      this.locale = this.getAttribute('locale') || 'cs-CZ';
+      this.hour12 = this.getAttribute('hour12') === 'true' ? true : false;
+      this.seconds = this.getAttribute('seconds') !== 'false';
+      this.timeZone = this.getAttribute('timezone') || undefined;
+      this.blink = this.getAttribute('blink') !== 'false';
+      this._df = new Intl.DateTimeFormat(this.locale, {
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: this.hour12, timeZone: this.timeZone
+      });
+    }
+    _start() {
       this._tick();
-      this._int = setInterval(this._tick, 1000);
-    }, 1000 - (Date.now() % 1000));
-  }
-  _tick(){
-    const {h,m,s,c1,c2} = this._els;
-    const now = new Date();
-    const parts = this._df.formatToParts(now);
-    const hh = parts.find(p=>p.type==='hour')?.value ?? String(now.getHours()).padStart(2,'0');
-    const mm = parts.find(p=>p.type==='minute')?.value ?? String(now.getMinutes()).padStart(2,'0');
-    const ss = parts.find(p=>p.type==='second')?.value ?? String(now.getSeconds()).padStart(2,'0');
-    h.textContent = hh; m.textContent = mm; s.textContent = ss;
+      this._to = setTimeout(() => {
+        this._tick();
+        this._int = setInterval(this._tick, 1000);
+      }, 1000 - (Date.now() % 1000));
+    }
+    _tick() {
+      const { h, m, s, c1, c2 } = this._els;
+      const now = new Date();
+      const parts = this._df.formatToParts(now);
+      const hh = parts.find(p => p.type === 'hour')?.value ?? String(now.getHours()).padStart(2, '0');
+      const mm = parts.find(p => p.type === 'minute')?.value ?? String(now.getMinutes()).padStart(2, '0');
+      const ss = parts.find(p => p.type === 'second')?.value ?? String(now.getSeconds()).padStart(2, '0');
+      h.textContent = hh; m.textContent = mm; s.textContent = ss;
 
-    if (this.seconds) { s.style.display='inline'; c2.style.display='inline'; }
-    else { s.style.display='none'; c2.style.display='none'; }
+      if (this.seconds) { s.style.display = 'inline'; c2.style.display = 'inline'; }
+      else { s.style.display = 'none'; c2.style.display = 'none'; }
 
-    if (this.blink) {
-      const on = now.getSeconds() % 2 === 0;
-      c1.classList.toggle('off', !on);
-      c2.classList.toggle('off', !on);
-    } else { c1.classList.remove('off'); c2.classList.remove('off'); }
+      if (this.blink) {
+        const on = now.getSeconds() % 2 === 0;
+        c1.classList.toggle('off', !on);
+        c2.classList.toggle('off', !on);
+      } else { c1.classList.remove('off'); c2.classList.remove('off'); }
+    }
   }
-}
-customElements.define('live-clock', LiveClock);
+  customElements.define('live-clock', LiveClock);
 </script>
 
 <body>
-<div class="main-wrapper">
+  <div class="main-wrapper">
 
     <div class="header">
       <div class="header-text">
@@ -1042,19 +1054,14 @@ customElements.define('live-clock', LiveClock);
         <?= $nar_text_dnes ?>
         <?= $nar_text_zitra ?>
       </div>
-     </div>
-     <div class="header-text">
-      
- <div class="header-text">
-    <live-clock
-      style="font-size: 24px; font-weight: 700;"  
-      locale="cs-CZ"
-      hour12="false"
-      seconds="true"
-      timezone="Europe/Prague"
-      blink="false">
-    </live-clock>
-  </div>
+    </div>
+    <div class="header-text">
+
+      <div class="header-text">
+        <live-clock style="font-size: 24px; font-weight: 700;" locale="cs-CZ" hour12="false" seconds="true"
+          timezone="Europe/Prague" blink="false">
+        </live-clock>
+      </div>
 
     </div>
 
@@ -1075,20 +1082,24 @@ customElements.define('live-clock', LiveClock);
                 <?= $sun_const ?><br>
                 <?= $sun_rs1 ?><br>
                 <?= $sun_rs2 ?>
-                
-              <!--      
+
+                <!--      
                 <br>
                 <?= $sun_culm ?><br> 
                 <?= $sun_alt ?> 
               -->
               </div>
             </div>
+            <hr>
             <div><b>Noc</b><br>
-              <?= $astro_start ?> - <?= $astro_end ?><br>
+              <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
+              <br><div class="on-sky"> Astro: <?= $astro_start ?> - <?= $astro_end ?></div>
+
             </div>
+            <hr>
             <div><b>Měsíc</b><br>
-              <div class="on-sky"><strong><?= $moon_on_sky ?></strong></div> 
-              
+              <div class="on-sky"><strong><?= $moon_on_sky ?></strong></div>
+
               <div class="sun-box">
                 <?= $moon_const ?><br>
                 <?= $moon_old ?><br>
@@ -1108,12 +1119,15 @@ customElements.define('live-clock', LiveClock);
                 <?= $moon_nf1 ?><br>
                 <?= $moon_nf2 ?><br>
               </div>
-              <br>
+              <hr>
               <div><b>Dnes na obloze</b></div>
               <a href="/app/dso.php">DSO</a>
               <a href="/app/komety.php">Komety</a>
-              <a href="/app/planet.php">Planety</a>             
+              <a href="/app/planet.php">Planety</a>
+              <hr>
+              <a href="/app/preview.php">Preview</a>
               <br>
+              <hr>
               <div><b>Počasí</b></div>
               <a href="https://www.ventusky.com/">Ventusky</a>
               <a href="https://mapy.meteo.pl/">Poláci</a>
@@ -1121,10 +1135,11 @@ customElements.define('live-clock', LiveClock);
               <a
                 href="https://www.meteoblue.com/cs/po%C4%8Das%C3%AD/outdoorsports/seeing/jablonec-nad-nisou_%c4%8cesko_3074603">Meteoblue</a>
               <br>
-
+              <hr>
               <div><b>Kamery</b></div>
               <a href="https://pocasi-frydlant.cz/webcam/webcam-foto-5.jpg">Horní Řasnice</a>
               <br>
+              <hr>
               <div><b>Stránky</b></div>
               <a href="https://cesty.hujer.net">Cesty</a>
               <a href="https://astro.hujer.net">Astro</a>
