@@ -1,5 +1,5 @@
 <?php
-/*  dso.php
+/*  preview.php
 # 
 #   Copyright (c) 2026 Roman Hujer   http://hujer.net
 #
