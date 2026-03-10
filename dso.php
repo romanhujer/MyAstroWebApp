@@ -1518,7 +1518,7 @@ if ($moonrise < $moonset) {
     </table>
 
     <?php if ($shown == 0) {
-      echo "<h1><br>Dnes nejsou k dispozici žádná data pro graf viditelnosti<br></h1>";
+      echo "<h1><br>Dnes nelze v ČR pozorovat, nebo nejsou k dispozici žádná data pro graf viditelnosti.<br></h1>";
     }
     ?>
   </div> <!-- /box -->
