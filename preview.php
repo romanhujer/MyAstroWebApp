@@ -532,7 +532,7 @@ if ($action === "confirm") {
 
     ?>
     <h2 style="color:#6f6;background:#111;font-family:Arial">✔ Snímek byl úspěšně vyměněn.</h2>
-    <br><a href="?ekey=<?= $ekey ?>&katalog=<?= $katalog ?>"><button type="button">Zpět do katalogu</button></a>
+    <br><a href="?e=y&ekey=<?= $ekey ?>&katalog=<?= $katalog ?>"><button type="button">Zpět do katalogu</button></a>
     <?php
     exit;
 }
@@ -636,7 +636,7 @@ if ($action === "enterkey") {
 
                     <?php $img_not_foud = true;
                     foreach ($items as $i => $img): ?>
-                        <a href="<?= $img['url'] ?>" target="_blank">
+                        <a href="<?= strtok($img['url'],'?') ?>" target="_blank">
                             <img src="<?= htmlspecialchars($img['thumbnail']) ?>" width="270" height="180"></a><br>
                         <?= htmlspecialchars(mb_substr($img['title'], 0, 28, "UTF-8")) ?><br>
                         Integrace: <?= hms((float) $img['integration']) ?><br>

@@ -27,6 +27,10 @@ import json
 LAT = 50.71
 LON = 15.18
 
+
+SPAN_HOURS = 72
+STEP_MIN = 10
+
 MOON_DIAMETER = 3474
 
 # -------------------------------------------------
@@ -87,37 +91,40 @@ def generate_moon():
         # Interval pro výpočet: 0–36 hodin
         # -------------------------------------------------
         t0 = ts.utc(current.year, current.month, current.day, 0, 0)
-        t36 = ts.utc(current.year, current.month, current.day + 1, 12, 0)
+        t48 = ts.utc(current.year, current.month, current.day + 2, 0 , 0)
 
         # -------------------------------------------------
         # Východ / západ v intervalu 0–36h
         # -------------------------------------------------
         f_rs = almanac.risings_and_settings(eph, moon, topos)
-        times_rs, events_rs = almanac.find_discrete(t0, t36, f_rs)
+        times_rs, events_rs = almanac.find_discrete(t0, t48, f_rs)
 
         rise = None
         set_ = None
 
         for t, e in zip(times_rs, events_rs):
             dt = t.utc_datetime().isoformat()
-            if e == 1 and rise is None:
+            if e == 1 :
                 rise = dt
-            elif e == 0 and set_ is None:
+            elif e == 0 :
                 set_ = dt
+            elif rise < set_ :
+                break    
 
         # -------------------------------------------------
         # Kulminace – vybrat tu, která je PO východu
         # -------------------------------------------------
         f_tr = almanac.meridian_transits(eph, moon, topos)
-        times_tr, events_tr = almanac.find_discrete(t0, t36, f_tr)
+        times_tr, events_tr = almanac.find_discrete(t0, t48, f_tr)
 
         transit = None
         rise_dt = datetime.fromisoformat(rise) if rise else None
+        set_dt = datetime.fromisoformat(set_) if set_ else None
 
         for t, e in zip(times_tr, events_tr):
             if e == 1:
                 dt = t.utc_datetime()
-                if rise_dt is None or dt >= rise_dt:
+                if dt > rise_dt and  dt < set_dt:
                     transit = dt.isoformat()
                     break
 
@@ -125,9 +132,7 @@ def generate_moon():
         # 36h altitude graph (0–36h)
         # -------------------------------------------------
         graph = []
-
-        for m in range(0, 36 * 60 + 1, 30):
-
+        for m in range(0, SPAN_HOURS * 60 + 1, STEP_MIN):
             total_minutes = m
             day_offset = total_minutes // (24 * 60)
             minute_of_day = total_minutes % (24 * 60)
@@ -304,8 +309,7 @@ def generate_planet(planet_key, planet_code):
         # 48h altitude graph
         # -------------------------------------------------
         graph = []
-
-        for m in range(0, 48 * 60 + 1, 30):
+        for m in range(0, SPAN_HOURS * 60 + 1, STEP_MIN):
 
             day_offset = m // (24 * 60)
             minute_of_day = m % (24 * 60)
@@ -375,8 +379,8 @@ def generate_planet(planet_key, planet_code):
 
 
 def generate_all():
-    for key, code in PLANETS.items():
-        generate_planet(key, code)
+#    for key, code in PLANETS.items():
+#        generate_planet(key, code)
     generate_moon()
 
 
