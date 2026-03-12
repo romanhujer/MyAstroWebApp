@@ -18,6 +18,9 @@
 */
 $edit_key_file = "/home/hujer/.ekey";
 $EDIKEY = "";
+//
+// Získání klíče pro editace    
+//
 $line = @file($edit_key_file);
 if ($line && isset($line[0])) {
     $parts = explode(":", trim($line[0]));
@@ -186,9 +189,6 @@ if (($edit === 'y') && ($ekey !== $EDIKEY)) {
 } elseif ($edit !== 'y' ) {
     $edit_mode = false;
 }
-
-
-
 
 $json_file = '/opt/astro_json/' . $katalog . '_preview.json';
 $csv_file = '/opt/astro_json/' . $katalog . '.csv';
@@ -632,7 +632,6 @@ if ($action === "enterkey") {
                 </h2>
                 <div style="margin:10px; text-align:center; min-height:220px;">
                     <?= mb_substr(htmlspecialchars(find_name($obj, $csv_file)['name']), 0, 28, "UTF-8") ?><br>
-
 
                     <?php $img_not_foud = true;
                     foreach ($items as $i => $img): ?>
