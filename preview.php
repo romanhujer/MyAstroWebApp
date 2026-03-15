@@ -1,4 +1,5 @@
 <?php
+ini_set('memory_limit', '512M');
 /*  preview.php
 # 
 #   Copyright (c) 2026 Roman Hujer   http://hujer.net
@@ -616,7 +617,7 @@ if ($action === "enterkey") {
                 }
 
 
-                if ($col > 4) {
+                if ($col > 3) {
                     echo "</tr><tr>";
                     $col = 0;
                 }

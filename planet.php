@@ -32,7 +32,7 @@ $map = [
     "mer" => ["mercury", "Merkur"],
     "urn" => ["uranus", "Uran"],
     "nep" => ["neptune", "Neptun"],
-    "lun" => ["lunar", "Měsíc"], 
+    "lun" => ["lunar", "Měsíc"],
 ];
 
 $constellationCZ = [
@@ -146,6 +146,7 @@ $constellationIcon = [
 $id = isset($_GET['id']) ? $_GET['id'] : 'all';
 $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
 $xmode = isset($_GET['m']) ? $_GET['m'] : 'N';
+$graf_only = isset($_GET['go']) ? $_GET['go'] : 'no';
 
 if ($id === 'all') {
     $planety = ["mer", "ven", "lun", "mar", "jup", "sat", "urn", "nep"];
@@ -175,13 +176,13 @@ function load_today_planet($path)
     // Pokud je gzip, dekomprimuj
     if (substr($path, -3) === '.gz') {
         $json = gzdecode($raw);
- 
+
         if ($json === false)
-      return null;
+            return null;
     } else {
         $json = $raw;
     }
- 
+
     $data = json_decode($json, true);
     if (!is_array($data))
         return null;
@@ -199,15 +200,15 @@ function load_today_planet($path)
 }
 
 function ms($sec)
-{   
+{
 
-   if ((float) $sec > 60) {
-    $m = floor((float)$sec/60);
-    $s = $sec - ($m * 60);
-    return sprintf("%02d' %05.2f",  $m, $s);
-   } else {
-    return sprintf(" %02.2f",  (float)$sec);
-   } 
+    if ((float) $sec > 60) {
+        $m = floor((float) $sec / 60);
+        $s = $sec - ($m * 60);
+        return sprintf("%02d' %05.2f", $m, $s);
+    } else {
+        return sprintf(" %02.2f", (float) $sec);
+    }
 }
 
 
@@ -216,7 +217,7 @@ function ms($sec)
 // VYPOCET NOC
 // Astronomický soumrak (výška = -10°),  noc (výška = -18°)
 
-$dt = new DateTime("now",  $nowTZ);
+$dt = new DateTime("now", $nowTZ);
 $offsetHours = $dt->getOffset() / 3600;
 
 // Souřadnice Vrkoslavice 
@@ -228,24 +229,24 @@ $longitude = 15.18;
 
 //  "dnes" a "zítra" o půlnoci v UTC
 $utcTZ = new DateTimeZone('UTC');
-$day0  = new DateTimeImmutable('today', $utcTZ);      
-$day1  = $day0->modify('+1 day');           
+$day0 = new DateTimeImmutable('today', $utcTZ);
+$day1 = $day0->modify('+1 day');
 
 
 // data pro aktuální den
 $info_today = date_sun_info($day0->getTimestamp(), $latitude, $longitude);
 
 // data pro následující den
-$info_next  = date_sun_info($day1->getTimestamp(), $latitude, $longitude);
+$info_next = date_sun_info($day1->getTimestamp(), $latitude, $longitude);
 // Astronomický soumrak (výška = -18°) → date_sun_info: astronomical_twilight_*
 // - začátek noci (večer): konec astronomického soumraku
 // - konec noci (ráno): začátek astronomického soumraku
 
 $astro_start_ts = $info_today['astronomical_twilight_end'];   // večer
-$astro_end_ts   = $info_next['astronomical_twilight_begin'];  // ráno
+$astro_end_ts = $info_next['astronomical_twilight_begin'];  // ráno
 
-$astro_start = date('H:i', $astro_start_ts); 
-$astro_end   = date('H:i', $astro_end_ts );
+$astro_start = date('H:i', $astro_start_ts);
+$astro_end = date('H:i', $astro_end_ts);
 
 // večerní
 $twilightC_start_ts = $info_today['civil_twilight_end'];    // -6°
@@ -257,8 +258,8 @@ $twilightC_end_ts = $info_next['civil_twilight_begin'];      // -6°
 
 // Večer: mezi civil_twilight_end (–6°) a nautical_twilight_end (–12°)
 
-$twilight_start = date('H:i', $twilight_start_ts -($twilight_start_ts - $twilightC_start_ts)/2 ); 
-$twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_end_ts)/2); 
+$twilight_start = date('H:i', $twilight_start_ts - ($twilight_start_ts - $twilightC_start_ts) / 2);
+$twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_end_ts) / 2);
 
 ?>
 <!DOCTYPE html>
@@ -270,21 +271,31 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background: #111;
+            <?php if ($graf_only !== 'yes'): ?>                
+                background: #111;
+            <?php else: ?>
+                background: #222;
+            <?php endif; ?>
             color: #eee;
         }
 
         .box {
             max-width:
-                <?php if ($id === 'all'): ?>
-                    1100px;
+            <?php if ($id === 'all'): ?>
+                 1100px;
             <?php else: ?>
                 700px;
             <?php endif; ?>
-            margin: 20px auto;
-            padding: 16px;
-            background: #222;
-            border: 1px solid #444;
+            <?php if ($graf_only !== 'yes'): ?>
+                margin: 20px auto;
+                padding: 16px;
+                background: #222;
+                border: 1px solid #444;
+            <?php else: ?>
+                margin: 0px auto;
+                background: #111;
+                border: 0;
+            <?php endif; ?>
         }
 
         h1 {
@@ -370,31 +381,36 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
         }
     </style>
     <script>
-  let autoSubmitTimer = null;
+        let autoSubmitTimer = null;
 
-  function autoSubmitDebounced() {
-    clearTimeout(autoSubmitTimer);
-    autoSubmitTimer = setTimeout(() => {
-      document.getElementById("filterForm").submit();
-    }, 300); // 300 ms pauza po poslední změně
-  }
+        function autoSubmitDebounced() {
+            clearTimeout(autoSubmitTimer);
+            autoSubmitTimer = setTimeout(() => {
+                document.getElementById("filterForm").submit();
+            }, 300); // 300 ms pauza po poslední změně
+        }
     </script>
 </head>
+
 <body>
     <div class="box">
-        <?php if ($filtr === 'yes' && $id === 'all'): ?>
+        <?php if ($filtr === 'yes' && $id === 'all' && $graf_only !== 'yes'): ?>
             <h2>Planety a Měsíc</h2>
-            <h3><strong>Dnes je tma:</strong> <?=  date('H:i', $twilight_start_ts) ?>  - <?=  date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?>  - <?= $astro_end ?>)</h3>
+            <h3><strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> -
+                <?= date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)
+            </h3>
             <br>
             <form method="get" id="filterForm">
                 <label>
                     <input type="hidden" id="f" name="f" value="yes" />
                 </label>
                 <label>Režím noc:
-                    <input type="radio" id="m" name="m" value="N" <?php if ($xmode === 'N'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" />
+                    <input type="radio" id="m" name="m" value="N" <?php if ($xmode === 'N'): ?> checked <?php endif; ?>
+                        oninput="autoSubmitDebounced()" />
                     &nbsp;
                     Transit:
-                    <input type="radio" id="m" name="m" value="T" <?php if ($xmode === 'T'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" />
+                    <input type="radio" id="m" name="m" value="T" <?php if ($xmode === 'T'): ?> checked <?php endif; ?>
+                        oninput="autoSubmitDebounced()" />
                     &nbsp;
                 </label>
 
@@ -430,7 +446,7 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                     <input type="hidden" id="nep" name="nep" value="no" />
                     <input type="checkbox" id="nep" name="nep" value="yes" <?php if ($nep === 'yes'): ?> checked <?php endif; ?> oninput="autoSubmitDebounced()" /> &nbsp;
                 </label>
-                
+
             </form>
             <br>
         <?php endif; ?>
@@ -492,7 +508,7 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
             $first = $planet['altitude_graph'][0] ?? null;
             $distAU = $first ? $first['distance_au'] : null;
             $distKM = $first ? $first['distance_km'] : null;
-            $angSize = $first ? ms($first['angular_size_arcsec'] ): null;
+            $angSize = $first ? ms($first['angular_size_arcsec']) : null;
             $elong = $first ? $first['elongation_deg'] : null;
             $opposition = $planet['nearest_opposition'] ?? null;
             $constCode = $first ? $first['constellation'] : null;
@@ -571,7 +587,8 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                 <p>Data pro planetu dnes nejsou k dispozici.</p>
             <?php else: ?>
                 <?php if ($filtr === 'yes' && $id !== 'all'): ?>
-                    <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?></h1>
+                    <h1><?= $name ?>                         <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?>
+                    </h1>
                     <br>
                     <form method="get">
                         <label>
@@ -588,13 +605,17 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                     </form>
                     <br>
                 <?php else: ?>
-                    <h1><?= $name ?>    <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?></h1>
+                    <?php if ($graf_only !== 'yes'): ?>   
+                        <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?></h1>
+                    <?php endif; ?>    
                 <?php endif; ?>
+                <?php if ($graf_only !== 'yes'): ?>
                 <?php if ($id === 'all'): ?>
+                
                     <table>
                         <tr>
                             <td width="450">
-                            <?php endif; ?>
+                <?php endif; ?>
                             <table>
                                 <tr>
                                     <td class="label">Východ</td>
@@ -614,7 +635,7 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                                 </tr>
                                 <tr>
                                     <td class="label">Vzdálenost</td>
-                                    <td class="value"><?= number_format($distKM, 0, ',', ' ' )?> km</td>
+                                    <td class="value"><?= number_format($distKM, 0, ',', ' ') ?> km</td>
                                 </tr>
                                 <tr>
                                     <td class="label">Úhlová velikost</td>
@@ -640,7 +661,9 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                             <?php if ($id === 'all'): ?>
                             <td widtd="700">
                             <?php endif; ?>
+                    <?php endif; ?>  
                             <?php
+                    
                             // SVG parametry
                             $width = 600;
                             $height = 200;
@@ -654,13 +677,13 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
 
                             // Noční barvy
                             $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60 +
-                                                         date('i', strtotime($astro_start)) - (12 + $offsetHours) * 60) / (25 * 60)));
-                            $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60 + 
-                                                        date('i', strtotime($astro_end)) + (12 - $offsetHours)  * 60) / (25 * 60)));
-                            $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 + 
-                                                    date('i', strtotime($twilight_start)) - (12 + $offsetHours) * 60) / (25 * 60)));
-                            $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60 + 
-                                                    date('i', strtotime($twilight_end)) + (12-$offsetHours) * 60) / (25 * 60)));
+                                date('i', strtotime($astro_start)) - (12 + $offsetHours) * 60) / (25 * 60)));
+                            $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60 +
+                                date('i', strtotime($astro_end)) + (12 - $offsetHours) * 60) / (25 * 60)));
+                            $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 +
+                                date('i', strtotime($twilight_start)) - (12 + $offsetHours) * 60) / (25 * 60)));
+                            $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60 +
+                                date('i', strtotime($twilight_end)) + (12 - $offsetHours) * 60) / (25 * 60)));
 
                             //  Noc
                             $night = $nightStart . ',' . $paddingTop . ',' .
@@ -833,13 +856,13 @@ $twilight_end   = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_
                                 <?php endif; ?>
                             </svg>
                         <?php endif; ?>
-
                         <?php if ($id === 'all'): ?>
                         </td>
                     </tr>
                 </table>
-            <?php endif; ?>
+        <?php endif; ?>
         <?php endforeach; ?>
     </div>
 </body>
+
 </html>

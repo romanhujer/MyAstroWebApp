@@ -220,13 +220,13 @@ function load_katalog($path)
 
 function extract_number_from_id(string $id): int
 {
-  // najde poslední číslo v řetězci
+  $m[] = ""; 
+// najde poslední číslo v řetězci
   if (preg_match('/(\d+)(?!.*\d)/', $id, $m)) {
     return intval($m[1]);
   }
   return 0;
 }
-
 
 
 function sort_objects(array &$data, string $mode): void
@@ -562,12 +562,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $katalog = isset($_POST['katalog']) ? $_POST['katalog'] : "messier";
   $key = isset($_POST['key']) ? $_POST['key'] : "delta";
   $ifm = isset($_POST['t']) ? $_POST['t'] : "no";
+  $mg = isset($_POST["mg"]) ? $_POST["mg"] : "no";
 } else {
   $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
   $id = isset($_GET['id']) ? $_GET['id'] : 'all';
   $katalog = isset($_GET['katalog']) ? $_GET['katalog'] : "messier";
   $key = isset($_GET['key']) ? $_GET['key'] : "delta";
   $ifm = isset($_GET['t']) ? "yes" : "no";
+  $mg = isset($_GET["mg"]) ? $_GET["mg"] : "no";
 }
 
 
@@ -576,7 +578,6 @@ $target = ($ifm === "yes") ? "_blank" : "";
 $vmag = isset($_POST['vmag']) ? max(1, (int) $_POST['vmag']) : 24;
 $asize = isset($_POST['asize']) ? max(0, (int) $_POST['asize']) : 0;
 $myfoto = isset($_POST['myfoto']) ? $_POST['myfoto'] : 'all';
-
 
 $gal = isset($_POST['gal']) ? $_POST['gal'] : 'yes';
 $enb = isset($_POST['en']) ? $_POST['en'] : 'yes';
@@ -588,8 +589,6 @@ $dn = isset($_POST['dn']) ? $_POST['dn'] : 'yes';
 $rn = isset($_POST['rn']) ? $_POST['rn'] : 'yes';
 $st = isset($_POST['st']) ? $_POST['st'] : 'yes';
 $dbl = isset($_POST['dbl']) ? $_POST['dbl'] : 'yes';
-
-
 
 // Reset když není nic vybráno 
 if (
@@ -657,16 +656,16 @@ $ageDays = get_moon_age_days($lastNew);
 $illumPercent = get_moon_illumination_percent($ageDays);
 
 
-$moon_ilum = "osvětlení: " . ($illumPercent !== null ? number_format($illumPercent, 1, ',', ' ') . " %" : "neznámé");
-$moon_phase = "fáze: " . ($phasePercent !== null ? number_format($phasePercent, 1, ',', ' ') . " %" : "neznámá");
-$moon_old = "stáří: " . ($ageDays !== null ? number_format($ageDays, 1, ',', ' ') : 'neznámé') . " dne";
-$moon_const = "souhvězdí: " . ($constellation ?: 'neznámé');
+$moon_ilum = "Osvětlení: " . ($illumPercent !== null ? number_format($illumPercent, 1, ',', ' ') . " %" : "neznámé");
+$moon_phase = "Fáze: " . ($phasePercent !== null ? number_format($phasePercent, 1, ',', ' ') . " %" : "neznámá");
+$moon_old = "Stáří: " . ($ageDays !== null ? number_format($ageDays, 1, ',', ' ') : 'neznámé') . " dne";
+$moon_const = "Souhvězdí: " . ($constellation ?: 'neznámé');
 $moon_new = "Nov: " . ($nextNew ? date('d. M Y', $nextNew) : 'neznámý');
 $moon_full = "Úplněk: " . ($nextFull ? date('d. M Y', $nextFull) : 'neznámý');
-$moon_rise = "východ: " . ($moonrise ? date('H:i', strtotime($moonrise)) : '—');
-$moon_set = "západ: " . ($moonset ? date(' H:i', strtotime($moonset)) : '—');
-$moon_culm = "kulminace: " . ($culmTime ? date('H:i', strtotime($culmTime)) : '—');
-$moon_alt = "max. výška: " . ($culmAlt !== null ? number_format($culmAlt, 1, ',', ' ') . "°" : '—');
+$moon_rise = "Východ: " . ($moonrise ? date('H:i', strtotime($moonrise)) : '—');
+$moon_set = "Západ: " . ($moonset ? date(' H:i', strtotime($moonset)) : '—');
+$moon_culm = "Kulminace: " . ($culmTime ? date('H:i', strtotime($culmTime)) : '—');
+$moon_alt = "Max. výška: " . ($culmAlt !== null ? number_format($culmAlt, 1, ',', ' ') . "°" : '—');
 
 if ($nextNew < $nextFull) {
   $moon_nf1 = $moon_new;
@@ -697,7 +696,9 @@ if ($moonrise < $moonset) {
   <style>
     body {
       font-family: system-ui, -apple-system, sans-serif;
+
       background: #111;
+
       color: #eee;
     }
 
@@ -774,8 +775,6 @@ if ($moonrise < $moonset) {
       background: #ffaa00;
     }
 
-
-
     .label {
       color: #aaa;
       width: 40%;
@@ -843,6 +842,12 @@ if ($moonrise < $moonset) {
       color: white;
       text-decoration: none;
     }
+
+    .my-iframe {
+      overflow: hidden;
+      border: #222;
+
+    }
   </style>
 </head>
 <script>
@@ -857,16 +862,17 @@ if ($moonrise < $moonset) {
 
 <body>
   <div class="box">
-    <?php if ($filtr === 'yes'): ?>
-      <h1><?= $katalogName ?> katalog - viditelnost
-        <?php if ($key === 'delta'): ?>dle &Delta; kulminace
-        <?php elseif ($key === 'size'): ?>dle úhlové velikosti
-        <?php elseif ($key === 'mag'): ?>dle jasnosti
-        <?php endif; ?>
-      </h1>
-      <br>
+    <form method="post" id="filterForm">
 
-      <form method="post" id="filterForm">
+      <?php if ($filtr === 'yes'): ?>
+        <h1><?= $katalogName ?> katalog - viditelnost
+          <?php if ($key === 'delta'): ?>dle &Delta; kulminace
+          <?php elseif ($key === 'size'): ?>dle úhlové velikosti
+          <?php elseif ($key === 'mag'): ?>dle jasnosti
+          <?php endif; ?>
+        </h1>
+        <br>
+
         <input type="hidden" id="t" name="t" value="<?= $ifm ?>" />
         <input type="hidden" id="f" name="f" value="yes" />
 
@@ -995,532 +1001,591 @@ if ($moonrise < $moonset) {
             onchange="autoSubmitDebounced()" />
         </label>
 
-      </form>
 
-    <?php else: ?>
+      <?php else: ?>
 
-      <h1><?= $katalogName ?> katalog - viditelnost dle kulminace</h1>
-      </h1>
+        <h1><?= $katalogName ?> katalog - viditelnost dle kulminace</h1>
+        </h1>
 
-    <?php endif; ?>
-    <br>
-    <div class="moon">
-      <strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
-      &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)<br>
+      <?php endif; ?>
+      <br><br>
+      <div class="moon">
+        <strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
+        &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)<br>
+      </div>
       <br>
-      <strong>Měsíc:</strong> <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp; <?= $moon_culm ?>
-      &nbsp; <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
-    </div>
-
-    <p>Alt/Az data jsou platná pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
-
-    <table class="main-table">
-      <?php
-      $shown = 0;
-      foreach ($objects as $c):
-        // výběr pouze daného objektu  
-      
-
-        if ($id !== "all" && strtolower(preg_replace('/\s+/', '', $id)) !== strtolower(preg_replace('/\s+/', '', $c['id'])))
-          continue;
-
-        $graph48 = $c['graph'] ?? [];
-
-        if (count($graph48) < 2)
-          continue;
-
-        // najdeme nejbližší časový bod k zaokrouhlenému času – pro aktuální údaje
-        $roundedUTC = new DateTime($rounded, new DateTimeZone('UTC'));
-        $roundedTs = $roundedUTC->getTimestamp();
-
-        $current = null;
-        $bestDiff = PHP_INT_MAX;
-
-        foreach ($graph48 as $p) {
-          $pt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-          $diff = abs($pt->getTimestamp() - $roundedTs);
-          if ($diff < $bestDiff) {
-            $bestDiff = $diff;
-            $current = $p;
-          }
-        }
-
-        if (!$current)
-          continue;
-
-        // RA/Dec v HMS/DMS
-        $ra_hms = ra_to_hms($current['ra_hours_j2000']);
-        $dec_dms = dec_to_dms($current['dec_deg_j2000']);
-
-        // základní hodnoty v aktuálním čase
-        $alt = sprintf("%.1f°", $current['alt_deg']);
-        $az = sprintf("%.1f°", $current['az_deg']);
-        $mag = $current['mag'];
-
-        //  výběr dle jasnosti        
-      
-        if ((float) $vmag < (float) $mag)
-          continue;
-
-        $xsize = $c['size'];
-
-
-        if ((float) $asize > (float) $xsize)
-          continue;
-
-
-        $constCode = $current['constellation'];
-        $constName = $constellationCZ[$constCode] ?? $constCode;
-        // východ / kulminace / západ
-        $rise = !empty($c['rise_utc']) ? date('H:i', strtotime($c['rise_utc'])) : '—';
-        $transit = !empty($c['transit_utc']) ? date('H:i', strtotime($c['transit_utc'])) : '—';
-        $set = !empty($c['set_utc']) ? date('H:i', strtotime($c['set_utc'])) : '—';
-
-
-        // ------------------------------------------------------------
-        // OSA X: pevně 12:00 UTC → 12:00 UTC následující den (24 h)
-        // ------------------------------------------------------------
-        $nowUTC = new DateTime('now', new DateTimeZone('UTC'));
-        $dayStr = $nowUTC->format('Y-m-d');
-
-        // začátek grafu = dnešní 12:00 UTC
-        $startDT = new DateTime($dayStr . ' 12:00:00', new DateTimeZone('UTC'));
-
-        // konec grafu = +24 hodin
-        $endDT = clone $startDT;
-        $endDT->modify('+24 hours');
-
-        $startTs = $startDT->getTimestamp();
-        $endTs = $endDT->getTimestamp();
-        $spanSec = 24 * 3600;
-
-        // ------------------------------------------------------------
-        // VÝBĚR BODŮ Z JSONU — jen ty, které spadají do 12→12 UTC
-        // ------------------------------------------------------------
-        $graph = [];
-        foreach ($graph48 as $p) {
-          $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
-          $ts = $dt->getTimestamp();
-          if ($ts >= $startTs && $ts <= $endTs) {
-            $p['_dt'] = $dt;
-            $p['_ts'] = $ts;
-            $graph[] = $p;
-          }
-        }
-
-        // ------------------------------------------------------------
-        // JSON nezačíná přesně v 12:00 UTC → doplníme umělý bod
-        // ------------------------------------------------------------
-        $firstAlt = $graph[0]['alt_deg'];
-
-        array_unshift($graph, [
-          'time_utc' => $startDT->format('Y-m-d H:i:s'),
-          'alt_deg' => $firstAlt,
-          '_dt' => clone $startDT,
-          '_ts' => $startTs
-        ]);
-
-
-        // ------------------------------------------------------------
-        // MAX výška pro Y osu
-        // ------------------------------------------------------------
-        $maxAlt = 0.0;
-        foreach ($graph as $p) {
-          if ($p['alt_deg'] > $maxAlt)
-            $maxAlt = $p['alt_deg'];
-        }
-        $mAlt = $maxAlt;
-        if ($maxAlt < 10)
-          $maxAlt = 10;
-        // ------------------------------------------------------------
-        // SVG parametry
-        // ------------------------------------------------------------
-        $width = 600;
-        $height = 200;
-        $paddingLeft = 30;
-        $paddingRight = 10;
-        $paddingTop = 10;
-        $paddingBottom = 20;
-
-        $innerW = $width - $paddingLeft - $paddingRight;
-        $innerH = $height - $paddingTop - $paddingBottom;
-
-        // Noční barvy
-        $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60
-          + date('i', strtotime($astro_start)) - (12 + $offsetHours) * 60) / (24 * 60)));
-        $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60
-          + date('i', strtotime($astro_end)) + (12 - $offsetHours) * 60) / (24 * 60)));
-        $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60
-          + date('i', strtotime($twilight_start)) - (12 + $offsetHours) * 60)) / (24 * 60));
-        $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60
-          + date('i', strtotime($twilight_end)) + (12 - $offsetHours) * 60)) / (24 * 60));
-
-        //  Noc
-        $night = $nightStart . ',' . $paddingTop . ',' .
-          $nightStart . ',' . ($height - $paddingBottom) . ',' .
-          $nightEnd . ',' . ($height - $paddingBottom) . ',' .
-          $nightEnd . ',' . $paddingTop;
-
-        // stmívání a úsvit
-        $afternoon = $paddingLeft . ',' . $paddingTop . ',' .
-          $paddingLeft . ',' . ($height - $paddingBottom) . ',' .
-          $twStart . ',' . ($height - $paddingBottom) . ',' .
-          $twStart . ',' . $paddingTop;
-
-        $morning = $twEnd . ',' . $paddingTop . ',' .
-          $twEnd . ',' . ($height - $paddingBottom) . ',' .
-          ($width - $paddingRight) . ',' . ($height - $paddingBottom) . ',' .
-          ($width - $paddingRight) . ',' . $paddingTop;
-
-        $tw_start = $twStart . ',' . $paddingTop . ',' .
-          $twStart . ',' . ($height - $paddingBottom) . ',' .
-          $nightStart . ',' . ($height - $paddingBottom) . ',' .
-          $nightStart . ',' . $paddingTop;
-
-        $tw_end = $nightEnd . ',' . $paddingTop . ',' .
-          $nightEnd . ',' . ($height - $paddingBottom) . ',' .
-          $twEnd . ',' . ($height - $paddingBottom) . ',' .
-          $twEnd . ',' . $paddingTop;
-
-        // ------------------------------------------------------------
-        // BODY GRAFU (x = UTC ratio, y = alt)
-        // ------------------------------------------------------------
-        $points = [];
-        foreach ($graph as $p) {
-          $ts = $p['_ts'];
-          $ratio = ($ts - $startTs) / $spanSec;
-          if ($ratio < 0)
-            $ratio = 0;
-          if ($ratio > 1)
-            $ratio = 1;
-
-          $x = $paddingLeft + $innerW * $ratio;
-
-          $altPlot = max(0, $p['alt_deg']);
-          $y = $paddingTop + $innerH * (1 - ($altPlot / $maxAlt));
-
-          $points[] = [$x, $y];
-        }
-
-
-        // ------------------------------------------------------------
-        // OSA Y — krok podle max výšky
-        // ------------------------------------------------------------
-        if ($maxAlt >= 40)
-          $yStep = 20;
-        elseif ($maxAlt >= 20)
-          $yStep = 10;
-        else
-          $yStep = 5;
-        $yLines = floor($maxAlt / $yStep);
-
-        // ------------------------------------------------------------
-        // KULMINACE – výpočet nezávislý na mřížce i bodech grafu
-        // ------------------------------------------------------------
-        $transitX = null;
-
-        if (!empty($c['transit_utc'])) {
-
-          // 1) Z JSON vezmeme jen čas (HH:MM)
-          $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
-          $hT = (int) $dtT->format('H');
-          $mT = (int) $dtT->format('i');
-
-          $utcTm = $hT * 60 + $mT;
-
-          // 3) Pokud je kulminace < 12:00 → posuneme na další den
-          if ($hT < 12) {
-            $hT += 24;
-          }
-
-          // 2) Převod na desetinné hodiny
-          $hT = $hT + $mT / 60.0;
-
-          // 4) Odpočítáme 12:00 → tím dostaneme pozici v grafu (0–24 h)
-          $hFromStart = $hT - 12.0;   // 12:00 = 0h, 36:00 = 24h
-      
-          // 5) Přepočet na ratio 0–1
-          $ratioT = $hFromStart / 24.0;
-
-          // 6) Přepočet na pixely
-          $transitX = $paddingLeft + $innerW * $ratioT;
-        } else {
-          //když neni nemělo by nastat
-          $utcTm = 12 * 60;
-        }
-        // Posun Astro půlnoc pro 15°E na 23:00 UTC
-        $DAY_MINUTE = 24 * 60;
-        $utcTm = $utcTm + 60;
-        if ($utcTm >= $DAY_MINUTE) {
-          $utcTm = $utcTm - $DAY_MINUTE;
-        }
-
-        if ($tpm === 'no' && $utcTm > (12 * 60))
-          continue;
-        if ($tam === 'no' && $utcTm <= (12 * 60))
-          continue;
-
-        $shown++;
-
-        $type = $c['type'];
-        $typeCZ = $objectTypeCZ[$type] ?? $type;
-
-        if ($type === 'GAL' && $gal === 'no')
-          continue;
-        if ($type === 'EN' && $enb === 'no')
-          continue;
-        if ($type === 'OC' && $oc === 'no')
-          continue;
-        if ($type === 'GC' && $gc === 'no')
-          continue;
-        if ($type === 'PN' && $pn === 'no')
-          continue;
-        if ($type === 'SNR' && $snr === 'no')
-          continue;
-        if ($type === 'DN' && $dn === 'no')
-          continue;
-        if ($type === 'RN' && $rn === 'no')
-          continue;
-        if ($type === 'STAR' && $st === 'no')
-          continue;
-        if ($type === 'DOUBLE' && $dbl === 'no')
-          continue;
-
-        $foceno = "no";
-        $is_img = "no";
-        $iotd = false;
-        $tp = false;
-        $tpn = false;
-
-        if ($preview === "yes") {
-
-          foreach ($images[strtoupper($c['id'])] as $img) {
-            $is_img = isset($img['thumbnail']) ? "yes" : "no";
-            $img_url = $img['url'];
-            $thumbnail = $img['thumbnail'];
-            $author = $img['userDisplayName'];
-            $iotd = $img['isIotd'];
-            $tp = $img['isTopPick'];
-            $tpn = $img['isTopPickNomination'];
-            $foceno = $img['foceno'];
-          }
-        }
-
-        if ($myfoto !== "all") {
-
-          if ($foceno === "Yes" && $myfoto === "no")
-            continue;
-          if ($foceno !== "Yes" && $myfoto === "yes")
-            continue;
-
-        }
-
-        ?>
-        <tr>
-          <!-- LEVÁ BUŇKA: POPIS -->
-          <td style="width:40%;">
-            <br>
-            <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
-
-            <?php if ($preview !== "yes"): ?>
-              <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
-              <br>
-            <?php endif; ?>
-            <table class="inner-table">
-              <?php if ($preview === "yes"): ?>
+      <?php if ($mg === "no"): ?>
+        <div class="moon">
+          <strong>Měsíc:</strong> &nbsp;
+          <label>graf
+            <input type="hidden" name="mg" value="no" />
+            <input type="checkbox" id="mg" name="mg" value="yes" <?php if ($mg === 'yes'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+          </label> &nbsp;
+          <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp;
+          <?= $moon_culm ?>
+          &nbsp; <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
+        </div> <br>
+      <?php else: ?>
+        <div class="moon">
+          <strong>Měsíc:</strong> <label> &nbsp; graf:
+            <input type="hidden" name="mg" value="no" />
+            <input type="checkbox" id="mg" name="mg" value="yes" <?php if ($mg === 'yes'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+          </label>
+        </div>
+        <table class="main-table">
+          <tr>
+            <td>
+              <table class="inner-table">
                 <tr>
-                  <td>
-                    <div class="thumb">
-                      <?php if ($is_img === "yes"): ?>
-                        <a href="<?php echo $img_url; ?>" target="<?= $target ?>"> <img src="<?php echo $thumbnail; ?>"
-                            height="150" title="Autor: <?php echo htmlspecialchars($author); ?>">
-                        </a>
-                      <?php endif; ?>
-                      Foceno: <?= ($foceno === "Yes") ? "ANO" : "NE" ?>
-                      <?php if ($iotd): ?>
-                        <span class="badge iotd"> IOTD</span>
-                      <?php endif; ?>
-                      <?php if ($tp): ?>
-                        <span class="badge tp">TP</span>
-                      <?php endif; ?>
-                      <?php if ($tpn): ?>
-                        <span class="badge tpn">TPN</span>
-                      <?php endif; ?>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
-                  </td>
+                  <td class="label"><?= explode(':', $moon_old, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_old, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_rs1, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_rs1, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_rs2, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_rs2, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_culm, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_culm, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_ilum, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_ilum, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_nf1, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_nf1, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_nf2, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_nf2, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_alt, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_alt, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_const, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_const, 2)[1] ?>
+              </table>
+            </td>
+            <td style="width:60%; text-align:center;">
+              <iframe src="planet.php?f=n&m=N&id=lun&go=yes" frameborder="0" scrolling="no" width="100%" , height="230px"
+                style="my-frame"></iframe>
+            </td>
+          </tr>
+          <tr> </tr>
+        </table>
+        <br>
+      <?php endif; ?>
+    </form>
+    Alt/Az data jsou platná pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong>
+
+      <table class="main-table">
+        <?php
+        $shown = 0;
+        foreach ($objects as $c):
+          // výběr pouze daného objektu  
+        
+
+          if ($id !== "all" && strtolower(preg_replace('/\s+/', '', $id)) !== strtolower(preg_replace('/\s+/', '', $c['id'])))
+            continue;
+
+          $graph48 = $c['graph'] ?? [];
+
+          if (count($graph48) < 2)
+            continue;
+
+          // najdeme nejbližší časový bod k zaokrouhlenému času – pro aktuální údaje
+          $roundedUTC = new DateTime($rounded, new DateTimeZone('UTC'));
+          $roundedTs = $roundedUTC->getTimestamp();
+
+          $current = null;
+          $bestDiff = PHP_INT_MAX;
+
+          foreach ($graph48 as $p) {
+            $pt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
+            $diff = abs($pt->getTimestamp() - $roundedTs);
+            if ($diff < $bestDiff) {
+              $bestDiff = $diff;
+              $current = $p;
+            }
+          }
+
+          if (!$current)
+            continue;
+
+          // RA/Dec v HMS/DMS
+          $ra_hms = ra_to_hms($current['ra_hours_j2000']);
+          $dec_dms = dec_to_dms($current['dec_deg_j2000']);
+
+          // základní hodnoty v aktuálním čase
+          $alt = sprintf("%.1f°", $current['alt_deg']);
+          $az = sprintf("%.1f°", $current['az_deg']);
+          $mag = $current['mag'];
+
+          //  výběr dle jasnosti        
+        
+          if ((float) $vmag < (float) $mag)
+            continue;
+
+          $xsize = $c['size'];
+
+
+          if ((float) $asize > (float) $xsize)
+            continue;
+
+
+          $constCode = $current['constellation'];
+          $constName = $constellationCZ[$constCode] ?? $constCode;
+          // východ / kulminace / západ
+          $rise = !empty($c['rise_utc']) ? date('H:i', strtotime($c['rise_utc'])) : '—';
+          $transit = !empty($c['transit_utc']) ? date('H:i', strtotime($c['transit_utc'])) : '—';
+          $set = !empty($c['set_utc']) ? date('H:i', strtotime($c['set_utc'])) : '—';
+
+
+          // ------------------------------------------------------------
+          // OSA X: pevně 12:00 UTC → 12:00 UTC následující den (24 h)
+          // ------------------------------------------------------------
+          $nowUTC = new DateTime('now', new DateTimeZone('UTC'));
+          $dayStr = $nowUTC->format('Y-m-d');
+
+          // začátek grafu = dnešní 12:00 UTC
+          $startDT = new DateTime($dayStr . ' 12:00:00', new DateTimeZone('UTC'));
+
+          // konec grafu = +24 hodin
+          $endDT = clone $startDT;
+          $endDT->modify('+24 hours');
+
+          $startTs = $startDT->getTimestamp();
+          $endTs = $endDT->getTimestamp();
+          $spanSec = 24 * 3600;
+
+          // ------------------------------------------------------------
+          // VÝBĚR BODŮ Z JSONU — jen ty, které spadají do 12→12 UTC
+          // ------------------------------------------------------------
+          $graph = [];
+          foreach ($graph48 as $p) {
+            $dt = new DateTime($p['time_utc'], new DateTimeZone('UTC'));
+            $ts = $dt->getTimestamp();
+            if ($ts >= $startTs && $ts <= $endTs) {
+              $p['_dt'] = $dt;
+              $p['_ts'] = $ts;
+              $graph[] = $p;
+            }
+          }
+
+          // ------------------------------------------------------------
+          // JSON nezačíná přesně v 12:00 UTC → doplníme umělý bod
+          // ------------------------------------------------------------
+          $firstAlt = $graph[0]['alt_deg'];
+
+          array_unshift($graph, [
+            'time_utc' => $startDT->format('Y-m-d H:i:s'),
+            'alt_deg' => $firstAlt,
+            '_dt' => clone $startDT,
+            '_ts' => $startTs
+          ]);
+
+
+          // ------------------------------------------------------------
+          // MAX výška pro Y osu
+          // ------------------------------------------------------------
+          $maxAlt = 0.0;
+          foreach ($graph as $p) {
+            if ($p['alt_deg'] > $maxAlt)
+              $maxAlt = $p['alt_deg'];
+          }
+          $mAlt = $maxAlt;
+          if ($maxAlt < 10)
+            $maxAlt = 10;
+          // ------------------------------------------------------------
+          // SVG parametry
+          // ------------------------------------------------------------
+          $width = 600;
+          $height = 200;
+          $paddingLeft = 30;
+          $paddingRight = 10;
+          $paddingTop = 10;
+          $paddingBottom = 20;
+
+          $innerW = $width - $paddingLeft - $paddingRight;
+          $innerH = $height - $paddingTop - $paddingBottom;
+
+          // Noční barvy
+          $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60
+            + date('i', strtotime($astro_start)) - (12 + $offsetHours) * 60) / (24 * 60)));
+          $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60
+            + date('i', strtotime($astro_end)) + (12 - $offsetHours) * 60) / (24 * 60)));
+          $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60
+            + date('i', strtotime($twilight_start)) - (12 + $offsetHours) * 60)) / (24 * 60));
+          $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60
+            + date('i', strtotime($twilight_end)) + (12 - $offsetHours) * 60)) / (24 * 60));
+
+          //  Noc
+          $night = $nightStart . ',' . $paddingTop . ',' .
+            $nightStart . ',' . ($height - $paddingBottom) . ',' .
+            $nightEnd . ',' . ($height - $paddingBottom) . ',' .
+            $nightEnd . ',' . $paddingTop;
+
+          // stmívání a úsvit
+          $afternoon = $paddingLeft . ',' . $paddingTop . ',' .
+            $paddingLeft . ',' . ($height - $paddingBottom) . ',' .
+            $twStart . ',' . ($height - $paddingBottom) . ',' .
+            $twStart . ',' . $paddingTop;
+
+          $morning = $twEnd . ',' . $paddingTop . ',' .
+            $twEnd . ',' . ($height - $paddingBottom) . ',' .
+            ($width - $paddingRight) . ',' . ($height - $paddingBottom) . ',' .
+            ($width - $paddingRight) . ',' . $paddingTop;
+
+          $tw_start = $twStart . ',' . $paddingTop . ',' .
+            $twStart . ',' . ($height - $paddingBottom) . ',' .
+            $nightStart . ',' . ($height - $paddingBottom) . ',' .
+            $nightStart . ',' . $paddingTop;
+
+          $tw_end = $nightEnd . ',' . $paddingTop . ',' .
+            $nightEnd . ',' . ($height - $paddingBottom) . ',' .
+            $twEnd . ',' . ($height - $paddingBottom) . ',' .
+            $twEnd . ',' . $paddingTop;
+
+          // ------------------------------------------------------------
+          // BODY GRAFU (x = UTC ratio, y = alt)
+          // ------------------------------------------------------------
+          $points = [];
+          foreach ($graph as $p) {
+            $ts = $p['_ts'];
+            $ratio = ($ts - $startTs) / $spanSec;
+            if ($ratio < 0)
+              $ratio = 0;
+            if ($ratio > 1)
+              $ratio = 1;
+
+            $x = $paddingLeft + $innerW * $ratio;
+
+            $altPlot = max(0, $p['alt_deg']);
+            $y = $paddingTop + $innerH * (1 - ($altPlot / $maxAlt));
+
+            $points[] = [$x, $y];
+          }
+
+
+          // ------------------------------------------------------------
+          // OSA Y — krok podle max výšky
+          // ------------------------------------------------------------
+          if ($maxAlt >= 40)
+            $yStep = 20;
+          elseif ($maxAlt >= 20)
+            $yStep = 10;
+          else
+            $yStep = 5;
+          $yLines = floor($maxAlt / $yStep);
+
+          // ------------------------------------------------------------
+          // KULMINACE – výpočet nezávislý na mřížce i bodech grafu
+          // ------------------------------------------------------------
+          $transitX = null;
+
+          if (!empty($c['transit_utc'])) {
+
+            // 1) Z JSON vezmeme jen čas (HH:MM)
+            $dtT = new DateTime($c['transit_utc'], new DateTimeZone('UTC'));
+            $hT = (int) $dtT->format('H');
+            $mT = (int) $dtT->format('i');
+
+            $utcTm = $hT * 60 + $mT;
+
+            // 3) Pokud je kulminace < 12:00 → posuneme na další den
+            if ($hT < 12) {
+              $hT += 24;
+            }
+
+            // 2) Převod na desetinné hodiny
+            $hT = $hT + $mT / 60.0;
+
+            // 4) Odpočítáme 12:00 → tím dostaneme pozici v grafu (0–24 h)
+            $hFromStart = $hT - 12.0;   // 12:00 = 0h, 36:00 = 24h
+        
+            // 5) Přepočet na ratio 0–1
+            $ratioT = $hFromStart / 24.0;
+
+            // 6) Přepočet na pixely
+            $transitX = $paddingLeft + $innerW * $ratioT;
+          } else {
+            //když neni nemělo by nastat
+            $utcTm = 12 * 60;
+          }
+          // Posun Astro půlnoc pro 15°E na 23:00 UTC
+          $DAY_MINUTE = 24 * 60;
+          $utcTm = $utcTm + 60;
+          if ($utcTm >= $DAY_MINUTE) {
+            $utcTm = $utcTm - $DAY_MINUTE;
+          }
+
+          if ($tpm === 'no' && $utcTm > (12 * 60))
+            continue;
+          if ($tam === 'no' && $utcTm <= (12 * 60))
+            continue;
+
+          $shown++;
+
+          $type = $c['type'];
+          $typeCZ = $objectTypeCZ[$type] ?? $type;
+
+          if ($type === 'GAL' && $gal === 'no')
+            continue;
+          if ($type === 'EN' && $enb === 'no')
+            continue;
+          if ($type === 'OC' && $oc === 'no')
+            continue;
+          if ($type === 'GC' && $gc === 'no')
+            continue;
+          if ($type === 'PN' && $pn === 'no')
+            continue;
+          if ($type === 'SNR' && $snr === 'no')
+            continue;
+          if ($type === 'DN' && $dn === 'no')
+            continue;
+          if ($type === 'RN' && $rn === 'no')
+            continue;
+          if ($type === 'STAR' && $st === 'no')
+            continue;
+          if ($type === 'DOUBLE' && $dbl === 'no')
+            continue;
+
+          $foceno = "no";
+          $is_img = "no";
+          $iotd = false;
+          $tp = false;
+          $tpn = false;
+
+          if ($preview === "yes") {
+
+            foreach ($images[strtoupper($c['id'])] as $img) {
+              $is_img = isset($img['thumbnail']) ? "yes" : "no";
+              $img_url = $img['url'];
+              $thumbnail = $img['thumbnail'];
+              $author = $img['userDisplayName'];
+              $iotd = $img['isIotd'];
+              $tp = $img['isTopPick'];
+              $tpn = $img['isTopPickNomination'];
+              $foceno = $img['foceno'];
+            }
+          }
+
+          if ($myfoto !== "all") {
+
+            if ($foceno === "Yes" && $myfoto === "no")
+              continue;
+            if ($foceno !== "Yes" && $myfoto === "yes")
+              continue;
+
+          }
+
+          ?>
+          <tr>
+            <!-- LEVÁ BUŇKA: POPIS -->
+            <td style="width:40%;">
+              <br>
+              <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
+
+              <?php if ($preview !== "yes"): ?>
+                <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
+                <br>
+              <?php endif; ?>
+              <table class="inner-table">
+                <?php if ($preview === "yes"): ?>
+                  <tr>
+                    <td>
+                      <div class="thumb">
+                        <?php if ($is_img === "yes"): ?>
+                          <a href="<?php echo $img_url; ?>" target="<?= $target ?>"> <img src="<?php echo $thumbnail; ?>"
+                              height="150" title="Autor: <?php echo htmlspecialchars($author); ?>">
+                          </a>
+                        <?php endif; ?>
+                        Foceno: <?= ($foceno === "Yes") ? "ANO" : "NE" ?>
+                        <?php if ($iotd): ?>
+                          <span class="badge iotd"> IOTD</span>
+                        <?php endif; ?>
+                        <?php if ($tp): ?>
+                          <span class="badge tp">TP</span>
+                        <?php endif; ?>
+                        <?php if ($tpn): ?>
+                          <span class="badge tpn">TPN</span>
+                        <?php endif; ?>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="desc"> <?= htmlspecialchars($c['description']) ?></div>
+                    </td>
+                  </tr>
+                <?php endif; ?>
+                <tr>
+                  <td class="label">Druh</td>
+                  <td class="value"><?= htmlspecialchars($typeCZ) ?></td>
                 </tr>
-              <?php endif; ?>
-              <tr>
-                <td class="label">Druh</td>
-                <td class="value"><?= htmlspecialchars($typeCZ) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Úhlová velikost</td>
-                <td class="value"><?= htmlspecialchars(size_to_ams((float) $c['size'])) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Jasnost</td>
-                <td class="value"><?= htmlspecialchars(($mag == 0) ? '—' : $mag) ?></td>
-              </tr>
-              <tr>
-                <td class="label">RA</td>
-                <td class="value"><?= htmlspecialchars($ra_hms) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Dec</td>
-                <td class="value"><?= htmlspecialchars($dec_dms) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Souhvězdí</td>
-                <td class="value"><?= htmlspecialchars($constName) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Výška</td>
-                <td class="value"><?= htmlspecialchars($alt) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Azimut</td>
-                <td class="value"><?= htmlspecialchars($az) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Východ</td>
-                <td class="value"><?= htmlspecialchars($rise) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Kulminace</td>
-                <td class="value"><?= htmlspecialchars($transit) ?></td>
-              </tr>
-              <tr>
-                <td class="label">Západ</td>
-                <td class="value"><?= htmlspecialchars($set) ?></td>
-              </tr>
-            </table>
-          </td>
-          <!-- PRAVÁ BUŇKA: GRAF -->
-          <td style="width:60%; text-align:center; vertical-align:bottom;">
+                <tr>
+                  <td class="label">Úhlová velikost</td>
+                  <td class="value"><?= htmlspecialchars(size_to_ams((float) $c['size'])) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Jasnost</td>
+                  <td class="value"><?= htmlspecialchars(($mag == 0) ? '—' : $mag) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">RA</td>
+                  <td class="value"><?= htmlspecialchars($ra_hms) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Dec</td>
+                  <td class="value"><?= htmlspecialchars($dec_dms) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Souhvězdí</td>
+                  <td class="value"><?= htmlspecialchars($constName) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Výška</td>
+                  <td class="value"><?= htmlspecialchars($alt) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Azimut</td>
+                  <td class="value"><?= htmlspecialchars($az) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Východ</td>
+                  <td class="value"><?= htmlspecialchars($rise) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Kulminace</td>
+                  <td class="value"><?= htmlspecialchars($transit) ?></td>
+                </tr>
+                <tr>
+                  <td class="label">Západ</td>
+                  <td class="value"><?= htmlspecialchars($set) ?></td>
+                </tr>
+              </table>
+            </td>
+            <!-- PRAVÁ BUŇKA: GRAF -->
+            <td style="width:60%; text-align:center; vertical-align:bottom;">
 
-            <!-- SVG začátek + mřížka X/Y + popisky -->
-            <!-- SVG GRAF -->
-            <svg viewBox="0 0 <?= $width ?> <?= $height ?>">
-              <!-- Stmívání -->
-              <polygon points="<?= $afternoon ?>" class="graph-day" /> ;
-              <polygon points="<?= $tw_start ?>" class="graph-tw" /> ;
-              <polygon points="<?= $night ?>" class="graph-night" /> ;
-              <polygon points="<?= $tw_end ?>" class="graph-tw" /> ;
-              <polygon points="<?= $morning ?>" class="graph-day" /> ;
+              <!-- SVG začátek + mřížka X/Y + popisky -->
+              <!-- SVG GRAF -->
+              <svg viewBox="0 0 <?= $width ?> <?= $height ?>">
+                <!-- Stmívání -->
+                <polygon points="<?= $afternoon ?>" class="graph-day" /> ;
+                <polygon points="<?= $tw_start ?>" class="graph-tw" /> ;
+                <polygon points="<?= $night ?>" class="graph-night" /> ;
+                <polygon points="<?= $tw_end ?>" class="graph-tw" /> ;
+                <polygon points="<?= $morning ?>" class="graph-day" /> ;
 
-              <!-- Vodorovné čáry (výška) -->
-              <?php for ($j = 1; $j <= $yLines; $j++): ?>
-                <?php
-                $altVal = $j * $yStep;
-                $gy = $paddingTop + $innerH * (1 - ($altVal / $maxAlt));
-                ?>
-                <line x1="<?= $paddingLeft ?>" y1="<?= $gy ?>" x2="<?= $width - $paddingRight ?>" y2="<?= $gy ?>"
-                  stroke="#333" stroke-width="1" />
+                <!-- Vodorovné čáry (výška) -->
+                <?php for ($j = 1; $j <= $yLines; $j++): ?>
+                  <?php
+                  $altVal = $j * $yStep;
+                  $gy = $paddingTop + $innerH * (1 - ($altVal / $maxAlt));
+                  ?>
+                  <line x1="<?= $paddingLeft ?>" y1="<?= $gy ?>" x2="<?= $width - $paddingRight ?>" y2="<?= $gy ?>"
+                    stroke="#333" stroke-width="1" />
 
-                <text x="<?= $paddingLeft - 6 ?>" y="<?= $gy + 4 ?>" class="text-small" text-anchor="end">
-                  <?= $altVal ?>°
-                </text>
-              <?php endfor; ?>
-
-              <!-- Svislé čáry (čas) – 12:00 UTC → 12:00 UTC -->
-              <?php
-              $totalMinutes = 24 * 60;
-              $xStepMinutes = 30;
-              $xSteps = $totalMinutes / $xStepMinutes;
-
-              for ($j = 0; $j <= $xSteps; $j++):
-                $minutesFromStart = $j * $xStepMinutes;
-
-                // pozice na ose X (UTC)
-                $ratioGX = $minutesFromStart / $totalMinutes;
-                $vx = $paddingLeft + $innerW * $ratioGX;
-
-                // čas popisku = startUTC + minutesFromStart
-                $labelUTC = clone $startDT;
-                $labelUTC->modify("+{$minutesFromStart} minutes");
-
-                // převod na místní čas
-                $labelLocal = clone $labelUTC;
-
-                $hour = (int) $labelLocal->format('H');
-                $minute = (int) $labelLocal->format('i');
-
-                $isLabel = ($minute === 0) && ($hour % 2 === 0);
-                ?>
-
-                <line x1="<?= $vx ?>" y1="<?= $paddingTop ?>" x2="<?= $vx ?>" y2="<?= $height - $paddingBottom ?>"
-                  stroke="#333" stroke-width="1" />
-
-                <?php if ($isLabel): ?>
-                  <text x="<?= $vx ?>" y="<?= $height - $paddingBottom + 12 ?>" class="text-small" text-anchor="middle">
-                    <?= sprintf("%02d:00", $hour + $offsetHours) ?>
+                  <text x="<?= $paddingLeft - 6 ?>" y="<?= $gy + 4 ?>" class="text-small" text-anchor="end">
+                    <?= $altVal ?>°
                   </text>
+                <?php endfor; ?>
+
+                <!-- Svislé čáry (čas) – 12:00 UTC → 12:00 UTC -->
+                <?php
+                $totalMinutes = 24 * 60;
+                $xStepMinutes = 30;
+                $xSteps = $totalMinutes / $xStepMinutes;
+
+                for ($j = 0; $j <= $xSteps; $j++):
+                  $minutesFromStart = $j * $xStepMinutes;
+
+                  // pozice na ose X (UTC)
+                  $ratioGX = $minutesFromStart / $totalMinutes;
+                  $vx = $paddingLeft + $innerW * $ratioGX;
+
+                  // čas popisku = startUTC + minutesFromStart
+                  $labelUTC = clone $startDT;
+                  $labelUTC->modify("+{$minutesFromStart} minutes");
+
+                  // převod na místní čas
+                  $labelLocal = clone $labelUTC;
+
+                  $hour = (int) $labelLocal->format('H');
+                  $minute = (int) $labelLocal->format('i');
+
+                  $isLabel = ($minute === 0) && ($hour % 2 === 0);
+                  ?>
+
+                  <line x1="<?= $vx ?>" y1="<?= $paddingTop ?>" x2="<?= $vx ?>" y2="<?= $height - $paddingBottom ?>"
+                    stroke="#333" stroke-width="1" />
+
+                  <?php if ($isLabel): ?>
+                    <text x="<?= $vx ?>" y="<?= $height - $paddingBottom + 12 ?>" class="text-small" text-anchor="middle">
+                      <?= sprintf("%02d:00", $hour + $offsetHours) ?>
+                    </text>
+                  <?php endif; ?>
+
+                <?php endfor; ?>
+
+                <!-- Osy -->
+                <line x1="<?= $paddingLeft ?>" y1="<?= $height - $paddingBottom ?>" x2="<?= $width - $paddingRight ?>"
+                  y2="<?= $height - $paddingBottom ?>" class="axis" />
+
+                <line x1="<?= $paddingLeft ?>" y1="<?= $paddingTop ?>" x2="<?= $paddingLeft ?>"
+                  y2="<?= $height - $paddingBottom ?>" class="axis" />
+
+                <!-- Křivka, výplň, kulminace, konec SVG  -->
+                <?php if (!empty($points)):
+                  $poly = [];
+                  foreach ($points as $pt) {
+                    $poly[] = $pt[0] . ',' . $pt[1];
+                  }
+                  // uzavření polygonu dolů k horizontu
+                  $poly[] = end($points)[0] . ',' . ($height - $paddingBottom);
+                  $poly[] = $points[0][0] . ',' . ($height - $paddingBottom);
+                  $polyPoints = implode(' ', $poly);
+
+                  // polyline pro samotnou křivku
+                  $linePoints = implode(' ', array_map(
+                    fn($pt) => $pt[0] . ',' . $pt[1],
+                    $points
+                  ));
+                  ?>
+
+                  <?php if ($maxAlt > 3): ?>
+                    <polygon points="<?= $polyPoints ?>" class="graph-fill" />
+                  <?php endif; ?>
+
+                  <polyline points="<?= $linePoints ?>" class="graph-line" />
+
                 <?php endif; ?>
 
-              <?php endfor; ?>
+                <!-- Červená čára kulminace -->
 
-              <!-- Osy -->
-              <line x1="<?= $paddingLeft ?>" y1="<?= $height - $paddingBottom ?>" x2="<?= $width - $paddingRight ?>"
-                y2="<?= $height - $paddingBottom ?>" class="axis" />
-
-              <line x1="<?= $paddingLeft ?>" y1="<?= $paddingTop ?>" x2="<?= $paddingLeft ?>"
-                y2="<?= $height - $paddingBottom ?>" class="axis" />
-
-              <!-- Křivka, výplň, kulminace, konec SVG  -->
-              <?php if (!empty($points)):
-                $poly = [];
-                foreach ($points as $pt) {
-                  $poly[] = $pt[0] . ',' . $pt[1];
+                <!-- Úprva pro altMax < 10° -->
+                <?php
+                if ($mAlt > 10) {
+                  $m_y1 = $paddingTop;
+                } else {
+                  $m_y1 = $paddingTop + $innerH - $innerH * $mAlt / 10;
                 }
-                // uzavření polygonu dolů k horizontu
-                $poly[] = end($points)[0] . ',' . ($height - $paddingBottom);
-                $poly[] = $points[0][0] . ',' . ($height - $paddingBottom);
-                $polyPoints = implode(' ', $poly);
-
-                // polyline pro samotnou křivku
-                $linePoints = implode(' ', array_map(
-                  fn($pt) => $pt[0] . ',' . $pt[1],
-                  $points
-                ));
                 ?>
-
-                <?php if ($maxAlt > 3): ?>
-                  <polygon points="<?= $polyPoints ?>" class="graph-fill" />
+                <?php if ($transitX !== null): ?>
+                  <line x1="<?= $transitX ?>" y1=" <?= $m_y1 ?>" x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom ?>"
+                    stroke="red" stroke-width="1.5" />
                 <?php endif; ?>
 
-                <polyline points="<?= $linePoints ?>" class="graph-line" />
-
-              <?php endif; ?>
-
-              <!-- Červená čára kulminace -->
-
-              <!-- Úprva pro altMax < 10° -->
-              <?php
-              if ($mAlt > 10) {
-                $m_y1 = $paddingTop;
-              } else {
-                $m_y1 = $paddingTop + $innerH - $innerH * $mAlt / 10;
-              }
-              ?>
-              <?php if ($transitX !== null): ?>
-                <line x1="<?= $transitX ?>" y1=" <?= $m_y1 ?>" x2="<?= $transitX ?>" y2="<?= $height - $paddingBottom ?>"
-                  stroke="red" stroke-width="1.5" />
-              <?php endif; ?>
-
-            </svg>
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    </table>
-    <?php
-    if ($shown == 0) {
-      echo "<h1><br>Dnes $id nelze v ČR pozorovat, nebo nejsou k dispozici žádná data pro graf viditelnosti.<br></h1>";
-    }
-    ?>
+              </svg>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
+      <?php
+      if ($shown == 0) {
+        echo "<h1><br>Dnes $id nelze v ČR pozorovat, nebo nejsou k dispozici žádná data pro graf viditelnosti.<br></h1>";
+      }
+      ?>
   </div> <!-- /box -->
 
 </body>
