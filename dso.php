@@ -220,8 +220,7 @@ function load_katalog($path)
 
 function extract_number_from_id(string $id): int
 {
-  $m[] = ""; 
-// najde poslední číslo v řetězci
+  // najde poslední číslo v řetězci
   if (preg_match('/(\d+)(?!.*\d)/', $id, $m)) {
     return intval($m[1]);
   }
@@ -1383,7 +1382,7 @@ if ($moonrise < $moonset) {
           ?>
           <tr>
             <!-- LEVÁ BUŇKA: POPIS -->
-            <td style="width:40%;">
+            <td style="width:40%">
               <br>
               <h2><?= htmlspecialchars($c['id']) ?> (<?= htmlspecialchars($c['name']) ?>)</h2>
 
