@@ -776,7 +776,7 @@ if ($moonrise < $moonset) {
 
     .label {
       color: #aaa;
-      width: 40%;
+      width:50%;
     }
 
     .value {
@@ -840,12 +840,6 @@ if ($moonrise < $moonset) {
     .body a:hover {
       color: white;
       text-decoration: none;
-    }
-
-    .my-iframe {
-      overflow: hidden;
-      border: #222;
-
     }
   </style>
 </head>
@@ -1027,7 +1021,7 @@ if ($moonrise < $moonset) {
         </div> <br>
       <?php else: ?>
         <div class="moon">
-          <strong>Měsíc:</strong> <label> &nbsp; graf:
+          <strong>Měsíc:</strong> <label> &nbsp; graf
             <input type="hidden" name="mg" value="no" />
             <input type="checkbox" id="mg" name="mg" value="yes" <?php if ($mg === 'yes'): ?> checked <?php endif; ?>
               onchange="autoSubmitDebounced()" />
@@ -1037,6 +1031,14 @@ if ($moonrise < $moonset) {
           <tr>
             <td>
               <table class="inner-table">
+                <tr>
+                  <td style="width:50%">
+                    <div class="moon-widget">
+                      <script type="text/javascript" src="https://moonphases.co.uk/js/widget.js" id="moonphase_widget"
+                        lat="<?= $latitude ?>" lng="<?= $longitude ?>" tz="<?= $tzAttr ?>" widget="small-nodate">
+                        </script>
+                    </div>
+                   <td>&nbsp;
                 <tr>
                   <td class="label"><?= explode(':', $moon_old, 2)[0] ?>
                   <td class="value"><?= explode(':', $moon_old, 2)[1] ?>
@@ -1066,9 +1068,8 @@ if ($moonrise < $moonset) {
                   <td class="value"><?= explode(':', $moon_const, 2)[1] ?>
               </table>
             </td>
-            <td style="width:60%; text-align:center;">
-              <iframe src="planet.php?f=n&m=N&id=lun&go=yes" frameborder="0" scrolling="no" width="100%" , height="230px"
-                style="my-frame"></iframe>
+            <td style="width:60%; text-align:center; vertical-align:bottom;">
+              <iframe src="planet.php?f=n&m=N&id=lun&go=yes" frameborder="0" scrolling="no" width="100%" , height="230px"></iframe>
             </td>
           </tr>
           <tr> </tr>

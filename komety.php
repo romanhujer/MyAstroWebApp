@@ -445,7 +445,7 @@ $filtr = isset($_GET['f']) ? $_GET['f'] : 'yes';
 $count = isset($_GET['count']) ? max(1, (int) $_GET['count']) : 100;
 $vmag = isset($_GET['vmag']) ? max(1, (int) $_GET['vmag']) : 24;
 $min_elong = isset($_GET['elong']) ? max(1, (int) $_GET['elong']) : 0;
-
+$mg = isset($_GET["mg"]) ? $_GET["mg"] : "no";
 
 
 // funkce RA → H M S
@@ -481,16 +481,16 @@ $ageDays = get_moon_age_days($lastNew);
 $illumPercent = get_moon_illumination_percent($ageDays);
 
 
-$moon_ilum = "osvětlení: " . ($illumPercent !== null ? number_format($illumPercent, 1, ',', ' ') . " %" : "neznámé");
-$moon_phase = "fáze: " . ($phasePercent !== null ? number_format($phasePercent, 1, ',', ' ') . " %" : "neznámá");
-$moon_old = "stáří: " . ($ageDays !== null ? number_format($ageDays, 1, ',', ' ') : 'neznámé') . " dne";
-$moon_const = "souhvězdí:" . ($constellation ?: 'neznámé');
+$moon_ilum = "Osvětlení: " . ($illumPercent !== null ? number_format($illumPercent, 1, ',', ' ') . " %" : "neznámé");
+$moon_phase = "Fáze: " . ($phasePercent !== null ? number_format($phasePercent, 1, ',', ' ') . " %" : "neznámá");
+$moon_old = "Stáří: " . ($ageDays !== null ? number_format($ageDays, 1, ',', ' ') : 'neznámé') . " dne";
+$moon_const = "Souhvězdí:" . ($constellation ?: 'neznámé');
 $moon_new = "Nov: " . ($nextNew ? date('d. M Y', $nextNew) : 'neznámý');
 $moon_full = "Úplněk: " . ($nextFull ? date('d. M Y', $nextFull) : 'neznámý');
-$moon_rise = "východ: " . ($moonrise ? date('H:i', strtotime($moonrise)) : '—');
-$moon_set = "západ: " . ($moonset ? date(' H:i', strtotime($moonset)) : '—');
-$moon_culm = "kulminace: " . ($culmTime ? date('H:i', strtotime($culmTime)) : '—');
-$moon_alt = "max. výška: " . ($culmAlt !== null ? number_format($culmAlt, 1, ',', ' ') . "°" : '—');
+$moon_rise = "Východ: " . ($moonrise ? date('H:i', strtotime($moonrise)) : '—');
+$moon_set = "Západ: " . ($moonset ? date(' H:i', strtotime($moonset)) : '—');
+$moon_culm = "Kulminace: " . ($culmTime ? date('H:i', strtotime($culmTime)) : '—');
+$moon_alt = "Max. výška: " . ($culmAlt !== null ? number_format($culmAlt, 1, ',', ' ') . "°" : '—');
 
 if ($nextNew < $nextFull) {
   $moon_nf1 = $moon_new;
@@ -566,7 +566,7 @@ if ($moonrise < $moonset) {
 
     .label {
       color: #aaa;
-      width: 40%;
+      width:50%
     }
 
     .value {
@@ -637,6 +637,7 @@ if ($moonrise < $moonset) {
     }, 300); // 300 ms pauza po poslední změně
   }
 </script>
+
 <body>
   <div class="box">
 
@@ -660,21 +661,90 @@ if ($moonrise < $moonset) {
             onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" />° &nbsp;
         </label>
 
-      </form>
-    <?php else: ?>
+      <?php else: ?>
 
-      <h1>Aktuální viditelnost komet s minimální jasností <?= $vmag ?>mag a elongací <?= $min_elong ?>°</h1>
+        <h1>Aktuální viditelnost komet s minimální jasností <?= $vmag ?>mag a elongací <?= $min_elong ?>°</h1>
 
-    <?php endif; ?>
+      <?php endif; ?>
 
-    <br>
-    <div class="moon">
-      <strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
-      &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)<br>
+      <br><br>
+      <div class="moon">
+        <strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
+        &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)<br>
+      </div>
       <br>
-      <strong>Měsíc:</strong> <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp; <?= $moon_culm ?>
-      &nbsp; <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
-    </div>
+
+      <?php if ($mg === "no"): ?>
+        <div class="moon">
+          <strong>Měsíc:</strong> &nbsp;
+          <label>graf
+            <input type="hidden" name="mg" value="no" />
+            <input type="checkbox" id="mg" name="mg" value="yes" <?php if ($mg === 'yes'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+          </label> &nbsp;
+          <?= $moon_old ?> &nbsp; <?= $moon_rs1 ?> &nbsp; <?= $moon_rs2 ?> &nbsp;
+          <?= $moon_culm ?>
+          &nbsp; <?= $moon_ilum ?> &nbsp; <?= $moon_alt ?> &nbsp; <?= $moon_const ?>
+        </div> <br>
+      <?php else: ?>
+        <div class="moon">
+          <strong>Měsíc:</strong> <label> &nbsp; graf
+            <input type="hidden" name="mg" value="no" />
+            <input type="checkbox" id="mg" name="mg" value="yes" <?php if ($mg === 'yes'): ?> checked <?php endif; ?>
+              onchange="autoSubmitDebounced()" />
+          </label>
+        </div>
+        <table class="main-table">
+          <tr>
+            <td>
+              <table class="inner-table">
+                <tr>
+                  <td style="width:50%">
+                    <div class="moon-widget">
+                      <script type="text/javascript" src="https://moonphases.co.uk/js/widget.js" id="moonphase_widget"
+                        lat="<?= $latitude ?>" lng="<?= $longitude ?>" tz="<?= $tzAttr ?>" widget="small-nodate">
+                        </script>
+                    </div>
+                  <td>&nbsp;
+                <tr>
+                  <td class="label"><?= explode(':', $moon_old, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_old, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_rs1, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_rs1, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_rs2, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_rs2, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_culm, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_culm, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_ilum, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_ilum, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_nf1, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_nf1, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_nf2, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_nf2, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_alt, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_alt, 2)[1] ?>
+                <tr>
+                  <td class="label"><?= explode(':', $moon_const, 2)[0] ?>
+                  <td class="value"><?= explode(':', $moon_const, 2)[1] ?>
+              </table>
+            </td>
+            <td style="width:60%; text-align:center; vertical-align:bottom;">
+              <iframe src="planet.php?f=n&m=N&id=lun&go=yes" frameborder="0" scrolling="no" width="100%" ,
+                height="230px"></iframe>
+            </td>
+          </tr>
+          <tr> </tr>
+        </table>
+        <br>
+      <?php endif; ?>
+    </form>
 
 
     <p>Data jsou platná pro čas: <stron><?= htmlspecialchars($nowTimeR) ?></strong></p>
@@ -911,7 +981,7 @@ if ($moonrise < $moonset) {
           <td style="width:40%;">
             <h2><?= htmlspecialchars($c['designation']) ?></h2>
             <table class="inner-table">
-              <tr>
+              <tr><
                 <td class="label">Jasnost</td>
                 <td class="value"><?= htmlspecialchars($mag) ?></td>
               </tr>

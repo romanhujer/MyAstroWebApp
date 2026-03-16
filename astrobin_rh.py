@@ -26,13 +26,28 @@ def download_block(start_page, block_id):
 
     while url and page <= end_page:
         print(f"Stahuji stránku {page}: {url}")
-        r = requests.get(url, headers=HEADERS)
 
-        try:
-            data = r.json()
-        except:
-            print("❌ API přestalo odpovídat – ukládám blok a končím.")
-            break
+        # retry logika
+        attempts = 0
+        while attempts < 5:
+            try:
+                r = requests.get(url, headers=HEADERS, timeout=20)
+                data = r.json()
+                break  # úspěch
+            except Exception as e:
+                attempts += 1
+                print(f"❌ API neodpovídá (pokus {attempts}/5).")
+                if attempts < 5:
+                    print("⏳ Čekám 2 minuty a zkouším znovu…")
+                    time.sleep(120)
+                else:
+                    print("🚫 API selhalo 5× – ukládám blok a končím.")
+                    # uložit dosud stažená data
+                    filename = f"{OUTPUT_DIR}/astrobin_block_{block_id}.json.gz"
+                    with gzip.open(filename, "wt", encoding="utf-8") as f:
+                        json.dump(out, f)
+                    print(f"✓ Uloženo: {filename}")
+                    return None
 
         # uložíme jen potřebné klíče
         for img in data.get("results", []):
@@ -49,11 +64,12 @@ def download_block(start_page, block_id):
                 "isTopPickNomination": img.get("isTopPickNomination", False)
             })
 
+        # 🔹 TADY JE TVOJE CHYBĚJÍCÍ ČÁST 🔹
         url = data.get("next")
         page += 1
         time.sleep(0.2)
 
-    # uložit blok
+    # uložit blok po dokončení
     filename = f"{OUTPUT_DIR}/astrobin_block_{block_id}.json.gz"
     with gzip.open(filename, "wt", encoding="utf-8") as f:
         json.dump(out, f)
