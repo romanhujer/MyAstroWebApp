@@ -619,8 +619,7 @@ if ($moonrise < $moonset) {
     .body a {
       color: blue;
       text-decoration: none;
-      ,
-    }
+     }
 
     .body a:hover {
       color: white;

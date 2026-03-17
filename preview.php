@@ -36,8 +36,8 @@ $katalogDecode = [
     "messier" => "Messier",
     "caldwell" => "Caldwell",
     "herschel" => "Herschel",
-    "sharpless" => "Sharpless",
     "galaxie" => "Galaxie",
+    "sharpless" => "Sharpless",
     "arp" => "Arp",
     "snr" => "SNR",
     "vdb" => "vdB",
@@ -202,7 +202,7 @@ $preview = load_preview_json($json_file);
 
 <head>
     <meta charset="utf-8">
-    <title>DSO visibility</title>
+    <title>DSO preview</title>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -668,5 +668,4 @@ if ($action === "enterkey") {
     </table>
 
 </body>
-
 </html>
