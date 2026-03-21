@@ -740,6 +740,7 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
                             // -----------------------------
                             // 5) Transit X
                             // -----------------------------
+
                             $transitX = null;
                             if (!empty($planet['transit_utc'])) {
                                 $dt = new DateTime($planet['transit_utc'], new DateTimeZone('UTC'));
@@ -751,6 +752,9 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
 
                                 $ratio = $diff / 1440;
                                 $transitX = $paddingLeft + $innerW * $ratio;
+                            }
+                                if ( $planeta  === 'lunar') {  // u Měsíce kulminaci - nezobrazovat, protože u Měsíční interval mezi kulminacemi kratší než 24h.
+                                $transitX = null;
                             }
 
                             // -----------------------------
