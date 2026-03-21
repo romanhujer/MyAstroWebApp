@@ -980,7 +980,7 @@ if ($moonrise < $moonset) {
           <td style="width:40%;">
             <h2><?= htmlspecialchars($c['designation']) ?></h2>
             <table class="inner-table">
-              <tr><
+              <tr>
                 <td class="label">Jasnost</td>
                 <td class="value"><?= htmlspecialchars($mag) ?></td>
               </tr>
