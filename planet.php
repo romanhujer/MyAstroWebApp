@@ -271,7 +271,7 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            <?php if ($graf_only !== 'yes'): ?>                
+            <?php if ($graf_only !== 'yes'): ?>
                 background: #111;
             <?php else: ?>
                 background: #222;
@@ -281,8 +281,8 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
 
         .box {
             max-width:
-            <?php if ($id === 'all'): ?>
-                 1100px;
+                <?php if ($id === 'all'): ?>
+                    1100px;
             <?php else: ?>
                 700px;
             <?php endif; ?>
@@ -480,7 +480,8 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
             // -----------------------------
             // Určení typu viditelnosti
             // -----------------------------
-            $visibleWord = $myid === 'ven' ? 'viditelná' : 'viditelný';
+//            $visibleWord = $myid === 'ven' ? 'viditelná' : 'viditelný';
+            $visibleWord = 'kulminuje';
 
             $visibility = "na obloze";
 
@@ -584,10 +585,10 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
                 $maxAlt = 10;
             ?>
             <?php if (!$planet): ?>
-                <p>Data pro planetu dnes nejsou k dispozici.</p>
+                <p>Data dnes nejsou k dispozici.</p>
             <?php else: ?>
                 <?php if ($filtr === 'yes' && $id !== 'all'): ?>
-                    <h1><?= $name ?>                         <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?>
+                    <h1><?= $name ?>  <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?>
                     </h1>
                     <br>
                     <form method="get">
@@ -605,65 +606,65 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
                     </form>
                     <br>
                 <?php else: ?>
-                    <?php if ($graf_only !== 'yes'): ?>   
-                        <h1><?= $name ?> <?= htmlspecialchars($planet['date']); ?>             <?= $visibleWord ?>             <?= $visibility ?></h1>
-                    <?php endif; ?>    
+                    <?php if ($graf_only !== 'yes'): ?>
+                        <h1><?= $name ?>                 <?= htmlspecialchars($planet['date']); ?>                 <?= $visibleWord ?>                 <?= $visibility ?></h1>
+                    <?php endif; ?>
                 <?php endif; ?>
                 <?php if ($graf_only !== 'yes'): ?>
-                <?php if ($id === 'all'): ?>
-                
-                    <table>
-                        <tr>
-                            <td width="450">
-                <?php endif; ?>
-                            <table>
-                                <tr>
-                                    <td class="label">Východ</td>
-                                    <td class="value"><?= $rise; ?></td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Kulminace</td>
-                                    <td class="value"><?= $transit; ?></td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Západ</td>
-                                    <td class="value"><?= $set; ?></td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Souhvězdí</td>
-                                    <td class="value"> <?= $const ?> </td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Vzdálenost</td>
-                                    <td class="value"><?= number_format($distKM, 0, ',', ' ') ?> km</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Úhlová velikost</td>
-                                    <td class="value"><?= $angSize ?>&quot;</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Elongace</td>
-                                    <td class="value"><?= $elong ?>°</td>
-                                </tr>
-                                <?php if (!empty($opposition)): ?>
-                                    <tr>
-                                        <td class="label">Nejbližší opozice</td>
-                                        <td class="value"><?= $opposition ?></td>
-                                    </tr>
+                    <?php if ($id === 'all'): ?>
+
+                        <table>
+                            <tr>
+                                <td width="450">
                                 <?php endif; ?>
-                                <?php if (!empty($perihelion)): ?>
+                                <table>
                                     <tr>
-                                        <td class="label">Nejbližší perihelium</td>
-                                        <td class="value"><?= $perihelion ?></td>
+                                        <td class="label">Východ</td>
+                                        <td class="value"><?= $rise; ?></td>
                                     </tr>
+                                    <tr>
+                                        <td class="label">Kulminace</td>
+                                        <td class="value"><?= $transit; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Západ</td>
+                                        <td class="value"><?= $set; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Souhvězdí</td>
+                                        <td class="value"> <?= $const ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Vzdálenost</td>
+                                        <td class="value"><?= number_format($distKM, 0, ',', ' ') ?> km</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Úhlová velikost</td>
+                                        <td class="value"><?= $angSize ?>&quot;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Elongace</td>
+                                        <td class="value"><?= $elong ?>°</td>
+                                    </tr>
+                                    <?php if (!empty($opposition)): ?>
+                                        <tr>
+                                            <td class="label">Nejbližší opozice</td>
+                                            <td class="value"><?= $opposition ?></td>
+                                        </tr>
+                                    <?php endif; ?>
+                                    <?php if (!empty($perihelion)): ?>
+                                        <tr>
+                                            <td class="label">Nejbližší perihelium</td>
+                                            <td class="value"><?= $perihelion ?></td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </table>
+                                <?php if ($id === 'all'): ?>
+                                <td widtd="700">
                                 <?php endif; ?>
-                            </table>
-                            <?php if ($id === 'all'): ?>
-                            <td widtd="700">
                             <?php endif; ?>
-                    <?php endif; ?>  
                             <?php
-                    
+
                             // SVG parametry
                             $width = 600;
                             $height = 200;
@@ -860,7 +861,7 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
                         </td>
                     </tr>
                 </table>
-        <?php endif; ?>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 </body>

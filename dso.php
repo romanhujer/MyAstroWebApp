@@ -691,7 +691,7 @@ if ($moonrise < $moonset) {
 
 <head>
   <meta charset="utf-8">
-  <title>DSO visibility</title>
+  <title>DSO Dnes</title>
   <style>
     body {
       font-family: system-ui, -apple-system, sans-serif;
@@ -776,7 +776,7 @@ if ($moonrise < $moonset) {
 
     .label {
       color: #aaa;
-      width:50%;
+      width: 50%;
     }
 
     .value {
@@ -925,9 +925,9 @@ if ($moonrise < $moonset) {
           <label>Foceno:
             ANO <input type="radio" name="myfoto" value="yes" <?php if ($myfoto === 'yes'): ?> checked <?php endif; ?>
               onchange="autoSubmitDebounced()" />
-            NE <input type="radio" name="myfoto" value="no" <?php if ($myfoto === 'no'): ?> checked <?php endif; ?>
+            &nbsp; NE <input type="radio" name="myfoto" value="no" <?php if ($myfoto === 'no'): ?> checked <?php endif; ?>
               onchange="autoSubmitDebounced()" />
-            Vše <input type="radio" name="myfoto" value="all" <?php if ($myfoto === 'all'): ?> checked <?php endif; ?>
+            &nbsp; Vše <input type="radio" name="myfoto" value="all" <?php if ($myfoto === 'all'): ?> checked <?php endif; ?>
               onchange="autoSubmitDebounced()" />
           </label>
         <?php endif; ?>
@@ -1038,7 +1038,7 @@ if ($moonrise < $moonset) {
                         lat="<?= $latitude ?>" lng="<?= $longitude ?>" tz="<?= $tzAttr ?>" widget="small-nodate">
                         </script>
                     </div>
-                   <td>&nbsp;
+                  <td>&nbsp;
                 <tr>
                   <td class="label"><?= explode(':', $moon_old, 2)[0] ?>
                   <td class="value"><?= explode(':', $moon_old, 2)[1] ?>
@@ -1069,7 +1069,8 @@ if ($moonrise < $moonset) {
               </table>
             </td>
             <td style="width:60%; text-align:center; vertical-align:bottom;">
-              <iframe src="planet.php?f=n&m=N&id=lun&go=yes" frameborder="0" scrolling="no" width="100%" , height="230px"></iframe>
+              <iframe src="planet.php?f=n&m=N&id=lun&go=yes" frameborder="0" scrolling="no" width="100%" ,
+                height="230px"></iframe>
             </td>
           </tr>
           <tr> </tr>

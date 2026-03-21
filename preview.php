@@ -187,7 +187,7 @@ $edit_mode = ($ekey === $EDIKEY);
 
 if (($edit === 'y') && ($ekey !== $EDIKEY)) {
     $action = "enterkey";
-} elseif ($edit !== 'y' ) {
+} elseif ($edit !== 'y') {
     $edit_mode = false;
 }
 
@@ -397,7 +397,8 @@ if ($action === "replace" && $obj !== null && $index !== null) {
     ?>
 
     <body style="background:#111;color:#eee;font-family:Arial">
-        <h2>Výměna snímku pro objekt: <?= htmlspecialchars($obj) ?></h2>
+        <h2>Výměna snímku pro objekt: <?= htmlspecialchars($obj) ?> -
+           <?= mb_substr(htmlspecialchars(find_name($obj, $csv_file)['name']), 0, 28, "UTF-8") ?></h2> 
         <h3>Původní snímek</h3>
         <?php if ($old_not_found): ?>
             <br><br><br>
@@ -418,6 +419,7 @@ if ($action === "replace" && $obj !== null && $index !== null) {
             <input type="hidden" name="index" value="<?= htmlspecialchars($index) ?>">
             <input type="hidden" name="action" value="search">
             <input type="hidden" name="ekey" value="<?= $ekey ?>">
+            <input type="hidden" name="e" value="y" />
             <h3>Zadej hash nebo URL:</h3>
             <input type="text" name="hash" size="50" required>
             <button type="submit">Vyhledat</button>
@@ -452,7 +454,9 @@ if ($action === "search") {
     ?>
 
     <body style="background:#111;color:#eee;font-family:Arial">
-        <h2>Porovnání snímků pro objekt: <?= htmlspecialchars($obj) ?></h2>
+        <h2>Porovnání snímků pro objekt: <?= htmlspecialchars($obj) ?> -
+       <?= mb_substr(htmlspecialchars(find_name($obj, $csv_file)['name']), 0, 28, "UTF-8") ?></h2> 
+
         <table>
             <tr>
                 <td width="300">
@@ -464,6 +468,7 @@ if ($action === "search") {
                         </dev>
                         <br><br><br>
                     <?php else: ?>
+
                         <img src="<?= htmlspecialchars($old['thumbnail']) ?>" width="400"><br>
                         <?= htmlspecialchars($old['title']) ?><br>
                         Integrace: <?= hms((float) $old['integration']) ?><br>
@@ -488,6 +493,7 @@ if ($action === "search") {
             <input type="hidden" name="index" value="<?= htmlspecialchars($index) ?>">
             <input type="hidden" name="hash" value="<?= htmlspecialchars($hash) ?>">
             <input type="hidden" name="ekey" value="<?= $ekey ?>">
+            <input type="hidden" name="e" value="y" />
             <button type="submit">Provést</button>&nbsp;
             Změnu: <input type="radio" id="action" name="action" value="confirm"> &nbsp;
             Zrušit: <input type="radio" id="action" name="action" value="cnacel" checked>
@@ -551,9 +557,10 @@ if ($action === "enterkey") {
         <form method="get">
 
             <label> Zadej ekey :
-               <input type="hidden" name="e" value="y" />
-               <input type="hidden" name="katalog" value="<?= $katalog ?>" />
-               <input type="text" name="ekey" id="ekey" onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" />
+                <input type="hidden" name="e" value="y" />
+                <input type="hidden" name="ekey" value="<?= $ekey ?>">
+                <input type="hidden" name="katalog" value="<?= $katalog ?>" />
+                <input type="text" name="ekey" id="ekey" onkeydown="if(event.key === 'Enter') autoSubmitDebounced()" />
             </label>
         </form>
     </body>
@@ -572,7 +579,7 @@ if ($action === "enterkey") {
     <h1>DSO Preview <?php echo $edit_mode ? "(edit mode)" : "" ?> –
         <?= htmlspecialchars($katalogDecode[$katalog] ?? $katalog) ?>
     </h1>
-    
+
     <form method="get" id="filterForm">
         <?php if ($edit_mode): ?>
             <input type="hidden" name="ekey" value="<?= $ekey ?>">
@@ -586,10 +593,9 @@ if ($action === "enterkey") {
         <label>Foceno:
             ANO <input type="radio" name="myfoto" value="yes" <?php if ($myfoto === 'yes'): ?> checked <?php endif; ?>
                 onchange="autoSubmitDebounced()" />
-            NE <input type="radio" name="myfoto" value="no" <?php if ($myfoto === 'no'): ?> checked <?php endif; ?>
+            &nbsp; NE <input type="radio" name="myfoto" value="no" <?php if ($myfoto === 'no'): ?> checked <?php endif; ?>
                 onchange="autoSubmitDebounced()" />
-            Vše <input type="radio" name="myfoto" value="all" <?php if ($myfoto === 'all'): ?> checked <?php endif; ?>
-                onchange="autoSubmitDebounced()" />
+            &nbsp; Vše <input type="radio" name="myfoto" value="all" <?php if ($myfoto === 'all'): ?> checked <?php endif; ?> onchange="autoSubmitDebounced()" />
         </label>
         <label>Edit mode:
             <input type="hidden" name="e" value="n" />
@@ -636,7 +642,7 @@ if ($action === "enterkey") {
 
                     <?php $img_not_foud = true;
                     foreach ($items as $i => $img): ?>
-                        <a href="<?= strtok($img['url'],'?') ?>" target="_blank">
+                        <a href="<?= strtok($img['url'], '?') ?>" target="_blank">
                             <img src="<?= htmlspecialchars($img['thumbnail']) ?>" width="270" height="180"></a><br>
                         <?= htmlspecialchars(mb_substr($img['title'], 0, 28, "UTF-8")) ?><br>
                         Integrace: <?= hms((float) $img['integration']) ?><br>
@@ -668,4 +674,5 @@ if ($action === "enterkey") {
     </table>
 
 </body>
+
 </html>
