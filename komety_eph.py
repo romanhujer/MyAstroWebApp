@@ -17,7 +17,7 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.   
 #
 # HTML 
-# http://www.aerith.net/comet/weekly/current.html"  example format
+# http://www.aerith.net/comet/weekly/current.html"  example format:
 '''
 <H2><IMG SRC="../../icon/pr_star.gif" ALT="*" WIDTH=21 HEIGHT=18>
 <A HREF="../catalog/2025R3/2025R3.html">C/2025 R3 ( PanSTARRS )</A></H2>
