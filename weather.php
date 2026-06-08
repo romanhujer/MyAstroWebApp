@@ -1093,7 +1093,13 @@ if ($moonrise < $moonset) {
             <hr>
             <div><b>Noc</b><br>
               <?= date('H:i', $twilight_start_ts) ?> - <?= date('H:i', $twilight_end_ts) ?>
-              <br><div class="on-sky"> Astro: <?= $astro_start ?> - <?= $astro_end ?></div>
+              <br><div class="on-sky"> 
+               Astro noc  <?php if ($astro_start != $astro_end) :?>                
+                                    <?= $astro_start ?> - <?= $astro_end ?>
+                                <?php else :  ?> 
+                                  Dnes není
+                                <?php endif;  ?>
+            </div>
 
             </div>
             <hr>

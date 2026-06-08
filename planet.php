@@ -397,7 +397,12 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
         <?php if ($filtr === 'yes' && $id === 'all' && $graf_only !== 'yes'): ?>
             <h2>Planety a Měsíc</h2>
             <h3><strong>Dnes je tma:</strong> <?= date('H:i', $twilight_start_ts) ?> -
-                <?= date('H:i', $twilight_end_ts) ?> &nbsp; (Astro: <?= $astro_start ?> - <?= $astro_end ?>)
+                <?= date('H:i', $twilight_end_ts) ?> &nbsp; 
+                ( Astro noc  <?php if ($astro_start != $astro_end) :?>                
+                                    <?= $astro_start ?> - <?= $astro_end ?>
+                                <?php else :  ?> 
+                                  Dnes není
+                                <?php endif;  ?>)
             </h3>
             <br>
             <form method="get" id="filterForm">
@@ -677,10 +682,12 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
                             $innerH = $height - $paddingTop - $paddingBottom;
 
                             // Noční barvy
+                            if ($astro_start != $astro_end) {
                             $nightStart = $paddingLeft + ($innerW * ((date('H', strtotime($astro_start)) * 60 +
                                 date('i', strtotime($astro_start)) - (12 + $offsetHours) * 60) / (25 * 60)));
                             $nightEnd = $paddingLeft + ($innerW * ((date('H', strtotime($astro_end)) * 60 +
                                 date('i', strtotime($astro_end)) + (12 - $offsetHours) * 60) / (25 * 60)));
+                            }
                             $twStart = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_start)) * 60 +
                                 date('i', strtotime($twilight_start)) - (12 + $offsetHours) * 60) / (25 * 60)));
                             $twEnd = $paddingLeft + ($innerW * ((date('H', strtotime($twilight_end)) * 60 +
@@ -797,7 +804,7 @@ $twilight_end = date('H:i', $twilight_end_ts - ($twilight_end_ts - $twilightC_en
 
                                     <polygon points="<?= $tw_start ?>" class="graph-tw" /> ;
 
-                                    <polygon points="<?= $night ?>" class="graph-night" /> ;
+                                    if ($astro_start != $astro_end) <polygon points="<?= $night ?>" class="graph-night" /> ;
 
                                     <polygon points="<?= $tw_end ?>" class="graph-tw" /> ;
 
