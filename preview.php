@@ -47,6 +47,97 @@ $katalogDecode = [
     "select" => "Výběr NGC"
 ];
 
+$constellationCZ = [
+  "And" => "Andromeda",
+  "Ant" => "Vývěva",
+  "Aps" => "Rajka",
+  "Aql" => "Orel",
+  "Aqr" => "Vodnář",
+  "Ara" => "Oltář",
+  "Ari" => "Beran",
+  "Aur" => "Vozka",
+  "Boo" => "Pastýř",
+  "CMa" => "Velký pes",
+  "CMi" => "Malý pes",
+  "CVn" => "Honicí psi",
+  "Cnc" => "Rak",
+  "Cae" => "Rydlo",
+  "Cam" => "Žirafa",
+  "Cap" => "Kozoroh",
+  "Car" => "Kýl",
+  "Cas" => "Kasiopeja",
+  "Cen" => "Kentaur",
+  "Cep" => "Cefeus",
+  "Cet" => "Velryba",
+  "Cha" => "Kameleón",
+  "Cir" => "Kružítko",
+  "Col" => "Holubice",
+  "Com" => "Vlasy Bereniky",
+  "CrA" => "Jižní koruna",
+  "CrB" => "Severní koruna",
+  "Crt" => "Pohár",
+  "Cru" => "Jižní kříž",
+  "Crv" => "Havran",
+  "Cyg" => "Labuť",
+  "Del" => "Delfín",
+  "Dor" => "Mečoun",
+  "Dra" => "Drak",
+  "Equ" => "Hříbě",
+  "Eri" => "Eridanus",
+  "For" => "Pec",
+  "Gem" => "Blíženci",
+  "Gru" => "Jeřáb",
+  "Her" => "Herkules",
+  "Hor" => "Hodiny",
+  "Hya" => "Hydra",
+  "Hyi" => "Jižní Hydra",
+  "Ind" => "Indián",
+  "Lac" => "Ještěrka",
+  "Leo" => "Lev",
+  "Lep" => "Zajíc",
+  "Lib" => "Váhy",
+  "LMi" => "Malý lev",
+  "Lup" => "Vlk",
+  "Lyn" => "Rys",
+  "Lyr" => "Lyra",
+  "Men" => "Tabulová hora",
+  "Mic" => "Mikroskop",
+  "Mon" => "Jednorožec",
+  "Mus" => "Moucha",
+  "Nor" => "Kružítko",
+  "Oct" => "Oktant",
+  "Oph" => "Hadonoš",
+  "Ori" => "Orion",
+  "Pav" => "Páv",
+  "Peg" => "Pegas",
+  "Per" => "Perseus",
+  "Phe" => "Fénix",
+  "Pic" => "Malíř",
+  "PsA" => "Jižní ryba",
+  "Psc" => "Ryby",
+  "Pup" => "Zád",
+  "Pyx" => "Kompas",
+  "Ret" => "Síť",
+  "Scl" => "Sochař",
+  "Sco" => "Štír",
+  "Sct" => "Štít",
+  "Ser" => "Had",
+  "Sex" => "Sextant",
+  "Sge" => "Šíp",
+  "Sgr" => "Střelec",
+  "Tau" => "Býk",
+  "Tel" => "Teleskop",
+  "TrA" => "Jižní trojúhelník",
+  "Tri" => "Trojúhelník",
+  "Tuc" => "Tukan",
+  "UMa" => "Velká medvědice",
+  "UMi" => "Malý medvěd",
+  "Vel" => "Plachty",
+  "Vir" => "Panna",
+  "Vol" => "Létající ryba",
+  "Vul" => "Lištička",
+];
+
 // ------------------------------------------------------------
 // EXTRAKCE HASH Z URL NEBO TEXTU
 // ------------------------------------------------------------
@@ -160,7 +251,8 @@ function find_name($id, $csv)
         if ($row[0] === $id) {
             $result = [
                 'name' => $row[1],
-                'description' => $row[8]
+                'description' => $row[8],
+                'constellation' => $constellationCZ[$row[7]] ?? $row[7],
             ];
             break;
         }
@@ -638,12 +730,17 @@ if ($action === "enterkey") {
                         viditelnosti</a>
                 </h2>
                 <div style="margin:10px; text-align:center; min-height:220px;">
-                    <?= mb_substr(htmlspecialchars(find_name($obj, $csv_file)['name']), 0, 28, "UTF-8") ?><br>
-
+                    <?= mb_substr(htmlspecialchars(find_name($obj, $csv_file)['name']), 0, 28, "UTF-8") ?><br>   
+                    <?php  
+                        $constCode = find_name($obj, $csv_file)['constellation'];
+                        $constName = $constellationCZ[$constCode] ?? $constCode; 
+                    ?>
+                    Souhvězdí : <?= $constName ?> ( <?= $constCode ?> )<br>
                     <?php $img_not_foud = true;
+                    $constCode = $img['constellation'];
                     foreach ($items as $i => $img): ?>
                         <a href="<?= strtok($img['url'], '?') ?>" target="_blank">
-                            <img src="<?= htmlspecialchars($img['thumbnail']) ?>" width="270" height="180"></a><br>
+                        <img src="<?= htmlspecialchars($img['thumbnail']) ?>" width="270" height="180"></a><br>
                         <?= htmlspecialchars(mb_substr($img['title'], 0, 28, "UTF-8")) ?><br>
                         Integrace: <?= hms((float) $img['integration']) ?><br>
                         Author: <?= htmlspecialchars($img['userDisplayName']) ?><br>

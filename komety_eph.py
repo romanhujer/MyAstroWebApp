@@ -89,12 +89,26 @@ def find_events(times, alts):
 # -------------------------------------------------
 def parse_ephem_line(line):
     # Najdeme všechna čísla na řádku
-    parts = re.findall(r"[-+]?\d+\.\d+|[-+]?\d+", line)
+    #parts = re.findall(r"[-+]?\d+\.\d+|[-+]?\d+", line)
     
     # Skutečný datový řádek musí mít hodně čísel (RA h, m, Dec d, m, Delta, r, Elong, Mag...)
     # Pokud jich je méně než 8, je to pravděpodobně hlavička nebo smetí
-    if len(parts) < 8:
+    #if len(parts) < 8:
+    #    return None
+
+
+    # Odstraníme název měsíce na začátku řádku. Měsíc + mezery zabírají cca 
+    # prvních 8-10 znaků (např. "June  6   " nebo "Apr. 25   ").
+    # Pro jistotu regulárním výrazem odřízneme slovní začátek, abychom začínali číslem dne.
+    clean_line = re.sub(r'^\s*[a-zA-Z.]+\s+', '', line)
+    
+    # Najdeme všechna čísla na zbytku řádku
+    parts = re.findall(r"[-+]?\d+\.\d+|[-+]?\d+", clean_line)
+    
+    # Skutečný datový řádek musí mít aspoň 8 astronomických hodnot + den v měsíci = 9 čísel
+    if len(parts) < 9:
         return None
+
 
     try:
         # Na Aerithu je formát: [Měsíc] [Den] [RA_h] [RA_m] [Dec_d] [Dec_m] ...
@@ -102,12 +116,13 @@ def parse_ephem_line(line):
         # Pokud je první číslo rok (např. 2026), posuneme indexy.
         
         idx = 1
-        if int(parts[0]) > 100: # Pravděpodobně rok 2026
-            idx = 2
+        #if int(parts[0]) > 100: # Pravděpodobně rok 2026
+        #    idx = 2
         
         # Ověříme, že máme dostatek prvků od startovního indexu
-        if len(parts) < idx + 8:
-            return None
+        #if len(parts) < idx + 8:
+        #   return None
+
 
         ra_h     = float(parts[idx])
         ra_m     = float(parts[idx+1])
@@ -133,15 +148,21 @@ def parse_ephem_line(line):
 
 def fetch_aerith_ephemeris():
     print(f"--- Debug: Start stahování z {AERITH_URL} ---")
-    r = requests.get(AERITH_URL, timeout=20)
-    r.encoding = 'utf-8'
+    try:
+        r = requests.get(AERITH_URL, timeout=20)
+        r.encoding = 'utf-8'
+        r.raise_for_status()
+    except Exception as e:
+        print(f"Kritická chyba při stahování: {e}")
+        return {}
+
     soup = BeautifulSoup(r.text, "html.parser")
     
     comets = {}
     h2_tags = soup.find_all("h2")
     
     # Regex pro měsíce - přidáme \b (hranice slova), aby to nechytalo rok 2000
-    re_date = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b\.?", re.IGNORECASE)
+    re_date = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|June|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b\.?", re.IGNORECASE)
 
     for h2 in h2_tags:
         name = h2.get_text(strip=True).replace("*", "").strip()
@@ -152,7 +173,7 @@ def fetch_aerith_ephemeris():
         
         valid_data_rows = []
         for ln in lines:
-            # Řádek musí obsahovat měsíc A ZÁROVEŇ aspoň 8 číselných hodnot
+            # Řádek musí obsahovat měsíc
             if re_date.search(ln):
                 data = parse_ephem_line(ln)
                 if data:
@@ -164,9 +185,13 @@ def fetch_aerith_ephemeris():
                 "plus7": valid_data_rows[1]
             }
             print(f"  [OK] Načtena: {name} (Mag: {valid_data_rows[0]['mag']})")
+        else:
+            # Malý debug výpis, kdyby některá kometa měla problém
+            if len(valid_data_rows) == 1:
+                print(f"  [!] U komety {name} nalezen pouze 1 platný řádek.")
             
+    print(f"--- Debug: Celkem úspěšně zpracováno {len(comets)} komet ---\n")
     return comets
-
 
 
 # -------------------------------------------------

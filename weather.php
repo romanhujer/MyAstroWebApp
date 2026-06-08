@@ -1132,13 +1132,14 @@ if ($moonrise < $moonset) {
               <a href="https://www.ventusky.com/">Ventusky</a>
               <a href="https://mapy.meteo.pl/">Poláci</a>
               <a href="https://www.windy.com/">Windy</a>
-              <a
-                href="https://www.meteoblue.com/cs/po%C4%8Das%C3%AD/outdoorsports/seeing/jablonec-nad-nisou_%c4%8cesko_3074603">Meteoblue</a>
+              <a href="https://www.meteoblue.com/cs/po%C4%8Das%C3%AD/outdoorsports/seeing/jablonec-nad-nisou_%c4%8cesko_3074603">Meteoblue</a>
               <br>
+              <a href="https://lightpollutionmap.app/">Světelný smog</a>
               <hr>
               <div><b>Kamery</b></div>
               <a href="https://pocasi-frydlant.cz/webcam/webcam-foto-5.jpg">Horní Řasnice</a>
               <br>
+              
               <hr>
               <div><b>Stránky</b></div>
               <a href="https://cesty.hujer.net">Cesty</a>

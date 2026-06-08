@@ -379,8 +379,8 @@ def generate_planet(planet_key, planet_code):
 
 
 def generate_all():
-#    for key, code in PLANETS.items():
-#        generate_planet(key, code)
+    for key, code in PLANETS.items():
+        generate_planet(key, code)
     generate_moon()
 
 
