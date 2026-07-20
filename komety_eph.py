@@ -162,7 +162,7 @@ def fetch_aerith_ephemeris():
     h2_tags = soup.find_all("h2")
     
     # Regex pro měsíce - přidáme \b (hranice slova), aby to nechytalo rok 2000
-    re_date = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|June|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b\.?", re.IGNORECASE)
+    re_date = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|June|Jul|July|Aug|Sep|Sept|Oct|Nov|Dec)\b\.?", re.IGNORECASE)
 
     for h2 in h2_tags:
         name = h2.get_text(strip=True).replace("*", "").strip()
